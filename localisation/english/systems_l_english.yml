@@ -1,0 +1,153 @@
+﻿l_english:
+
+  ########################
+  #
+  #   Extended Flavor    #
+  #
+  ########################
+  
+ ###########################################################
+ ###########################################################
+ ##
+ ##     Custom Systems 
+ ##
+ ###########################################################
+ ###########################################################
+ 
+ procas_system_initializer_NAME:0 "Procas System"
+ procas_system_initializer_DESC:0 "Home system of the Tubaal. Start with the Biomechanics Institute planetary feature, granting a unique research building and 2 researcher jobs, geared toward producing £society£ and £engineering£.\n\n§W$system_initializer_DESC$"
+ 
+ hierishent_system_initializer_NAME:0 "Hierishent System"
+ hierishent_system_initializer_DESC:0 "Spess Serpent home system. A binary system with a pulsar and Precursor Station Wreck plnaetary feature.\n\n§W$system_initializer_DESC$"
+ 
+ dezon_system_initializer_NAME:0 "Dezon System"
+ dezon_system_initializer_DESC:0 "Home system of the Vinerai.\n\n§W$system_initializer_DESC$"
+ 
+ lumascas_system_initializer_NAME:0 "Lumascas System"
+ lumascas_system_initializer_DESC:0 "Home system of the Tarci.\n\n§W$system_initializer_DESC$"
+ 
+ ###########################################################
+ ###########################################################
+ ##
+ ##     Deposits
+ ##
+ ###########################################################
+ ###########################################################
+ 
+ d_biomechanics_institute:0 "Biomechanics Institute"
+ d_biomechanics_institute_desc:1 "This region is home to the original site where the Biomechanical Revolution began in earnest."
+ mod_building_biomechanics_institute_1_max:0 "Max Biomechanics Institute"
+ 
+ d_crashed_station:0 "Precursor Station Wreck"
+ d_crashed_station_desc:1 "This entire region of the ocean floor is littered with chunks of debris from some massive orbital complex that crashed hundreds of thousands of years ago."
+ mod_building_wreck_salvage_site_max:0 "Max Precursor Salvage Site"
+ 
+ d_subterranean_cities:0 "Subterranean Cities"
+ d_subterranean_cities_desc:1 "The hollow caverns and huge cave systems running through most of the planet's continental plates have provided a haven for entire ecosystems, and subsequebntly civilizations. Almost all major cities reside within these caverns and cave networks."
+ 
+ ###########################################################
+ ###########################################################
+ ##
+ ##     Buildings
+ ##
+ ###########################################################
+ ###########################################################
+ 
+ building_biomechanics_institute_1:0 "Biomechanics Research Center"
+ building_biomechanics_institute_1_desc:0 "A regional institution for advancing the theory and application of biomechanical engineering."
+ building_biomechanics_institute_2:0 "Biomechanics Institute"
+ building_biomechanics_institute_2_desc:0 "A planetary institution for advancing the theory and application of biomechanical engineering."
+ building_biomechanics_institute_3:0 "Biomechanics District"
+ building_biomechanics_institute_3_desc:0 "An imperial institution for advancing the theory and application of biomechanical engineering."
+ 
+ building_wreck_salvage_site:0 "Precursor Salvage Site"
+ building_wreck_salvage_site_desc:0 "Regional facility where artifacts and components of the Precursor Wreck can be analyzed, experimented with, and reverse engineered."
+ 
+ ###########################################################
+ ###########################################################
+ ##
+ ##     Origins
+ ##
+ ###########################################################
+ ###########################################################
+ 
+ extended_origin_codominant_evolution:0 "Codominant Evolution"
+ extended_origin_codominant_evolution_desc:0 "A second species forms an integral part of this society. They once were as sophisticated as us, forming their own civilizations on unexplored parts of the planet. That was until we integrated their species with our own."
+ extended_origin_codominant_evolution_tooltip_effects:0 "Start the game with §Y12§! £pop£ Pops being of another codominant species."
+ extended_origin_organic_ai:0 "Biomechanical Revolution"
+ extended_origin_organic_ai_desc:0 "Industry took a different turn at the end of this society's machine age with the advent of genetic engineering. Mechanics, manufacturing, metallurgy, raw material processing, agriculture, and waste management began to employ engineered organisms to assist and eventually almost entirely replace traditional machinery. Computer science also advanced with the introduction of moleculartronic and neuronal processors, granting this society the capability of expanding beyond their home planet."
+ extended_origin_organic_ai_tooltip_effects:0 "Start the game with the §YBiomechanics Institute§! planetary feature and building, granting 2 £job_biomechanics_technician£ and 1 £job_biomechanics_researcher£"
+ extended_origin_uplift_experiment:0 "Uplifted Sapients"
+ extended_origin_uplift_experiment_desc:0 "Experimental life in a self-cleaning petri dish."
+ extended_origin_uplift_experiment_tooltip_effects:0 "Start the game with the §YPrecursor Salvage Site§! planetary feature and building, granting 2 £job_precursor_tech_salvager£ and 1 £job_precursor_tech_researcher£"
+ 
+ codominant_evolution_secondary_species:0 "Codominant Species"
+ 
+ ###########################################################
+ ###########################################################
+ ##
+ ##     Jobs
+ ##
+ ###########################################################
+ ###########################################################
+ 
+ job_biomechanics_researcher:0 "Biomechanics Researcher"
+ job_biomechanics_researcher_plural:0 "Biomechanics Researchers"
+ job_biomechanics_researcher_desc:0 "Genetically engineering proteins and other molecular machinery for use in medicine, material processing, and manufacturing."
+ mod_job_biomechanics_researcher_add:0 "$job_biomechanics_researcher$ Jobs"
+ mod_job_biomechanics_researcher_per_pop:0 "§G+1§! $job_biomechanics_researcher$ Job per $VALUE$ Pops"
+ mod_job_biomechanics_researcher_per_pop_short:0 "\n§G+1§! £job_researcher£ per $VALUE$ £pop£"
+ job_biomechanics_researcher_effect_desc:0 "£job_biomechanics_researcher£ $job_biomechanics_researcher_plural$ use £energy£ §Y$energy$§! to generate £society£ £engineering£ §Y$Research Points$§!."
+ 
+ job_biomechanics_researcher_gestalt:0 "Biomechanicist Drone"
+ job_biomechanics_researcher_gestalt_plural:0 "Biomechanicist Drones"
+ job_biomechanics_researcher_gestalt_desc:0 "Genetically engineering proteins and other molecular machinery for use in medicine, material processing, and manufacturing."
+ mod_job_biomechanics_researcher_gestalt_add:0 "$job_biomechanics_researcher_gestalt$ Jobs"
+ mod_job_biomechanics_researcher_gestalt_per_pop:0 "§G+1§! $job_biomechanics_researcher_gestalt$ Job per $VALUE$ Pops"
+ mod_job_biomechanics_researcher_gestalt_per_pop_short:0 "\n§G+1§! £job_researcher£ per $VALUE$ £pop£"
+ job_biomechanics_researcher_gestalt_effect_desc:0 "£job_biomechanics_researcher_gestalt£ $job_biomechanics_researcher_gestalt_plural$ use £energy£ §Y$energy$§! (or £food£ §Y$food$§!) to generate £society£ £engineering£ §YResearch Points§!."
+ 
+ 
+ job_biomechanics_technician:0 "Biomechanics Technician"
+ job_biomechanics_technician_plural:0 "Biomechanics Technician"
+ job_biomechanics_technician_desc:0 "Biomechanical processing through the use of engineered proteins, while not perfect at the molecular level, can be done far more cheaply and efficiently than traditional manufacturing."
+ mod_job_biomechanics_technician_add:0 "$job_biomechanics_technician$ Jobs"
+ job_biomechanics_technician_effect_desc:0 "£job_biomechanics_technician£ $job_biomechanics_technician_plural$ turn £minerals£ §Y$minerals$§! and £food£ §Y$food$§! into £alloys£ §Y$alloys$§! and £consumer_goods£ §Y$consumer_goods$§!."
+ 
+ job_biomechanics_technician_gestalt:0 "Biomechanicist Tech-Drone"
+ job_biomechanics_technician_gestalt_plural:0 "Biomechanicist Tech-Drones"
+ job_biomechanics_technician_gestalt_desc:0 "Biomechanical processing through the use of engineered proteins, while not perfect at the molecular level, can be done far more cheaply and efficiently than traditional manufacturing."
+ mod_job_biomechanics_technician_gestalt_add:0 "$job_biomechanics_technician_gestalt$ Jobs"
+ job_biomechanics_technician_gestalt_effect_desc:0 "£job_biomechanics_technician_gestalt£ $job_biomechanics_technician_gestalt_plural$ turn £minerals£ §Y$minerals$§! and £food£ §Y$food$§! into £alloys£ §Y$alloys$§!."
+ 
+ 
+ job_precursor_tech_researcher:0 "Precursor Tech Researcher"
+ job_precursor_tech_researcher_plural:0 "Precursor Tech Researchers"
+ job_precursor_tech_researcher_desc:1 "The technology contained within the precursor wreckage holds many secrets."
+ mod_job_precursor_tech_researcher_add:0 "$job_precursor_tech_researcher$ Jobs"
+ mod_job_precursor_tech_researcher_per_pop:0 "§G+1§! $job_precursor_tech_researcher$ Job per $VALUE$ Pops"
+ mod_job_precursor_tech_researcher_per_pop_short:0 "\n§G+1§! £job_researcher£ per $VALUE$ £pop£"
+ job_precursor_tech_researcher_effect_desc:0 "£job_precursor_tech_researcher_gestalt£ $job_precursor_tech_researcher_gestalt_plural$ use £consumer_goods£ §Y$consumer_goods$§! to generate £physics£ £engineering£ §YResearch Points§!."
+ 
+ job_precursor_tech_researcher_gestalt:0 "Precursor Tech Drone"
+ job_precursor_tech_researcher_gestalt_plural:0 "Precursor Tech Drones"
+ job_precursor_tech_researcher_gestalt_desc:0 "The technology contained within the precursor wreckage holds many secrets."
+ mod_job_precursor_tech_researcher_gestalt_add:0 "$job_precursor_tech_researcher_gestalt$ Jobs"
+ mod_job_precursor_tech_researcher_gestalt_per_pop:0 "§G+1§! $job_precursor_tech_researcher_gestalt$ Job per $VALUE$ Pops"
+ mod_job_precursor_tech_researcher_gestalt_per_pop_short:0 "\n§G+1§! £job_researcher£ per $VALUE$ £pop£"
+ job_precursor_tech_researcher_gestalt_effect_desc:0 "£job_precursor_tech_researcher_gestalt£ $job_precursor_tech_researcher_gestalt_plural$ use £energy£ §Y$energy$§! to generate £physics£ £engineering£ §YResearch Points§!."
+ 
+ 
+ job_precursor_tech_salvager:0 "Precursor Tech Salvager"
+ job_precursor_tech_salvager_plural:0 "Precursor Tech Salvagers"
+ job_precursor_tech_salvager_desc:1 "The crashed precursor station wreckage still contains very advanced refined metals and alloys, along with plenty of other material that could be recycled."
+ mod_job_precursor_tech_salvager_add:0 "$job_precursor_tech_salvager$ Jobs"
+ job_precursor_tech_salvager_effect_desc:0 "£job_precursor_tech_salvager£ $job_precursor_tech_salvager_plural$ consume £energy£ §Y$energy$§! to harvest £alloys£ §Y$alloys$§! from the crashed precursor wrecks."
+ 
+ job_precursor_tech_salvager_gestalt:0 "Precursor Tech Salvage-Drone"
+ job_precursor_tech_salvager_gestalt_plural:0 "Precursor Tech Salvage-Drones"
+ job_precursor_tech_salvager_gestalt_desc:0 "The crashed precursor station wreckage still contains very advanced refined metals and alloys, along with plenty of other material that could be recycled."
+ mod_job_precursor_tech_salvager_gestalt_add:0 "$job_precursor_tech_salvager_gestalt$ Jobs"
+ job_precursor_tech_salvager_gestalt_effect_desc:0 "£job_precursor_tech_salvager£ $job_precursor_tech_salvager_plural$ consume £energy£ §Y$energy$§! to harvest £alloys£ §Y$alloys$§! from the crashed precursor wrecks."
+ 
+ 

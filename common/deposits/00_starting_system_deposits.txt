@@ -1,0 +1,460 @@
+## Possible Deposit Variables ##
+# resources, resource and amount
+# potential trigger (planet scope)
+# blocked_modifier - applied to planet
+# planet_modifier - applied to planet always
+# station = station class in orbit to gather
+
+###################################
+#
+# Planetary Features
+#
+###################################
+
+d_biomechanics_institute = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	should_swap_deposit_on_terraforming = no
+	
+	icon = d_biomechanics_institute
+	
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+	
+	planet_modifier = {
+		building_biomechanics_institute_1_max = 1
+		district_generator_max = 1
+		district_farming_max = 1
+		planet_max_districts_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_biomechanics_researcher_add = 2
+			job_biomechanics_researcher_per_pop = 0.025 # 1 per 40
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_biomechanics_researcher_gestalt_add = 2
+			job_biomechanics_researcher_gestalt_per_pop = 0.025 # 1 per 40
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_crashed_station = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	should_swap_deposit_on_terraforming = no
+	
+	icon = d_crashed_station
+	
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+	
+	planet_modifier = {
+		building_wreck_salvage_site_max = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_precursor_tech_researcher_add = 2
+			job_precursor_tech_researcher_per_pop = 0.025 # 1 per 40
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_precursor_tech_researcher_gestalt_add = 2
+			job_precursor_tech_researcher_gestalt_per_pop = 0.025 # 1 per 40
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_subterranean_cities = {
+	is_for_colonizeable = yes
+	category = deposit_cat_rare
+	should_swap_deposit_on_terraforming = no
+	
+	icon = d_subterranean_cities
+	
+	potential = {
+		can_have_habitable_deposits = yes
+	}
+	
+	planet_modifier = {
+		district_generator_max = 1
+		district_mining_max = 2
+		planet_max_districts_add = 4
+		district_research_complex_max = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		modifier = {
+			job_technician_add = 4
+			job_technician_per_pop = 0.025 # 1 per 40
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_technician_drone_add = 4
+			job_technician_drone_per_pop = 0.025 # 1 per 40
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+###################################
+#
+# Orbital Deposits
+#
+###################################
+
+### Minerals Alloys ###
+
+#Acheri, Coaln
+ssd_minerals6_alloys3_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 6
+            alloys = 3
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Hierishent Asteroid, Dezon Asteroid, Allas
+ssd_minerals5_alloys2_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 5
+            alloys = 2
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Olant, Adjuma
+ssd_minerals7_alloys2_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 7
+            alloys = 2
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Emras
+ssd_minerals4_alloys1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 4
+            alloys = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Minerals Energy Alloys ###
+
+#Rajun, Eko
+ssd_minerals5_energy3_alloys1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 5
+			energy = 3
+            alloys = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Minerals Energy ###
+
+#Nenlin
+ssd_minerals4_energy3_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 4
+			energy = 3
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Vadraam, Danrus, Hierishent Asteroid
+ssd_minerals3_energy2_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 3
+			energy = 2
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Proci, Epkun
+ssd_minerals2_energy2_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 2
+			energy = 2
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+
+### Physics Engineering ###
+
+#Barnaldr
+ssd_physics2_engineering2_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			physics_research = 2
+            engineering_research = 2
+        }
+	}
+	station = shipclass_research_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Sefsha, Fesnir, Tasus
+ssd_physics2_engineering1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			physics_research = 2
+            engineering_research = 1
+        }
+	}
+	station = shipclass_research_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Vattant, Grenalys, Opgaande, Sendaal, Docimas
+ssd_physics1_engineering1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			physics_research = 1
+            engineering_research = 1
+        }
+	}
+	station = shipclass_research_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Minerals Motes ###
+
+#Holgunt
+ssd_minerals5_motes1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 5
+			volatile_motes = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+#Enmer
+ssd_minerals3_motes1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 3
+			volatile_motes = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Minerals Energy Motes ###
+
+#Lakiys
+ssd_minerals5_energy2_motes1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 5
+			energy = 2
+			volatile_motes = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Alloys Motes ###
+
+#Scaraas
+ssd_alloys3_motes1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			alloys = 3
+			volatile_motes = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Energy Exotic_Gas ###
+
+#Obrant, Shesynin
+ssd_energy4_exoticgas1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			energy = 4
+			exotic_gases = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}
+
+### Energy Crystals ###
+
+#Dezon Asteroid
+ssd_energy3_crystals1_deposit = {
+	resources = { 
+		category = orbital_mining_deposits
+		produces = {
+			energy = 3
+			rare_crystals = 1
+        }
+	}
+	station = shipclass_mining_station
+	is_for_colonizeable = no
+	
+	drop_weight = {
+		weight = 0
+	}
+}

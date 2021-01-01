@@ -1,0 +1,266 @@
+# Available requirements:
+#
+#	SKILLS
+#	skill = 2
+#
+#	LEADER
+#	leader = scientist
+#	leader = admiral
+#	leader = general
+#	leader = ruler
+#	leader = governor
+#	
+#	MILITARY SHIPS
+#	shipclass_military = 1
+#	
+#	CIVILIAN SHIPS
+#	shipclass_constructor = 2
+#	shipclass_science_ship = 1
+#	shipclass_colonizer = 2
+#	
+#	ARMIES
+#	shipclass_transport = 1
+#	assault_armies = 2
+#	defense_armies = 1
+#	
+#	STATIONS
+#	research_station = yes
+#	mining_station = yes
+#	observation_station = yes
+#
+#	SCOPES
+#	abort_trigger
+#	this = country (project owner)
+#	from = event scope (planet or ship, MIGHT NOT EXIST)
+#	fromfrom = project creation scope (usually equals location)
+#	
+#	on_success
+#	this = event scope (ship or planet)
+#	from = project creation scope (usually equals location)
+#	
+#	on_fail
+#	this = country (project owner)
+#	from = project creation scope (usually equals location)
+
+special_project = {
+	key = "DISTANT_ORIGIN_HOMEWORLD_PROJECT"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_big_landing_ship
+	event_chain = do_homeworld_chain
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		solar_system = {
+			if = {
+				limit = {
+					OR = {
+						is_star_class = sc_black_hole
+						is_star_class = sc_neutron_star
+						is_star_class = sc_pulsar
+					}
+				}
+				random_system_planet = {
+					limit = { is_star = yes }
+					save_event_target_as = homeworld_found_sun
+				}
+			}
+			random_system_planet = {
+				limit = {
+					OR = {
+						has_planet_flag = distant_origin_homeworld_continental
+						has_planet_flag = distant_origin_homeworld_tropical
+						has_planet_flag = distant_origin_homeworld_ocean
+						has_planet_flag = distant_origin_homeworld_arid
+						has_planet_flag = distant_origin_homeworld_desert
+						has_planet_flag = distant_origin_homeworld_savannah
+						has_planet_flag = distant_origin_homeworld_alpine
+						has_planet_flag = distant_origin_homeworld_arctic
+						has_planet_flag = distant_origin_homeworld_tundra
+						has_planet_flag = distant_origin_homeworld_xarmir
+						has_planet_flag = distant_origin_homeworld_earth
+						has_planet_flag = distant_origin_homeworld_mangrove
+						has_planet_flag = distant_origin_homeworld_hajungle
+						has_planet_flag = distant_origin_homeworld_desertislands
+						has_planet_flag = distant_origin_homeworld_cascadian
+						has_planet_flag = distant_origin_homeworld_swamp
+						has_planet_flag = distant_origin_homeworld_geothermal
+						has_planet_flag = distant_origin_homeworld_glacial
+						has_planet_flag = distant_origin_homeworld_subarctic
+						has_planet_flag = distant_origin_homeworld_mesa
+						has_planet_flag = distant_origin_homeworld_oasis
+						has_planet_flag = distant_origin_homeworld_sandsea
+						has_planet_flag = distant_origin_homeworld_frozen_desert
+						has_planet_flag = distant_origin_homeworld_steppe
+						has_planet_flag = distant_origin_homeworld_hadesert
+						has_planet_flag = distant_origin_homeworld_methane
+						has_planet_flag = distant_origin_homeworld_ammonia
+						has_planet_flag = distant_origin_homeworld_tidallylocked
+						has_planet_flag = distant_origin_homeworld_biolumen
+						has_planet_flag = distant_origin_homeworld_boreal
+						has_planet_flag = distant_origin_homeworld_mushroom
+						has_planet_flag = distant_origin_homeworld_superhabitable
+						has_planet_flag = distant_origin_homeworld_retinal
+						has_planet_flag = distant_origin_homeworld_forest
+						has_planet_flag = distant_origin_homeworld_prairie
+						has_planet_flag = distant_origin_homeworld_med
+						has_planet_flag = distant_origin_homeworld_antarctic
+						has_planet_flag = distant_origin_homeworld_snow
+						has_planet_flag = distant_origin_homeworld_karst
+						has_planet_flag = distant_origin_homeworld_primal
+						has_planet_flag = distant_origin_homeworld_irradiated
+						has_planet_flag = distant_origin_homeworld_ash
+						has_planet_flag = distant_origin_homeworld_aquatic
+						has_planet_flag = distant_origin_homeworld_salt
+						has_planet_flag = distant_origin_homeworld_wetswamp
+						has_planet_flag = distant_origin_homeworld_outback
+						has_planet_flag = distant_origin_homeworld_highland
+						has_planet_flag = distant_origin_homeworld_lake
+						has_planet_flag = distant_origin_homeworld_veld
+						has_planet_flag = distant_origin_homeworld_mud
+						has_planet_flag = distant_origin_homeworld_megaflora
+						has_planet_flag = distant_origin_homeworld_coral
+						has_planet_flag = distant_origin_homeworld_storm
+						has_planet_flag = distant_origin_homeworld_rogue
+						has_planet_flag = distant_origin_homeworld_acid
+						has_planet_flag = distant_origin_homeworld_tepid
+						has_planet_flag = distant_origin_homeworld_semiarid
+						has_planet_flag = distant_origin_homeworld_glacio
+						has_planet_flag = distant_origin_homeworld_eyeball
+						has_planet_flag = distant_origin_homeworld_sulfur
+					}
+				}
+				save_event_target_as = homeworld_found
+			}
+		}
+		#from = { save_event_target_as = homeworld_found }
+		# Tomb world
+		if = {
+			limit = {
+				event_target:homeworld_found = {
+					OR = {
+						is_planet_class = pc_nuked
+						is_planet_class = pc_relic
+					}
+				}
+			}
+			ship_event = { id = mzilli_distant_origin.3 }
+		}
+		else_if = {
+			# Barren or machine world
+			limit = {
+				event_target:homeworld_found = {
+					OR = { 
+						is_planet_class = pc_barren
+						is_planet_class = pc_barren_cold
+						is_planet_class = pc_toxic
+						is_planet_class = pc_molten
+						is_planet_class = pc_frozen
+						is_planet_class = pc_machine
+						is_planet_class = pc_broken
+						is_planet_class = pc_shattered
+						is_planet_class = pc_shattered_2
+					}
+				}
+			}
+			ship_event = { id = mzilli_distant_origin.4 }
+		}
+		# Gaia world
+		else_if = {
+			limit = { event_target:homeworld_found = { is_planet_class = pc_gaia } }
+			ship_event = { id = mzilli_distant_origin.5 }
+		}
+		# Ideal planet class
+		else_if = {
+			limit = { event_target:homeworld_found = { is_ideal_planet_class = { who = This.Owner status = yes } } }
+			ship_event = { id = mzilli_distant_origin.6 }
+		}
+		# Other planet class
+		else = { ship_event = { id = mzilli_distant_origin.7 } }
+	}
+}
+
+special_project = {
+	key = "MZILLI_ANCIENT_CACHE_PHOBE"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_star_chart
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = {
+		event_target:mzilli_ancient_cache = {
+			solar_system = {
+				random_system_planet = {
+					limit = { is_star = yes }
+					save_event_target_as = mzilli_ancient_cache_sun
+				}
+			}
+		}
+		ship_event = { id = mzilli_distant_origin_unification.17 }
+	}
+}
+
+special_project = {
+	key = "MZILLI_ANCIENT_CACHE_PHILE"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_ruined_system
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = { ship_event = { id = mzilli_distant_origin_unification.18 } }
+}
+
+special_project = {
+	key = "MZILLI_ANCIENT_CACHE_SPIR"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_derelict_interior
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = { ship_event = { id = mzilli_distant_origin_unification.19 } }
+}
+
+special_project = {
+	key = "MZILLI_ANCIENT_CACHE_MAT"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_automated_dreadnought
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	
+	on_success = { ship_event = { id = mzilli_distant_origin_unification.20 } }
+}

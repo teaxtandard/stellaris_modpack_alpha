@@ -1,0 +1,1640 @@
+namespace = giga_psychic_beacon
+
+# Activate beacon
+country_event = {
+	id = giga_psychic_beacon.001
+	title = "giga_psychic_beacon.001.name"
+	desc = "giga_psychic_beacon.001.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	option = { # Illuminate (Change planet class from shrouded to lifeless)
+		name = "giga_psychic_beacon.001.a"
+		custom_tooltip = "giga_psychic_beacon.001.a.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 20 }
+			custom_tooltip = {
+				fail_text = "can_already_illuminate"
+				NOT = { has_country_flag = giga_psychic_beacon_illumiate }
+			}
+			custom_tooltip = {
+				fail_text = "must_have_shrouded_world"
+				any_planet_within_border = {
+					OR = {
+						is_planet_class = pc_shrouded
+						has_modifier = beacon_shrouded_habitable_structure
+					}
+				}
+			}
+		}
+		add_resource = { sr_psionic_sublimate = -20 }
+		hidden_effect = { set_country_flag = giga_psychic_beacon_illumiate }
+	}
+
+	option = { # Traverse (+1000% jumpdrive range)
+		name = "giga_psychic_beacon.001.b"
+		custom_tooltip = "giga_psychic_beacon.001.b.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 30 }
+			NOT = { has_modifier = "giga_psychic_traverse" }
+		}
+		add_resource = { sr_psionic_sublimate = -50 }
+		add_modifier = { modifier = "giga_psychic_traverse" days = 900 }
+		hidden_effect = { country_event = { id = giga_psychic_beacon.009 } }
+	}
+
+	option = { # Dominate (Convert pops on hostile planets to psionic)
+		name = "giga_psychic_beacon.001.c"
+		custom_tooltip = "giga_psychic_beacon.001.c.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 200 }
+			custom_tooltip = {
+				fail_text = "must_be_at_war_and_own_systems"
+				any_country = {
+					is_at_war_with = root
+					OR = {
+						ehof_default_country = yes
+						is_country_type = katzenartig_imperium
+					}
+					any_planet_within_border = {
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		add_resource = { sr_psionic_sublimate = -200 }
+		hidden_effect = { country_event = { id = giga_psychic_beacon.003 } }
+	}
+
+	option = { # Imprison (Any hostile colony > shrouded world)
+		name = "giga_psychic_beacon.001.d"
+		custom_tooltip = "giga_psychic_beacon.001.d.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 1000 }
+			custom_tooltip = {
+				fail_text = "must_be_at_war"
+				OR = {
+					any_country = {
+						is_at_war_with = root
+						OR = {
+							ehof_default_country = yes
+							is_country_type = katzenartig_imperium
+						}
+					}
+					any_country = {
+						has_country_flag = paluush_primitives
+					}
+				}
+			}
+		}
+		add_resource = { sr_psionic_sublimate = -1000 }
+		hidden_effect = { country_event = { id = giga_psychic_beacon.005 } }
+	}
+
+	option = { # Conjure (Spawn psionic armies on enemy world)
+		name = "giga_psychic_beacon.001.e"
+		custom_tooltip = "giga_psychic_beacon.001.e.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 60 }
+			custom_tooltip = {
+				fail_text = "must_be_at_war"
+				OR = {
+					any_country = {
+						is_at_war_with = root
+						OR = {
+							ehof_default_country = yes
+							is_country_type = katzenartig_imperium
+						}
+					}
+					any_country = {
+						has_country_flag = paluush_primitives
+					}
+				}
+			}
+		}
+		add_resource = { sr_psionic_sublimate = -60 }
+		hidden_effect = { country_event = { id = giga_psychic_beacon.010 } }
+	}
+
+	option = { # Imprint (Buff admiral)
+		name = "giga_psychic_beacon.001.f"
+		custom_tooltip = "giga_psychic_beacon.001.f.tooltip"
+		allow = {
+			resource_stockpile_compare = { resource = sr_psionic_sublimate value >= 100 }
+			custom_tooltip = {
+				fail_text = "must_have_valid_beacon_admiral"
+				any_owned_leader = {
+					leader_class = admiral
+					NAND = {
+						has_trait = leader_trait_admiral_astute
+						has_trait = leader_trait_admiral_farsighted
+						has_trait = leader_trait_admiral_fortifier
+					}
+				}
+			}
+		}
+		add_resource = { sr_psionic_sublimate = -100 }
+		hidden_effect = { country_event = { id = giga_psychic_beacon.015 } }
+	}
+
+	option = { # Exit
+		default_hide_option = yes
+		name = "giga_psychic_beacon.001.g"
+	}
+
+	after = {
+		random_owned_megastructure = {
+			limit = { is_megastructure_type = psychic_beacon_4 }
+			solar_system = { spawn_megastructure = { type = "psychic_beacon_3" location = prev.planet owner = root } }
+			remove_megastructure = this
+		}
+	}
+}
+
+# Planet Illuminated
+country_event = {
+	id = giga_psychic_beacon.002
+	title = "giga_psychic_beacon.002.name"
+	desc = "giga_psychic_beacon.002.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+	option = { name = "giga_psychic_beacon.002.a" }
+}
+
+# Dominate
+country_event = {
+	id = giga_psychic_beacon.003
+	title = "giga_psychic_beacon.003.name"
+	desc = "giga_psychic_beacon.003.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	immediate = {
+		giga_event_target_list_200_reset = yes
+
+		every_country = {
+			limit = {
+				is_at_war_with = root
+			}
+			every_system_within_border = {
+				limit = {
+					any_system_planet = {
+						is_colony = yes
+						habitable_structure = no
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
+					}
+				}
+				giga_event_target_list_200_save = yes
+			}
+		}
+	}
+	option = { trigger = { exists = event_target:etl_200_001 } name = "etl_200.001" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_001 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_002 } name = "etl_200.002" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_002 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_003 } name = "etl_200.003" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_003 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_004 } name = "etl_200.004" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_004 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_005 } name = "etl_200.005" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_005 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_006 } name = "etl_200.006" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_006 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_007 } name = "etl_200.007" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_007 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_008 } name = "etl_200.008" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_008 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_009 } name = "etl_200.009" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_009 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_010 } name = "etl_200.010" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_010 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_011 } name = "etl_200.011" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_011 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_012 } name = "etl_200.012" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_012 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_013 } name = "etl_200.013" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_013 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_014 } name = "etl_200.014" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_014 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_015 } name = "etl_200.015" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_015 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_016 } name = "etl_200.016" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_016 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_017 } name = "etl_200.017" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_017 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_018 } name = "etl_200.018" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_018 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_019 } name = "etl_200.019" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_019 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_020 } name = "etl_200.020" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_020 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_021 } name = "etl_200.021" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_021 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_022 } name = "etl_200.022" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_022 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_023 } name = "etl_200.023" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_023 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_024 } name = "etl_200.024" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_024 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_025 } name = "etl_200.025" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_025 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_026 } name = "etl_200.026" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_026 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_027 } name = "etl_200.027" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_027 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_028 } name = "etl_200.028" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_028 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_029 } name = "etl_200.029" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_029 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_030 } name = "etl_200.030" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_030 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_031 } name = "etl_200.031" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_031 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_032 } name = "etl_200.032" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_032 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_033 } name = "etl_200.033" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_033 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_034 } name = "etl_200.034" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_034 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_035 } name = "etl_200.035" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_035 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_036 } name = "etl_200.036" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_036 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_037 } name = "etl_200.037" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_037 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_038 } name = "etl_200.038" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_038 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_039 } name = "etl_200.039" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_039 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_040 } name = "etl_200.040" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_040 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_041 } name = "etl_200.041" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_041 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_042 } name = "etl_200.042" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_042 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_043 } name = "etl_200.043" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_043 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_044 } name = "etl_200.044" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_044 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_045 } name = "etl_200.045" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_045 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_046 } name = "etl_200.046" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_046 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_047 } name = "etl_200.047" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_047 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_048 } name = "etl_200.048" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_048 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_049 } name = "etl_200.049" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_049 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_050 } name = "etl_200.050" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_050 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_051 } name = "etl_200.051" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_051 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_052 } name = "etl_200.052" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_052 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_053 } name = "etl_200.053" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_053 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_054 } name = "etl_200.054" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_054 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_055 } name = "etl_200.055" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_055 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_056 } name = "etl_200.056" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_056 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_057 } name = "etl_200.057" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_057 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_058 } name = "etl_200.058" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_058 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_059 } name = "etl_200.059" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_059 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_060 } name = "etl_200.060" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_060 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_061 } name = "etl_200.061" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_061 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_062 } name = "etl_200.062" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_062 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_063 } name = "etl_200.063" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_063 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_064 } name = "etl_200.064" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_064 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_065 } name = "etl_200.065" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_065 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_066 } name = "etl_200.066" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_066 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_067 } name = "etl_200.067" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_067 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_068 } name = "etl_200.068" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_068 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_069 } name = "etl_200.069" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_069 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_070 } name = "etl_200.070" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_070 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_071 } name = "etl_200.071" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_071 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_072 } name = "etl_200.072" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_072 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_073 } name = "etl_200.073" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_073 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_074 } name = "etl_200.074" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_074 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_075 } name = "etl_200.075" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_075 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_076 } name = "etl_200.076" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_076 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_077 } name = "etl_200.077" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_077 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_078 } name = "etl_200.078" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_078 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_079 } name = "etl_200.079" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_079 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_080 } name = "etl_200.080" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_080 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_081 } name = "etl_200.081" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_081 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_082 } name = "etl_200.082" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_082 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_083 } name = "etl_200.083" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_083 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_084 } name = "etl_200.084" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_084 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_085 } name = "etl_200.085" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_085 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_086 } name = "etl_200.086" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_086 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_087 } name = "etl_200.087" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_087 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_088 } name = "etl_200.088" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_088 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_089 } name = "etl_200.089" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_089 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_090 } name = "etl_200.090" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_090 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_091 } name = "etl_200.091" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_091 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_092 } name = "etl_200.092" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_092 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_093 } name = "etl_200.093" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_093 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_094 } name = "etl_200.094" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_094 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_095 } name = "etl_200.095" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_095 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_096 } name = "etl_200.096" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_096 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_097 } name = "etl_200.097" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_097 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_098 } name = "etl_200.098" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_098 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_099 } name = "etl_200.099" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_099 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_100 } name = "etl_200.100" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_100 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_101 } name = "etl_200.101" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_101 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_102 } name = "etl_200.102" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_102 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_103 } name = "etl_200.103" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_103 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_104 } name = "etl_200.104" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_104 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_105 } name = "etl_200.105" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_105 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_106 } name = "etl_200.106" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_106 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_107 } name = "etl_200.107" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_107 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_108 } name = "etl_200.108" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_108 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_109 } name = "etl_200.109" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_109 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_110 } name = "etl_200.110" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_110 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_111 } name = "etl_200.111" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_111 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_112 } name = "etl_200.112" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_112 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_113 } name = "etl_200.113" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_113 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_114 } name = "etl_200.114" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_114 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_115 } name = "etl_200.115" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_115 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_116 } name = "etl_200.116" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_116 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_117 } name = "etl_200.117" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_117 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_118 } name = "etl_200.118" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_118 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_119 } name = "etl_200.119" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_119 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_120 } name = "etl_200.120" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_120 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_121 } name = "etl_200.121" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_121 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_122 } name = "etl_200.122" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_122 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_123 } name = "etl_200.123" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_123 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_124 } name = "etl_200.124" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_124 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_125 } name = "etl_200.125" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_125 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_126 } name = "etl_200.126" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_126 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_127 } name = "etl_200.127" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_127 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_128 } name = "etl_200.128" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_128 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_129 } name = "etl_200.129" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_129 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_130 } name = "etl_200.130" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_130 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_131 } name = "etl_200.131" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_131 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_132 } name = "etl_200.132" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_132 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_133 } name = "etl_200.133" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_133 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_134 } name = "etl_200.134" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_134 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_135 } name = "etl_200.135" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_135 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_136 } name = "etl_200.136" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_136 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_137 } name = "etl_200.137" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_137 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_138 } name = "etl_200.138" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_138 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_139 } name = "etl_200.139" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_139 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_140 } name = "etl_200.140" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_140 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_141 } name = "etl_200.141" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_141 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_142 } name = "etl_200.142" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_142 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_143 } name = "etl_200.143" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_143 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_144 } name = "etl_200.144" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_144 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_145 } name = "etl_200.145" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_145 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_146 } name = "etl_200.146" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_146 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_147 } name = "etl_200.147" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_147 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_148 } name = "etl_200.148" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_148 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_149 } name = "etl_200.149" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_149 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_150 } name = "etl_200.150" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_150 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_151 } name = "etl_200.151" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_151 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_152 } name = "etl_200.152" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_152 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_153 } name = "etl_200.153" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_153 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_154 } name = "etl_200.154" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_154 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_155 } name = "etl_200.155" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_155 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_156 } name = "etl_200.156" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_156 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_157 } name = "etl_200.157" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_157 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_158 } name = "etl_200.158" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_158 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_159 } name = "etl_200.159" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_159 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_160 } name = "etl_200.160" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_160 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_161 } name = "etl_200.161" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_161 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_162 } name = "etl_200.162" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_162 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_163 } name = "etl_200.163" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_163 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_164 } name = "etl_200.164" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_164 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_165 } name = "etl_200.165" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_165 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_166 } name = "etl_200.166" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_166 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_167 } name = "etl_200.167" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_167 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_168 } name = "etl_200.168" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_168 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_169 } name = "etl_200.169" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_169 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_170 } name = "etl_200.170" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_170 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_171 } name = "etl_200.171" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_171 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_172 } name = "etl_200.172" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_172 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_173 } name = "etl_200.173" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_173 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_174 } name = "etl_200.174" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_174 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_175 } name = "etl_200.175" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_175 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_176 } name = "etl_200.176" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_176 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_177 } name = "etl_200.177" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_177 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_178 } name = "etl_200.178" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_178 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_179 } name = "etl_200.179" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_179 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_180 } name = "etl_200.180" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_180 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_181 } name = "etl_200.181" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_181 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_182 } name = "etl_200.182" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_182 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_183 } name = "etl_200.183" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_183 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_184 } name = "etl_200.184" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_184 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_185 } name = "etl_200.185" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_185 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_186 } name = "etl_200.186" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_186 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_187 } name = "etl_200.187" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_187 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_188 } name = "etl_200.188" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_188 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_189 } name = "etl_200.189" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_189 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_190 } name = "etl_200.190" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_190 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_191 } name = "etl_200.191" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_191 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_192 } name = "etl_200.192" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_192 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_193 } name = "etl_200.193" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_193 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_194 } name = "etl_200.194" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_194 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_195 } name = "etl_200.195" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_195 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_196 } name = "etl_200.196" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_196 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_197 } name = "etl_200.197" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_197 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_198 } name = "etl_200.198" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_198 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_199 } name = "etl_200.199" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_199 = { giga_dominate = yes } } }
+	option = { trigger = { exists = event_target:etl_200_200 } name = "etl_200.200" response_text = "giga_dominate_t" hidden_effect = { event_target:etl_200_200 = { giga_dominate = yes } } }
+
+	option = { # Exit
+		default_hide_option = yes
+		name = "giga_psychic_beacon.001.g"
+		add_resource = { sr_psionic_sublimate = 200 }
+	}
+}
+
+# Planet Dominated
+country_event = {
+	id = giga_psychic_beacon.004
+	title = "giga_psychic_beacon.004.name"
+	desc = "giga_psychic_beacon.004.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.004.a" }
+}
+
+# Imprison
+country_event = {
+	id = giga_psychic_beacon.005
+	title = "giga_psychic_beacon.005.name"
+	desc = "giga_psychic_beacon.005.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	immediate = {
+		giga_event_target_list_200_reset = yes
+
+		every_country = {
+			limit = {
+				OR = {
+					is_at_war_with = root
+					has_country_flag = paluush_primitives
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					is_colony = yes
+					habitable_structure = no
+				}
+				giga_event_target_list_200_save = yes
+			}
+		}
+	}
+	option = { trigger = { exists = event_target:etl_200_001 } name = "etl_200.001" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_001 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_002 } name = "etl_200.002" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_002 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_003 } name = "etl_200.003" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_003 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_004 } name = "etl_200.004" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_004 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_005 } name = "etl_200.005" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_005 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_006 } name = "etl_200.006" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_006 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_007 } name = "etl_200.007" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_007 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_008 } name = "etl_200.008" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_008 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_009 } name = "etl_200.009" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_009 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_010 } name = "etl_200.010" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_010 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_011 } name = "etl_200.011" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_011 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_012 } name = "etl_200.012" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_012 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_013 } name = "etl_200.013" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_013 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_014 } name = "etl_200.014" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_014 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_015 } name = "etl_200.015" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_015 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_016 } name = "etl_200.016" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_016 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_017 } name = "etl_200.017" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_017 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_018 } name = "etl_200.018" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_018 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_019 } name = "etl_200.019" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_019 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_020 } name = "etl_200.020" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_020 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_021 } name = "etl_200.021" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_021 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_022 } name = "etl_200.022" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_022 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_023 } name = "etl_200.023" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_023 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_024 } name = "etl_200.024" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_024 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_025 } name = "etl_200.025" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_025 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_026 } name = "etl_200.026" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_026 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_027 } name = "etl_200.027" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_027 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_028 } name = "etl_200.028" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_028 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_029 } name = "etl_200.029" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_029 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_030 } name = "etl_200.030" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_030 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_031 } name = "etl_200.031" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_031 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_032 } name = "etl_200.032" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_032 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_033 } name = "etl_200.033" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_033 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_034 } name = "etl_200.034" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_034 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_035 } name = "etl_200.035" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_035 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_036 } name = "etl_200.036" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_036 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_037 } name = "etl_200.037" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_037 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_038 } name = "etl_200.038" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_038 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_039 } name = "etl_200.039" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_039 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_040 } name = "etl_200.040" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_040 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_041 } name = "etl_200.041" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_041 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_042 } name = "etl_200.042" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_042 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_043 } name = "etl_200.043" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_043 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_044 } name = "etl_200.044" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_044 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_045 } name = "etl_200.045" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_045 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_046 } name = "etl_200.046" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_046 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_047 } name = "etl_200.047" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_047 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_048 } name = "etl_200.048" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_048 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_049 } name = "etl_200.049" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_049 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_050 } name = "etl_200.050" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_050 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_051 } name = "etl_200.051" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_051 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_052 } name = "etl_200.052" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_052 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_053 } name = "etl_200.053" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_053 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_054 } name = "etl_200.054" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_054 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_055 } name = "etl_200.055" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_055 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_056 } name = "etl_200.056" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_056 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_057 } name = "etl_200.057" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_057 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_058 } name = "etl_200.058" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_058 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_059 } name = "etl_200.059" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_059 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_060 } name = "etl_200.060" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_060 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_061 } name = "etl_200.061" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_061 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_062 } name = "etl_200.062" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_062 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_063 } name = "etl_200.063" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_063 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_064 } name = "etl_200.064" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_064 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_065 } name = "etl_200.065" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_065 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_066 } name = "etl_200.066" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_066 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_067 } name = "etl_200.067" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_067 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_068 } name = "etl_200.068" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_068 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_069 } name = "etl_200.069" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_069 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_070 } name = "etl_200.070" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_070 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_071 } name = "etl_200.071" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_071 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_072 } name = "etl_200.072" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_072 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_073 } name = "etl_200.073" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_073 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_074 } name = "etl_200.074" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_074 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_075 } name = "etl_200.075" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_075 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_076 } name = "etl_200.076" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_076 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_077 } name = "etl_200.077" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_077 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_078 } name = "etl_200.078" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_078 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_079 } name = "etl_200.079" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_079 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_080 } name = "etl_200.080" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_080 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_081 } name = "etl_200.081" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_081 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_082 } name = "etl_200.082" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_082 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_083 } name = "etl_200.083" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_083 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_084 } name = "etl_200.084" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_084 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_085 } name = "etl_200.085" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_085 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_086 } name = "etl_200.086" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_086 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_087 } name = "etl_200.087" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_087 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_088 } name = "etl_200.088" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_088 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_089 } name = "etl_200.089" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_089 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_090 } name = "etl_200.090" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_090 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_091 } name = "etl_200.091" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_091 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_092 } name = "etl_200.092" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_092 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_093 } name = "etl_200.093" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_093 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_094 } name = "etl_200.094" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_094 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_095 } name = "etl_200.095" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_095 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_096 } name = "etl_200.096" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_096 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_097 } name = "etl_200.097" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_097 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_098 } name = "etl_200.098" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_098 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_099 } name = "etl_200.099" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_099 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_100 } name = "etl_200.100" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_100 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_101 } name = "etl_200.101" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_101 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_102 } name = "etl_200.102" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_102 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_103 } name = "etl_200.103" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_103 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_104 } name = "etl_200.104" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_104 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_105 } name = "etl_200.105" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_105 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_106 } name = "etl_200.106" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_106 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_107 } name = "etl_200.107" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_107 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_108 } name = "etl_200.108" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_108 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_109 } name = "etl_200.109" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_109 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_110 } name = "etl_200.110" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_110 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_111 } name = "etl_200.111" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_111 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_112 } name = "etl_200.112" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_112 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_113 } name = "etl_200.113" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_113 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_114 } name = "etl_200.114" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_114 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_115 } name = "etl_200.115" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_115 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_116 } name = "etl_200.116" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_116 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_117 } name = "etl_200.117" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_117 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_118 } name = "etl_200.118" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_118 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_119 } name = "etl_200.119" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_119 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_120 } name = "etl_200.120" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_120 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_121 } name = "etl_200.121" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_121 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_122 } name = "etl_200.122" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_122 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_123 } name = "etl_200.123" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_123 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_124 } name = "etl_200.124" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_124 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_125 } name = "etl_200.125" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_125 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_126 } name = "etl_200.126" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_126 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_127 } name = "etl_200.127" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_127 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_128 } name = "etl_200.128" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_128 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_129 } name = "etl_200.129" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_129 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_130 } name = "etl_200.130" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_130 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_131 } name = "etl_200.131" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_131 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_132 } name = "etl_200.132" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_132 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_133 } name = "etl_200.133" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_133 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_134 } name = "etl_200.134" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_134 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_135 } name = "etl_200.135" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_135 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_136 } name = "etl_200.136" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_136 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_137 } name = "etl_200.137" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_137 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_138 } name = "etl_200.138" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_138 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_139 } name = "etl_200.139" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_139 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_140 } name = "etl_200.140" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_140 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_141 } name = "etl_200.141" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_141 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_142 } name = "etl_200.142" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_142 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_143 } name = "etl_200.143" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_143 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_144 } name = "etl_200.144" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_144 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_145 } name = "etl_200.145" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_145 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_146 } name = "etl_200.146" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_146 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_147 } name = "etl_200.147" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_147 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_148 } name = "etl_200.148" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_148 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_149 } name = "etl_200.149" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_149 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_150 } name = "etl_200.150" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_150 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_151 } name = "etl_200.151" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_151 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_152 } name = "etl_200.152" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_152 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_153 } name = "etl_200.153" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_153 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_154 } name = "etl_200.154" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_154 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_155 } name = "etl_200.155" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_155 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_156 } name = "etl_200.156" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_156 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_157 } name = "etl_200.157" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_157 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_158 } name = "etl_200.158" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_158 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_159 } name = "etl_200.159" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_159 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_160 } name = "etl_200.160" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_160 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_161 } name = "etl_200.161" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_161 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_162 } name = "etl_200.162" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_162 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_163 } name = "etl_200.163" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_163 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_164 } name = "etl_200.164" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_164 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_165 } name = "etl_200.165" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_165 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_166 } name = "etl_200.166" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_166 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_167 } name = "etl_200.167" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_167 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_168 } name = "etl_200.168" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_168 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_169 } name = "etl_200.169" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_169 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_170 } name = "etl_200.170" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_170 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_171 } name = "etl_200.171" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_171 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_172 } name = "etl_200.172" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_172 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_173 } name = "etl_200.173" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_173 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_174 } name = "etl_200.174" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_174 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_175 } name = "etl_200.175" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_175 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_176 } name = "etl_200.176" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_176 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_177 } name = "etl_200.177" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_177 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_178 } name = "etl_200.178" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_178 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_179 } name = "etl_200.179" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_179 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_180 } name = "etl_200.180" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_180 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_181 } name = "etl_200.181" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_181 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_182 } name = "etl_200.182" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_182 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_183 } name = "etl_200.183" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_183 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_184 } name = "etl_200.184" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_184 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_185 } name = "etl_200.185" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_185 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_186 } name = "etl_200.186" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_186 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_187 } name = "etl_200.187" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_187 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_188 } name = "etl_200.188" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_188 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_189 } name = "etl_200.189" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_189 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_190 } name = "etl_200.190" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_190 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_191 } name = "etl_200.191" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_191 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_192 } name = "etl_200.192" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_192 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_193 } name = "etl_200.193" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_193 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_194 } name = "etl_200.194" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_194 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_195 } name = "etl_200.195" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_195 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_196 } name = "etl_200.196" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_196 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_197 } name = "etl_200.197" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_197 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_198 } name = "etl_200.198" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_198 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_199 } name = "etl_200.199" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_199 = { giga_imprison = yes } } }
+	option = { trigger = { exists = event_target:etl_200_200 } name = "etl_200.200" response_text = "giga_imprison_t" hidden_effect = { event_target:etl_200_200 = { giga_imprison = yes } } }
+
+	option = { # Exit
+		default_hide_option = yes
+		name = "giga_psychic_beacon.001.g"
+		add_resource = { sr_psionic_sublimate = 1000 }
+	}
+}
+
+# Planet Imprisoned
+country_event = {
+	id = giga_psychic_beacon.006
+	title = "giga_psychic_beacon.006.name"
+	desc = "giga_psychic_beacon.006.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal_light
+	option = { name = "giga_psychic_beacon.006.a" }
+}
+
+# Tried Shrouding Flusion
+country_event = {
+	id = giga_psychic_beacon.0061
+	title = "giga_psychic_beacon.0061.name"
+	desc = "giga_psychic_beacon.0061.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.0061.a" }
+}
+
+# Ezics mutate
+country_event = {
+	id = giga_psychic_beacon.00611
+	title = "giga_psychic_beacon.00611.name"
+	desc = "giga_psychic_beacon.00611.desc"
+	picture = GFX_evt_zro_1
+	location = event_target:gigaflusion
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:gigaflusion = {
+			create_species = {
+				name = "Infused Ezicania"
+				plural = "Infused Ezicanias"
+				class = REP
+				portrait = rep10
+				homeworld = event_target:gigaflusion
+				traits = {
+					trait = trait_pc_ocean_preference
+					trait = trait_venerable
+					trait = trait_adaptive
+					trait = trait_quick_learners
+					trait = trait_strong
+					trait = trait_talented
+					trait = trait_robust
+					trait = trait_psionic
+				}
+				effect = {
+					save_global_event_target_as = infusedezics
+				}
+			}
+			every_owned_pop = {
+				limit = {
+					is_same_species = event_target:arcticezics
+				}
+				change_species = event_target:infusedezics
+			}
+			while = { count = 5		create_army = { name = "Infused Ezicanias Legions"	owner = event_target:flusion_primitives_country species = event_target:infusedezics type = "flusion_army" } }
+		}
+	}
+	option = { name = "giga_psychic_beacon.00611.a" }
+}
+
+# Tried Shrouding Paluushia
+country_event = {
+	id = giga_psychic_beacon.0062
+	title = "giga_psychic_beacon.0062.name"
+	desc = "giga_psychic_beacon.0062.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.0062.a" }
+}
+
+# Tried Dominating Flusion
+country_event = {
+	id = giga_psychic_beacon.0041
+	title = "giga_psychic_beacon.0041.name"
+	desc = "giga_psychic_beacon.0041.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.0041.a" }
+}
+
+# Tried Dominating Paluushia
+country_event = {
+	id = giga_psychic_beacon.0042
+	title = "giga_psychic_beacon.0042.name"
+	desc = "giga_psychic_beacon.0042.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.0042.a" }
+}
+
+# Planet Imprisoned
+country_event = {
+	id = giga_psychic_beacon.007
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		ehof_default_country = yes
+		NOR = {
+			has_technology = giga_tech_psychic_beacon
+			is_researching_technology = giga_tech_psychic_beacon
+			has_tech_option = giga_tech_psychic_beacon
+		}
+		has_technology = tech_mega_engineering
+		any_owned_leader = {
+			OR = {
+				has_trait = leader_trait_admiral_chosen
+				has_trait = leader_trait_general_chosen
+				has_trait = leader_trait_governor_chosen
+				has_trait = leader_trait_ruler_chosen
+				has_trait = leader_trait_scientist_chosen
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			90 = {
+				modifier = { add = -5 check_variable = { which = giga_psionic_beacon_tech value = 1 } }
+				modifier = { add = -10 check_variable = { which = giga_psionic_beacon_tech value = 2 } }
+				modifier = { add = -15 check_variable = { which = giga_psionic_beacon_tech value = 3 } }
+				modifier = { add = -20 check_variable = { which = giga_psionic_beacon_tech value = 4 } }
+				modifier = { add = -25 check_variable = { which = giga_psionic_beacon_tech value = 5 } }
+				modifier = { add = -30 check_variable = { which = giga_psionic_beacon_tech value = 6 } }
+				modifier = { add = -35 check_variable = { which = giga_psionic_beacon_tech value = 7 } }
+				modifier = { add = -40 check_variable = { which = giga_psionic_beacon_tech value = 8 } }
+				modifier = { add = -45 check_variable = { which = giga_psionic_beacon_tech value = 9 } }
+				modifier = { add = -50 check_variable = { which = giga_psionic_beacon_tech value = 10 } }
+				modifier = { add = -55 check_variable = { which = giga_psionic_beacon_tech value = 11 } }
+				modifier = { add = -60 check_variable = { which = giga_psionic_beacon_tech value = 12 } }
+				modifier = { add = -65 check_variable = { which = giga_psionic_beacon_tech value = 13 } }
+				modifier = { add = -70 check_variable = { which = giga_psionic_beacon_tech value = 14 } }
+				modifier = { add = -75 check_variable = { which = giga_psionic_beacon_tech value = 15 } }
+				modifier = { add = -80 check_variable = { which = giga_psionic_beacon_tech value = 16 } }
+				modifier = { add = -85 check_variable = { which = giga_psionic_beacon_tech value = 17 } }
+				modifier = { add = -90 check_variable = { which = giga_psionic_beacon_tech value >= 18 } }
+				modifier = { factor = 0 has_country_flag = has_shroud_patron }
+				change_variable = { which = giga_psionic_beacon_tech value = 1 }
+			}
+			10 = {
+				modifier = { add = 5 check_variable = { which = giga_psionic_beacon_tech value = 1 } }
+				modifier = { add = 10 check_variable = { which = giga_psionic_beacon_tech value = 2 } }
+				modifier = { add = 15 check_variable = { which = giga_psionic_beacon_tech value = 3 } }
+				modifier = { add = 20 check_variable = { which = giga_psionic_beacon_tech value = 4 } }
+				modifier = { add = 25 check_variable = { which = giga_psionic_beacon_tech value = 5 } }
+				modifier = { add = 30 check_variable = { which = giga_psionic_beacon_tech value = 6 } }
+				modifier = { add = 35 check_variable = { which = giga_psionic_beacon_tech value = 7 } }
+				modifier = { add = 40 check_variable = { which = giga_psionic_beacon_tech value = 8 } }
+				modifier = { add = 45 check_variable = { which = giga_psionic_beacon_tech value = 9 } }
+				modifier = { add = 50 check_variable = { which = giga_psionic_beacon_tech value = 10 } }
+				modifier = { add = 55 check_variable = { which = giga_psionic_beacon_tech value = 11 } }
+				modifier = { add = 60 check_variable = { which = giga_psionic_beacon_tech value = 12 } }
+				modifier = { add = 65 check_variable = { which = giga_psionic_beacon_tech value = 13 } }
+				modifier = { add = 70 check_variable = { which = giga_psionic_beacon_tech value = 14 } }
+				modifier = { add = 75 check_variable = { which = giga_psionic_beacon_tech value = 15 } }
+				modifier = { add = 80 check_variable = { which = giga_psionic_beacon_tech value = 16 } }
+				modifier = { add = 85 check_variable = { which = giga_psionic_beacon_tech value = 17 } }
+				modifier = { add = 90 check_variable = { which = giga_psionic_beacon_tech value >= 18 } }
+				modifier = { factor = 10 has_country_flag = has_shroud_patron }
+				set_variable = { which = giga_psionic_beacon_tech value = 0 }
+				country_event = { id = giga_psychic_beacon.008 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = giga_psychic_beacon.008
+	title = "utopia.3000.name"
+	desc = "giga_psychic_beacon.008.desc"
+	is_triggered_only = yes
+	diplomatic = yes
+	diplomatic_title = BLANK_STRING
+	force_open = yes
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	immediate = { set_country_flag = shroud_diplomacy_engaged }
+	after = { hidden_effect = { remove_country_flag = shroud_diplomacy_engaged } }
+
+	option = {
+		name = "giga_psychic_beacon.008.a"
+		add_research_option = giga_tech_psychic_beacon
+		add_tech_progress = { tech = giga_tech_psychic_beacon progress = 0.1 }
+	}
+}
+
+# Shroud grants Traverse
+country_event = {
+	id = giga_psychic_beacon.009
+	title = "utopia.3000.name"
+	desc = "giga_psychic_beacon.009.desc"
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_mystic_reveal
+	location = root
+	is_triggered_only = yes
+
+	immediate = { set_country_flag = shroud_diplomacy_engaged }
+	after = { hidden_effect = { remove_country_flag = shroud_diplomacy_engaged } }
+	option = { name = "giga_psychic_beacon.009.a" }
+}
+
+# Conjure
+country_event = {
+	id = giga_psychic_beacon.010
+	title = "giga_psychic_beacon.010.name"
+	desc = "giga_psychic_beacon.010.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	immediate = {
+		giga_event_target_list_200_reset = yes
+
+		every_country = {
+			limit = {
+				OR = {
+					is_at_war_with = root
+					has_country_flag = paluush_primitives
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					is_colony = yes
+					habitable_structure = no
+					NOR = {
+						is_controlled_by = ROOT
+						is_owned_by = ROOT
+					}
+				}
+				giga_event_target_list_200_save = yes
+			}
+		}
+	}
+	option = { trigger = { exists = event_target:etl_200_001 } name = "etl_200.001" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_001 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_002 } name = "etl_200.002" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_002 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_003 } name = "etl_200.003" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_003 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_004 } name = "etl_200.004" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_004 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_005 } name = "etl_200.005" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_005 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_006 } name = "etl_200.006" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_006 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_007 } name = "etl_200.007" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_007 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_008 } name = "etl_200.008" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_008 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_009 } name = "etl_200.009" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_009 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_010 } name = "etl_200.010" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_010 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_011 } name = "etl_200.011" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_011 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_012 } name = "etl_200.012" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_012 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_013 } name = "etl_200.013" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_013 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_014 } name = "etl_200.014" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_014 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_015 } name = "etl_200.015" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_015 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_016 } name = "etl_200.016" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_016 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_017 } name = "etl_200.017" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_017 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_018 } name = "etl_200.018" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_018 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_019 } name = "etl_200.019" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_019 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_020 } name = "etl_200.020" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_020 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_021 } name = "etl_200.021" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_021 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_022 } name = "etl_200.022" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_022 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_023 } name = "etl_200.023" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_023 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_024 } name = "etl_200.024" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_024 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_025 } name = "etl_200.025" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_025 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_026 } name = "etl_200.026" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_026 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_027 } name = "etl_200.027" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_027 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_028 } name = "etl_200.028" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_028 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_029 } name = "etl_200.029" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_029 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_030 } name = "etl_200.030" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_030 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_031 } name = "etl_200.031" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_031 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_032 } name = "etl_200.032" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_032 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_033 } name = "etl_200.033" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_033 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_034 } name = "etl_200.034" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_034 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_035 } name = "etl_200.035" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_035 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_036 } name = "etl_200.036" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_036 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_037 } name = "etl_200.037" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_037 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_038 } name = "etl_200.038" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_038 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_039 } name = "etl_200.039" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_039 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_040 } name = "etl_200.040" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_040 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_041 } name = "etl_200.041" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_041 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_042 } name = "etl_200.042" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_042 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_043 } name = "etl_200.043" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_043 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_044 } name = "etl_200.044" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_044 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_045 } name = "etl_200.045" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_045 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_046 } name = "etl_200.046" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_046 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_047 } name = "etl_200.047" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_047 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_048 } name = "etl_200.048" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_048 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_049 } name = "etl_200.049" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_049 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_050 } name = "etl_200.050" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_050 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_051 } name = "etl_200.051" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_051 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_052 } name = "etl_200.052" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_052 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_053 } name = "etl_200.053" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_053 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_054 } name = "etl_200.054" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_054 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_055 } name = "etl_200.055" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_055 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_056 } name = "etl_200.056" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_056 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_057 } name = "etl_200.057" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_057 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_058 } name = "etl_200.058" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_058 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_059 } name = "etl_200.059" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_059 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_060 } name = "etl_200.060" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_060 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_061 } name = "etl_200.061" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_061 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_062 } name = "etl_200.062" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_062 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_063 } name = "etl_200.063" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_063 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_064 } name = "etl_200.064" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_064 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_065 } name = "etl_200.065" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_065 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_066 } name = "etl_200.066" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_066 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_067 } name = "etl_200.067" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_067 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_068 } name = "etl_200.068" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_068 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_069 } name = "etl_200.069" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_069 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_070 } name = "etl_200.070" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_070 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_071 } name = "etl_200.071" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_071 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_072 } name = "etl_200.072" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_072 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_073 } name = "etl_200.073" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_073 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_074 } name = "etl_200.074" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_074 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_075 } name = "etl_200.075" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_075 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_076 } name = "etl_200.076" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_076 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_077 } name = "etl_200.077" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_077 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_078 } name = "etl_200.078" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_078 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_079 } name = "etl_200.079" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_079 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_080 } name = "etl_200.080" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_080 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_081 } name = "etl_200.081" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_081 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_082 } name = "etl_200.082" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_082 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_083 } name = "etl_200.083" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_083 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_084 } name = "etl_200.084" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_084 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_085 } name = "etl_200.085" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_085 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_086 } name = "etl_200.086" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_086 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_087 } name = "etl_200.087" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_087 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_088 } name = "etl_200.088" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_088 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_089 } name = "etl_200.089" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_089 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_090 } name = "etl_200.090" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_090 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_091 } name = "etl_200.091" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_091 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_092 } name = "etl_200.092" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_092 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_093 } name = "etl_200.093" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_093 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_094 } name = "etl_200.094" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_094 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_095 } name = "etl_200.095" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_095 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_096 } name = "etl_200.096" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_096 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_097 } name = "etl_200.097" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_097 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_098 } name = "etl_200.098" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_098 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_099 } name = "etl_200.099" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_099 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_100 } name = "etl_200.100" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_100 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_101 } name = "etl_200.101" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_101 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_102 } name = "etl_200.102" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_102 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_103 } name = "etl_200.103" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_103 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_104 } name = "etl_200.104" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_104 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_105 } name = "etl_200.105" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_105 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_106 } name = "etl_200.106" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_106 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_107 } name = "etl_200.107" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_107 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_108 } name = "etl_200.108" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_108 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_109 } name = "etl_200.109" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_109 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_110 } name = "etl_200.110" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_110 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_111 } name = "etl_200.111" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_111 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_112 } name = "etl_200.112" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_112 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_113 } name = "etl_200.113" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_113 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_114 } name = "etl_200.114" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_114 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_115 } name = "etl_200.115" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_115 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_116 } name = "etl_200.116" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_116 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_117 } name = "etl_200.117" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_117 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_118 } name = "etl_200.118" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_118 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_119 } name = "etl_200.119" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_119 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_120 } name = "etl_200.120" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_120 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_121 } name = "etl_200.121" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_121 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_122 } name = "etl_200.122" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_122 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_123 } name = "etl_200.123" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_123 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_124 } name = "etl_200.124" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_124 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_125 } name = "etl_200.125" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_125 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_126 } name = "etl_200.126" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_126 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_127 } name = "etl_200.127" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_127 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_128 } name = "etl_200.128" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_128 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_129 } name = "etl_200.129" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_129 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_130 } name = "etl_200.130" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_130 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_131 } name = "etl_200.131" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_131 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_132 } name = "etl_200.132" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_132 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_133 } name = "etl_200.133" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_133 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_134 } name = "etl_200.134" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_134 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_135 } name = "etl_200.135" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_135 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_136 } name = "etl_200.136" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_136 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_137 } name = "etl_200.137" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_137 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_138 } name = "etl_200.138" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_138 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_139 } name = "etl_200.139" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_139 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_140 } name = "etl_200.140" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_140 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_141 } name = "etl_200.141" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_141 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_142 } name = "etl_200.142" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_142 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_143 } name = "etl_200.143" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_143 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_144 } name = "etl_200.144" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_144 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_145 } name = "etl_200.145" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_145 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_146 } name = "etl_200.146" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_146 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_147 } name = "etl_200.147" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_147 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_148 } name = "etl_200.148" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_148 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_149 } name = "etl_200.149" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_149 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_150 } name = "etl_200.150" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_150 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_151 } name = "etl_200.151" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_151 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_152 } name = "etl_200.152" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_152 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_153 } name = "etl_200.153" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_153 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_154 } name = "etl_200.154" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_154 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_155 } name = "etl_200.155" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_155 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_156 } name = "etl_200.156" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_156 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_157 } name = "etl_200.157" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_157 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_158 } name = "etl_200.158" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_158 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_159 } name = "etl_200.159" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_159 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_160 } name = "etl_200.160" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_160 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_161 } name = "etl_200.161" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_161 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_162 } name = "etl_200.162" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_162 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_163 } name = "etl_200.163" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_163 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_164 } name = "etl_200.164" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_164 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_165 } name = "etl_200.165" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_165 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_166 } name = "etl_200.166" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_166 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_167 } name = "etl_200.167" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_167 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_168 } name = "etl_200.168" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_168 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_169 } name = "etl_200.169" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_169 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_170 } name = "etl_200.170" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_170 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_171 } name = "etl_200.171" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_171 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_172 } name = "etl_200.172" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_172 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_173 } name = "etl_200.173" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_173 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_174 } name = "etl_200.174" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_174 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_175 } name = "etl_200.175" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_175 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_176 } name = "etl_200.176" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_176 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_177 } name = "etl_200.177" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_177 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_178 } name = "etl_200.178" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_178 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_179 } name = "etl_200.179" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_179 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_180 } name = "etl_200.180" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_180 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_181 } name = "etl_200.181" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_181 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_182 } name = "etl_200.182" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_182 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_183 } name = "etl_200.183" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_183 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_184 } name = "etl_200.184" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_184 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_185 } name = "etl_200.185" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_185 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_186 } name = "etl_200.186" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_186 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_187 } name = "etl_200.187" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_187 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_188 } name = "etl_200.188" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_188 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_189 } name = "etl_200.189" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_189 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_190 } name = "etl_200.190" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_190 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_191 } name = "etl_200.191" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_191 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_192 } name = "etl_200.192" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_192 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_193 } name = "etl_200.193" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_193 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_194 } name = "etl_200.194" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_194 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_195 } name = "etl_200.195" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_195 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_196 } name = "etl_200.196" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_196 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_197 } name = "etl_200.197" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_197 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_198 } name = "etl_200.198" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_198 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_199 } name = "etl_200.199" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_199 = { giga_conjure = yes } } }
+	option = { trigger = { exists = event_target:etl_200_200 } name = "etl_200.200" response_text = "giga_conjure_t" hidden_effect = { event_target:etl_200_200 = { giga_conjure = yes } } }
+
+	option = { # Exit
+		default_hide_option = yes
+		name = "giga_psychic_beacon.001.g"
+		add_resource = { sr_psionic_sublimate = 60 }
+	}
+}
+
+# Planet Conjured
+country_event = {
+	id = giga_psychic_beacon.011
+	title = "giga_psychic_beacon.011.name"
+	desc = "giga_psychic_beacon.011.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal_light
+	option = { name = "giga_psychic_beacon.011.a" }
+}
+
+# Armies done
+country_event = {
+	id = giga_psychic_beacon.0111
+	title = "giga_psychic_beacon.0111.name"
+	desc = "giga_psychic_beacon.0111.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal_light
+
+	trigger = {
+		from = {
+			NOT = { is_country_type = katzenartig_imperium }
+		}
+		fromfrom = {
+			has_planet_flag = beacon_armies_conjured
+		}
+	}
+
+	immediate = {
+		every_owned_army = {
+			limit = {
+				army_type = beacon_shroud_army_defensive
+				NOT = {
+					planet = {
+						any_planet_army = { owner = { is_at_war_with = ROOT } }
+					}
+				}
+			}
+			remove_army = yes
+		}
+		fromfrom = { remove_planet_flag = beacon_armies_conjured }
+	}
+
+	option = {
+		name = "giga_psychic_beacon.0111.a"
+		custom_tooltip = "giga_psychic_beacon.0111.a.tooltip"
+	}
+}
+
+# Invasion Failed
+country_event = {
+	id = giga_psychic_beacon.0112
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			NOT = { is_country_type = katzenartig_imperium }
+		}
+		fromfrom = {
+			has_planet_flag = beacon_armies_conjured
+		}
+	}
+
+	immediate = {
+		fromfrom = { remove_planet_flag = beacon_armies_conjured }
+	}
+}
+
+# Tried Conjuring Flusion
+country_event = {
+	id = giga_psychic_beacon.012
+	title = "giga_psychic_beacon.012.name"
+	desc = "giga_psychic_beacon.012.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal_light
+	option = {
+		name = "giga_psychic_beacon.012.a"
+		custom_tooltip = "giga_psychic_beacon.012.a.tooltip"
+	}
+}
+
+# Tried Conjuring Paluushia
+country_event = {
+	id = giga_psychic_beacon.013
+	title = "giga_psychic_beacon.013.name"
+	desc = "giga_psychic_beacon.013.desc"
+	picture = GFX_evt_zro_3
+	location = event_target:giga_planet_illuminated
+	is_triggered_only = yes
+	option = { name = "giga_psychic_beacon.013.a" }
+}
+
+# Imprint
+country_event = {
+	id = giga_psychic_beacon.015
+	title = "giga_psychic_beacon.015.name"
+	desc = "giga_psychic_beacon.015.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal
+
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = shroud1
+		room = shroud_room
+	}
+
+	immediate = {
+		giga_event_target_list_200_reset = yes
+		every_owned_leader = {
+			limit = {
+				leader_class = admiral
+				NAND = {
+					has_trait = leader_trait_admiral_astute
+					has_trait = leader_trait_admiral_farsighted
+					has_trait = leader_trait_admiral_fortifier
+				}
+			}
+			giga_event_target_list_200_save = yes
+		}
+	}
+	option = { trigger = { exists = event_target:etl_200_001 } name = "etl_200.001" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_001 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_002 } name = "etl_200.002" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_002 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_003 } name = "etl_200.003" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_003 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_004 } name = "etl_200.004" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_004 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_005 } name = "etl_200.005" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_005 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_006 } name = "etl_200.006" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_006 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_007 } name = "etl_200.007" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_007 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_008 } name = "etl_200.008" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_008 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_009 } name = "etl_200.009" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_009 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_010 } name = "etl_200.010" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_010 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_011 } name = "etl_200.011" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_011 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_012 } name = "etl_200.012" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_012 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_013 } name = "etl_200.013" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_013 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_014 } name = "etl_200.014" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_014 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_015 } name = "etl_200.015" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_015 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_016 } name = "etl_200.016" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_016 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_017 } name = "etl_200.017" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_017 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_018 } name = "etl_200.018" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_018 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_019 } name = "etl_200.019" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_019 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_020 } name = "etl_200.020" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_020 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_021 } name = "etl_200.021" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_021 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_022 } name = "etl_200.022" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_022 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_023 } name = "etl_200.023" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_023 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_024 } name = "etl_200.024" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_024 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_025 } name = "etl_200.025" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_025 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_026 } name = "etl_200.026" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_026 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_027 } name = "etl_200.027" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_027 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_028 } name = "etl_200.028" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_028 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_029 } name = "etl_200.029" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_029 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_030 } name = "etl_200.030" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_030 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_031 } name = "etl_200.031" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_031 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_032 } name = "etl_200.032" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_032 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_033 } name = "etl_200.033" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_033 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_034 } name = "etl_200.034" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_034 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_035 } name = "etl_200.035" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_035 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_036 } name = "etl_200.036" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_036 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_037 } name = "etl_200.037" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_037 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_038 } name = "etl_200.038" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_038 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_039 } name = "etl_200.039" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_039 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_040 } name = "etl_200.040" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_040 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_041 } name = "etl_200.041" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_041 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_042 } name = "etl_200.042" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_042 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_043 } name = "etl_200.043" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_043 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_044 } name = "etl_200.044" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_044 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_045 } name = "etl_200.045" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_045 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_046 } name = "etl_200.046" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_046 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_047 } name = "etl_200.047" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_047 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_048 } name = "etl_200.048" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_048 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_049 } name = "etl_200.049" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_049 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_050 } name = "etl_200.050" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_050 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_051 } name = "etl_200.051" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_051 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_052 } name = "etl_200.052" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_052 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_053 } name = "etl_200.053" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_053 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_054 } name = "etl_200.054" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_054 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_055 } name = "etl_200.055" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_055 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_056 } name = "etl_200.056" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_056 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_057 } name = "etl_200.057" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_057 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_058 } name = "etl_200.058" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_058 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_059 } name = "etl_200.059" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_059 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_060 } name = "etl_200.060" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_060 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_061 } name = "etl_200.061" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_061 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_062 } name = "etl_200.062" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_062 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_063 } name = "etl_200.063" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_063 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_064 } name = "etl_200.064" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_064 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_065 } name = "etl_200.065" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_065 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_066 } name = "etl_200.066" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_066 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_067 } name = "etl_200.067" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_067 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_068 } name = "etl_200.068" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_068 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_069 } name = "etl_200.069" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_069 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_070 } name = "etl_200.070" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_070 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_071 } name = "etl_200.071" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_071 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_072 } name = "etl_200.072" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_072 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_073 } name = "etl_200.073" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_073 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_074 } name = "etl_200.074" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_074 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_075 } name = "etl_200.075" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_075 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_076 } name = "etl_200.076" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_076 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_077 } name = "etl_200.077" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_077 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_078 } name = "etl_200.078" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_078 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_079 } name = "etl_200.079" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_079 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_080 } name = "etl_200.080" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_080 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_081 } name = "etl_200.081" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_081 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_082 } name = "etl_200.082" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_082 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_083 } name = "etl_200.083" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_083 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_084 } name = "etl_200.084" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_084 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_085 } name = "etl_200.085" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_085 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_086 } name = "etl_200.086" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_086 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_087 } name = "etl_200.087" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_087 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_088 } name = "etl_200.088" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_088 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_089 } name = "etl_200.089" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_089 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_090 } name = "etl_200.090" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_090 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_091 } name = "etl_200.091" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_091 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_092 } name = "etl_200.092" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_092 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_093 } name = "etl_200.093" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_093 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_094 } name = "etl_200.094" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_094 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_095 } name = "etl_200.095" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_095 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_096 } name = "etl_200.096" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_096 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_097 } name = "etl_200.097" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_097 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_098 } name = "etl_200.098" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_098 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_099 } name = "etl_200.099" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_099 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_100 } name = "etl_200.100" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_100 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_101 } name = "etl_200.101" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_101 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_102 } name = "etl_200.102" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_102 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_103 } name = "etl_200.103" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_103 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_104 } name = "etl_200.104" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_104 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_105 } name = "etl_200.105" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_105 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_106 } name = "etl_200.106" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_106 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_107 } name = "etl_200.107" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_107 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_108 } name = "etl_200.108" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_108 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_109 } name = "etl_200.109" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_109 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_110 } name = "etl_200.110" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_110 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_111 } name = "etl_200.111" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_111 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_112 } name = "etl_200.112" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_112 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_113 } name = "etl_200.113" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_113 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_114 } name = "etl_200.114" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_114 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_115 } name = "etl_200.115" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_115 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_116 } name = "etl_200.116" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_116 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_117 } name = "etl_200.117" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_117 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_118 } name = "etl_200.118" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_118 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_119 } name = "etl_200.119" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_119 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_120 } name = "etl_200.120" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_120 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_121 } name = "etl_200.121" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_121 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_122 } name = "etl_200.122" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_122 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_123 } name = "etl_200.123" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_123 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_124 } name = "etl_200.124" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_124 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_125 } name = "etl_200.125" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_125 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_126 } name = "etl_200.126" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_126 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_127 } name = "etl_200.127" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_127 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_128 } name = "etl_200.128" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_128 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_129 } name = "etl_200.129" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_129 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_130 } name = "etl_200.130" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_130 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_131 } name = "etl_200.131" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_131 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_132 } name = "etl_200.132" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_132 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_133 } name = "etl_200.133" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_133 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_134 } name = "etl_200.134" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_134 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_135 } name = "etl_200.135" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_135 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_136 } name = "etl_200.136" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_136 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_137 } name = "etl_200.137" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_137 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_138 } name = "etl_200.138" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_138 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_139 } name = "etl_200.139" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_139 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_140 } name = "etl_200.140" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_140 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_141 } name = "etl_200.141" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_141 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_142 } name = "etl_200.142" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_142 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_143 } name = "etl_200.143" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_143 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_144 } name = "etl_200.144" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_144 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_145 } name = "etl_200.145" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_145 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_146 } name = "etl_200.146" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_146 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_147 } name = "etl_200.147" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_147 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_148 } name = "etl_200.148" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_148 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_149 } name = "etl_200.149" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_149 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_150 } name = "etl_200.150" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_150 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_151 } name = "etl_200.151" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_151 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_152 } name = "etl_200.152" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_152 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_153 } name = "etl_200.153" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_153 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_154 } name = "etl_200.154" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_154 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_155 } name = "etl_200.155" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_155 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_156 } name = "etl_200.156" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_156 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_157 } name = "etl_200.157" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_157 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_158 } name = "etl_200.158" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_158 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_159 } name = "etl_200.159" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_159 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_160 } name = "etl_200.160" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_160 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_161 } name = "etl_200.161" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_161 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_162 } name = "etl_200.162" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_162 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_163 } name = "etl_200.163" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_163 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_164 } name = "etl_200.164" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_164 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_165 } name = "etl_200.165" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_165 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_166 } name = "etl_200.166" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_166 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_167 } name = "etl_200.167" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_167 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_168 } name = "etl_200.168" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_168 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_169 } name = "etl_200.169" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_169 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_170 } name = "etl_200.170" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_170 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_171 } name = "etl_200.171" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_171 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_172 } name = "etl_200.172" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_172 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_173 } name = "etl_200.173" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_173 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_174 } name = "etl_200.174" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_174 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_175 } name = "etl_200.175" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_175 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_176 } name = "etl_200.176" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_176 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_177 } name = "etl_200.177" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_177 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_178 } name = "etl_200.178" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_178 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_179 } name = "etl_200.179" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_179 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_180 } name = "etl_200.180" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_180 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_181 } name = "etl_200.181" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_181 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_182 } name = "etl_200.182" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_182 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_183 } name = "etl_200.183" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_183 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_184 } name = "etl_200.184" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_184 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_185 } name = "etl_200.185" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_185 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_186 } name = "etl_200.186" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_186 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_187 } name = "etl_200.187" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_187 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_188 } name = "etl_200.188" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_188 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_189 } name = "etl_200.189" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_189 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_190 } name = "etl_200.190" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_190 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_191 } name = "etl_200.191" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_191 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_192 } name = "etl_200.192" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_192 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_193 } name = "etl_200.193" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_193 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_194 } name = "etl_200.194" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_194 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_195 } name = "etl_200.195" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_195 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_196 } name = "etl_200.196" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_196 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_197 } name = "etl_200.197" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_197 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_198 } name = "etl_200.198" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_198 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_199 } name = "etl_200.199" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_199 = { giga_imprint = yes } } }
+	option = { trigger = { exists = event_target:etl_200_200 } name = "etl_200.200" response_text = "giga_imprint_t" hidden_effect = { event_target:etl_200_200 = { giga_imprint = yes } } }
+
+	option = { # Exit
+		default_hide_option = yes
+		name = "giga_psychic_beacon.001.g"
+		add_resource = { sr_psionic_sublimate = 100 }
+	}
+}
+
+# Imprint Failed
+country_event = {
+	id = giga_psychic_beacon.0151
+	title = "giga_psychic_beacon.0151.name"
+	desc = "giga_psychic_beacon.0151.desc"
+	is_triggered_only = yes
+	show_sound = event_bad_omen
+	picture = GFX_evt_unspeakable_horror
+
+	option = {
+		name = "giga_psychic_beacon.0151.a"
+		custom_tooltip = "giga_psychic_beacon.0151.a.tooltip"
+		hidden_effect = {
+			refund_residue = yes
+			event_target:giga_leader_imprinted = {
+				kill_leader = {
+					show_notification = no
+				}
+			}
+		}
+	}
+}
+
+# Imprint succesful
+country_event = {
+	id = giga_psychic_beacon.0152
+	title = "giga_psychic_beacon.0152.name"
+	desc = "giga_psychic_beacon.0152.desc"
+	is_triggered_only = yes
+	show_sound = event_mystic_reveal_light
+	picture = GFX_evt_zro_3
+
+	option = {
+		name = "giga_psychic_beacon.0152.a"
+		custom_tooltip = "giga_psychic_beacon.0152.a.tooltip"
+		hidden_effect = {
+			event_target:giga_leader_imprinted = {
+				if = {
+					limit = {
+						NOT = { has_trait = leader_trait_admiral_psionic }
+					}
+					add_trait = leader_trait_admiral_psionic
+				}
+				random_list = {
+					30 = {
+						add_trait = leader_trait_admiral_astute
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_admiral_astute
+						}
+					}
+					30 = {
+						add_trait = leader_trait_admiral_fortifier
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_admiral_fortifier
+						}
+					}
+					30 = {
+						add_trait = leader_trait_admiral_farsighted
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_admiral_farsighted
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOR = {
+							has_global_flag = giga_achievements_disabled
+							has_country_flag = giga_achievement_43
+						}
+						has_trait = leader_trait_admiral_astute
+						has_trait = leader_trait_admiral_fortifier
+						has_trait = leader_trait_admiral_farsighted
+					}
+					root = {
+						set_country_flag = giga_achievement_43
+						set_timed_country_flag = { flag = giga_achievement_43_notification days = 30 }
+						add_modifier = { modifier = achievement_43 }
+						if = { limit = { has_modifier = achievement_42 } remove_modifier = achievement_42 }
+						if = { limit = { has_modifier = achievement_41 } remove_modifier = achievement_41 }
+						giga_achievement_sound = yes
+					}
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							has_global_flag = giga_achievements_disabled
+							has_country_flag = giga_achievement_42
+						}
+						OR = {
+							AND = {
+								has_trait = leader_trait_admiral_astute
+								has_trait = leader_trait_admiral_fortifier
+							}
+							AND = {
+								has_trait = leader_trait_admiral_farsighted
+								has_trait = leader_trait_admiral_fortifier
+							}
+							AND = {
+								has_trait = leader_trait_admiral_astute
+								has_trait = leader_trait_admiral_farsighted
+							}
+						}
+					}
+					root = {
+						set_country_flag = giga_achievement_42
+						set_timed_country_flag = { flag = giga_achievement_42_notification days = 30 }
+						add_modifier = { modifier = achievement_42 }
+						if = { limit = { has_modifier = achievement_41 } remove_modifier = achievement_41 }
+						giga_achievement_sound = yes
+					}
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							has_global_flag = giga_achievements_disabled
+							has_country_flag = giga_achievement_41
+						}
+						OR = {
+							has_trait = leader_trait_admiral_astute
+							has_trait = leader_trait_admiral_fortifier
+							has_trait = leader_trait_admiral_farsighted
+						}
+					}
+					root = {
+						set_country_flag = giga_achievement_41
+						set_timed_country_flag = { flag = giga_achievement_41_notification days = 30 }
+						add_modifier = { modifier = achievement_41 }
+						giga_achievement_sound = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Sublimate on purge
+planet_event = {
+	id = giga_psychic_beacon.999
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			has_technology = giga_tech_psychic_beacon
+			any_owned_megastructure = {
+				OR = {
+					is_megastructure_type = psychic_beacon_3
+					is_megastructure_type = psychic_beacon_4
+				}
+			}
+		}
+		FROMFROM = {
+			is_robot_pop = no
+			has_job = purge_psionic_sublimation
+		}
+		is_controlled_by = FROM
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				FROMFROM = { NOT = { has_trait = trait_psionic } }
+			}
+			FROM = { add_resource = { sr_psionic_sublimate = 2 } }
+		}
+		else = {
+			FROM = { add_resource = { sr_psionic_sublimate = 10 } }
+		}
+	}
+}

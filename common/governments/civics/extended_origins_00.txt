@@ -1,0 +1,83 @@
+
+extended_origin_codominant_evolution = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_codominant.dds"
+	picture = GFX_origin_syncretic_evolution
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		civics = { NOT = { value = civic_fanatic_purifiers } }
+	}
+	
+	description = "extended_origin_codominant_evolution_tooltip_effects"
+	
+	has_secondary_species = {	# see game_start.11
+		title = codominant_evolution_secondary_species
+	}
+
+	advanced_start = yes
+	
+	random_weight = {
+		base = 1
+	}
+}
+
+extended_origin_organic_ai = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_overtuned.dds"
+	picture = GFX_origin_organic_ai
+	
+	potential = {
+		always = yes
+	}
+	
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = { NOT = { value = civic_fanatic_purifiers } }
+	}
+	
+	description = "extended_origin_organic_ai_tooltip_effects"
+	
+	advanced_start = yes
+	
+	random_weight = {
+		base = 0
+	}
+}
+
+extended_origin_uplift_experiment = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_experiment.dds"
+	picture = GFX_origin_uplifted_experiment
+
+	potential = {
+		always = yes
+	}
+
+	possible = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		civics = { NOT = { value = civic_fanatic_purifiers } }
+	}
+	
+	description = "extended_origin_uplift_experiment_tooltip_effects"
+	
+	has_secondary_species = {	# see game_start.11
+		title = codominant_evolution_secondary_species
+	}
+
+	advanced_start = yes
+	
+	random_weight = {
+		base = 0
+	}
+}

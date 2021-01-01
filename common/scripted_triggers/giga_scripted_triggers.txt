@@ -1,0 +1,185 @@
+has_mineral_deposit = {
+	OR = {
+		has_deposit = d_minerals_1
+		has_deposit = d_minerals_2
+		has_deposit = d_minerals_3
+		has_deposit = d_minerals_4
+		has_deposit = d_minerals_5
+		has_deposit = d_minerals_6
+		has_deposit = d_minerals_7
+		has_deposit = d_minerals_8
+		has_deposit = d_minerals_9
+		has_deposit = d_minerals_10
+	}
+}
+
+has_energy_deposit = {
+	OR = {
+		has_deposit = d_energy_1
+		has_deposit = d_energy_2
+		has_deposit = d_energy_3
+		has_deposit = d_energy_4
+		has_deposit = d_energy_5
+		has_deposit = d_energy_6
+		has_deposit = d_energy_7
+		has_deposit = d_energy_8
+		has_deposit = d_energy_9
+		has_deposit = d_energy_10
+	}
+}
+
+has_trade_deposit = {
+	OR = {
+		has_deposit = d_trade_value_1
+		has_deposit = d_trade_value_2
+		has_deposit = d_trade_value_3
+		has_deposit = d_trade_value_4
+		has_deposit = d_trade_value_5
+		has_deposit = d_trade_value_6
+		has_deposit = d_trade_value_7
+		has_deposit = d_trade_value_8
+		has_deposit = d_trade_value_9
+		has_deposit = d_trade_value_10
+	}
+}
+
+giga_habitable_structure = {
+	OR = {
+		is_planet_class = pc_ringworld_habitable
+		is_planet_class = pc_habitat
+		is_planet_class = pc_gigaorbital_ring
+		is_planet_class = pc_habitable_gas_giant
+		is_planet_class = pc_interstellar_habitat
+		is_planet_class = pc_interstellar_ringworld_habitable
+		is_planet_class = pc_giga_penrose_habitable
+		is_planet_class = pc_ringworld_city
+		is_planet_class = pc_ringworld_machine
+		is_planet_class = pc_ringworld_hive
+		is_planet_class = pc_equatorial_shipyard
+		is_planet_class = pc_birch
+		is_planet_class = pc_squareworld_habitable
+		is_planet_class = pc_virtual_reality
+		is_planet_class = pc_virtual_industry
+		is_planet_class = pc_virtual_stellar_industry
+		is_planet_class = pc_alderson_slice_gaia
+		is_planet_class = pc_alderson_slice_pc
+		is_planet_class = pc_alderson_slice_ecu
+		is_planet_class = pc_alderson_slice_hive
+		is_planet_class = pc_alderson_slice_machine
+		is_planet_class = pc_pouchkinn_black_hole
+		is_planet_class = pc_flat_world
+	}
+}
+
+giga_is_non_primitive = {
+	NOR = {
+		is_country_type = primitive
+		is_same_value = root
+	}
+	ehof_default_country = yes
+}
+
+giga_is_bitrinary = {
+	OR = {
+		is_star_class = sc_binary_1
+		is_star_class = sc_binary_2
+		is_star_class = sc_binary_3
+		is_star_class = sc_binary_4
+		is_star_class = sc_binary_5
+		is_star_class = sc_binary_6
+		is_star_class = sc_binary_7
+		is_star_class = sc_binary_8
+		is_star_class = sc_binary_9
+		is_star_class = sc_binary_10
+		is_star_class = sc_trinary_1
+		is_star_class = sc_trinary_2
+		is_star_class = sc_trinary_3
+		is_star_class = sc_trinary_4
+
+		# Real Space
+		is_binary = yes
+		is_trinary = yes
+		is_paired = yes
+	}
+}
+
+giga_any_hab_planets = {
+	any_system_planet = {
+		OR = {
+			habitable_planet = yes
+			giga_habitable_structure = yes
+		}
+	}
+}
+
+giga_system_is_surveyed = {
+	NOT = {
+		any_system_planet = {
+			is_surveyed = {
+				who = root.from
+				status = no
+			}
+		}
+	}
+}
+
+giga_has_birch_world = {
+	OR = {
+		has_megastructure = birch_world_0
+		has_megastructure = birch_world_1
+		has_megastructure = birch_world_2
+		has_megastructure = birch_world_3
+	}
+}
+
+giga_has_psychic_hypersiphon = {
+	OR = {
+		has_megastructure = psychic_hypersiphon_0
+		has_megastructure = psychic_hypersiphon_1
+		has_megastructure = psychic_hypersiphon_2
+		has_megastructure = psychic_hypersiphon_3
+	}
+}
+
+giga_has_particle_accelerator = {
+	OR = {
+		has_megastructure = particle_accelerator_0
+		has_megastructure = particle_accelerator_1
+		has_megastructure = particle_accelerator_1_dismantle
+		has_megastructure = particle_accelerator_restored
+		has_megastructure = particle_accelerator_ruined
+	}
+}
+
+giga_can_be_war_moon = {
+	NOT = { has_planet_flag = dormant_war_moon }
+	is_colony = no
+	OR = {
+		is_planet_class = pc_molten
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_frozen
+	}
+	is_moon = yes
+}
+
+giga_can_be_war_planet = {
+	NOT = { has_planet_flag = dormant_war_planet }
+	is_moon = no
+	has_anomaly = no
+	is_colony = no
+	prev = { NOT = { has_ethic = ethic_fanatic_spiritualist } }
+	OR = {
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_molten
+		is_planet_class = pc_toxic
+		is_planet_class = pc_frozen
+	}
+}
+
+giga_gas_giant = {
+	OR = {
+		is_planet_class = pc_gas_giant
+	}
+}

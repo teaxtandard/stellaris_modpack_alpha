@@ -1,0 +1,735 @@
+
+#########################################
+#
+# on_action_events
+#
+#########################################
+
+namespace = acot_pmc
+
+fleet_event = {
+	id = acot_pmc.0
+	title = "acot_pmc.0.title"
+	desc = "acot_pmc.0.desc"
+	picture = GFX_evt_star_chart
+	location = FROM
+	trackable = yes
+	show_sound = event_yellow_alert
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		owner = {
+			is_country_type = default
+		}
+		from = {
+            OR = {
+                any_ship_in_system = {
+                    exists = owner
+                    owner = {
+                        is_country_type = acot_phanon_base
+                    }
+                }
+                has_star_flag = phanon_base_system
+			}
+		}
+		event_target:phanon_base_country = {
+			NOT = {
+				has_communications = root.owner
+			}				
+		}
+	}
+
+	immediate = {
+	}
+	
+	option = {
+		name = "acot_pmc.0.a"
+	}
+
+	after = {
+		owner = {
+			establish_communications = event_target:phanon_base_country
+			country_event = {
+				id = acot_pmc.1
+			}
+		}		
+	}
+}
+
+# CONTACTORUS
+country_event = {
+	id = acot_pmc.1
+	title = "acot_pmc.diplo_title"
+	desc = {
+		text = acot_pmc.1.desc
+		trigger = {
+			OR = {
+				is_country_type = default
+				is_country_type = ascended_empire
+				is_country_type = lost_empire
+			}
+		}
+	}
+
+	trigger = {
+		fromfrom = {
+			is_country_type = acot_phanon_base
+		}
+	}
+	
+	is_triggered_only = yes
+	diplomatic = yes
+    show_sound = event_yellow_alert
+    
+	picture_event_data = {
+		room = sofe_smuggler_room
+	}
+	
+	immediate = {
+		set_country_flag = acot_phanon_diplomacy_engaged
+		event_target:phanon_base_country = {
+			set_closed_borders = {
+				who = root
+				status = no
+			}
+		}	
+	}
+    
+	after = {
+		hidden_effect = {
+			remove_country_flag = acot_phanon_diplomacy_engaged
+		}
+    }
+
+	option = {
+		name = acot_pmc.1.a
+		trigger = { is_xenophobe = no }
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.1.b
+		trigger = { is_xenophobe = yes }
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.1.swarm.a
+		response_text = acot_pmc.1.swarm.a.response
+		trigger = { 
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.1.exterminator.a
+		response_text = acot_pmc.1.exterminator.a.response
+		trigger = { 
+			has_valid_civic = civic_machine_terminator
+		}
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.1.purifier.a
+		response_text = acot_pmc.1.purifier.a.response
+		trigger = { 
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.1.insult
+		custom_tooltip = acot_pmc.1.insult.tooltip
+		response_text = acot_pmc.1.swarm.insult.response
+		trigger = { 
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		default_hide_option = yes
+		set_country_flag = annoyed_tls
+	}
+
+	option = {
+		name = acot_pmc.1.insult
+		custom_tooltip = acot_pmc.1.insult.tooltip
+		response_text = acot_pmc.1.exterminator.insult.response
+		trigger = { 
+			has_valid_civic = civic_machine_terminator
+		}
+		default_hide_option = yes
+		set_country_flag = annoyed_tls
+	}
+
+	option = {
+		name = acot_pmc.1.insult
+		custom_tooltip = acot_pmc.1.insult.tooltip
+		response_text = acot_pmc.1.purifier.insult.response
+		trigger = { 
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		default_hide_option = yes
+		set_country_flag = annoyed_tls
+	}
+
+}
+
+# DIPLOMACY
+country_event = {
+	id = acot_pmc.2
+	title = "acot_pmc.diplo_title"
+	desc = {
+		text = acot_pmc.2.desc.a
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+	desc = {
+		text = acot_pmc.2.desc.b
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+
+	desc = {
+		text = acot_pmc.2.desc.c
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+
+	desc = {
+		text = acot_pmc.2.desc.d
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+
+	desc = {
+		text = acot_pmc.2.desc.e
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+
+	desc = {
+		text = acot_pmc.2.desc.purifier
+		trigger = {
+			has_country_flag = annoyed_tls
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+
+	desc = {
+		text = acot_pmc.2.desc.swarm
+		trigger = {
+			has_country_flag = annoyed_tls
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+	desc = {
+		text = acot_pmc.2.desc.exterminator
+		trigger = {
+			has_country_flag = annoyed_tls
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = acot_phanon_base
+		}
+		NOT = { has_country_flag = acot_phanon_diplomacy_engaged }
+	}
+	
+	diplomatic = yes
+    show_sound = event_yellow_alert
+    
+	picture_event_data = {
+		room = sofe_smuggler_room
+	}
+	
+	immediate = {
+		set_country_flag = acot_phanon_diplomacy_engaged
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = acot_phanon_diplomacy_engaged
+		}
+    }
+    
+	option = {
+		name = acot_pmc.2.a
+		trigger = {
+			NOR = {
+				has_country_flag = annoyed_tls
+				has_country_flag = phanon_service_enabled
+			}
+		}
+		is_dialog_only = yes
+		response_text = acot_pmc.2.a.response
+	}
+
+	option = {
+		name = acot_pmc.2.a
+		trigger = {
+			has_country_flag = phanon_service_enabled
+			NOT = {
+				has_country_flag = annoyed_tls
+			}
+		}
+		hidden_effect = {
+			country_event = { id = acot_pmc.3 }
+		}
+	}
+
+
+
+	#### ASK ABOUT KEYSTONE FABRICATORON
+	option = {
+		name = acot_pmc.2.keystone
+		trigger = {
+			
+			has_country_flag = allow_keystone_steal
+			NOT = {
+				has_country_flag = has_keystone
+			}
+			NOT = { has_country_flag = annoyed_tls }
+		}
+		hidden_effect = {
+			country_event = { id = sofe_gateway.5 }
+		}
+	}
+
+	#### ASK ABOUT DARK DESIGN FABRICATORON
+	option = {
+		name = acot_pmc.2.darkmatter
+		trigger = {
+			has_event_chain = acot_dm_tech_chain
+			NOR = {
+				has_country_flag = learned_dark_rumor
+				has_technology = tech_dark_matter_power_core
+				has_country_flag = hired_phanon_dm
+			}
+			NOT = { has_country_flag = annoyed_tls }
+		}
+		hidden_effect = {
+			country_event = { id = dark_matter_event.30 }
+		}
+	}
+
+	#### ASK ABOUT DARABANK
+	option = {
+		name = acot_pmc.2.precursor
+		trigger = {
+			has_event_chain = acot_alpha_tech_chain
+			has_country_flag = allow_databank_steal
+			NOR = {
+				has_country_flag = hired_phanon_precursor
+				has_country_flag = has_databank
+			}
+			NOT = { has_country_flag = annoyed_tls }
+		}
+		hidden_effect = {
+			country_event = { id = acot_alpha_matter_events.103 }
+		}
+	}
+
+	option = {
+		name = acot_pmc.2.border
+		response_text = acot_pmc.2.border.response
+		trigger = {
+			event_target:phanon_base_country = {
+				has_closed_borders = root
+			}
+		}
+		event_target:phanon_base_country = {
+			set_closed_borders = {
+				who = root
+				status = no
+			}
+		}
+	}
+
+	option = {
+		name = acot_pmc.2.b
+		trigger = {
+			is_homicidal = no
+		}
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.2.c
+		trigger = {
+			is_homicidal = yes
+		}
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.2.purifier.apologize
+		response_text = acot_pmc.2.purifier.apologize.response
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+			has_country_flag = annoyed_tls
+		}
+		hidden_effect = {
+			remove_country_flag = annoyed_tls
+		}
+	}
+
+	option = {
+		name = acot_pmc.2.swarm.apologize
+		response_text = acot_pmc.2.swarm.apologize.response
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+			has_country_flag = annoyed_tls
+		}
+		hidden_effect = {
+			remove_country_flag = annoyed_tls
+		}
+	}
+
+	option = {
+		name = acot_pmc.2.exterminator.apologize
+		response_text = acot_pmc.2.exterminator.apologize.response
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+			has_country_flag = annoyed_tls
+		}
+		hidden_effect = {
+			remove_country_flag = annoyed_tls
+		}
+	}
+
+	option = {
+		name = acot_pmc.2.panada
+		response_text = acot_pmc.2.panda.response
+		trigger = {
+			has_country_flag = phanon_panada_enabled
+			NOR = {
+				has_country_flag = annoyed_tls
+				has_country_flag = phanon_service_enabled
+			}
+		}
+		set_country_flag = phanon_service_enabled
+	}
+
+	option = {
+		name = acot_pmc.2.end.panada
+		response_text = acot_pmc.2.end.panada.response
+		trigger = {
+			NOT = {
+				has_country_flag = annoyed_tls
+			}
+			has_country_flag = phanon_service_enabled
+		}
+	}
+
+}
+
+############## WARNING! YOU ARE TALKING TO RAPTORUS
+country_event = {
+	id = acot_pmc.3
+	title = acot_pmc.3.name
+	desc = acot_pmc.3.desc.a
+	desc = acot_pmc.3.desc.b
+	desc = acot_pmc.3.desc.c
+	desc = acot_pmc.3.desc.d
+	desc = acot_pmc.3.desc.e
+
+	is_triggered_only = yes
+	diplomatic = yes
+
+	picture_event_data = {
+		room = sofe_smuggler_room
+	}
+
+	immediate = {
+		set_country_flag = acot_phanon_diplomacy_engaged
+	}
+
+
+	option = {
+		name = acot_pmc.3.a
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 500000 }
+			NOT = { has_country_flag = phanon_fleet_hire_delay }
+		}
+		add_resource = {
+			energy = -500000
+		}
+		set_timed_country_flag = {
+			flag = phanon_fleet_hire_delay
+			days = 3600
+		}
+		create_fleet = {
+			effect = {
+				set_owner = root
+				create_ship = {
+					name = random
+					design = "NAME_ACOT_STARFIGHTERS"
+					graphical_culture = "acot_pmc"
+				}
+				set_location = {
+					target = event_target:acot_phanon_vault
+					distance = 5
+					angle = random
+				}				
+			}
+			settings = {
+				
+			}
+		}
+		response_text = acot_pmc.3.a.response
+	}
+
+	option = {
+		name = acot_pmc.3.b
+		allow = {
+			resource_stockpile_compare = { resource = energy value >= 500000 }
+			NOT = { has_country_flag = phanon_leader_hire_delay }
+		}
+		add_resource = {
+			energy = -500000
+		}
+		set_timed_country_flag = {
+			flag = phanon_leader_hire_delay
+			days = 3600
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:phanon_operative_species
+			name = "Phanon Operative Type A"
+			skill = 10
+			immortal = yes
+			leader_age_min = 1000
+			leader_age_max = 100000	
+			traits = {
+				trait = leader_trait_acot_phanon_admiral
+				trait = leader_trait_admiral_cyborg
+				trait = leader_trait_admiral_psionic
+				trait = leader_trait_admiral_erudite
+			}
+			event_leader = yes	# prevents this leader from leading factions and winning elections
+			effect = {
+				random_list = {
+					5 = { set_name = "A11-C" }
+					5 = { set_name = "A35-C" }
+					5 = { set_name = "A24-A" }
+					5 = { set_name = "A07-B" }
+					5 = { set_name = "A65-A" }
+					5 = { set_name = "A28-B" }
+					5 = { set_name = "A41-B" }
+					5 = { set_name = "A17-A" }
+					5 = { set_name = "A62-A" }
+					5 = { set_name = "A67-C" }
+					5 = { set_name = "A42-B" }
+					5 = { set_name = "A91-B" }
+					5 = { set_name = "A85-C" }
+					5 = { set_name = "A53-C" }
+					5 = { set_name = "A10-B" }
+					5 = { set_name = "A17-A" }
+				}
+			}
+		}
+		response_text = acot_pmc.3.b.response	
+	}
+
+	option = {
+		name = acot_pmc.2.b
+		default_hide_option = yes
+	}
+
+	option = {
+		name = acot_pmc.2.end.panada
+		response_text = acot_pmc.2.end.panada.response
+	}
+
+
+	after = {
+		remove_country_flag = acot_phanon_diplomacy_engaged
+	}
+}
+
+
+# ON BEING ATTACKED
+country_event = {
+	id = acot_pmc.10
+	title = "acot_pmc.diplo_title"
+	desc = {
+		text = acot_pmc.10.desc
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				has_valid_civic = civic_machine_terminator				
+			}
+		}
+	}
+
+	trigger = {
+		from = {
+			is_country_type = acot_phanon_base
+		}
+		NOT = {
+			has_country_flag =  attacked_phanon_property
+		}
+	}
+	
+	is_triggered_only = yes
+	diplomatic = yes
+    show_sound = event_red_alert
+    
+	picture_event_data = {
+		room = sofe_smuggler_room
+	}
+	
+	immediate = {
+		set_country_flag = attacked_phanon_property
+		set_country_flag = acot_phanon_diplomacy_engaged
+	}
+    
+	after = {
+		hidden_effect = {
+			remove_country_flag = acot_phanon_diplomacy_engaged
+		}
+    }
+
+	option = {
+		name = acot_pmc.10.a
+		response_text = acot_pmc.10.a.response
+		default_hide_option = yes
+	}
+
+}
+
+
+
+# Phanon Starbase abnd Planet Transfer
+ship_event = {
+	id = acot_pmc.9900
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		is_ship_size = acot_star_commander
+	}
+
+	immediate = {
+		fleet = {
+			set_owner = from.owner
+		}		
+		solar_system = {
+			random_system_planet = {
+				limit = {
+					is_planet_class = pc_acot_pmc_vault
+				}
+			set_owner = from.owner
+			}
+		}
+	}
+}
+
+# Phanon Ship Tech Acquired
+country_event = {
+	id = acot_pmc.10000
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			last_increased_tech = tech_phanon_fighter
+			last_increased_tech = tech_phanon_cruiser
+			last_increased_tech = tech_phanon_bb
+			last_increased_tech = tech_phanon_titan
+			last_increased_tech = tech_phanon_mothership
+			last_increased_tech = tech_phanon_plat_m
+			last_increased_tech = tech_phanon_plat_l
+		}
+	}
+
+	immediate = {
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_cruiser
+			}
+			create_ship_design = { design = NAME_ACOT_DESTROYER }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_bb
+			}
+			create_ship_design = { design = NAME_ACOT_DEVASTATOR }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_titan
+			}
+			create_ship_design = { design = NAME_ACOT_DOMINATOR }
+			add_ship_design = last_created_design
+			create_ship_design = { design = NAME_ACOT_DECIMATOR }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_mothership
+			}
+			create_ship_design = { design = NAME_ACOT_DOMINATOR_II }
+			add_ship_design = last_created_design
+			create_ship_design = { design = NAME_ACOT_ANNIHILATOR }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_fighter
+			}
+			create_ship_design = { design = NAME_ACOT_STARFIGHTERS }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_plat_m
+			}
+			create_ship_design = { design = NAME_ACOT_STAR_OVERSEER }
+			add_ship_design = last_created_design
+		}
+		If = {
+			limit = {
+				last_increased_tech = tech_phanon_plat_l
+			}
+			create_ship_design = { design = NAME_ACOT_STAR_OVERWATCH }
+			add_ship_design = last_created_design
+		}
+	}
+}

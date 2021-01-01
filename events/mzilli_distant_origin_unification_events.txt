@@ -1,0 +1,5866 @@
+namespace = mzilli_distant_origin_unification
+
+# Setup
+event = {
+	id = mzilli_distant_origin_unification.1
+	title = OK
+	desc = OK
+	hide_window = yes
+	fire_only_once = yes
+	
+	immediate = {
+		random_planet = {
+			limit = {
+				solar_system = {
+					NOT = { exists = space_owner }
+					is_rim_system = yes
+					OR = {
+						is_star_class = sc_m_giant
+						is_star_class = sc_black_hole
+						is_star_class = sc_neutron_star
+						is_star_class = sc_pulsar
+					}
+				}
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_molten
+				}
+			}
+			set_planet_flag = mzilli_cache_placeholder
+		}
+		every_system = {
+			limit = {
+				any_system_planet = {
+					OR = {
+						owner = { has_origin = origin_remnants }
+						has_planet_flag = mzilli_cache_placeholder
+					}
+				}
+			}
+			while = {
+				count = 6
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = solar_system
+				}
+			}
+			while = {
+				count = 8
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = solar_system
+				}
+			}
+			while = {
+				count = 2
+				create_ambient_object = {
+					type = "small_debris_object"
+					location = solar_system
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				has_origin = origin_remnants
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+			save_global_event_target_as = vestigal_empire
+			set_country_flag = vestigal_empire
+		}
+		event_target:vestigal_empire = {
+			capital_scope = {
+				save_global_event_target_as = vestigal_homeworld
+				if = {
+					limit = { has_planet_flag = planet_mars }
+					if = {
+						limit = { has_global_flag = mzilli_personal }
+						set_planet_entity = { entity = "relic_world_newmars_entity" }
+					}
+					else = { set_planet_entity = { entity = "relic_world_mars_entity" } }
+				}
+				random_list = {
+					10 = {
+						add_deposit = d_immense_solar_array
+						add_deposit = d_immense_solar_array
+					}
+					10 = { add_deposit = d_ancient_reactor_pits }
+				}
+				random_list = {
+					10 = {
+						add_deposit = d_relic_metal_boneyard
+						add_deposit = d_relic_metal_boneyard
+					}
+					10 = { add_deposit = d_abandoned_mining_tunnels }
+				}
+				if = {
+					limit = { owner = { NOT = { is_species_class = LITHOID } } }
+					while = {
+						count = 2
+						random_list = {
+							10 = { add_deposit = d_great_river }
+							10 = { add_deposit = d_marvelous_oasis }
+							10 = { add_deposit = d_fungal_caves }
+						}
+					}
+				}
+				random_list = {
+					#10 = { add_deposit = d_central_spire }
+					10 = {
+						add_deposit = d_industrial_sector
+						owner = {
+							set_country_flag = exotic_gases_found
+							set_country_flag = volatile_motes_found
+							set_country_flag = rare_crystals_found
+						}
+					}
+					20 = { }
+				}
+			}
+			# Sets up precursors
+			random_list = {
+				25 = {
+					# Xenophobe precursors
+					modifier = {
+						factor = 10
+						event_target:vestigal_empire = { has_trait = trait_decadent }
+					}
+					create_country = {
+						species = event_target:vestigal_empire.owner_species
+						type = global_event
+					}
+					last_created_country = {
+						set_country_flag = ethic_fanatic_xenophobe
+						set_graphical_culture = arthropoid_01
+						save_global_event_target_as = mzilli_ancient_empire
+						if = {
+							limit = {
+								event_target:vestigal_homeworld = { solar_system = { has_star_flag = sol } }
+								event_target:vestigal_empire = { species_portrait = human }
+							}
+							random_list = {
+								25 = { set_name = "Terran Galactic Empire" }
+								25 = { set_name = "Terran Supremacy" }
+								25 = { set_name = "Imperium of [vestigal_homeworld.GetName]" }
+								25 = { set_name = "Imperium of [vestigal_homeworld.GetName]" }
+							}
+						}
+						else = {
+							random_list = {
+								25 = { set_name = "[vestigal_empire.GetSpeciesAdj] Galactic Empire" }
+								25 = { set_name = "[vestigal_empire.GetSpeciesAdj] Supremacy" }
+								25 = { set_name = "Imperium of [vestigal_homeworld.GetName]" }
+								25 = { set_name = "Imperium of [vestigal_homeworld.System.GetName]" }
+							}
+						}
+					}
+				}
+				25 = {
+					# Xenophile precursors
+					create_country = {
+						species = event_target:vestigal_empire.owner_species
+						type = global_event
+					}
+					last_created_country = {
+						set_country_flag = ethic_fanatic_xenophile
+						set_graphical_culture = avian_01
+						save_global_event_target_as = mzilli_ancient_empire
+						if = {
+							limit = {
+								event_target:vestigal_homeworld = { solar_system = { has_star_flag = sol } }
+								event_target:vestigal_empire = { species_portrait = human }
+							}
+							random_list = {
+								25 = { set_name = "Terran Galactic Republic" }
+								25 = { set_name = "Terran Federation" }
+								25 = { set_name = "Federation of [vestigal_homeworld.GetName]" }
+								25 = { set_name = "[vestigal_homeworld.System.GetName] Federation" }
+							}
+						}
+						else = {
+							random_list = {
+								25 = { set_name = "[vestigal_empire.GetSpeciesAdj] Galactic Republic" }
+								25 = { set_name = "[vestigal_empire.GetSpeciesAdj] Federation" }
+								25 = { set_name = "Federation of [vestigal_homeworld.GetName]" }
+								25 = { set_name = "[vestigal_homeworld.System.GetName] Federation" }
+							}
+						}
+					}	
+				}
+				25 = {
+					# Spiritualist precursors
+					create_country = {
+						species = event_target:vestigal_empire.owner_species
+						type = global_event
+					}
+					last_created_country = {
+						set_country_flag = ethic_fanatic_spiritualist
+						set_graphical_culture = molluscoid_01
+						save_global_event_target_as = mzilli_ancient_empire
+						if = {
+							limit = {
+								event_target:vestigal_homeworld = { solar_system = { has_star_flag = sol } }
+								event_target:vestigal_empire = { species_portrait = human }
+							}
+							random_list = {
+								50 = { set_name = "Terran Axiom" }
+								50 = { set_name = "Amity of [vestigal_homeworld.GetName]" }
+							}
+						}
+						else = {
+							random_list = {
+								50 = { set_name = "[vestigal_empire.GetSpeciesAdj] Axiom" }
+								50 = { set_name = "Amity of [vestigal_homeworld.GetName]" }
+							}
+						}
+					}
+				}
+				25 = {
+					# Materialist precursors
+					modifier = {
+						factor = 10
+						event_target:vestigal_empire = { has_trait = trait_decadent }
+					}
+					create_country = {
+						species = event_target:vestigal_empire.owner_species
+						type = global_event
+					}
+					last_created_country = {
+						set_country_flag = ethic_fanatic_materialist
+						set_graphical_culture = humanoid_01
+						save_global_event_target_as = mzilli_ancient_empire
+						if = {
+							limit = {
+								event_target:vestigal_homeworld = { solar_system = { has_star_flag = sol } }
+								event_target:vestigal_empire = { species_portrait = human }
+							}
+							random_list = {
+								50 = { set_name = "[vestigal_homeworld.GetName] Technocracy" }
+								50 = { set_name = "Terran Assembly" }
+							}
+						}
+						else = {
+							random_list = {
+								50 = { set_name = "[vestigal_homeworld.GetName] Technocracy" }
+								50 = { set_name = "[vestigal_empire.GetSpeciesAdj] Assembly" }
+							}
+						}
+					}
+				}
+			}
+			if = { # Humans from Sol
+				limit = {
+					capital_scope = { solar_system = { has_star_flag = sol } }
+					species_portrait = human
+				}
+				set_country_flag = vestigal_empire_earth
+				owner_species = { save_global_event_target_as = vestigal_earth_species }
+				save_global_event_target_as = vestigal_earth_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_earth
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_earth
+						random_system_planet = {
+							limit = { has_planet_flag = planet_earth }
+							save_global_event_target_as = vestigal_earth
+						}
+					}
+					if = {
+						limit = { has_planet_flag = planet_earth }
+						#solar_system = {
+						#	random_system_planet = { # Mars
+						#		limit = {
+						#			is_planet_class = pc_barren
+						#			is_moon = no
+						#		}
+						#		if = {
+						#			limit = { has_modifier = terraforming_candidate }
+						#			remove_modifier = terraforming_candidate
+						#		}
+						#		random_list = {
+						#			25 = {
+						#				change_pc = pc_tundra
+						#				set_planet_entity = { entity = "tundra_planet_mars_entity" }
+						#				reroll_blockers = yes
+						#				reroll_deposits = yes
+						#				solar_system = {
+						#					random_system_planet = { # Luna
+						#						limit = {
+						#							is_planet_class = pc_barren_cold
+						#							is_moon = yes
+						#						}
+						#						change_pc = pc_shattered
+						#					}
+						#				}
+						#			}
+						#			25 = {
+						#				change_pc = pc_nuked
+						#				reroll_blockers = yes
+						#				reroll_deposits = yes
+						#			}
+						#			30 = { change_pc = pc_broken }
+						#			20 = {
+						#				change_pc = pc_relic
+						#				change_pc = {
+						#					class = pc_shielded
+						#					inherit_entity = yes
+						#				}
+						#			}
+						#		}
+						#	}
+						#}
+					}
+					else = { owner_species = { set_species_homeworld = event_target:vestigal_earth } }
+				}
+			}
+			# Xenos
+			# Vanilla
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_tundra
+				}
+				set_country_flag = vestigal_empire_tundra
+				owner_species = { save_global_event_target_as = vestigal_tundra_species }
+				save_global_event_target_as = vestigal_tundra_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_tundra
+					save_global_event_target_as = vestigal_tundra
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_tundra
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_arctic
+				}
+				set_country_flag = vestigal_empire_arctic
+				owner_species = { save_global_event_target_as = vestigal_arctic_species }
+				save_global_event_target_as = vestigal_arctic_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_arctic
+					save_global_event_target_as = vestigal_arctic
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_arctic
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_alpine
+				}
+				set_country_flag = vestigal_empire_alpine
+				owner_species = { save_global_event_target_as = vestigal_alpine_species }
+				save_global_event_target_as = vestigal_alpine_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_alpine
+					save_global_event_target_as = vestigal_alpine
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_alpine
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_continental
+				}
+				set_country_flag = vestigal_empire_continental
+				owner_species = { save_global_event_target_as = vestigal_continental_species }
+				save_global_event_target_as = vestigal_continental_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_continental
+					save_global_event_target_as = vestigal_continental
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_continental
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_tropical
+				}
+				set_country_flag = vestigal_empire_tropical
+				owner_species = { save_global_event_target_as = vestigal_tropical_species }
+				save_global_event_target_as = vestigal_tropical_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_tropical
+					save_global_event_target_as = vestigal_tropical
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_tropical
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_ocean
+				}
+				set_country_flag = vestigal_empire_ocean
+				owner_species = { save_global_event_target_as = vestigal_ocean_species }
+				save_global_event_target_as = vestigal_ocean_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_ocean
+					save_global_event_target_as = vestigal_ocean
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_ocean
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_arid
+				}
+				set_country_flag = vestigal_empire_arid
+				owner_species = { save_global_event_target_as = vestigal_arid_species }
+				save_global_event_target_as = vestigal_arid_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_arid
+					save_global_event_target_as = vestigal_arid
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_arid
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_desert
+				}
+				set_country_flag = vestigal_empire_desert
+				owner_species = { save_global_event_target_as = vestigal_desert_species }
+				save_global_event_target_as = vestigal_desert_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_desert
+					save_global_event_target_as = vestigal_desert
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_desert
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_savannah
+				}
+				set_country_flag = vestigal_empire_savannah
+				owner_species = { save_global_event_target_as = vestigal_savannah_species }
+				save_global_event_target_as = vestigal_savannah_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_savannah
+					save_global_event_target_as = vestigal_savannah
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_savannah
+					}
+				}
+			}
+			# Planetary Diversity
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_mangrove
+				}
+				set_country_flag = vestigal_empire_mangrove
+				owner_species = { save_global_event_target_as = vestigal_mangrove_species }
+				save_global_event_target_as = vestigal_mangrove_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_mangrove
+					save_global_event_target_as = vestigal_mangrove
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_mangrove
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_hajungle
+				}
+				set_country_flag = vestigal_empire_hajungle
+				owner_species = { save_global_event_target_as = vestigal_hajungle_species }
+				save_global_event_target_as = vestigal_hajungle_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_hajungle
+					save_global_event_target_as = vestigal_hajungle
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_hajungle
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_desertislands
+				}
+				set_country_flag = vestigal_empire_desertislands
+				owner_species = { save_global_event_target_as = vestigal_desertislands_species }
+				save_global_event_target_as = vestigal_desertislands_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_desertislands
+					save_global_event_target_as = vestigal_desertislands
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_desertislands
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_cascadian
+				}
+				set_country_flag = vestigal_empire_cascadian
+				owner_species = { save_global_event_target_as = vestigal_cascadian_species }
+				save_global_event_target_as = vestigal_cascadian_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_cascadian
+					save_global_event_target_as = vestigal_cascadian
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_cascadian
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_swamp
+				}
+				set_country_flag = vestigal_empire_swamp
+				owner_species = { save_global_event_target_as = vestigal_swamp_species }
+				save_global_event_target_as = vestigal_swamp_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_swamp
+					save_global_event_target_as = vestigal_swamp
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_swamp
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_geothermal
+				}
+				set_country_flag = vestigal_empire_geothermal
+				owner_species = { save_global_event_target_as = vestigal_geothermal_species }
+				save_global_event_target_as = vestigal_geothermal_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_geothermal
+					save_global_event_target_as = vestigal_geothermal
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_geothermal
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_glacial
+				}
+				set_country_flag = vestigal_empire_glacial
+				owner_species = { save_global_event_target_as = vestigal_glacial_species }
+				save_global_event_target_as = vestigal_glacial_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_glacial
+					save_global_event_target_as = vestigal_glacial
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_glacial
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_subarctic
+				}
+				set_country_flag = vestigal_empire_subarctic
+				owner_species = { save_global_event_target_as = vestigal_subarctic_species }
+				save_global_event_target_as = vestigal_subarctic_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_subarctic
+					save_global_event_target_as = vestigal_subarctic
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_subarctic
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_mesa
+				}
+				set_country_flag = vestigal_empire_mesa
+				owner_species = { save_global_event_target_as = vestigal_mesa_species }
+				save_global_event_target_as = vestigal_mesa_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_mesa
+					save_global_event_target_as = vestigal_mesa
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_mesa
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_oasis
+				}
+				set_country_flag = vestigal_empire_oasis
+				owner_species = { save_global_event_target_as = vestigal_oasis_species }
+				save_global_event_target_as = vestigal_oasis_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_oasis
+					save_global_event_target_as = vestigal_oasis
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_oasis
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_sandsea
+				}
+				set_country_flag = vestigal_empire_sandsea
+				owner_species = { save_global_event_target_as = vestigal_sandsea_species }
+				save_global_event_target_as = vestigal_sandsea_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_sandsea
+					save_global_event_target_as = vestigal_sandsea
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_sandsea
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_frozen_desert
+				}
+				set_country_flag = vestigal_empire_frozen_desert
+				owner_species = { save_global_event_target_as = vestigal_frozen_desert_species }
+				save_global_event_target_as = vestigal_frozen_desert_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_frozen_desert
+					save_global_event_target_as = vestigal_frozen_desert
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_frozen_desert
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_steppe
+				}
+				set_country_flag = vestigal_empire_steppe
+				owner_species = { save_global_event_target_as = vestigal_steppe_species }
+				save_global_event_target_as = vestigal_steppe_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_steppe
+					save_global_event_target_as = vestigal_steppe
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_steppe
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_hadesert
+				}
+				set_country_flag = vestigal_empire_hadesert
+				owner_species = { save_global_event_target_as = vestigal_hadesert_species }
+				save_global_event_target_as = vestigal_hadesert_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_hadesert
+					save_global_event_target_as = vestigal_hadesert
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_hadesert
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_methane
+				}
+				set_country_flag = vestigal_empire_methane
+				owner_species = { save_global_event_target_as = vestigal_methane_species }
+				save_global_event_target_as = vestigal_methane_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_methane
+					save_global_event_target_as = vestigal_methane
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_methane
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_ammonia
+				}
+				set_country_flag = vestigal_empire_ammonia
+				owner_species = { save_global_event_target_as = vestigal_ammonia_species }
+				save_global_event_target_as = vestigal_ammonia_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_ammonia
+					save_global_event_target_as = vestigal_ammonia
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_ammonia
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_tidallylocked
+				}
+				set_country_flag = vestigal_empire_tidallylocked
+				owner_species = { save_global_event_target_as = vestigal_tidallylocked_species }
+				save_global_event_target_as = vestigal_tidallylocked_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_tidallylocked
+					save_global_event_target_as = vestigal_tidallylocked
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_tidallylocked
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_biolumen
+				}
+				set_country_flag = vestigal_empire_biolumen
+				owner_species = { save_global_event_target_as = vestigal_biolumen_species }
+				save_global_event_target_as = vestigal_biolumen_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_biolumen
+					save_global_event_target_as = vestigal_biolumen
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_biolumen
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_boreal
+				}
+				set_country_flag = vestigal_empire_boreal
+				owner_species = { save_global_event_target_as = vestigal_boreal_species }
+				save_global_event_target_as = vestigal_boreal_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_boreal
+					save_global_event_target_as = vestigal_boreal
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_boreal
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_mushroom
+				}
+				set_country_flag = vestigal_empire_mushroom
+				owner_species = { save_global_event_target_as = vestigal_mushroom_species }
+				save_global_event_target_as = vestigal_mushroom_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_mushroom
+					save_global_event_target_as = vestigal_mushroom
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_mushroom
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_superhabitable
+				}
+				set_country_flag = vestigal_empire_superhabitable
+				owner_species = { save_global_event_target_as = vestigal_superhabitable_species }
+				save_global_event_target_as = vestigal_superhabitable_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_superhabitable
+					save_global_event_target_as = vestigal_superhabitable
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_superhabitable
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_retinal
+				}
+				set_country_flag = vestigal_empire_retinal
+				owner_species = { save_global_event_target_as = vestigal_retinal_species }
+				save_global_event_target_as = vestigal_retinal_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_retinal
+					save_global_event_target_as = vestigal_retinal
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_retinal
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_forest
+				}
+				set_country_flag = vestigal_empire_forest
+				owner_species = { save_global_event_target_as = vestigal_forest_species }
+				save_global_event_target_as = vestigal_forest_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_forest
+					save_global_event_target_as = vestigal_forest
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_forest
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_prairie
+				}
+				set_country_flag = vestigal_empire_prairie
+				owner_species = { save_global_event_target_as = vestigal_prairie_species }
+				save_global_event_target_as = vestigal_prairie_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_prairie
+					save_global_event_target_as = vestigal_prairie
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_prairie
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_med
+				}
+				set_country_flag = vestigal_empire_med
+				owner_species = { save_global_event_target_as = vestigal_med_species }
+				save_global_event_target_as = vestigal_med_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_med
+					save_global_event_target_as = vestigal_med
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_med
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_antarctic
+				}
+				set_country_flag = vestigal_empire_antarctic
+				owner_species = { save_global_event_target_as = vestigal_antarctic_species }
+				save_global_event_target_as = vestigal_antarctic_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_antarctic
+					save_global_event_target_as = vestigal_antarctic
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_antarctic
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_snow
+				}
+				set_country_flag = vestigal_empire_snow
+				owner_species = { save_global_event_target_as = vestigal_snow_species }
+				save_global_event_target_as = vestigal_snow_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_snow
+					save_global_event_target_as = vestigal_snow
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_snow
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_karst
+				}
+				set_country_flag = vestigal_empire_karst
+				owner_species = { save_global_event_target_as = vestigal_karst_species }
+				save_global_event_target_as = vestigal_karst_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_karst
+					save_global_event_target_as = vestigal_karst
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_karst
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_primal
+				}
+				set_country_flag = vestigal_empire_primal
+				owner_species = { save_global_event_target_as = vestigal_primal_species }
+				save_global_event_target_as = vestigal_primal_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_primal
+					save_global_event_target_as = vestigal_primal
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_primal
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_irradiated
+				}
+				set_country_flag = vestigal_empire_irradiated
+				owner_species = { save_global_event_target_as = vestigal_irradiated_species }
+				save_global_event_target_as = vestigal_irradiated_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_irradiated
+					save_global_event_target_as = vestigal_irradiated
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_irradiated
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_ash
+				}
+				set_country_flag = vestigal_empire_ash
+				owner_species = { save_global_event_target_as = vestigal_ash_species }
+				save_global_event_target_as = vestigal_ash_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_ash
+					save_global_event_target_as = vestigal_ash
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_ash
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_aquatic
+				}
+				set_country_flag = vestigal_empire_aquatic
+				owner_species = { save_global_event_target_as = vestigal_aquatic_species }
+				save_global_event_target_as = vestigal_aquatic_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_aquatic
+					save_global_event_target_as = vestigal_aquatic
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_aquatic
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_salt
+				}
+				set_country_flag = vestigal_empire_salt
+				owner_species = { save_global_event_target_as = vestigal_salt_species }
+				save_global_event_target_as = vestigal_salt_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_salt
+					save_global_event_target_as = vestigal_salt
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_salt
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_wetswamp
+				}
+				set_country_flag = vestigal_empire_wetswamp
+				owner_species = { save_global_event_target_as = vestigal_wetswamp_species }
+				save_global_event_target_as = vestigal_wetswamp_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_wetswamp
+					save_global_event_target_as = vestigal_wetswamp
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_wetswamp
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_outback
+				}
+				set_country_flag = vestigal_empire_outback
+				owner_species = { save_global_event_target_as = vestigal_outback_species }
+				save_global_event_target_as = vestigal_outback_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_outback
+					save_global_event_target_as = vestigal_outback
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_outback
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_highland
+				}
+				set_country_flag = vestigal_empire_highland
+				owner_species = { save_global_event_target_as = vestigal_highland_species }
+				save_global_event_target_as = vestigal_highland_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_highland
+					save_global_event_target_as = vestigal_highland
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_highland
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_lake
+				}
+				set_country_flag = vestigal_empire_lake
+				owner_species = { save_global_event_target_as = vestigal_lake_species }
+				save_global_event_target_as = vestigal_lake_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_lake
+					save_global_event_target_as = vestigal_lake
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_lake
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_veld
+				}
+				set_country_flag = vestigal_empire_veld
+				owner_species = { save_global_event_target_as = vestigal_veld_species }
+				save_global_event_target_as = vestigal_veld_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_veld
+					save_global_event_target_as = vestigal_veld
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_veld
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_mud
+				}
+				set_country_flag = vestigal_empire_mud
+				owner_species = { save_global_event_target_as = vestigal_mud_species }
+				save_global_event_target_as = vestigal_mud_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_mud
+					save_global_event_target_as = vestigal_mud
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_mud
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_megaflora
+				}
+				set_country_flag = vestigal_empire_megaflora
+				owner_species = { save_global_event_target_as = vestigal_megaflora_species }
+				save_global_event_target_as = vestigal_megaflora_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_megaflora
+					save_global_event_target_as = vestigal_megaflora
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_megaflora
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_coral
+				}
+				set_country_flag = vestigal_empire_coral
+				owner_species = { save_global_event_target_as = vestigal_coral_species }
+				save_global_event_target_as = vestigal_coral_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_coral
+					save_global_event_target_as = vestigal_coral
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_coral
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_storm
+				}
+				set_country_flag = vestigal_empire_storm
+				owner_species = { save_global_event_target_as = vestigal_storm_species }
+				save_global_event_target_as = vestigal_storm_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_storm
+					save_global_event_target_as = vestigal_storm
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_storm
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_rogue
+				}
+				set_country_flag = vestigal_empire_rogue
+				owner_species = { save_global_event_target_as = vestigal_rogue_species }
+				save_global_event_target_as = vestigal_rogue_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_rogue
+					save_global_event_target_as = vestigal_rogue
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_rogue
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_acid
+				}
+				set_country_flag = vestigal_empire_acid
+				owner_species = { save_global_event_target_as = vestigal_acid_species }
+				save_global_event_target_as = vestigal_acid_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_acid
+					save_global_event_target_as = vestigal_acid
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_acid
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_tepid
+				}
+				set_country_flag = vestigal_empire_tepid
+				owner_species = { save_global_event_target_as = vestigal_tepid_species }
+				save_global_event_target_as = vestigal_tepid_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_tepid
+					save_global_event_target_as = vestigal_tepid
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_tepid
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_semiarid
+				}
+				set_country_flag = vestigal_empire_semiarid
+				owner_species = { save_global_event_target_as = vestigal_semiarid_species }
+				save_global_event_target_as = vestigal_semiarid_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_semiarid
+					save_global_event_target_as = vestigal_semiarid
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_semiarid
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_glacio
+				}
+				set_country_flag = vestigal_empire_glacio
+				owner_species = { save_global_event_target_as = vestigal_glacio_species }
+				save_global_event_target_as = vestigal_glacio_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_glacio
+					save_global_event_target_as = vestigal_glacio
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_glacio
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_eyeball
+				}
+				set_country_flag = vestigal_empire_eyeball
+				owner_species = { save_global_event_target_as = vestigal_eyeball_species }
+				save_global_event_target_as = vestigal_eyeball_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_eyeball
+					save_global_event_target_as = vestigal_eyeball
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_eyeball
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ideal_planet_class = pc_sulfur
+				}
+				set_country_flag = vestigal_empire_sulfur
+				owner_species = { save_global_event_target_as = vestigal_sulfur_species }
+				save_global_event_target_as = vestigal_sulfur_country
+				capital_scope = {
+					set_planet_flag = distant_origin_homeworld_sulfur
+					save_global_event_target_as = vestigal_sulfur
+					solar_system = {
+						set_star_flag = distant_origin_homeworld_sulfur
+					}
+				}
+			}
+			country_event = { id = mzilli_distant_origin_unification.2 days = -1 }
+		}
+		event_target:vestigal_empire = {
+			if = {
+				limit = { duplicate_homeworlds_exist = yes }
+				set_global_flag = duplicate_test
+				random_country = {
+					limit = { is_ai = no }
+					country_event = { id = mzilli_distant_origin_unification.22 days = 1 }
+				}
+			}
+		}
+		# Assigns Fallen Empire homeworlds
+		every_country = {
+			limit = {
+				is_country_type = fallen_empire
+				NOT = { has_country_flag = fallen_empire_machine }
+			}
+			capital_scope = { save_global_event_target_as = mzilli_fallen_homeworld }
+			owner_species = {
+				set_species_flag = mzilli_fallen
+				set_species_homeworld = event_target:mzilli_fallen_homeworld
+			}
+		}
+		every_planet = {
+			limit = {
+				is_planet_class = pc_nuked
+				has_owner = no
+				solar_system = {
+					NOR = {
+						has_star_flag = sol
+						has_star_flag = ratling_system
+					}
+				}
+			}
+			set_planet_flag = mzilli_nuked
+		}
+	}
+}
+
+# Creates Vestigal Empires' lost colonies
+country_event = {
+	id = mzilli_distant_origin_unification.2
+	title = OK
+	desc = OK
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = vestigal_empire_earth }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_earth
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_earth
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		# Vanilla
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_continental }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_continental
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_continental
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_tropical }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_tropical
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_tropical
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_ocean }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_ocean
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_ocean
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_arid }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_arid
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_arid
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_desert }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_desert
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_desert
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_savannah }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_savannah
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_savannah
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_alpine }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_alpine
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_alpine
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_tundra }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_tundra
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_tundra
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_arctic }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_arctic
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_arctic
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		# Planetary Diversity
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_mangrove }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_mangrove
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_mangrove
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_hajungle }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_hajungle
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_hajungle
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_desertislands }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_desertislands
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_desertislands
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_cascadian }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_cascadian
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_cascadian
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_swamp }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_swamp
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_swamp
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_geothermal }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_geothermal
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_geothermal
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_glacial }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_glacial
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_glacial
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_subarctic }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_subarctic
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_subarctic
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_mesa }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_mesa
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_mesa
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_oasis }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_oasis
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_oasis
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_sandsea }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_sandsea
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_sandsea
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_frozen_desert }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_frozen_desert
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_frozen_desert
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_steppe }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_steppe
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_steppe
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_hadesert }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_hadesert
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_hadesert
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_methane }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_methane
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_methane
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_ammonia }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_ammonia
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_ammonia
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_tidallylocked }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_tidallylocked
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_tidallylocked
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_biolumen }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_biolumen
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_biolumen
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_boreal }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_boreal
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_boreal
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_mushroom }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_mushroom
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_mushroom
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_superhabitable }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_superhabitable
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_superhabitable
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_retinal }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_retinal
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_retinal
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_forest }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_forest
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_forest
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_prairie }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_prairie
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_prairie
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_med }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_med
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_med
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_antarctic }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_antarctic
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_antarctic
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_snow }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_snow
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_snow
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_karst }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_karst
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_karst
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_primal }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_primal
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_primal
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_irradiated }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_irradiated
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_irradiated
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_ash }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_ash
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_ash
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_aquatic }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_aquatic
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_aquatic
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_salt }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_salt
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_salt
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_wetswamp }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_wetswamp
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_wetswamp
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_outback }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_outback
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_outback
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_highland }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_highland
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_highland
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_lake }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_lake
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_lake
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_veld }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_veld
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_veld
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_mud }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_mud
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_mud
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_megaflora }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_megaflora
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_megaflora
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_coral }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_coral
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_coral
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_storm }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_storm
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_storm
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_rogue }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_rogue
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_rogue
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_acid }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_acid
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_acid
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_tepid }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_tepid
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_tepid
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_semiarid }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_semiarid
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_semiarid
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_glacio }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_glacio
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_glacio
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_eyeball }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_eyeball
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_eyeball
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = vestigal_empire_sulfur }
+			while = {
+				count = 10
+				if = {
+					limit = {
+						NOT = {
+							any_country = {
+								has_country_flag = distant_origin_empire_sulfur
+								capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+							}
+						}
+					}
+					create_vestigal_colony = yes
+				}
+				else = {
+					random_country = {
+						limit = {
+							has_country_flag = distant_origin_empire_sulfur
+							capital_scope = { NOT = { has_planet_flag = vestigal_colony } }
+						}
+						capital_scope = { set_planet_flag = vestigal_colony }
+					}
+				}
+			}
+		}
+		random_country = {
+			limit = {
+				has_country_flag = vestigal_colony_owner
+				capital_scope = { has_planet_flag = vestigal_empire_hive }
+			}
+			save_global_event_target_as = new_hive
+			random_owned_pop = {
+				species = { save_global_event_target_as = new_hive_species }
+				event_target:new_hive = { change_dominant_species = { species = event_target:new_hive_species } }
+			}
+		}
+		clear_global_event_target = new_hive
+		clear_global_event_target = new_hive_species
+		every_planet = {
+			limit = { has_planet_flag = vestigal_empire_habitat }
+			solar_system = {
+				random_system_planet = {
+					limit = {
+						exists = owner
+						is_planet_class = pc_habitat
+					}
+					set_capital = yes
+				}
+			}
+			owner = {
+				set_name = random
+				every_owned_ship = {
+					limit = {
+						OR = {
+							is_ship_size = science
+							is_ship_size = constructor
+							is_ship_size = corvette
+						}
+					}
+					set_name = random
+				}
+			}
+		}
+		country_event = {
+			id = "mzilli_distant_origin_unification.3"
+			days = 30 random = 10
+		}
+	}
+}
+
+# Starts search for lost colonies
+country_event = {
+	id = mzilli_distant_origin_unification.3
+	title = mzilli_distant_origin_unification.3.name
+	is_triggered_only = yes
+
+	desc = mzilli_distant_origin_unification.3.desc
+
+	picture = GFX_evt_in_the_dark
+	show_sound = event_radio_chatter
+	location = root
+
+	immediate = {
+		set_country_flag = lost_colony_parent
+		while = {
+			count = 10
+			random_planet = {
+				limit = {
+					has_planet_flag = vestigal_colony
+					NOR = {
+						has_planet_flag = lost_colony_1
+						has_planet_flag = lost_colony_2
+						has_planet_flag = lost_colony_3
+						has_planet_flag = lost_colony_4
+						has_planet_flag = lost_colony_5
+						has_planet_flag = lost_colony_6
+						has_planet_flag = lost_colony_7
+						has_planet_flag = lost_colony_8
+						has_planet_flag = lost_colony_9
+						has_planet_flag = lost_colony_10
+					}
+				}
+				if = {
+					limit = { NOT = { exists = event_target:lost_colony_1 } }
+					save_event_target_as = lost_colony_1
+					set_planet_flag = lost_colony_1
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_1 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_1.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_1.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_2 } }
+					save_event_target_as = lost_colony_2
+					set_planet_flag = lost_colony_2
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_2 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_2.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_2.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_3 } }
+					save_event_target_as = lost_colony_3
+					set_planet_flag = lost_colony_3
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_3 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_3.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_3.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_4 } }
+					save_event_target_as = lost_colony_4
+					set_planet_flag = lost_colony_4
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_4 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_4.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_4.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_5 } }
+					save_event_target_as = lost_colony_5
+					set_planet_flag = lost_colony_5
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_5 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_5.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_5.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_6 } }
+					save_event_target_as = lost_colony_6
+					set_planet_flag = lost_colony_6
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_6 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_6.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_6.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_7 } }
+					save_event_target_as = lost_colony_7
+					set_planet_flag = lost_colony_7
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_7 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_7.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_7.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_8 } }
+					save_event_target_as = lost_colony_8
+					set_planet_flag = lost_colony_8
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_8 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_8.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_8.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_9 } }
+					save_event_target_as = lost_colony_9
+					set_planet_flag = lost_colony_9
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_9 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_9.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_9.owner
+						}
+					}
+				}
+				else_if = {
+					limit = { NOT = { exists = event_target:lost_colony_10 } }
+					save_event_target_as = lost_colony_10
+					set_planet_flag = lost_colony_10
+					if = {
+						limit = { has_owner = yes }
+						owner = { set_country_flag = lost_colony_10 }
+						event_target:vestigal_empire = {
+							set_country_flag = special_intro_for@event_target:lost_colony_10.owner
+							set_country_flag = lost_colony_parent_of@event_target:lost_colony_10.owner
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# "We must find them. Let us begin a search."
+	option = {
+		name = mzilli_distant_origin_unification.3.a
+		begin_event_chain = {
+			event_chain = "vestigal_colony_search"
+			target = ROOT
+		}
+		hidden_effect = {
+			create_point_of_interest = {
+				id = lost_colony_poi.1
+				name = "lost_colony_1_poi"
+				desc = "lost_colony_1_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_1
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.2
+				name = "lost_colony_2_poi"
+				desc = "lost_colony_2_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_2
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.3
+				name = "lost_colony_3_poi"
+				desc = "lost_colony_3_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_3
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.4
+				name = "lost_colony_4_poi"
+				desc = "lost_colony_4_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_4
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.5
+				name = "lost_colony_5_poi"
+				desc = "lost_colony_5_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_5
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.6
+				name = "lost_colony_6_poi"
+				desc = "lost_colony_6_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_6
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.7
+				name = "lost_colony_7_poi"
+				desc = "lost_colony_7_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_7
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.8
+				name = "lost_colony_8_poi"
+				desc = "lost_colony_8_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_8
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.9
+				name = "lost_colony_9_poi"
+				desc = "lost_colony_9_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_9
+			}
+			create_point_of_interest = {
+				id = lost_colony_poi.10
+				name = "lost_colony_10_poi"
+				desc = "lost_colony_10_poi_desc"
+				event_chain = "vestigal_colony_search"
+				location = event_target:lost_colony_10
+			}
+		}
+	}
+}
+
+# Vestigal Empire reacts to non-Hive Mind Lost Colony
+country_event = {
+	id = mzilli_distant_origin_unification.5
+	title = mzilli_distant_origin_unification.5.name
+	is_triggered_only = yes
+
+	desc = {
+		# Friendly, no history lesson
+		trigger = {
+			ROOT = { NOT = { has_country_flag = mzilli_history_lesson_2 } }
+			event_target:lost_colony = {
+				OR = {
+					is_friendly_to = ROOT
+					is_cordial_to = ROOT
+					is_protective_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.friendly.a
+	}
+	desc = {
+		# Friendly, history lesson
+		trigger = {
+			ROOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:lost_colony = {
+				OR = {
+					is_friendly_to = ROOT
+					is_cordial_to = ROOT
+					is_protective_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.friendly.b
+	}
+
+	desc = {
+		# Neutral, no history lesson
+		trigger = {
+			ROOT = { NOT = { has_country_flag = mzilli_history_lesson_2 } }
+			event_target:lost_colony = {
+				OR = {
+					is_neutral_to = ROOT
+					is_threatened_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.neutral.a
+	}
+	desc = {
+		# Neutral, history lesson
+		trigger = {
+			ROOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:lost_colony = {
+				OR = {
+					is_neutral_to = ROOT
+					is_threatened_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.neutral.b
+	}
+
+	desc = {
+		# Hostile, no history lesson
+		trigger = {
+			ROOT = { NOT = { has_country_flag = mzilli_history_lesson_2 } }
+			event_target:lost_colony = {
+				OR = {
+					is_hostile_to = ROOT
+					is_domineering_to = ROOT
+					is_unfriendly_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.hostile.a
+	}
+	desc = {
+		# Hostile, history lesson
+		trigger = {
+			ROOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:lost_colony = {
+				OR = {
+					is_hostile_to = ROOT
+					is_domineering_to = ROOT
+					is_unfriendly_to = ROOT
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.5.desc.hostile.b
+	}
+
+	picture =  GFX_evt_arguing_senate
+
+	show_sound = event_radio_chatter
+	location = event_target:lost_colony
+
+	immediate = {
+		ROOT = {
+			clear_lost_colony_poi = yes
+			if = {
+				limit = { NOT = { has_country_flag = mzilli_history_lesson_1 } }
+				set_country_flag = mzilli_history_lesson_1
+				country_event = {
+					id = mzilli_distant_origin_unification.7
+					days = 90
+					random = 30
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.phobe
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.spir
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.phile
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.mat
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.auth
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.mil
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.egal
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.pac
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	# Other
+	option = {
+		name = mzilli_distant_origin_unification.5.phile
+		trigger = {
+			event_target:lost_colony = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+}
+
+# Vestigal Empire reacts to Hive Mind Lost Colony
+country_event = {
+	id = mzilli_distant_origin_unification.6
+	title = mzilli_distant_origin_unification.5.name
+	is_triggered_only = yes
+
+	desc = {
+		trigger = { event_target:lost_colony = { has_authority = auth_hive_mind } }
+		text = mzilli_distant_origin_unification.6.desc.hive
+	}
+	desc = {
+		trigger = { event_target:lost_colony = { has_civic = civic_machine_assimilator } }
+		text = mzilli_distant_origin_unification.6.desc.ass
+	}
+	desc = {
+		trigger = { event_target:lost_colony = { has_civic = civic_machine_servitor } }
+		text = mzilli_distant_origin_unification.6.desc.serv
+	}
+	desc = {
+		trigger = { event_target:lost_colony = { has_civic = civic_machine_terminator } }
+		text = mzilli_distant_origin_unification.6.desc.term
+	}
+	desc = {
+		trigger = {
+			event_target:lost_colony = {
+				has_authority = auth_machine_intelligence
+				NOR = {
+					has_civic = civic_machine_terminator
+					has_civic = civic_machine_assimilator
+					has_civic = civic_machine_servitor
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.6.desc.mach
+	}
+
+	picture = {
+		trigger = { event_target:lost_colony = { has_authority = auth_hive_mind } }
+		picture = GFX_evt_aggressive_flora
+	}
+	picture = {
+		trigger = { event_target:lost_colony = { has_civic = civic_machine_assimilator } }
+		picture = GFX_evt_cybernetics
+	}
+	picture = {
+		trigger = {
+			event_target:lost_colony = {
+				has_authority = auth_machine_intelligence
+				NOT = { has_civic = civic_machine_assimilator }
+			}
+		}
+		picture = GFX_evt_robot_assembly_plant
+	}
+
+	show_sound = event_radio_chatter
+	location = event_target:lost_colony
+
+	immediate = {
+		ROOT = {
+			clear_lost_colony_poi = yes
+			if = {
+				limit = {
+					NOR = {
+						has_country_flag = mzilli_history_lesson_1
+						event_target:lost_colony = { has_civic = civic_hive_devouring_swarm }
+						event_target:lost_colony = { has_civic = civic_machine_terminator }
+					}
+				}
+				set_country_flag = mzilli_history_lesson_1
+				country_event = {
+					id = mzilli_distant_origin_unification.7
+					days = 10
+				}
+			}
+		}
+	}
+
+	# "That's amazing."
+	option = {
+		name = "mzilli_distant_origin_unification.6.amazing"
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	# "That's disturbing."
+	option = {
+		name = "mzilli_distant_origin_unification.6.disturbing"
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	# "That's weird."
+	option = {
+		name = "mzilli_distant_origin_unification.6.wtf"
+		trigger = { NOT = { has_ethic = ethic_fanatic_egalitarian } }
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	# "That's unacceptable."
+	option = {
+		name = "mzilli_distant_origin_unification.6.lib"
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+		if = {
+			limit = { NOT = { has_modifier = distant_origin_unacceptable_hive_mind } }
+			add_modifier = {
+				modifier = distant_origin_unacceptable_hive_mind
+				days = 360
+			}
+		}
+	}
+}
+
+# Reveals Ancient Empire
+country_event = {
+	id = mzilli_distant_origin_unification.7
+	title = OK
+	desc = OK
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = mzilli_history_lesson_2
+		establish_communications = event_target:mzilli_ancient_empire
+		if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe } }
+			country_event = { id = mzilli_distant_origin_unification.8 }
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophile } }
+			country_event = { id = mzilli_distant_origin_unification.9 }
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist } }
+			country_event = { id = mzilli_distant_origin_unification.10 }
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_materialist } }
+			country_event = { id = mzilli_distant_origin_unification.11 }
+		}
+	}
+}
+
+# Xenophobic Ancestors
+country_event = {
+	id = mzilli_distant_origin_unification.8
+	title = mzilli_distant_origin_unification.8.name
+	is_triggered_only = yes
+	desc = {
+		trigger = { NOT = { has_ethic = ethic_fanatic_xenophobe } }
+		text = mzilli_distant_origin_unification.8.desc
+	}
+	desc = {
+		trigger = { has_ethic = ethic_fanatic_xenophobe }
+		text = mzilli_distant_origin_unification.8.desc.phobe
+	}
+
+	picture = GFX_evt_interior_battle
+
+	show_sound = event_radio_chatter
+	location = root
+
+	option = {
+		name = mzilli_distant_origin_unification.8.spir
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.mat
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.egal
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.auth
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.mil
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.pac
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phobe.inwards
+		trigger = {
+			has_civic = civic_inwards_perfection
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.other
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+}
+
+# Xenophilic Ancestors
+country_event = {
+	id = mzilli_distant_origin_unification.9
+	title = mzilli_distant_origin_unification.8.name
+	is_triggered_only = yes
+	desc = mzilli_distant_origin_unification.9.desc
+
+	picture = GFX_evt_galactic_senate
+
+	show_sound = event_radio_chatter
+	location = root
+
+	option = {
+		name = mzilli_distant_origin_unification.9.spir
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.mat
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.egal
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.auth
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.mil
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.pac
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.phobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.phile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.other
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+}
+
+# Spiritualistic Ancestors
+country_event = {
+	id = mzilli_distant_origin_unification.10
+	title = mzilli_distant_origin_unification.8.name
+	is_triggered_only = yes
+	desc = mzilli_distant_origin_unification.10.desc
+
+	picture = GFX_evt_alien_propaganda
+
+	show_sound = event_radio_chatter
+	location = root
+
+	option = {
+		name = mzilli_distant_origin_unification.10.spir
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.mat
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.egal
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.auth
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.mil
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.pac
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.phobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.phile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.other
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+}
+
+# Materialistic Ancestors
+country_event = {
+	id = mzilli_distant_origin_unification.11
+	title = mzilli_distant_origin_unification.8.name
+	is_triggered_only = yes
+	desc = mzilli_distant_origin_unification.11.desc
+
+	picture = GFX_evt_enigmatic_fortress
+
+	show_sound = event_radio_chatter
+	location = root
+
+	option = {
+		name = mzilli_distant_origin_unification.11.spir
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.mat
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.egal
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.auth
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.mil
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.pac
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.phobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.phile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.other
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+	}
+}
+
+# Lost colony recognized
+planet_event = {
+	id = mzilli_distant_origin_unification.12
+	title = OK
+	desc = OK
+	location = root
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_planet_flag = vestigal_colony
+		from = { has_origin = origin_remnants }
+	}
+
+	immediate = {
+		clear_global_event_target = mzilli_distant_origin_science
+		if = {
+			limit = { exists = FromFrom }
+			FromFrom = { save_event_target_as = mzilli_distant_origin_science }
+		}
+		clear_global_event_target = mzilli_lost_colony_active
+		save_global_event_target_as = mzilli_lost_colony_active
+		if = { # Primitive lost colony
+			limit = {
+				has_owner = yes
+				owner = { is_country_type = primitive }
+			}
+			from = { country_event = { id = mzilli_distant_origin_unification.13 days = 1 } }
+		}
+		else_if = {
+			limit = {
+				has_owner = yes
+				owner = { has_country_flag = vestigal_colony_owner }
+			}
+			owner = { save_event_target_as = lost_colony }
+			if = {
+				limit = { owner = { has_ethic = ethic_gestalt_consciousness } }
+				from = {
+					establish_communications = event_target:lost_colony
+					country_event = { id = mzilli_distant_origin_unification.6 days = 1 }
+				}
+			}
+			else = {
+				from = {
+					establish_communications = event_target:lost_colony
+					country_event = { id = mzilli_distant_origin_unification.5 days = 1 }
+				}
+			}
+		}
+		else = { # Dead lost colony
+			from = { country_event = { id = mzilli_distant_origin_unification.14 } }
+		}
+	}	
+}
+
+# Primitive lost colony
+country_event = {
+	id = mzilli_distant_origin_unification.13
+	title = mzilli_distant_origin_unification.13.name
+	desc = {
+		trigger = {
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			exists = event_target:mzilli_distant_origin_science
+			event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_habitat } }
+		}
+		text = mzilli_distant_origin_unification.13.a.desc
+	}
+	desc = {
+		trigger = {
+			NOR = { 
+				has_country_flag = mzilli_history_lesson_2
+				exists = event_target:mzilli_distant_origin_science
+			}
+			event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_habitat } }
+		}
+		text = mzilli_distant_origin_unification.13.b.desc
+	}
+	desc = {
+		trigger = {
+			has_country_flag = mzilli_history_lesson_2
+			exists = event_target:mzilli_distant_origin_science
+			event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_habitat } }
+		}
+		text = mzilli_distant_origin_unification.13.c.desc
+	}
+	desc = {
+		trigger = {
+			has_country_flag = mzilli_history_lesson_2
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_habitat } }
+		}
+		text = mzilli_distant_origin_unification.13.d.desc
+	}
+
+	desc = {
+		trigger = {
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			exists = event_target:mzilli_distant_origin_science
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_habitat }
+		}
+		text = mzilli_distant_origin_unification.13.e.desc
+	}
+	desc = {
+		trigger = {
+			NOR = { 
+				has_country_flag = mzilli_history_lesson_2
+				exists = event_target:mzilli_distant_origin_science
+			}
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_habitat }
+		}
+		text = mzilli_distant_origin_unification.13.f.desc
+	}
+	desc = {
+		trigger = {
+			has_country_flag = mzilli_history_lesson_2
+			exists = event_target:mzilli_distant_origin_science
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_habitat }
+		}
+		text = mzilli_distant_origin_unification.13.g.desc
+	}
+	desc = {
+		trigger = {
+			has_country_flag = mzilli_history_lesson_2
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_habitat }
+		}
+		text = mzilli_distant_origin_unification.13.h.desc
+	}
+
+	picture = {
+		trigger = { event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_habitat } } }
+		picture = GFX_evt_ancient_alien_temple
+	}
+	picture = {
+		trigger = { event_target:mzilli_lost_colony_active = { is_planet_class = pc_habitat } }
+		picture = GFX_evt_busy_spaceport
+	}
+	show_sound = event_radio_chatter
+	location = event_target:mzilli_lost_colony_active
+
+	is_triggered_only = yes
+
+	immediate = {
+		root = { alt_clear_lost_colony_poi = yes }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.phobe
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.spir
+		trigger = {
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.phile
+		trigger = {
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.mat
+		trigger = {
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.auth
+		trigger = {
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.mil
+		trigger = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.egal
+		trigger = {
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = {
+		name = mzilli_distant_origin_unification.5.pac
+		trigger = {
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	# Other
+	option = {
+		name = mzilli_distant_origin_unification.5.phile
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+}
+
+# Dead lost colony
+country_event = {
+	id = mzilli_distant_origin_unification.14
+	title = mzilli_distant_origin_unification.14.name
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = {
+				NOR = {
+					is_planet_class = pc_shrouded
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+					is_planet_class = pc_shielded
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.a.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+		}
+		text = mzilli_distant_origin_unification.14.b.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.c.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+		}
+		text = mzilli_distant_origin_unification.14.d.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = {
+				NOR = {
+					is_planet_class = pc_shrouded
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+					is_planet_class = pc_shielded
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.e.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+		}
+		text = mzilli_distant_origin_unification.14.f.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.g.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			NOT = { has_country_flag = mzilli_history_lesson_2 }
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+		}
+		text = mzilli_distant_origin_unification.14.h.desc
+	}
+
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = {
+				NOR = {
+					is_planet_class = pc_shrouded
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+					is_planet_class = pc_shielded
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.i.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+		}
+		text = mzilli_distant_origin_unification.14.j.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.k.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_distant_origin_science
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+		}
+		text = mzilli_distant_origin_unification.14.l.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = {
+				NOR = {
+					is_planet_class = pc_shrouded
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+					is_planet_class = pc_shielded
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.m.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+		}
+		text = mzilli_distant_origin_unification.14.n.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}
+		text = mzilli_distant_origin_unification.14.o.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_distant_origin_science }
+			has_country_flag = mzilli_history_lesson_2
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+		}
+		text = mzilli_distant_origin_unification.14.p.desc
+	}
+
+	picture = {
+		trigger = {
+			event_target:mzilli_lost_colony_active = {
+				NOR = {
+					is_planet_class = pc_shrouded
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+					is_planet_class = pc_shielded
+				}
+			}
+		}
+		picture = GFX_evt_city_ruins
+	}
+	picture = {
+		trigger = { event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded } }
+		picture = GFX_evt_shrouded
+	}
+	picture = {
+		trigger = {
+			event_target:mzilli_lost_colony_active = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+					is_planet_class = pc_shattered_2
+				}
+			}
+		}
+		picture = GFX_evt_shattered_planet
+	}
+	picture = {
+		trigger = { event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded } }
+		picture = GFX_evt_shielded_planet
+	}
+
+	show_sound = event_radio_chatter
+	location = event_target:mzilli_lost_colony_active
+
+	is_triggered_only = yes
+
+	immediate = {
+		root = { alt_clear_lost_colony_poi = yes }
+	}
+
+	option = { # "They should have protected themselves better."
+		name = mzilli_distant_origin_unification.14.a.phobe
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "We must be vigilant, lest the same happen to us."
+		name = mzilli_distant_origin_unification.14.b.phobe
+		trigger = {
+			event_target:mzilli_lost_colony_active = { OR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "There, but for the grace of gods, go I."
+		name = mzilli_distant_origin_unification.14.a.spir
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOT = { is_planet_class = pc_shrouded } }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "That [event_target:mzilli_lost_colony_active.GetPlanetMoon] is cursed. Attempt no landings."
+		name = mzilli_distant_origin_unification.14.b.spir
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			OR = {
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "A tragic loss of life."
+		name = mzilli_distant_origin_unification.14.a.phile
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Perhaps some frontiers are best left unexplored."
+		name = mzilli_distant_origin_unification.14.b.phile
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # ""What could turn a [event_target:mzilli_lost_colony_active.GetPlanetMoon] into a fishbowl?"."
+		name = mzilli_distant_origin_unification.14.c.phile
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+			OR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "Our sciences will ensure that we do not share their fate."
+		name = mzilli_distant_origin_unification.14.a.mat
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Our sensors will penetrate those thick clouds someday."
+		name = mzilli_distant_origin_unification.14.b.mat
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "We will bring down that shield someday!"
+		name = mzilli_distant_origin_unification.14.c.mat
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+			OR = {
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "They were not strong enough to survive."
+		name = mzilli_distant_origin_unification.14.a.auth
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "The colonists may be trapped for eternity."
+		name = mzilli_distant_origin_unification.14.b.auth
+		trigger = {
+			event_target:mzilli_lost_colony_active = { OR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "They must have neglected their military. It cost them."
+		name = mzilli_distant_origin_unification.14.a.mil
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Would our weapons be effective against that soup?"
+		name = mzilli_distant_origin_unification.14.b.mil
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Our weapons could never penetrate that shield."
+		name = mzilli_distant_origin_unification.14.c.mil
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "Only by standing together can our race hope to survive."
+		name = mzilli_distant_origin_unification.14.a.egal
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Perhaps someday we can rescue the colonists."
+		name = mzilli_distant_origin_unification.14.b.egal
+		trigger = {
+			event_target:mzilli_lost_colony_active = { OR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "Peace is the only way to survive in the long run."
+		name = mzilli_distant_origin_unification.14.a.pac
+		trigger = {
+			event_target:mzilli_lost_colony_active = { NOR = { is_planet_class = pc_shrouded is_planet_class = pc_shielded } }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "Something terrible happened here..."
+		name = mzilli_distant_origin_unification.14.b.pac
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+	option = { # "I suppose that's one way to end a war..."
+		name = mzilli_distant_origin_unification.14.c.pac
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shielded }
+			OR = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	# Other
+	option = {
+		name = mzilli_distant_origin_unification.5.phobe
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_materialist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+	}
+
+	option = { # "There is something familiar about all this..."
+		name = mzilli_distant_origin_unification.14.psi
+		trigger = {
+			event_target:mzilli_lost_colony_active = { is_planet_class = pc_shrouded }
+			owner_species = {
+				OR = {
+					has_trait = trait_latent_psionic
+					has_trait = trait_psionic
+				}
+			}
+		}
+		add_event_chain_counter = { 
+			event_chain = "vestigal_colony_search" 
+			counter = "vestigal_colonies" 
+			amount = 1 
+		}
+		hidden_effect = { country_event = { id = mzilli_distant_origin_unification.15 } }
+		if = {
+			limit = { exists = event_target:mzilli_distant_origin_science }
+			event_target:mzilli_distant_origin_science = { leader = { add_trait = leader_trait_expertise_psionics } }
+		}
+	}
+}
+
+# Completed colony search, sets up cache
+country_event = {
+	id = mzilli_distant_origin_unification.15
+	title = OK
+	desc = OK
+	hide_window = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_completed_event_chain_counter = {
+					event_chain = "vestigal_colony_search" 
+					counter = "vestigal_colonies" 
+				}
+			}
+			random_country = {
+				limit = { any_owned_pop = { species = { has_species_flag = mzilli_fallen } } }
+				random_owned_pop = {
+					limit = { species = { has_species_flag = mzilli_fallen } }
+					species = { save_global_event_target_as = mzilli_fallen }
+				}
+			}
+			if = {
+				limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe } }
+				if = {
+					limit = { any_system = { any_system_planet = { has_planet_flag = mzilli_cache_placeholder } } }
+					random_planet = {
+						limit = { has_planet_flag = mzilli_cache_placeholder }
+						set_planet_flag = mzilli_ancient_cache
+						save_global_event_target_as = mzilli_ancient_cache
+					}
+				}
+				else = {
+					random_planet = {
+						limit = {
+							solar_system = {
+								is_rim_system = yes
+								NOR = {
+									any_system_planet = { has_planet_flag = vestigal_empire }
+									any_system_planet = { is_planet = event_target:vestigal_homeworld }
+								}
+							}
+						}
+						set_planet_flag = mzilli_ancient_cache
+						save_global_event_target_as = mzilli_ancient_cache
+					}
+				}
+			}
+			else_if = {
+				limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist } }
+				random_planet = {
+					limit = {
+						has_planet_flag = vestigal_colony
+						NOR = {
+							is_planet_class = pc_shrouded
+							is_planet_class = pc_shielded
+							is_planet = event_target:mzilli_lost_colony_active
+						}
+					}
+					set_planet_flag = mzilli_ancient_cache
+					save_global_event_target_as = mzilli_ancient_cache
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:mzilli_ancient_empire = {
+						OR = {
+							has_country_flag = ethic_fanatic_materialist
+							has_country_flag = ethic_fanatic_xenophile
+						}
+					}
+				}
+				if = {
+					limit = { exists = event_target:mzilli_fallen }
+					event_target:mzilli_fallen = {
+						home_planet = {
+							set_planet_flag = mzilli_ancient_cache
+							save_global_event_target_as = mzilli_ancient_cache
+						}
+					}
+				}
+				else = {
+					random_planet = {
+						limit = { has_planet_flag = mzilli_nuked }
+						set_planet_flag = mzilli_ancient_cache
+						save_global_event_target_as = mzilli_ancient_cache
+					}
+				}
+			}
+			country_event = { id = mzilli_distant_origin_unification.16 days = 2 }
+		}
+	}
+}
+
+# Begins cache search
+country_event = {
+	id = mzilli_distant_origin_unification.16
+	title = mzilli_distant_origin_unification.16.name
+
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe }
+			exists = event_target:mzilli_fallen
+		}
+		text = mzilli_distant_origin_unification.16.phobe.a.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe }
+			NOT = { exists = event_target:mzilli_fallen }
+		}
+		text = mzilli_distant_origin_unification.16.phobe.b.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophile }
+			exists = event_target:mzilli_fallen
+		}
+		text = mzilli_distant_origin_unification.16.phile.a.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophile }
+			NOT = { exists = event_target:mzilli_fallen }
+		}
+		text = mzilli_distant_origin_unification.16.phile.b.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist }
+			exists = event_target:mzilli_fallen
+		}
+		text = mzilli_distant_origin_unification.16.spir.a.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist }
+			NOT = { exists = event_target:mzilli_fallen }
+		}
+		text = mzilli_distant_origin_unification.16.spir.b.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_materialist }
+			exists = event_target:mzilli_fallen
+		}
+		text = mzilli_distant_origin_unification.16.mat.a.desc
+	}
+	desc = {
+		trigger = {
+			event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_materialist }
+			NOT = { exists = event_target:mzilli_fallen }
+		}
+		text = mzilli_distant_origin_unification.16.mat.b.desc
+	}
+
+	picture = {
+		trigger = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe } }
+		picture = GFX_evt_star_chart
+	}
+	picture = {
+		trigger = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophile } }
+		picture = GFX_evt_ruined_system
+	}
+	picture = {
+		trigger = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist } }
+		picture = GFX_evt_derelict_interior
+	}
+	picture = {
+		trigger = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_materialist } }
+		picture = GFX_evt_automated_dreadnought
+	}
+
+	show_sound = event_radio_chatter
+	location = event_target:mzilli_ancient_cache
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+
+	}
+
+	option = {
+		name = "precursor.100.a"
+		end_event_chain = "vestigal_colony_search"
+		if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophobe } }
+			enable_special_project = {
+				name  = MZILLI_ANCIENT_CACHE_PHOBE
+				location = event_target:mzilli_ancient_cache
+				owner = this
+			}
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_xenophile } }
+			enable_special_project = {
+				name  = MZILLI_ANCIENT_CACHE_PHILE
+				location = event_target:mzilli_ancient_cache
+				owner = this
+			}
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_spiritualist } }
+			enable_special_project = {
+				name  = MZILLI_ANCIENT_CACHE_SPIR
+				location = event_target:mzilli_ancient_cache
+				owner = this
+			}
+		}
+		else_if = {
+			limit = { event_target:mzilli_ancient_empire = { has_country_flag = ethic_fanatic_materialist } }
+			enable_special_project = {
+				name  = MZILLI_ANCIENT_CACHE_MAT
+				location = event_target:mzilli_ancient_cache
+				owner = this
+			}
+		}
+	}
+}
+
+# Xenophobic ancestors solved
+ship_event = {
+	id = mzilli_distant_origin_unification.17
+	title = "PROJECT_COMPLETE"
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_fallen
+			event_target:mzilli_ancient_cache = { has_planet_flag = mzilli_cache_placeholder }
+		}
+		text = mzilli_distant_origin_unification.17.a.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_fallen }
+			event_target:mzilli_ancient_cache = { has_planet_flag = mzilli_cache_placeholder }
+		}
+		text = mzilli_distant_origin_unification.17.b.desc
+	}
+	desc = {
+		trigger = {
+			exists = event_target:mzilli_fallen
+			event_target:mzilli_ancient_cache = { NOT = { has_planet_flag = mzilli_cache_placeholder } }
+		}
+		text = mzilli_distant_origin_unification.17.c.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { exists = event_target:mzilli_fallen }
+			event_target:mzilli_ancient_cache = { NOT = { has_planet_flag = mzilli_cache_placeholder } }
+		}
+		text = mzilli_distant_origin_unification.17.d.desc
+	}
+	picture = GFX_evt_gray_gooed_planet
+	show_sound = event_laboratory_sound
+	location = event_target:mzilli_ancient_cache
+	
+	is_triggered_only = yes
+
+	option = {
+		name = mzilli_distant_origin_unification.8.spir
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		owner = { add_unification_rewards_spir = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.mat
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mat = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.17.egal
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_egal = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.17.auth
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_auth = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.mil
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mil = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.pac
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+		owner = { add_unification_rewards_pac = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phobe
+		trigger = {
+			owner = {
+				NOT = { has_civic = civic_inwards_perfection }
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		owner = { add_unification_rewards_phobe = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phobe.inwards
+		trigger = {
+			owner = { has_civic = civic_inwards_perfection }
+		}
+		owner = { add_unification_rewards_phobe = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.phile
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+		owner = { add_unification_rewards_phile = yes }
+	}
+	option = {
+		name = FASCINATING
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_other = yes }
+	}
+}
+
+# Xenophilic ancestors solved
+ship_event = {
+	id = mzilli_distant_origin_unification.18
+	title = "PROJECT_COMPLETE"
+	desc = {
+		trigger = { exists = event_target:mzilli_fallen }
+		text = mzilli_distant_origin_unification.18.a.desc
+	}
+	desc = {
+		trigger = { NOT = { exists = event_target:mzilli_fallen } }
+		text = mzilli_distant_origin_unification.18.b.desc
+	}
+	picture = GFX_evt_ground_combat
+	show_sound = event_laboratory_sound
+	location = event_target:mzilli_ancient_cache
+	
+	is_triggered_only = yes
+
+	option = {
+		name = mzilli_distant_origin_unification.18.spir
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		owner = { add_unification_rewards_spir = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.mat
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mat = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.egal
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_egal = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.9.auth
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_auth = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.mil
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mil = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.pac
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+		owner = { add_unification_rewards_pac = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.phobe
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		owner = { add_unification_rewards_phobe = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.phile
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+		owner = { add_unification_rewards_phile = yes }
+	}
+	option = {
+		name = FASCINATING
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_other = yes }
+	}
+}
+
+# Spiritualistic ancestors solved
+ship_event = {
+	id = mzilli_distant_origin_unification.19
+	title = "PROJECT_COMPLETE"
+	desc = {
+		trigger = { exists = event_target:mzilli_fallen }
+		text = mzilli_distant_origin_unification.19.a.desc
+	}
+	desc = {
+		trigger = { NOT = { exists = event_target:mzilli_fallen } }
+		text = mzilli_distant_origin_unification.19.b.desc
+	}
+	picture = GFX_evt_ancient_alien_temple
+	show_sound = event_laboratory_sound
+	location = event_target:mzilli_ancient_cache
+	
+	is_triggered_only = yes
+
+	option = {
+		name = mzilli_distant_origin_unification.19.spir
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		owner = { add_unification_rewards_spir = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.mat
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mat = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.egal
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_egal = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.auth
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_auth = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.19.mil
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mil = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.18.pac
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+		owner = { add_unification_rewards_pac = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.phobe
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		owner = { add_unification_rewards_phobe = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.19.phile
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+		owner = { add_unification_rewards_phile = yes }
+	}
+	option = {
+		name = FASCINATING
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_other = yes }
+	}
+}
+
+# Materialistic ancestors solved
+ship_event = {
+	id = mzilli_distant_origin_unification.20
+	title = "PROJECT_COMPLETE"
+	desc = {
+		trigger = { exists = event_target:mzilli_fallen }
+		text = mzilli_distant_origin_unification.20.a.desc
+	}
+	desc = {
+		trigger = { NOT = { exists = event_target:mzilli_fallen } }
+		text = mzilli_distant_origin_unification.20.b.desc
+	}
+	picture = GFX_evt_ruined_system
+	show_sound = event_laboratory_sound
+	location = event_target:mzilli_ancient_cache
+	
+	is_triggered_only = yes
+
+	option = {
+		name = mzilli_distant_origin_unification.11.spir
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+		}
+		owner = { add_unification_rewards_spir = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.mat
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mat = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.egal
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_egal = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.10.auth
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+				}
+			}
+		}
+		owner = { add_unification_rewards_auth = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.mil
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+		}
+		owner = { add_unification_rewards_mil = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.pac
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+		}
+		owner = { add_unification_rewards_pac = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.phobe
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		owner = { add_unification_rewards_phobe = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.11.phile
+		trigger = {
+			owner = {
+				OR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+		}
+		owner = { add_unification_rewards_phile = yes }
+	}
+	option = {
+		name = mzilli_distant_origin_unification.8.other
+		trigger = {
+			owner = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_militarist
+					has_ethic = ethic_fanatic_militarist
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+					has_ethic = ethic_spiritualist
+					has_ethic = ethic_fanatic_spiritualist
+					has_ethic = ethic_materialist
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+		}
+		owner = { add_unification_rewards_other = yes }
+	}
+}
+
+# If all planets surveyed but something bugged out
+event = {
+	id = mzilli_distant_origin_unification.21
+	title = OK
+	desc = OK
+	hide_window = yes
+
+	trigger = {
+		any_system = {
+			any_system_planet = {
+				OR = {
+					is_point_of_interest = {
+						id = lost_colony_poi.1
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.2
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.3
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.4
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.5
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.6
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.7
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.8
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.9
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.10
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+				}
+				is_surveyed = { who = event_target:vestigal_empire status = yes }
+			}
+		}
+	}
+
+	immediate = {
+		random_planet = {
+			limit = {
+				OR = {
+					is_point_of_interest = {
+						id = lost_colony_poi.1
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.2
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.3
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.4
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.5
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.6
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.7
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.8
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.9
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+					is_point_of_interest = {
+						id = lost_colony_poi.10
+						event_chain = vestigal_colony_search
+						owner = event_target:vestigal_empire
+					}
+				}
+				is_surveyed = { who = event_target:vestigal_empire status = yes }
+			}
+			clear_global_event_target = mzilli_distant_origin_science
+			save_global_event_target_as = mzilli_lost_colony_active
+			if = { # Primitive lost colony
+				limit = {
+					has_owner = yes
+					owner = { is_country_type = primitive }
+				}
+				event_target:vestigal_empire = { country_event = { id = mzilli_distant_origin_unification.13 days = 1 } }
+			}
+			else_if = {
+				limit = {
+					has_owner = yes
+					owner = { has_country_flag = vestigal_colony_owner }
+				}
+				owner = { save_event_target_as = lost_colony }
+				if = {
+					limit = { owner = { has_ethic = ethic_gestalt_consciousness } }
+					event_target:vestigal_empire = {
+						establish_communications = event_target:lost_colony
+						country_event = { id = mzilli_distant_origin_unification.6 days = 1 }
+					}
+				}
+				else = {
+					event_target:vestigal_empire = {
+						establish_communications = event_target:lost_colony
+						country_event = { id = mzilli_distant_origin_unification.5 days = 1 }
+					}
+				}
+			}
+			else = { # Dead lost colony
+				event_target:vestigal_empire = { country_event = { id = mzilli_distant_origin_unification.14 } }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = mzilli_distant_origin_unification.22
+	title = mzilli_distant_origin_unification.22.name
+	desc = mzilli_distant_origin_unification.22.desc
+	is_triggered_only = yes
+	picture = GFX_evt_barren_dig_site
+	
+	option = { name = OK }
+}

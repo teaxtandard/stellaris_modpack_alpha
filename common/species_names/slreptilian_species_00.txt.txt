@@ -1,0 +1,9 @@
+SLRPTLN  = {
+	slreptilian= {
+		name = Reptilian
+		plural = Reptilians
+		home_planet = "Terra"
+		home_system = "Solar System"
+		name_list = "HUM3"
+	}
+}

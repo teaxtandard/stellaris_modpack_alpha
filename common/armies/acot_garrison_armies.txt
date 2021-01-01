@@ -1,0 +1,344 @@
+acot_garrison_army = {
+	defensive = yes
+	damage = 1.85
+	health = 2.00
+	morale = 1.25
+	morale_damage = 2.0
+	collateral_damage = 0.50
+	icon_frame = 5
+	war_exhaustion = 0.50
+
+	resources = {
+		category = armies
+		cost = {
+		}
+		upkeep = {
+			energy = 2.0
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_garrison_army_droid = {
+	defensive = yes
+	damage = 1.60
+	health = 2.25
+	has_morale = no
+	morale_damage = 1.50
+	collateral_damage = 0.50
+	icon_frame = 11
+	war_exhaustion = 0.50
+
+	resources = {
+		category = armies
+		cost = {
+		}
+		upkeep = {
+			energy = 2.0
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_garrison_army_giga = {
+	defensive = yes
+	damage = 10.00
+	health = 7.50
+	has_morale = no
+	morale_damage = 5.50
+	collateral_damage = 2.50
+	icon_frame = 11
+	war_exhaustion = 2.50
+	has_species = no
+
+	resources = {
+		category = armies
+		cost = {
+		}
+		upkeep = {
+			energy = 50.0
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+############## PHANON VAULT ARMY #########################
+
+##### BIO ARMY #####
+
+acot_phanon_defense_soldier = {
+	defensive = yes
+	damage = 4.00
+	health = 12.00
+	morale = 6.00
+	morale_damage = 4.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 5
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_elite = {
+	defensive = yes
+	damage = 8.00
+	health = 13
+	morale = 8.00
+	morale_damage = 4.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 6
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_psi = {
+	defensive = yes
+	damage = 10.00
+	health = 5
+	morale = 40.00
+	morale_damage = 12.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 5
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_commander = {
+	defensive = yes
+	damage = 24.00
+	health = 24.00
+	morale = 40.00
+	morale_damage = 4.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 3
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+##### MACHINE ARMY #####
+
+acot_phanon_defense_droid = {
+	defensive = yes
+	damage = 6.00
+	health = 6.00
+	has_morale = no
+	morale_damage = 1.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 11
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_droid_commando = {
+	defensive = yes
+	damage = 10.00
+	health = 10.00
+	has_morale = no
+	morale_damage = 1.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 11
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_droid_shielder = {
+	defensive = yes
+	damage = 3
+	health = 30.00
+	has_morale = no
+	morale_damage = 0.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 12
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_droid_commander = {
+	defensive = yes
+	damage = 18.00
+	health = 32.00
+	has_morale = no
+	morale_damage = 1.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 3
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+##### EXTRA ARMY #####
+
+acot_phanon_defense_attack_dog = {
+	defensive = yes
+	damage = 16.00
+	health = 3
+	morale = 4.00
+	morale_damage = 2.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_turret = {
+	defensive = yes
+	damage = 3.00
+	health = 20.00
+	has_morale = no
+	morale_damage = 0.25
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 0
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_trap = {
+	defensive = yes
+	damage = 40.00
+	health = 0.20
+	has_morale = no
+	morale_damage = 1.0
+	collateral_damage = 0.00
+	has_species = no
+	icon_frame = 0
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_phanon_defense_operative = {
+	defensive = yes
+	damage = 65.00
+	health = 85.00
+	has_morale = no
+	morale_damage = 10.0
+	collateral_damage = 0.0
+	has_species = no
+	icon_frame = 9
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}

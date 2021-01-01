@@ -1,0 +1,2556 @@
+create_fe_home_citadel = {
+	create_starbase = {
+		size = "starbase_citadel"
+
+		module = "shipyard"
+		module = "shipyard"
+		module = "shipyard"			
+		module = "shipyard"
+		module = "shipyard"
+		module = "shipyard"		
+
+		building = "command_center"
+		building = "target_uplink_computer"
+		building = "colossus_yards"
+		building = "titan_yards"
+		
+		effect = {
+			while = {
+				count = 10
+				create_fallen_empire_platform = yes
+			}	
+		}
+	}
+}
+
+create_fe_citadel = {
+	create_starbase = {
+		size = "starbase_citadel"
+
+		module = "shipyard"
+		module = "shipyard"
+		module = "anchorage"
+		module = "hangar_bay"
+		module = "gun_battery"
+		module = "gun_battery"
+
+		building = "crew_quarters"
+		building = "command_center"
+		building = "target_uplink_computer"
+		building = "listening_post"
+		
+		effect = {	
+			while = {
+				count = 5
+				create_fallen_empire_platform = yes
+			}	
+		}			
+	}
+}
+
+create_fe_outpost = {
+	create_starbase = {
+		size = "starbase_starhold"
+
+		module = "shipyard"
+		module = "shipyard"
+		module = "gun_battery"
+		module = "gun_battery"
+
+		building = "target_uplink_computer"
+		building = "command_center"
+		effect = {
+			while = {
+				count = 3
+				create_fallen_empire_platform = yes
+			}	
+		}		
+	}
+}
+
+create_fallen_empire_sentinel = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Anaconda"
+			graphical_culture = fallen_machine_empire_01
+		}						
+	}					
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Remover"
+			graphical_culture = fallen_empire_02
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Imperius"
+			graphical_culture = fallen_empire_01
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Devolutionizer"
+			graphical_culture = fallen_empire_04
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Vigilante"
+			graphical_culture = fallen_empire_03
+		}						
+	}
+}
+
+create_fallen_empire_starting_navy = {
+	create_fallen_empire_fleet = yes
+	create_fallen_empire_fleet = yes
+	create_fallen_empire_fleet = yes
+	random = {
+		chance = 20			
+		create_fallen_empire_fleet = yes
+	}
+	if = {
+		limit = { 
+			host_has_dlc = "Apocalypse"
+		}
+		create_fleet = {
+			effect = {
+				set_owner = prev.owner
+				create_fallen_empire_colossus = yes
+				set_location = {
+				target = prev
+				distance = 30
+					angle = random 
+				}					
+			}
+		}		
+	}
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 60
+				angle = random 
+			}				
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 80
+				angle = random 
+			}				
+		}
+	}				
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 100
+				angle = random 
+			}				
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = prev.owner
+			create_fallen_empire_construction_ship = yes
+			set_location = {
+				target = prev
+				distance = 40
+				angle = random 
+			}				
+		}
+	}
+}
+
+create_fallen_empire_fleet = {
+	create_fleet = {
+		settings = {
+			can_change_composition = no
+		}
+		effect = {
+			set_owner = prev.owner
+			while = {
+				count = 10
+				create_fallen_empire_large_ship = yes
+			}
+			while = {
+				count = 25
+				create_fallen_empire_small_ship = yes
+			}
+			create_fallen_empire_titan = yes
+			random_list = {
+				25 = {
+					set_location = {
+						target = prev
+						distance = 30
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 60
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 75
+						angle = random 
+					}				
+				}				
+			}
+		}
+	}					
+}
+
+create_fallen_empire_reinforcements = {
+	create_fleet = {
+		settings = {
+			can_change_composition = no
+		}
+		effect = {
+			set_owner = prev.owner
+			while = {
+				count = 10
+				create_fallen_empire_large_ship = yes
+			}
+			while = {
+				count = 25
+				create_fallen_empire_small_ship = yes
+			}
+			create_fallen_empire_titan = yes
+			random_list = {
+				25 = {
+					set_location = {
+						target = prev
+						distance = 30
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 60
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 75
+						angle = random 
+					}				
+				}				
+			}
+		}
+	}					
+}
+
+
+create_fallen_empire_platform = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sigma"
+			graphical_culture = owner
+		}						
+	}	
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Sigma"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}		
+	#####		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Cloaker"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Cloaker"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	#####		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Faith"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Faith"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	#####	
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Devastator"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Devastator"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	#####	
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Watcher"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted	
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Watcher"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_colossus = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Omega"
+			graphical_culture = owner
+		}						
+	}		
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				has_country_flag = ae_tier_permitted		
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Omega"
+			graphical_culture = owner
+			upgradable = no
+		}						
+	}	
+	###			
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Enforcer"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Enforcer"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Cleanser"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Cleanser"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Reaper"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted			
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Reaper"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Adjuster"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted	
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Adjuster"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###
+}
+
+create_fallen_empire_titan = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Alpha"
+			graphical_culture = owner
+		}						
+	}			
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				has_country_flag = ae_tier_permitted		
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Alpha"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}	
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Savant"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Savant"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###			
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Eternal"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Eternal"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Imperium"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Imperium"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Keeper"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted		
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Keeper"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_large_ship = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Beta"
+			graphical_culture = owner
+		}						
+	}	
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				has_country_flag = ae_tier_permitted	
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Beta"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}	
+	###						
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Scholar"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Scholar"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Avatar"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Avatar"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Supremacy"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Supremacy"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Custodian"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted	
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Custodian"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_small_ship = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Gamma"
+			graphical_culture = owner
+		}						
+	}	
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				has_country_flag = ae_tier_permitted		
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Gamma"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}	
+	###						
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sage"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Sage"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Zealot"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Zealot"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Glory"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted			
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Glory"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Warden"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Warden"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+}
+
+create_fallen_empire_construction_ship = {
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Theta"
+			graphical_culture = owner
+		}						
+	}	
+	if = {
+		limit = {
+			owner = { 
+				has_authority = auth_machine_intelligence
+				has_country_flag = ae_tier_permitted		
+			}			
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Theta"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}			
+	###					
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Librarian"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_materialist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Librarian"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Penitent"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_spiritualist 
+				has_country_flag = ae_tier_permitted
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Penitent"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}				
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Servitor"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophobe
+				has_country_flag = ae_tier_permitted			
+			 }
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Servitor"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+	###		
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				NOT = {
+					has_country_flag = ae_tier_permitted
+				}			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Builder"
+			graphical_culture = owner
+		}						
+	}
+	if = {
+		limit = {
+			owner = { 
+				has_ethic = ethic_fanatic_xenophile
+				has_country_flag = ae_tier_permitted			
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_AE_Builder"
+			upgradable = no
+			graphical_culture = owner
+		}						
+	}
+}
+
+##################################################TECHNO-RAIDERS###########################################
+create_techno_raiders_small = {
+	if = {
+		limit = { 
+			event_target:raiding_hirer_country = {
+				resource_stockpile_compare = {
+					resource = energy
+					value <= 10000
+				}
+			}
+		}
+		while = {
+			count = 24
+			create_ship = {
+				name = random
+				design = "NAME_Outrider"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 14
+			create_ship = {
+				name = random
+				design = "NAME_Lancer"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 4
+			create_ship = {
+				name = random
+				design = "NAME_Void_Champion"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 1
+			create_ship = {
+				name = random
+				design = "NAME_Ancestral_Glory"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+	}
+	if = {
+		limit = { 
+			event_target:raiding_hirer_country = {
+				resource_stockpile_compare = {
+					resource = energy
+					value > 10000
+				}
+			}
+		}
+		while = {
+			count = 30
+			create_ship = {
+				name = random
+				design = "NAME_Outrider"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 20
+			create_ship = {
+				name = random
+				design = "NAME_Lancer"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 10
+			create_ship = {
+				name = random
+				design = "NAME_Void_Champion"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+		while = {
+			count = 5
+			create_ship = {
+				name = random
+				design = "NAME_Ancestral_Glory"
+				prefix = no
+				graphical_culture = "pirate_01"
+			}
+		}
+	}
+}
+
+
+############################## WAR IN HELLLL SCRIPTS #########################
+
+create_fallen_empire_wih_fleet = {
+	create_fleet = {
+		settings = {
+			can_change_composition = no
+		}
+		effect = {
+			set_owner = prev.owner
+			while = {
+				count = 25
+				create_fallen_empire_large_ship = yes
+			}
+			while = {
+				count = 15
+				create_fallen_empire_small_ship = yes
+			}
+			create_fallen_empire_titan = yes
+			random_list = {
+				25 = {
+					set_location = {
+						target = prev
+						distance = 30
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 45
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 60
+						angle = random 
+					}				
+				}
+				25 = {
+					set_location = {
+						target = prev
+						distance = 75
+						angle = random 
+					}				
+				}				
+			}
+		}
+	}			
+}
+
+
+######################### PHANON SCRIPT EFFECT ###########################################
+### CAN CHECK LIST AT TEST EVENT
+phanon_category_a_tech_gift = {
+	random_list = {
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_arc_emitter_pe
+			}
+			add_research_option = tech_arc_emitter_pe
+			add_tech_progress = {
+				tech = tech_arc_emitter_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_disruptor_pe
+				}
+			}
+			add_research_option = tech_disruptor_pe  
+			add_tech_progress = {
+				tech = tech_disruptor_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_energy_core_pe
+			}
+			add_research_option = tech_energy_core_pe
+			add_tech_progress = {
+				tech = tech_energy_core_pe
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_energy_lance_pe
+			}
+			add_research_option = tech_energy_lance_pe 
+			add_tech_progress = {
+				tech = tech_energy_lance_pe
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_fighter_core_pe
+			}
+			add_research_option = tech_fighter_core_pe    
+			add_tech_progress = {
+				tech = tech_fighter_core_pe
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_laser_pe
+			}
+			add_research_option = tech_laser_pe  
+			add_tech_progress = {
+				tech = tech_laser_pe
+				progress = 0.1
+			}              	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_perdition_beam_pe
+			}
+			add_research_option = tech_perdition_beam_pe  
+			add_tech_progress = {
+				tech = tech_perdition_beam_pe
+				progress = 0.1
+			}        
+		 
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_phanon_attack_dog
+			}
+			add_research_option = tech_phanon_attack_dog  
+			add_tech_progress = {
+				tech = tech_phanon_attack_dog
+				progress = 0.1
+			}                 	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_plasma_pe
+			}
+			add_research_option = tech_plasma_pe
+			add_tech_progress = {
+				tech = tech_plasma_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_point_defense_pe
+				}
+			}
+			add_research_option = tech_point_defense_pe  
+			add_tech_progress = {
+				tech = tech_point_defense_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_strike_craft_bomber_pe
+			}
+			add_research_option = tech_strike_craft_bomber_pe
+			add_tech_progress = {
+				tech = tech_strike_craft_bomber_pe
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_strike_craft_fighter_pe
+			}
+			add_research_option = tech_strike_craft_fighter_pe 
+			add_tech_progress = {
+				tech = tech_strike_craft_fighter_pe
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_strike_craft_gunship_pe
+			}
+			add_research_option = tech_strike_craft_gunship_pe    
+			add_tech_progress = {
+				tech = tech_strike_craft_gunship_pe
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_super_detablizer_pe
+			}
+			add_research_option = tech_super_detablizer_pe  
+			add_tech_progress = {
+				tech = tech_super_detablizer_pe
+				progress = 0.1
+			}              	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_titan_emitter_pe
+			}
+			add_research_option = tech_titan_emitter_pe  
+			add_tech_progress = {
+				tech = tech_titan_emitter_pe
+				progress = 0.1
+			}        
+		 
+		}
+		### IN CASE NO MORE  THINGS TO GET
+		0 = { 
+			modifier = {
+				add = 10
+				has_tech_option = tech_arc_emitter_pe
+				has_tech_option = tech_disruptor_pe
+				has_tech_option = tech_energy_core_pe
+				has_tech_option = tech_energy_lance_pe
+				has_tech_option = tech_fighter_core_pe
+				has_tech_option = tech_laser_pe
+				has_tech_option = tech_perdition_beam_pe
+				has_tech_option = tech_phanon_attack_dog
+				has_tech_option = tech_plasma_pe
+				has_tech_option = tech_point_defense_pe
+				has_tech_option = tech_strike_craft_bomber_pe
+				has_tech_option = tech_strike_craft_fighter_pe
+				has_tech_option = tech_strike_craft_gunship_pe
+				has_tech_option = tech_super_detablizer_pe
+				has_tech_option = tech_titan_emitter_pe
+			}
+			random_list = {
+				50 = {
+					add_resource = {
+						energy = 500000
+						minerals = 500000
+						alloys = 500000
+					}
+				}
+				50 = {
+					add_resource = {
+						food = 500000
+						consumer_goods = 500000
+						unity = 500000
+						society_research = 500000
+						engineering_research = 500000
+						physics_research = 500000
+					}					
+				}
+			} 
+		}
+	} 
+}
+
+phanon_category_b_tech_gift = {
+	random_list = {
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_autocannon_pe
+			}
+			add_research_option = tech_autocannon_pe
+			add_tech_progress = {
+				tech = tech_autocannon_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_barrage_missile_pe
+				}
+			}
+			add_research_option = tech_barrage_missile_pe  
+			add_tech_progress = {
+				tech = tech_barrage_missile_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_dakka_autocannon_pe
+			}
+			add_research_option = tech_dakka_autocannon_pe
+			add_tech_progress = {
+				tech = tech_dakka_autocannon_pe
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_flak_batteries_pe
+			}
+			add_research_option = tech_flak_batteries_pe 
+			add_tech_progress = {
+				tech = tech_flak_batteries_pe
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_kinetic_artillery_pe
+			}
+			add_research_option = tech_kinetic_artillery_pe    
+			add_tech_progress = {
+				tech = tech_kinetic_artillery_pe
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_kinetic_core_pe
+			}
+			add_research_option = tech_kinetic_core_pe  
+			add_tech_progress = {
+				tech = tech_kinetic_core_pe
+				progress = 0.1
+			}              	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_mass_accelerator_pe
+			}
+			add_research_option = tech_mass_accelerator_pe  
+			add_tech_progress = {
+				tech = tech_mass_accelerator_pe
+				progress = 0.1
+			}        
+		 
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_mass_driver_pe
+			}
+			add_research_option = tech_mass_driver_pe  
+			add_tech_progress = {
+				tech = tech_mass_driver_pe
+				progress = 0.1
+			}                 	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_missile_core_pe
+			}
+			add_research_option = tech_missile_core_pe
+			add_tech_progress = {
+				tech = tech_missile_core_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_missile_nuke_pe
+				}
+			}
+			add_research_option = tech_missile_nuke_pe  
+			add_tech_progress = {
+				tech = tech_missile_nuke_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_missile_pe
+			}
+			add_research_option = tech_missile_pe
+			add_tech_progress = {
+				tech = tech_missile_pe
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_phanon_army
+			}
+			add_research_option = tech_phanon_army 
+			add_tech_progress = {
+				tech = tech_phanon_army
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_titan_accelerator_pe
+			}
+			add_research_option = tech_titan_accelerator_pe    
+			add_tech_progress = {
+				tech = tech_titan_accelerator_pe
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_xl_missile_pe
+			}
+			add_research_option = tech_xl_missile_pe  
+			add_tech_progress = {
+				tech = tech_xl_missile_pe
+				progress = 0.1
+			}              	   
+		}
+		### IN CASE NO MORE  THINGS TO GET
+		0 = { 
+			modifier = {
+				add = 10
+				has_tech_option = tech_autocannon_pe
+				has_tech_option = tech_barrage_missile_pe
+				has_tech_option = tech_dakka_autocannon_pe
+				has_tech_option = tech_flak_batteries_pe
+				has_tech_option = tech_kinetic_artillery_pe
+				has_tech_option = tech_kinetic_core_pe
+				has_tech_option = tech_mass_accelerator_pe
+				has_tech_option = tech_mass_driver_pe
+				has_tech_option = tech_missile_core_pe
+				has_tech_option = tech_missile_nuke_pe
+				has_tech_option = tech_missile_pe
+				has_tech_option = tech_phanon_army
+				has_tech_option = tech_titan_accelerator_pe
+				has_tech_option = tech_xl_missile_pe
+			}
+			random_list = {
+				50 = {
+					add_resource = {
+						energy = 500000
+						minerals = 500000
+						alloys = 500000
+					}
+				}
+				50 = {
+					add_resource = {
+						food = 500000
+						consumer_goods = 500000
+						unity = 500000
+						society_research = 500000
+						engineering_research = 500000
+						physics_research = 500000
+					}					
+				}
+			} 
+		}
+	}
+}
+
+phanon_category_c_tech_gift = {
+	random_list = {
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_shield_supercharger_pe
+			}
+			add_research_option = tech_darkmatter_shield_supercharger_pe
+			add_tech_progress = {
+				tech = tech_darkmatter_shield_supercharger_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_dark_matter_shield_pe
+				}
+			}
+			add_research_option = tech_dark_matter_shield_pe  
+			add_tech_progress = {
+				tech = tech_dark_matter_shield_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_armor_hull_pe
+			}
+			add_research_option = tech_armor_hull_pe
+			add_tech_progress = {
+				tech = tech_armor_hull_pe
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_armor_pe
+			}
+			add_research_option = tech_armor_pe 
+			add_tech_progress = {
+				tech = tech_armor_pe
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_computer_phi
+			}
+			add_research_option = tech_computer_phi    
+			add_tech_progress = {
+				tech = tech_computer_phi
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_afterburners_pe
+			}
+			add_research_option = tech_darkmatter_afterburners_pe  
+			add_tech_progress = {
+				tech = tech_darkmatter_afterburners_pe
+				progress = 0.1
+			}              	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_aura_energy_drainer_pe
+			}
+			add_research_option = tech_darkmatter_aura_energy_drainer_pe  
+			add_tech_progress = {
+				tech = tech_darkmatter_aura_energy_drainer_pe
+				progress = 0.1
+			}        
+		 
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_hyper_jump_drive_pe
+			}
+			add_research_option = tech_darkmatter_hyper_jump_drive_pe  
+			add_tech_progress = {
+				tech = tech_darkmatter_hyper_jump_drive_pe
+				progress = 0.1
+			}                 	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_reactive_drone_pe
+			}
+			add_research_option = tech_darkmatter_reactive_drone_pe
+			add_tech_progress = {
+				tech = tech_darkmatter_reactive_drone_pe
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_darkmatter_reactor_booster_pe
+				}
+			}
+			add_research_option = tech_darkmatter_reactor_booster_pe  
+			add_tech_progress = {
+				tech = tech_darkmatter_reactor_booster_pe
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_pe_thruster
+			}
+			add_research_option = tech_pe_thruster
+			add_tech_progress = {
+				tech = tech_pe_thruster
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_darkmatter_star_charter_pe
+			}
+			add_research_option = tech_darkmatter_star_charter_pe 
+			add_tech_progress = {
+				tech = tech_darkmatter_star_charter_pe
+				progress = 0.1
+			}            	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_enigmatic_drive_pe
+			}
+			add_research_option = tech_enigmatic_drive_pe    
+			add_tech_progress = {
+				tech = tech_enigmatic_drive_pe
+				progress = 0.1
+			}           	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_sensor_pe
+			}
+			add_research_option = tech_sensor_pe  
+			add_tech_progress = {
+				tech = tech_sensor_pe
+				progress = 0.1
+			}              	   
+		}
+		### IN CASE NO MORE  THINGS TO GET
+		0 = { 
+			modifier = {
+				add = 10
+				has_tech_option = tech_darkmatter_afterburners_pe
+				has_tech_option = tech_darkmatter_aura_energy_drainer_pe
+				has_tech_option = tech_darkmatter_hyper_jump_drive_pe
+				has_tech_option = tech_darkmatter_reactive_drone_pe
+				has_tech_option = tech_darkmatter_reactor_booster_pe
+				has_tech_option = tech_pe_thruster
+				has_tech_option = tech_darkmatter_star_charter_pe
+				has_tech_option = tech_enigmatic_drive_pe
+				has_tech_option = tech_sensor_pe
+			}
+			random_list = {
+				50 = {
+					add_resource = {
+						energy = 500000
+						minerals = 500000
+						alloys = 500000
+					}
+				}
+				50 = {
+					add_resource = {
+						food = 500000
+						consumer_goods = 500000
+						unity = 500000
+						society_research = 500000
+						engineering_research = 500000
+						physics_research = 500000
+					}					
+				}
+			} 
+		}
+	}
+}
+
+phanon_category_d_tech_gift = {
+	random_list = {
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_phanon_operative
+			}
+			add_research_option = tech_phanon_operative
+			add_tech_progress = {
+				tech = tech_phanon_operative
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_pmc_decimator_beam
+				}
+			}
+			add_research_option = tech_pmc_decimator_beam  
+			add_tech_progress = {
+				tech = tech_pmc_decimator_beam
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_pmc_yamato_cannon
+			}
+			add_research_option = tech_pmc_yamato_cannon
+			add_tech_progress = {
+				tech = tech_pmc_yamato_cannon
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_precursor_phanon_design
+			}
+			add_research_option = tech_precursor_phanon_design
+			add_tech_progress = {
+				tech = tech_precursor_phanon_design
+				progress = 0.1
+			}                	   
+		}
+
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_phanon_fighter
+			}
+			add_research_option = tech_phanon_fighter
+			add_tech_progress = {
+				tech = tech_phanon_fighter
+				progress = 0.1
+			}        	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_technology = tech_phanon_cruiser
+			}
+			add_research_option = tech_phanon_cruiser  
+			add_tech_progress = {
+				tech = tech_phanon_cruiser
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_phanon_bb
+			}
+			add_research_option = tech_phanon_bb
+			add_tech_progress = {
+				tech = tech_phanon_bb
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_phanon_titan
+			}
+			add_research_option = tech_phanon_titan
+			add_tech_progress = {
+				tech = tech_phanon_titan
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				OR = {
+					has_technology = tech_phanon_mothership
+				}
+			}
+			add_research_option = tech_phanon_mothership  
+			add_tech_progress = {
+				tech = tech_phanon_mothership
+				progress = 0.1
+			}          
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_phanon_plat_m
+			}
+			add_research_option = tech_phanon_plat_m
+			add_tech_progress = {
+				tech = tech_phanon_plat_m
+				progress = 0.1
+			}                	   
+		}
+		10 = { 
+			modifier = {
+				factor = 0
+				has_tech_option = tech_phanon_plat_l
+			}
+			add_research_option = tech_phanon_plat_l
+			add_tech_progress = {
+				tech = tech_phanon_plat_l
+				progress = 0.1
+			}                	   
+		}
+		### IN CASE NO MORE  THINGS TO GET
+		0 = { 
+			modifier = {
+				add = 10
+				has_tech_option = tech_precursor_phanon_design
+				has_tech_option = tech_pmc_yamato_cannon
+				has_tech_option = tech_pmc_decimator_beam
+				has_tech_option = tech_phanon_operative
+				has_tech_option = tech_phanon_fighter
+				has_tech_option = tech_phanon_cruiser
+				has_tech_option = tech_phanon_bb
+				has_tech_option = tech_phanon_titan
+				has_tech_option = tech_phanon_mothership
+				has_tech_option = tech_phanon_plat_m
+				has_tech_option = tech_phanon_plat_l
+			}
+			add_resource = {
+				energy = 500000
+				minerals = 500000
+				alloys = 500000
+				food = 500000
+				consumer_goods = 500000
+				unity = 500000
+				society_research = 500000
+				engineering_research = 500000
+				physics_research = 500000
+			}
+			IF = {
+				limit = {
+					has_technology = tech_dark_matter_power_core
+				}
+				add_resource = {
+					sr_dark_matter = 50000
+					acot_sr_dark_energy = 50000
+				}				
+			}
+			IF = {
+				limit = {
+					has_technology = tech_stellarite_reactor
+				}
+				add_resource = {
+					acot_sr_stellarite = 50000
+				}				
+			}
+			IF = {
+				limit = {
+					has_technology = tech_lightmatter_reactor
+				}
+				add_resource = {
+					acot_sr_light_matter = 5000
+				}
+			}
+		}
+	}
+}
+
+
+############################
+
+create_fe_rebel_science_ship = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		 }
+		create_ship = {
+			name = random
+			design = "NAME_Educator"
+			graphical_culture = "fallen_empire_02"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		 }
+		create_ship = {
+			name = random
+			design = "NAME_Chaplain"
+			graphical_culture = "fallen_empire_01"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		 }
+		create_ship = {
+			name = random
+			design = "NAME_Explorer"
+			graphical_culture = "fallen_empire_03"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		 }
+		create_ship = {
+			name = random
+			design = "NAME_Pathfinder"
+			graphical_culture = "fallen_empire_04"
+		}
+	}
+}
+
+create_fe_rebel_constructor_ship = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		 }
+		create_ship = {
+			name = "Ancient Fabricator Ship"
+			design = "NAME_Librarian"
+			graphical_culture = "fallen_empire_02"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		 }
+		create_ship = {
+			name = "Ancient Fabricator Ship"
+			design = "NAME_Penitent"
+			graphical_culture = "fallen_empire_01"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		 }
+		create_ship = {
+			name = "Ancient Fabricator Ship"
+			design = "NAME_Servitor"
+			graphical_culture = "fallen_empire_03"
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		 }
+		create_ship = {
+			name = "Ancient Fabricator Ship"
+			design = "NAME_Builder"
+			graphical_culture = "fallen_empire_04"
+		}
+	}
+}
+
+create_fe_rebel_colony_ship = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		 }
+		create_ship = {
+			name = "Ancient Supply Ship"
+			design = "NAME_Archivist"
+			graphical_culture = "fallen_empire_02"
+			colonizer_species = event_target:fallen_1_species
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		 }
+		create_ship = {
+			name = "Ancient Supply Ship"
+			design = "NAME_Pilgrim"
+			graphical_culture = "fallen_empire_01"
+			colonizer_species = event_target:fallen_2_species
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		 }
+		create_ship = {
+			name = "Ancient Supply Ship"
+			design = "NAME_Destiny"
+			graphical_culture = "fallen_empire_03"
+			colonizer_species = event_target:fallen_3_species
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		 }
+		create_ship = {
+			name = "Ancient Supply Ship"
+			design = "NAME_Seeder"
+			graphical_culture = "fallen_empire_04"
+			colonizer_species = event_target:fallen_4_species
+		}
+	}
+}
+
+create_rebel_fallen_empire_titan = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Savant"
+			graphical_culture = fallen_empire_02
+			effect = { add_modifier = { modifier = acot_ancient_armada_buff } }
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Eternal"
+			graphical_culture = fallen_empire_01
+			effect = { add_modifier = { modifier = acot_ancient_armada_buff } }
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Imperium"
+			graphical_culture = fallen_empire_03
+			effect = { add_modifier = { modifier = acot_ancient_armada_buff } }
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Keeper"
+			graphical_culture = fallen_empire_04
+			effect = { add_modifier = { modifier = acot_ancient_armada_buff } }
+		}
+	}
+}
+
+create_rebel_fallen_empire_large_ship = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Scholar"
+			graphical_culture = fallen_empire_02
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Avatar"
+			graphical_culture = fallen_empire_01
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Supremacy"
+			graphical_culture = fallen_empire_03
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Custodian"
+			graphical_culture = fallen_empire_04
+		}
+	}
+}
+
+create_rebel_fallen_empire_small_ship = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Sage"
+			graphical_culture = fallen_empire_02
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Zealot"
+			graphical_culture = fallen_empire_01
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Glory"
+			graphical_culture = fallen_empire_03
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		}
+		create_ship = {
+			name = random
+			design = "NAME_Warden"
+			graphical_culture = fallen_empire_04
+		}
+	}
+}
+
+create_rebel_fallen_empire_admiral = {
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_1
+			}
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:fallen_1_species
+			name = random
+			skill = 10
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_2
+			}
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:fallen_2_species
+			name = random
+			skill = 10
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_3
+			}
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:fallen_3_species
+			name = random
+			skill = 10
+		}
+	}
+	if = {
+		limit = {
+			event_target:fe_aggressor = {
+				has_country_flag = fallen_empire_4
+			}
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:fallen_4_species
+			name = random
+			skill = 10
+		}
+	}
+}

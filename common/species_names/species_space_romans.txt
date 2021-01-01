@@ -1,0 +1,189 @@
+# Generated species derive their names from here
+
+ANCIENT = {
+    Spartakid = {
+		name = Spartakid
+		plural = Spartakids
+		home_planet = Prometheia
+		home_system = Pandora
+		name_list = "HUMAN3"
+	}
+	
+	Aquilean = {
+		name = Aquilean
+		plural = Aquileans
+		home_planet = Aquilea
+		home_system = Avia
+		name_list = "HUMAN3"
+	}
+	
+	Laconian = {
+		name = Laconian
+		plural = Laconians
+		home_planet = Laconia
+		home_system = Lacedaemon
+		name_list = "HELLENIC"
+	}
+	
+	Ultramarine = {
+		name = Ultramarine
+		plural = Ultramarines
+		home_planet = Macragge
+		home_system = Ultramar
+		name_list = "HUMAN3"
+	}
+	
+	Etrurian = {
+		name = Etrurian
+		plural = Etrurians
+		home_planet = Alba-Longa
+		home_system = Etruria
+		name_list = "HUMAN3"
+	}
+	
+	Rasenna = {
+		name = Rasenna
+		plural = Rasenna
+		home_planet = Hatria
+		home_system = Tirenna
+		name_list = "HUMAN3"
+	}
+	
+	Remani = {
+		name = Remani
+		plural = Remani
+		home_planet = Remus
+		home_system = Latia
+		name_list = "HUMAN3"
+	}
+	
+	Aurelian = {
+		name = Aurelian
+		plural = Aurelians
+		home_planet = Aurelum
+		home_system = Aurelia
+		name_list = "HUMAN3"
+	}
+	
+	Minervanian = {
+		name = Minervanian
+		plural = Minervanians
+		home_planet = Minervania
+		home_system = Attiki
+		name_list = "HELLENIC"
+	}
+	
+	Aigaian = {
+		name = Aigaian
+		plural = Aigaians
+		home_planet = Aigaia
+		home_system = Vergina
+		name_list = "HELLENIC"
+	}
+	
+	Severan = {
+		name = Severan
+		plural = Severans
+		home_planet = Karakallia
+		home_system = Calixis
+		name_list = "HUMAN3"
+	}
+	
+	Vizanti = {
+		name = Vizanti
+		plural = Vizanti
+		home_planet = Konstantinosia
+		home_system = Vizantia
+		name_list = "BYZANTINE"
+	}
+	
+	Caesari = {
+		name = Caesari
+		plural = Caesari
+		home_planet = Caesaria
+		home_system = Julia
+		name_list = "HUMAN3"
+	}
+	
+	Epyroti = {
+		name = Epyroti
+		plural = Epyroti
+		home_planet = Pyrros
+		home_system = Epyrros
+		name_list = "HELLENIC"
+	}
+	
+	Micean = {
+		name = Micean
+		plural = Micean
+		home_planet = Micenos
+		home_system = Creeta
+		name_list = "HELLENIC"
+	}
+	
+	Tauridans = {
+	    name = Taurid
+		plural = Tauridans
+		home_planet = Feodosia
+		home_system = Taurida
+		name_list = "BYZANTINE"		
+	}
+}
+
+AUTOMATON = {
+
+    Automaton = {
+	    name = Automaton
+		plural = Automatons
+		home_planet = Vulkanal
+		home_system = Vulkan
+		name_list = AUTOMATON
+	}
+	
+	Talos = { 
+	    name = Talos
+		plural = Talosi
+		home_planet = Micenos
+		home_system = Creeta
+	}
+	
+	Archimedaioi = {
+	    name = Archimedaioi
+		plural = Archimedaioi
+		home_planet = Syrax
+		home_system = Sycilax
+		name_list = AUTOMATON
+	}
+	
+	Hephaestions = {
+	    name = Hephaestion
+		plural = Hephaestions
+		home_planet = "Hammer of Hephaestus"
+		home_system = "Eternal Forge"
+		name_list = AUTOMATON
+	}
+	
+	Silica_Animus = {
+	    name = "Silica Anima"
+		plural = "Silica Animus"
+		home_planet = "Cradle"
+		home_system = "Watchful Eye"
+		name_list = AUTOMATON
+	}
+	
+	Cogitators = {
+	    name = Cogitator
+		plural = Cogitators
+		home_planet = "Manufactory-I"
+		home_system = "Source-I"
+		name_list = AUTOMATON
+	}
+    
+	LEGION = {
+	    name = Legioner
+		plural = Legioners
+		home_planet = Phobos
+		home_system = Deimos
+		name_list = AUTOMATON
+	}
+}

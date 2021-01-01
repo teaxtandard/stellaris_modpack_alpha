@@ -1,0 +1,1573 @@
+@distance = 50
+@planet_min_size = 10
+@planet_max_size = 25
+@base_moon_distance = 10
+@moon_min_size = 6
+@moon_max_size = 10
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+#	Procas System
+#
+####################################################################
+####################################################################
+####################################################################
+
+procas_system_initializer = {
+	name = "Procas"
+	
+	class = "sc_g"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+	
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 295
+	}
+	
+	flags = { empire_home_system procas_system procas }
+	
+	usage = custom_empire
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+	}
+	
+	planet = {
+		name = "Procas"
+		class = pc_g_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 25
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_6
+		}
+	}
+	
+	planet = {
+		name = "Acheri"
+		class = pc_molten
+		orbit_distance = 35
+		size = 11
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals6_alloys3_deposit
+		}
+	}
+	
+	planet = {
+		name = "Korsi"
+		class = pc_hothouse
+		orbit_distance = 20
+		orbit_angle = 150
+		size = 16
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_engineering_3
+			add_modifier = { modifier = "gpm_weak_magnetic_field_nb" days = -1 }
+			add_modifier = { modifier = "gpm_strong_volcanism" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Ranus"
+		class = ideal_planet_class
+		orbit_distance = 35
+		orbit_angle = -70
+		size = 18
+		home_planet = yes
+		starting_planet = yes
+		has_ring = no
+		deposit_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = procas_ranus
+		}
+	
+		moon = {
+			name = "Proci"
+			class = pc_barren_cold
+			size = 6
+			orbit_distance = 11
+			orbit_angle = 50
+			has_ring = no
+			entity = cold_barren_planet_proci_entity
+			init_effect = {
+				set_planet_flag = starting_mining_target
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals2_energy2_deposit
+				add_modifier = { modifier = "gpm_rugged_terrain" days = -1 }
+			}
+		}
+	}
+	
+	planet = {
+		name = "Vardt"
+		class = pc_barren
+		orbit_distance = 35
+		orbit_angle = 150
+		size = 16
+		has_ring = yes
+		init_effect = {
+			set_planet_flag = starting_research_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_engineering_2
+			add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+			add_modifier = { modifier = "gpm_rugged_terrain" days = -1 }
+			add_modifier = { modifier = "gpm_periodic_meteor_showers" days = -1 }
+			add_modifier = { modifier = "gpm_asteroid_impacts_nb" days = -1 }
+			add_modifier = { modifier = "gpm_salt_flats" days = -1 }
+			add_modifier = { modifier = "terraforming_candidate" days = -1 }
+		}
+		
+		moon = {
+			name = "Vardt Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 4
+			orbit_angle = -60
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+		
+		moon = {
+			name = "Orit"
+			class = pc_barren_cold
+			size = 6
+			orbit_distance = 4
+			orbit_angle = 150
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+				add_modifier = { modifier = "gpm_asteroid_impacts_nb" days = -1 }
+			}
+		}
+	}
+	
+	planet = {
+		name = "Olant"
+		class = pc_asteroid
+		orbit_distance = 20
+		orbit_angle = -210
+		size = 4
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals7_alloys2_deposit
+			add_modifier = { modifier = "gpm_asteroid_moon" days = -1 }
+			add_modifier = { modifier = "gpm_spherical_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_dense_core" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Rajun"
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 155
+		size = 3
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals5_energy3_alloys1_deposit
+			add_modifier = { modifier = "gpm_large_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_v_type_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Protala"
+		class = pc_gas_giant
+		orbit_distance = 40
+		orbit_angle = 130
+		size = 34
+		has_ring = no
+		entity = gas_giant_01_entity
+		change_orbit = 6
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_4
+			add_modifier = { modifier = "extensive_moon_system" days = -1 }
+			add_modifier = { modifier = "gpm_strong_magnetic_field_gas_giant" days = -1 }
+		}
+		
+		moon = {
+			name = "Eko"
+			class = pc_molten
+			size = 11
+			orbit_distance = 9
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals5_energy3_alloys1_deposit
+			}
+		}
+		moon = {
+			name = "Aras"
+			class = pc_barren_cold
+			size = 9
+			orbit_distance = 4
+			orbit_angle = -70
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_physics_1
+			}
+		}
+		moon = {
+			name = "Vattant"
+			class = pc_frozen
+			size = 13
+			orbit_distance = 6
+			orbit_angle = 200
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_research_target
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_physics1_engineering1_deposit
+				add_modifier = { modifier = "gpm_deep_aquifer" days = -1 }
+				add_modifier = { modifier = "terraforming_candidate" days = -1 }
+			}
+		}
+
+	}
+	
+	planet = {
+		name = "Pratas"
+		class = pc_gas_giant
+		orbit_distance = 40
+		orbit_angle = 170
+		size = 28
+		has_ring = yes
+		change_orbit = 6
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_physics_3
+			add_modifier = { modifier = "asteroid_belt" days = -1 }
+			add_modifier = { modifier = "extensive_moon_system" days = -1 }
+			add_modifier = { modifier = "gpm_ice_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Pratas Rings"
+			class = pc_gpm_res
+			size = 9
+			orbit_distance = 5
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_energy_2
+			}
+		}
+		
+		moon = {
+			name = "Kanat"
+			class = pc_methane
+			size = 14
+			orbit_distance = 6
+			orbit_angle = -20
+			has_ring = no
+			init_effect = {
+				add_modifier = { modifier = "gpm_rugged_terrain" days = -1 }
+			}
+		}
+		moon = {
+			name = "Belra"
+			class = pc_frozen
+			size = 9
+			orbit_distance = 5
+			orbit_angle = -60
+			has_ring = no
+			init_effect = {
+				add_modifier = { modifier = "gpm_cryogeysers" days = -1 }
+			}
+		}
+	}
+	
+	planet = {
+		name = "Obrant"
+		class = pc_cold_gas_giant
+		orbit_distance = 40
+		orbit_angle = 100
+		size = 24
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_energy4_exoticgas1_deposit
+			add_modifier = { modifier = "gpm_tilted_axis" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Epkun"
+		class = pc_frozen
+		orbit_distance = 20
+		orbit_angle = 130
+		size = 8
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals2_energy2_deposit
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 10
+		orbit_angle = 80
+		size = 4
+		has_ring = no
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 140
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_trade_value_1
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1_first_colony"
+	}
+}
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+#	Hierishent System
+#
+####################################################################
+####################################################################
+####################################################################
+
+hierishent_system_initializer = {
+	name = "Hierishent"
+	class = sc_binary_1
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 150
+	}
+
+	flags = { empire_home_system hierishent_system hierishent}
+
+	usage = custom_empire
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+	}
+
+	planet = {
+		name = "Hierishent"
+		class = pc_a_star
+		orbit_distance = 0
+		size = 30
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_8
+		}
+
+		planet = {
+			name = "Coaln"
+			class = pc_molten
+			orbit_distance = 50
+			size = 14
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals6_alloys3_deposit
+				add_modifier = { modifier = "gpm_heavy_elements" days = -1 }
+				add_modifier = { modifier = "gpm_stellar_irradiation" days = -1 }
+			}
+		}
+
+		planet = {
+			name = "Shesynin"
+			class = pc_hot_gas_giant
+			orbit_distance = 40
+			size = 28
+			has_ring = yes
+			change_orbit = 6
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_energy4_exoticgas1_deposit
+				add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+				add_modifier = { modifier = "gpm_super_heated_atmosphere" days = -1 }
+				add_modifier = { modifier = "gpm_shrinking_giant" days = -1 }
+			}
+
+			moon = {
+				name = "Shesynin Rings"
+				class = pc_gpm_res
+				orbit_distance = 5
+				size = 5
+				init_effect = {
+					set_planet_flag = starting_deposit
+					set_deposit = d_trade_value_1
+				}
+			}
+			
+			moon = {
+				name = "Nenlin"
+				class = pc_barren
+				orbit_distance = 5
+				orbit_angle = 150
+				size = 12
+				init_effect = {
+					set_planet_flag = starting_mining_target
+					set_planet_flag = starting_deposit
+					set_deposit = ssd_minerals4_energy3_deposit
+				}
+			}
+		}
+
+		#Rocky Asteroid Belt
+
+		planet = {
+			name = "Calypsis"
+			class = ideal_planet_class
+			orbit_distance = 85
+			orbit_angle = -120
+			size = 21
+			home_planet = yes
+			starting_planet = yes
+			has_ring = no
+			deposit_blockers = none
+			modifiers = none
+			init_effect = {
+				prevent_anomaly = yes
+				set_planet_flag = hierishent_calypsis
+				# modifiers from Guilli's Planet Modifiers
+				add_modifier = { modifier = "gpm_torrential_rainstorms" days = -1 }
+				add_modifier = { modifier = "gpm_extensive_reef_systems" days = -1 }
+				add_modifier = { modifier = "gpm_heavy_metal_coral" days = -1 }
+				add_modifier = { modifier = "gpm_strong_magnetic_field_2" days = -1 }
+				add_modifier = { modifier = "gpm_periodic_meteor_showers" days = -1 }
+			}
+
+			moon = {
+				name = "Pariya"
+				class = pc_barren_cold
+				orbit_distance = 13
+				size = 6
+				init_effect = {
+					set_planet_flag = starting_deposit
+				}
+			}
+		}
+
+		planet = {
+			name = "Canlis"
+			class = pc_barren
+			orbit_distance = 0
+			orbit_angle = 60
+			size = 17
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_research_target
+				set_planet_flag = starting_deposit
+				set_deposit = d_engineering_3
+				add_modifier = { modifier = "terraforming_candidate" days = -1 }
+				# modifiers from Guilli's Planet Modifiers
+				add_modifier = { modifier = "gpm_deep_aquifer" days = -1 }
+				add_modifier = { modifier = "gpm_asteroid_impacts_nb" days = -1 }
+			}
+		}
+
+		planet = {
+			name = "Saylas"
+			class = pc_gas_giant
+			has_ring = yes
+			orbit_distance = 70
+			size = 38
+			change_orbit = 6
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_physics_3
+				add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+				add_modifier = { modifier = "gpm_abandoned_refineries" days = -1 }
+			}
+
+			moon = {
+				name = "Saylas Rings"
+				class = pc_gpm_res
+				orbit_distance = 10
+				size = 5
+				init_effect = {
+					set_planet_flag = starting_deposit
+					set_deposit = d_minerals_2
+				}
+			}
+			moon = {
+				name = "Saylas Rings"
+				class = pc_gpm_res
+				orbit_distance = 0
+				orbit_angle = 180
+				size = 5
+				init_effect = {
+					set_planet_flag = starting_deposit
+					set_deposit = d_energy_3
+				}
+			}
+			
+			moon = {
+				name = "Srivess"
+				class = pc_antarctic
+				orbit_distance = 8
+				orbit_angle = 160
+				size = 14
+				init_effect = {
+					add_modifier = { modifier = "gpm_blizzards" days = -1 }
+					add_modifier = { modifier = "gpm_hot_geysers" days = -1 }
+				}
+			}
+			moon = {
+				name = "Grenalys"
+				class = pc_frozen
+				orbit_distance = 6
+				size = { min = 5 max = 10}
+				init_effect = {
+					set_planet_flag = starting_deposit
+					set_deposit = ssd_physics1_engineering1_deposit
+					add_modifier = { modifier = "gpm_cracking_surface" days = -1 }
+				}
+			}
+		}
+		
+		planet = {
+			name = "Sefsha"
+			class = pc_rogue
+			orbit_distance = 60
+			size = 15
+		}
+		
+		#Icy Asteroid Belt
+		
+	}
+
+	planet = {
+		name = "Shreiohst"
+		class = pc_pulsar
+		orbit_distance = 450
+		size = 7
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_physics_5
+		}
+
+		planet = {
+			name = "Holgunt"
+			class = pc_chthonian
+			orbit_distance = 65
+			size = 14
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_alloys_4
+				add_modifier = { modifier = "gpm_iron_planet" days = -1 }
+			}
+		}
+
+		planet = {
+			name = "Scaraas"
+			class = pc_broken
+			orbit_distance = 25
+			size = 10
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals5_motes1_deposit
+			}
+		}
+
+	}
+	
+	change_orbit = -300
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 0
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals3_energy2_deposit
+			add_modifier = { modifier = "gpm_v_type_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_binary_asteroids" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 150
+		size = 4
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_minerals_2
+			add_modifier = { modifier = "gpm_c_type_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 160
+		size = 6
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals5_alloys2_deposit
+			add_modifier = { modifier = "gpm_m_type_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_dense_core" days = -1 }
+			add_modifier = { modifier = "gpm_abandoned_mining_platforms" days = -1 }
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1_first_colony"
+	}
+}
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+#	Dezon System
+#
+####################################################################
+####################################################################
+####################################################################
+
+dezon_system_initializer = {
+	name = "Dezon"
+	
+	class = "sc_g"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+	
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 335
+	}
+	
+	flags = { empire_home_system dezon_system dezon }
+	
+	usage = custom_empire
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+	}
+	
+	planet = {
+		name = "Dezon"
+		class = pc_g_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 25
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_6
+		}
+	}
+	
+	planet = {
+		name = "Enmer"
+		class = pc_hothouse
+		orbit_distance = 45
+		size = 16
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals3_motes1_deposit
+			add_modifier = { modifier = "gpm_strong_volcanism" days = -1 }
+			add_modifier = { modifier = "gpm_weak_magnetic_field_2" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Barnaldr"
+		class = pc_barren
+		orbit_distance = 30
+		orbit_angle = 120
+		size = 10
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_physics2_engineering2_deposit
+		}
+	}
+	
+	planet = {
+		name = "Vinax"
+		class = ideal_planet_class
+		orbit_distance = 30
+		orbit_angle = -200
+		size = 18
+		home_planet = yes
+		starting_planet = yes
+		has_ring = no
+		deposit_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = dezon_vinax
+			add_modifier = { modifier = "gpm_seasonal_flooding" days = -1 }
+			add_modifier = { modifier = "gpm_extensive_reef_systems" days = -1 }
+			add_modifier = { modifier = "gpm_dense_forests" days = -1 }
+		}
+	
+		moon = {
+			name = "Vadraam"
+			class = pc_barren_cold
+			size = 10
+			orbit_distance = 10
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_mining_target
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals3_energy2_deposit
+			}
+		}
+		
+		moon = {
+			name = "Opgaande"
+			class = pc_frozen
+			size = 5
+			orbit_distance = 6
+			orbit_angle = 110
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_research_target
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_physics1_engineering1_deposit
+				add_modifier = { modifier = "gpm_low_gravity_2" days = -1 }
+				add_modifier = { modifier = "gpm_spherical_asteroid" days = -1 }
+			}
+		}
+	}
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 40
+		orbit_angle = -170
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = gpm_asteroid_moon_mineral_deposit
+			add_modifier = { modifier = "gpm_asteroid_moon" days = -1 }
+			add_modifier = { modifier = "gpm_v_type_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 125
+		size = 4
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals5_alloys2_deposit
+			add_modifier = { modifier = "gpm_m_type_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_metal_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 3
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_energy3_crystals1_deposit
+			add_modifier = { modifier = "gpm_large_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_crystallized_structure" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Alkarren"
+		class = pc_gas_giant
+		orbit_distance = 40
+		orbit_angle = 180
+		size = 34
+		has_ring = yes
+		change_orbit = 8
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_4
+			add_modifier = { modifier = "extensive_moon_system" days = -1 }
+			add_modifier = { modifier = "gpm_strong_magnetic_field_gas_giant" days = -1 }
+			add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Alkarren Rings"
+			class = pc_gpm_res
+			size = 9
+			orbit_distance = 6
+			orbit_angle = 50
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+			}
+		}
+		moon = {
+			name = "Alkarren Rings"
+			class = pc_gpm_res
+			size = 9
+			orbit_distance = 0
+			orbit_angle = 120
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+		
+		moon = {
+			name = "Ilkanr"
+			class = pc_glacial
+			size = 14
+			orbit_distance = 10
+			orbit_angle = 10
+			has_ring = no
+			init_effect = {
+				add_modifier = { modifier = "gpm_hot_geysers" days = -1 }
+				add_modifier = { modifier = "gpm_water_pockets" days = -1 }
+			}
+		}
+		moon = {
+			name = "Roosanveld"
+			class = pc_barren_cold
+			size = 10
+			orbit_distance = 4
+			orbit_angle = -70
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+			}
+		}
+		moon = {
+			name = "Sendaal"
+			class = pc_frozen
+			size = 12
+			orbit_distance = 4
+			orbit_angle = 200
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_physics1_engineering1_deposit
+				add_modifier = { modifier = "terraforming_candidate" days = -1 }
+				add_modifier = { modifier = "gpm_deep_aquifer" days = -1 }
+			}
+		}
+
+	}
+	
+	planet = {
+		name = "Danmeers"
+		class = pc_gas_giant
+		orbit_distance = 60
+		orbit_angle = 100
+		size = 23
+		has_ring = yes
+		change_orbit = 6
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_physics_3
+			add_modifier = { modifier = "asteroid_belt" days = -1 }
+			add_modifier = { modifier = "gpm_beautiful_planet_rings" days = -1 }
+			add_modifier = { modifier = "gpm_ice_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Danmeers Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 5
+			orbit_angle = 50
+			has_ring = no
+			init_effect = {
+			set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+			}
+		}
+		moon = {
+			name = "Danmeers Rings"
+			class = pc_gpm_res
+			size = 8
+			orbit_distance = 0
+			orbit_angle = 120
+			has_ring = no
+			init_effect = {
+			set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+		moon = {
+			name = "Danmeers Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 0
+			orbit_angle = 120
+			has_ring = no
+			init_effect = {
+			set_planet_flag = starting_deposit
+				set_deposit = d_energy_2
+			}
+		}
+		
+		moon = {
+			name = "Martijn's Folly"
+			class = pc_frozen
+			size = 9
+			orbit_distance = 5
+			orbit_angle = -20
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_engineering_3
+				add_modifier = { modifier = "gpm_low_gravity_2" days = -1 }
+			}
+		}
+		moon = {
+			name = "Cecile's Commissary"
+			class = pc_frozen
+			size = 7
+			orbit_distance = 5
+			orbit_angle = -60
+			has_ring = no
+			init_effect = {
+				add_modifier = { modifier = "gpm_cryogeysers" days = -1 }
+			}
+		}
+	}
+	
+	planet = {
+		name = "Rijn"
+		class = pc_cold_gas_giant
+		orbit_distance = 50
+		orbit_angle = 120
+		size = 20
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_4
+			add_modifier = { modifier = "asteroid_belt" days = -1 }
+			add_modifier = { modifier = "gpm_tilted_axis" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 40
+		orbit_angle = 150
+		size = 7
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_rare_crystals_1
+			add_modifier = { modifier = "gpm_crystallized_structure" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 4
+		has_ring = no
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 150
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_trade_value_1
+			add_modifier = { modifier = "gpm_binary_asteroids" days = -1 }
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1_first_colony"
+	}
+}
+
+
+####################################################################
+####################################################################
+####################################################################
+#
+#	Lumascas System
+#
+####################################################################
+####################################################################
+####################################################################
+
+lumascas_system_initializer = {
+	name = "Lumascas"
+	
+	class = "sc_f"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 170
+	}
+	
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 425
+	}
+	
+	flags = { empire_home_system lumascas_system lumascas }
+	
+	usage = custom_empire
+	
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+	}
+	
+	planet = {
+		name = "Lumascas"
+		class = pc_f_star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 26
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_7
+		}
+	}
+	
+	planet = {
+		name = "Allas"
+		class = pc_molten
+		orbit_distance = 35
+		size = 12
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals5_alloys2_deposit
+			add_modifier = { modifier = "gpm_heavy_elements" days = -1 }
+			add_modifier = { modifier = "gpm_stellar_irradiation" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Rellas"
+		class = pc_hothouse
+		orbit_distance = 20
+		orbit_angle = 180
+		size = 16
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_engineering_3
+			add_modifier = { modifier = "gpm_strong_volcanism" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Danrus"
+		class = pc_barren
+		orbit_distance = 45
+		orbit_angle = -100
+		size = 15
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals3_energy2_deposit
+			add_modifier = { modifier = "terraforming_candidate" days = -1 }
+			add_modifier = { modifier = "gpm_water_pockets" days = -1 }
+			add_modifier = { modifier = "gpm_hot_geysers" days = -1 }
+			add_modifier = { modifier = "gpm_mineral_rich_2" days = -1 }
+		}
+		
+		moon = {
+			name = "Emras"
+			class = pc_molten
+			size = 7
+			orbit_distance = 8
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals4_alloys1_deposit
+			}
+		}
+	}
+	
+	planet = {
+		name = "Tarcus"
+		class = ideal_planet_class
+		orbit_distance = 30
+		orbit_angle = -80
+		size = 18
+		home_planet = yes
+		starting_planet = yes
+		has_ring = no
+		deposit_blockers = none
+		modifiers = none
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = lumascas_tarcus
+			add_modifier = { modifier = "gpm_extensive_cavern_system" days = -1 }
+			add_modifier = { modifier = "gpm_subterranean_eco_system" days = -1 }
+			add_modifier = { modifier = "gpm_colossal_cliffs" days = -1 }
+			add_modifier = { modifier = "gpm_salt_flats" days = -1 }
+		}
+	
+		moon = {
+			name = "Ortagas"
+			class = pc_barren_cold
+			size = 9
+			orbit_distance = 12
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+	}
+	
+	planet = {
+		name = "Retagas"
+		class = pc_barren
+		orbit_distance = 20
+		orbit_angle = 150
+		size = 14
+		has_ring = yes
+		change_orbit = 3
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_minerals_5
+			add_modifier = { modifier = "gpm_asteroid_impacts_2" days = -1 }
+			add_modifier = { modifier = "gpm_rare_metals" days = -1 }
+			add_modifier = { modifier = "gpm_solidified_core" days = -1 }
+			add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Retagas Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 2
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+
+	}
+	
+	planet = {
+		name = "Adjuma"
+		class = pc_asteroid
+		orbit_distance = 20
+		orbit_angle = -210
+		size = 6
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_minerals7_alloys2_deposit
+			add_modifier = { modifier = "gpm_asteroid_moon" days = -1 }
+			add_modifier = { modifier = "gpm_spherical_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_dense_core" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Cratin"
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 155
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = gpm_asteroid_large_mineral_deposit
+			add_modifier = { modifier = "gpm_large_asteroid" days = -1 }
+			add_modifier = { modifier = "gpm_dense_core" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Apolicas"
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 80
+		size = 3
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_alloys_1
+			add_modifier = { modifier = "gpm_metal_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = 100
+		size = 4
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_trade_value_1
+			add_modifier = { modifier = "gpm_m_type_asteroid" days = -1 }
+		}
+	}
+	
+	planet = {
+		name = "Shenockas"
+		class = pc_gas_giant
+		orbit_distance = 50
+		orbit_angle = -130
+		size = 32
+		has_ring = yes
+		change_orbit = 5
+		init_effect = {
+			set_planet_flag = starting_mining_target
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_4
+			add_modifier = { modifier = "extensive_moon_system" days = -1 }
+			add_modifier = { modifier = "gpm_strong_magnetic_field_gas_giant" days = -1 }
+			add_modifier = { modifier = "gpm_metallic_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Shenockas Rings"
+			class = pc_gpm_res
+			size = 8
+			orbit_distance = 5
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_3
+			}
+		}
+		
+		moon = {
+			name = "Lakiys"
+			class = pc_molten
+			size = 10
+			orbit_distance = 10
+			orbit_angle = 50
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_minerals5_energy2_motes1_deposit
+				add_modifier = { modifier = "gpm_radioactive_mantle" days = -1 }
+			}
+		}
+		moon = {
+			name = "Takas"
+			class = pc_toxic
+			size = 13
+			orbit_distance = 5
+			orbit_angle = 100
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_exotic_gases_1
+			}
+		}
+		moon = {
+			name = "Sokas"
+			class = pc_frozen
+			size = 14
+			orbit_distance = 5
+			orbit_angle = 70
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_2
+				add_modifier = { modifier = "terraforming_candidate" days = -1 }
+				add_modifier = { modifier = "gpm_cracking_surface" days = -1 }
+				add_modifier = { modifier = "gpm_deep_aquifer" days = -1 }
+			}
+		}
+		moon = {
+			name = "Noctonas"
+			class = pc_barren_cold
+			size = 9
+			orbit_distance = 5
+			orbit_angle = 80
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_trade_value_1
+			}
+		}
+
+	}
+	
+	planet = {
+		name = "Tenras"
+		class = pc_gas_giant
+		orbit_distance = 60
+		orbit_angle = 170
+		size = 28
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_physics_2
+		}
+		
+		moon = {
+			name = "Docimas"
+			class = pc_frozen
+			size = 10
+			orbit_distance = 15
+			orbit_angle = 10
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = ssd_physics1_engineering1_deposit
+				add_modifier = { modifier = "gpm_cryogeysers" days = -1 }
+			}
+		}
+		moon = {
+			name = "Tatras"
+			class = pc_frozen
+			size = 9
+			orbit_distance = 5
+			orbit_angle = -60
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "Natras"
+		class = pc_cold_gas_giant
+		orbit_distance = 50
+		orbit_angle = 100
+		size = 22
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			add_modifier = { modifier = "Tilted_Axis" days = -1 }
+			set_deposit = d_physics_2
+		}
+		
+		moon = {
+			name = "Entos"
+			class = pc_frozen
+			size = 8
+			orbit_distance = 15
+			orbit_angle = 60
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_energy_3
+			}
+		}
+	}
+	
+	planet = {
+		name = "Ner'kas"
+		class = pc_cold_gas_giant
+		orbit_distance = 40
+		orbit_angle = -180
+		size = 21
+		has_ring = yes
+		change_orbit = 5
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_4
+			add_modifier = { modifier = "Beautiful_Planet_Rings" days = -1 }
+			add_modifier = { modifier = "gpm_ice_ring" days = -1 }
+		}
+		
+		moon = {
+			name = "Ner'kas Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 5
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+			}
+		}
+		moon = {
+			name = "Ner'kas Rings"
+			class = pc_gpm_res
+			size = 5
+			orbit_distance = 0
+			orbit_angle = 120
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_energy_2
+			}
+		}
+		
+		moon = {
+			name = "Jeros"
+			class = pc_frozen
+			size = 8
+			orbit_distance = 5
+			orbit_angle = -60
+			has_ring = no
+		}
+		moon = {
+			name = "Ak'tas"
+			class = pc_barren_cold
+			size = 10
+			orbit_distance = 5
+			orbit_angle = -100
+			has_ring = no
+			init_effect = {
+				set_planet_flag = starting_deposit
+				set_deposit = d_minerals_2
+			}
+		}
+	}
+	
+	planet = {
+		name = "Tasus"
+		class = pc_frozen
+		orbit_distance = 35
+		orbit_angle = 130
+		size = 10
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = ssd_physics2_engineering1_deposit
+			add_modifier = { modifier = "Unusual_Formations" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 20
+		orbit_angle = 80
+		size = 4
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_trade_value_1
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 140
+		size = 6
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_rare_crystals_1
+			add_modifier = { modifier = "Crystallized_Structure" days = -1 }
+		}
+	}
+	
+	planet = {
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 5
+		has_ring = no
+		init_effect = {
+			set_planet_flag = starting_deposit
+			set_deposit = d_energy_2
+		}
+	}
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		distance = { min = 10 max = @distance }		
+		initializer = "neighbor_t1_first_colony"
+	}
+}

@@ -1,0 +1,53 @@
+﻿l_english:
+
+###################################################################################################################################################################################
+# NEW POLICIES
+###################################################################################################################################################################################
+
+ policy_voting_rights:0 "Voting Rights"
+ policy_voting_rights_desc:0 "Voying rights policy determines which citizens will be able to vote in our country, if any."
+ all:0 "All"
+ all_desc:0 "Every citizens in our state has the right to vote."
+ vote_men_only:0 "Men Only"
+ vote_men_only_desc:0 "Everyone whom identifies as male can vote. Only under strong guidance of males can the power of nation be remianed."
+ vote_women_only:0 "Women Only"
+ vote_women_only_desc:0 "Everyone whom identifies as female can vote. It is obvious that women deserves more priviliage in this case. After all they see things more clearly."
+ vote_rigged:0 "Rigged"
+ vote_rigged_desc:0 "Democracyt isn't the right path. Well it is, but only if we ensure the victory of el presidente. Only he is worthy of leading this country."
+
+ policy_tourism:0 "Tourism"
+ policy_tourism_desc:0 "Tourism in your country. Tourists can be beneficail, money comes into state and people learn more about world. Locals though will be unhappy to say the least."
+ closed_borders:0 "Closed Borders"
+ closed_borders_desc:0 "Your borders are closed to any tourist. No one should come and by, any move of masses can eb interpreted as potential spying."
+ visa_restricted:0 "Visa Restricted"
+ visa_restricted_desc:0 "The access to your empire for tourism is limited to the possession of a visa. It should allow people to do their bussiness or see some places, but we will keep watch."
+ passport_restricted:0 "Passport Restricted"
+ passport_restricted_desc:0 "The access to your empire for tourism is limited to the possession of a passport. You need a proper documment. We will give you that if you naswer few questions. Nothing to fear from us."
+ free_movement:0 "Free Movement"
+ free_movement_desc:0 "Tourists are allowed to visit your empire freely without a visa or passport. Come by, buy something, have a wonderfull day and remember to come back again soon."
+
+ 
+ policy_gambling:0 "Gambling"
+ policy_gambling_desc:0 "State of gambling. Money is important, taking money from others is a really good deal, but only one side benefits., is that worth a price?"
+ not_monitored:0 "Not Monitored"
+ not_monitored_desc:0 "Gambling is not monitored in our state. Whether you have awfully weird rules or classic it's up to you."
+ legal_gambling:0 "Legal"
+ legal_gambling_desc:0 "Gambling is legal in your empire. There are rules of course, but if you want this to be your bussines then go on."
+ state_controlled:0 "State Controlled"
+ state_controlled_desc:0 "Gambling is controlled by the state. In the gambing industry always house is the winner. We are the house and we will take your money along."
+ illegal_gambling:0 "Illegal"
+ illegal_gambling_desc:0 "Gambling is illegal in our country. Gambing is awful, it can be addictive and it ruins people's lifes, we can't tolerate that."
+ 
+ policy_surveillance_policy:0 "Surveillance Policy"
+ policy_surveillance_policy_desc:0 "Sometimes it's good to know where citizen designated #5780285455792 is, sometimes it's not. "
+ all_the_population:0 "All The Population"
+ all_the_population_desc:0 "Big brother is watching. "
+ only_xeno-population:0 "Only Xeno-Population "
+ only_xeno-population_desc:0 "We can't let xeno species mover without any restriction here, they might prove negative towards the state, then we can intervene. "
+ only_slave:0 "Only Slave"
+ only_slave_desc:0 "You never know with them. One time they all mine exotic gasses and next second they attack guards with somehow coordinated plan. We need to stop this before it has chance to happen"
+ only_workers:0 "Only Workers "
+ only_workers_desc:0 "Don't worry, it's just for your own saftey also it was in your contract, no data will be sold to 3rd party companies."
+ no_surveillance:0 "No Surveillance"
+ no_surveillance_desc:0 "Freedom of knowing that you can just disappear if needed can give many of us sense of relief. It would also be wrong to let state monitor it's people. "
+ 

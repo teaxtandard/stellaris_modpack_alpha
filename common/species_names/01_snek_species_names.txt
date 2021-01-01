@@ -1,0 +1,8 @@
+Snek = {
+	Sneks = {
+		name = Snek
+		plural = Sneks
+		home_planet = Vurax
+		home_system = "Vur Vur"
+	}
+}

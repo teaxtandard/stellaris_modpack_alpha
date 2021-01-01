@@ -1,0 +1,28 @@
+AS = {
+archetype = BIOLOGICAL
+
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+          portraits = {
+                    "as1"
+					"as2"
+                    "as3"
+					"as4"
+					"as5"
+					"as6"
+					"as7"
+					"as8"
+					"as9"
+					"as10"
+					"as11"
+					"as12"
+					"as13"
+					"as14"
+					"as15"
+					"as16"
+					"as17"
+					"as18"
+					"creature"
+          }
+          graphical_culture = mec_asari_01
+	        move_pop_sound_effect = "molluscoid_pops_move"
+}

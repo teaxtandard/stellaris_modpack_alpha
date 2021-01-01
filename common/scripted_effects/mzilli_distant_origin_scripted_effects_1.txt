@@ -1,0 +1,962 @@
+setup_contested_homeworld_empires = {
+	# If Homeworld Occupiers start on Earth
+	random_country = {
+		limit = {
+			has_origin = origin_homeworld_occupiers
+			capital_scope = { solar_system = { has_star_flag = sol } }
+		}
+		set_country_flag = lost_colony_parent
+		set_country_flag = homeworld_occupiers_empire_earth
+		owner_species = { save_global_event_target_as = earth_occupiers }
+		save_global_event_target_as = earth_occupiers_country
+		capital_scope = {
+			set_planet_flag = distant_origin_homeworld_earth
+			set_global_flag = occupied_earth
+			save_global_event_target_as = occupied_earth
+			solar_system = {
+				set_star_flag = distant_origin_homeworld_earth
+			}
+		}
+	}
+	# Homeworld Occupiers starting planet is flagged for future use
+	every_country = {
+		limit = {
+			has_origin = origin_homeworld_occupiers
+			NOR = {
+				capital_scope = { solar_system = { has_star_flag = sol } }
+				has_country_flag = pasceal
+			}
+		}
+		set_country_flag = lost_colony_parent
+		# Vanilla
+		if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_tundra }
+			}
+			set_country_flag = homeworld_occupiers_empire_tundra
+			owner_species = { save_global_event_target_as = tundra_occupiers }
+			save_global_event_target_as = tundra_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_tundra
+				set_global_flag = occupied_tundra
+				save_global_event_target_as = occupied_tundra
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_tundra
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_arctic }
+			}
+			set_country_flag = homeworld_occupiers_empire_arctic
+			owner_species = { save_global_event_target_as = arctic_occupiers }
+			save_global_event_target_as = arctic_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_arctic
+				set_global_flag = occupied_arctic
+				save_global_event_target_as = occupied_arctic
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_arctic
+				}
+			}
+		}
+		else_if = {
+			limit = {
+			capital_scope = { is_planet_class = pc_alpine }
+			}
+			set_country_flag = homeworld_occupiers_empire_alpine
+			owner_species = { save_global_event_target_as = alpine_occupiers }
+			save_global_event_target_as = alpine_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_alpine
+				set_global_flag = occupied_alpine
+				save_global_event_target_as = occupied_alpine
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_alpine
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_continental }
+			}
+			set_country_flag = homeworld_occupiers_empire_continental
+			owner_species = { save_global_event_target_as = continental_occupiers }
+			save_global_event_target_as = continental_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_continental
+				set_global_flag = occupied_continental
+				save_global_event_target_as = occupied_continental
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_continental
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_tropical }
+			}
+			set_country_flag = homeworld_occupiers_empire_tropical
+			owner_species = { save_global_event_target_as = tropical_occupiers }
+			save_global_event_target_as = tropical_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_tropical
+				set_global_flag = occupied_tropical
+				save_global_event_target_as = occupied_tropical
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_tropical
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_ocean }
+			}
+			set_country_flag = homeworld_occupiers_empire_ocean
+			owner_species = { save_global_event_target_as = ocean_occupiers }
+			save_global_event_target_as = ocean_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_ocean
+				set_global_flag = occupied_ocean
+				save_global_event_target_as = occupied_ocean
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_ocean
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_desert }
+			}
+			set_country_flag = homeworld_occupiers_empire_desert
+			owner_species = { save_global_event_target_as = desert_occupiers }
+			save_global_event_target_as = desert_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_desert
+				set_global_flag = occupied_desert
+				save_global_event_target_as = occupied_desert
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_desert
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_arid }
+			}
+			set_country_flag = homeworld_occupiers_empire_arid
+			owner_species = { save_global_event_target_as = arid_occupiers }
+			save_global_event_target_as = arid_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_arid
+				set_global_flag = occupied_arid
+				save_global_event_target_as = occupied_arid
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_arid
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_savannah }
+			}
+			set_country_flag = homeworld_occupiers_empire_savannah
+			owner_species = { save_global_event_target_as = savannah_occupiers }
+			save_global_event_target_as = savannah_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_savannah
+				set_global_flag = occupied_savannah
+				save_global_event_target_as = occupied_savannah
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_savannah
+				}
+			}
+		}
+		# Planetary Diversity
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_mangrove }
+			}
+			set_country_flag = homeworld_occupiers_empire_mangrove
+			owner_species = { save_global_event_target_as = mangrove_occupiers }
+			save_global_event_target_as = mangrove_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_mangrove
+				set_global_flag = occupied_mangrove
+				save_global_event_target_as = occupied_mangrove
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_mangrove
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_hajungle }
+			}
+			set_country_flag = homeworld_occupiers_empire_hajungle
+			owner_species = { save_global_event_target_as = hajungle_occupiers }
+			save_global_event_target_as = hajungle_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_hajungle
+				set_global_flag = occupied_hajungle
+				save_global_event_target_as = occupied_hajungle
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_hajungle
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_desertislands }
+			}
+			set_country_flag = homeworld_occupiers_empire_desertislands
+			owner_species = { save_global_event_target_as = desertislands_occupiers }
+			save_global_event_target_as = desertislands_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_desertislands
+				set_global_flag = occupied_desertislands
+				save_global_event_target_as = occupied_desertislands
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_desertislands
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_cascadian }
+			}
+			set_country_flag = homeworld_occupiers_empire_cascadian
+			owner_species = { save_global_event_target_as = cascadian_occupiers }
+			save_global_event_target_as = cascadian_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_cascadian
+				set_global_flag = occupied_cascadian
+				save_global_event_target_as = occupied_cascadian
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_cascadian
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_swamp }
+			}
+			set_country_flag = homeworld_occupiers_empire_swamp
+			owner_species = { save_global_event_target_as = swamp_occupiers }
+			save_global_event_target_as = swamp_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_swamp
+				set_global_flag = occupied_swamp
+				save_global_event_target_as = occupied_swamp
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_swamp
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_geothermal }
+			}
+			set_country_flag = homeworld_occupiers_empire_geothermal
+			owner_species = { save_global_event_target_as = geothermal_occupiers }
+			save_global_event_target_as = geothermal_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_geothermal
+				set_global_flag = occupied_geothermal
+				save_global_event_target_as = occupied_geothermal
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_geothermal
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_glacial }
+			}
+			set_country_flag = homeworld_occupiers_empire_glacial
+			owner_species = { save_global_event_target_as = glacial_occupiers }
+			save_global_event_target_as = glacial_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_glacial
+				set_global_flag = occupied_glacial
+				save_global_event_target_as = occupied_glacial
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_glacial
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_subarctic }
+			}
+			set_country_flag = homeworld_occupiers_empire_subarctic
+			owner_species = { save_global_event_target_as = subarctic_occupiers }
+			save_global_event_target_as = subarctic_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_subarctic
+				set_global_flag = occupied_subarctic
+				save_global_event_target_as = occupied_subarctic
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_subarctic
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_mesa }
+			}
+			set_country_flag = homeworld_occupiers_empire_mesa
+			owner_species = { save_global_event_target_as = mesa_occupiers }
+			save_global_event_target_as = mesa_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_mesa
+				set_global_flag = occupied_mesa
+				save_global_event_target_as = occupied_mesa
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_mesa
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_oasis }
+			}
+			set_country_flag = homeworld_occupiers_empire_oasis
+			owner_species = { save_global_event_target_as = oasis_occupiers }
+			save_global_event_target_as = oasis_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_oasis
+				set_global_flag = occupied_oasis
+				save_global_event_target_as = occupied_oasis
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_oasis
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_sandsea }
+			}
+			set_country_flag = homeworld_occupiers_empire_sandsea
+			owner_species = { save_global_event_target_as = sandsea_occupiers }
+			save_global_event_target_as = sandsea_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_sandsea
+				set_global_flag = occupied_sandsea
+				save_global_event_target_as = occupied_sandsea
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_sandsea
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_frozen_desert }
+			}
+			set_country_flag = homeworld_occupiers_empire_frozen_desert
+			owner_species = { save_global_event_target_as = frozen_desert_occupiers }
+			save_global_event_target_as = frozen_desert_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_frozen_desert
+				set_global_flag = occupied_frozen_desert
+				save_global_event_target_as = occupied_frozen_desert
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_frozen_desert
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_steppe }
+			}
+			set_country_flag = homeworld_occupiers_empire_steppe
+			owner_species = { save_global_event_target_as = steppe_occupiers }
+			save_global_event_target_as = steppe_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_steppe
+				set_global_flag = occupied_steppe
+				save_global_event_target_as = occupied_steppe
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_steppe
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_hadesert }
+			}
+			set_country_flag = homeworld_occupiers_empire_hadesert
+			owner_species = { save_global_event_target_as = hadesert_occupiers }
+			save_global_event_target_as = hadesert_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_hadesert
+				set_global_flag = occupied_hadesert
+				save_global_event_target_as = occupied_hadesert
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_hadesert
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_methane }
+			}
+			set_country_flag = homeworld_occupiers_empire_methane
+			owner_species = { save_global_event_target_as = methane_occupiers }
+			save_global_event_target_as = methane_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_methane
+				set_global_flag = occupied_methane
+				save_global_event_target_as = occupied_methane
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_methane
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_ammonia }
+			}
+			set_country_flag = homeworld_occupiers_empire_ammonia
+			owner_species = { save_global_event_target_as = ammonia_occupiers }
+			save_global_event_target_as = ammonia_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_ammonia
+				set_global_flag = occupied_ammonia
+				save_global_event_target_as = occupied_ammonia
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_ammonia
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_tidallylocked }
+			}
+			set_country_flag = homeworld_occupiers_empire_tidallylocked
+			owner_species = { save_global_event_target_as = tidallylocked_occupiers }
+			save_global_event_target_as = tidallylocked_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_tidallylocked
+				set_global_flag = occupied_tidallylocked
+				save_global_event_target_as = occupied_tidallylocked
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_tidallylocked
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_biolumen }
+			}
+			set_country_flag = homeworld_occupiers_empire_biolumen
+			owner_species = { save_global_event_target_as = biolumen_occupiers }
+			save_global_event_target_as = biolumen_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_biolumen
+				set_global_flag = occupied_biolumen
+				save_global_event_target_as = occupied_biolumen
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_biolumen
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_boreal }
+			}
+			set_country_flag = homeworld_occupiers_empire_boreal
+			owner_species = { save_global_event_target_as = boreal_occupiers }
+			save_global_event_target_as = boreal_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_boreal
+				set_global_flag = occupied_boreal
+				save_global_event_target_as = occupied_boreal
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_boreal
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_mushroom }
+			}
+			set_country_flag = homeworld_occupiers_empire_mushroom
+			owner_species = { save_global_event_target_as = mushroom_occupiers }
+			save_global_event_target_as = mushroom_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_mushroom
+				set_global_flag = occupied_mushroom
+				save_global_event_target_as = occupied_mushroom
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_mushroom
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_superhabitable }
+			}
+			set_country_flag = homeworld_occupiers_empire_superhabitable
+			owner_species = { save_global_event_target_as = superhabitable_occupiers }
+			save_global_event_target_as = superhabitable_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_superhabitable
+				set_global_flag = occupied_superhabitable
+				save_global_event_target_as = occupied_superhabitable
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_superhabitable
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_retinal }
+			}
+			set_country_flag = homeworld_occupiers_empire_retinal
+			owner_species = { save_global_event_target_as = retinal_occupiers }
+			save_global_event_target_as = retinal_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_retinal
+				set_global_flag = occupied_retinal
+				save_global_event_target_as = occupied_retinal
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_retinal
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_forest }
+			}
+			set_country_flag = homeworld_occupiers_empire_forest
+			owner_species = { save_global_event_target_as = forest_occupiers }
+			save_global_event_target_as = forest_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_forest
+				set_global_flag = occupied_forest
+				save_global_event_target_as = occupied_forest
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_forest
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_prairie }
+			}
+			set_country_flag = homeworld_occupiers_empire_prairie
+			owner_species = { save_global_event_target_as = prairie_occupiers }
+			save_global_event_target_as = prairie_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_prairie
+				set_global_flag = occupied_prairie
+				save_global_event_target_as = occupied_prairie
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_prairie
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_med }
+			}
+			set_country_flag = homeworld_occupiers_empire_med
+			owner_species = { save_global_event_target_as = med_occupiers }
+			save_global_event_target_as = med_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_med
+				set_global_flag = occupied_med
+				save_global_event_target_as = occupied_med
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_med
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_antarctic }
+			}
+			set_country_flag = homeworld_occupiers_empire_antarctic
+			owner_species = { save_global_event_target_as = antarctic_occupiers }
+			save_global_event_target_as = antarctic_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_antarctic
+				set_global_flag = occupied_antarctic
+				save_global_event_target_as = occupied_antarctic
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_antarctic
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_snow }
+			}
+			set_country_flag = homeworld_occupiers_empire_snow
+			owner_species = { save_global_event_target_as = snow_occupiers }
+			save_global_event_target_as = snow_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_snow
+				set_global_flag = occupied_snow
+				save_global_event_target_as = occupied_snow
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_snow
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_karst }
+			}
+			set_country_flag = homeworld_occupiers_empire_karst
+			owner_species = { save_global_event_target_as = karst_occupiers }
+			save_global_event_target_as = karst_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_karst
+				set_global_flag = occupied_karst
+				save_global_event_target_as = occupied_karst
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_karst
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_primal }
+			}
+			set_country_flag = homeworld_occupiers_empire_primal
+			owner_species = { save_global_event_target_as = primal_occupiers }
+			save_global_event_target_as = primal_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_primal
+				set_global_flag = occupied_primal
+				save_global_event_target_as = occupied_primal
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_primal
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_irradiated }
+			}
+			set_country_flag = homeworld_occupiers_empire_irradiated
+			owner_species = { save_global_event_target_as = irradiated_occupiers }
+			save_global_event_target_as = irradiated_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_irradiated
+				set_global_flag = occupied_irradiated
+				save_global_event_target_as = occupied_irradiated
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_irradiated
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_ash }
+			}
+			set_country_flag = homeworld_occupiers_empire_ash
+			owner_species = { save_global_event_target_as = ash_occupiers }
+			save_global_event_target_as = ash_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_ash
+				set_global_flag = occupied_ash
+				save_global_event_target_as = occupied_ash
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_ash
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_aquatic }
+			}
+			set_country_flag = homeworld_occupiers_empire_aquatic
+			owner_species = { save_global_event_target_as = aquatic_occupiers }
+			save_global_event_target_as = aquatic_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_aquatic
+				set_global_flag = occupied_aquatic
+				save_global_event_target_as = occupied_aquatic
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_aquatic
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_salt }
+			}
+			set_country_flag = homeworld_occupiers_empire_salt
+			owner_species = { save_global_event_target_as = salt_occupiers }
+			save_global_event_target_as = salt_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_salt
+				set_global_flag = occupied_salt
+				save_global_event_target_as = occupied_salt
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_salt
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_wetswamp }
+			}
+			set_country_flag = homeworld_occupiers_empire_wetswamp
+			owner_species = { save_global_event_target_as = wetswamp_occupiers }
+			save_global_event_target_as = wetswamp_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_wetswamp
+				set_global_flag = occupied_wetswamp
+				save_global_event_target_as = occupied_wetswamp
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_wetswamp
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_outback }
+			}
+			set_country_flag = homeworld_occupiers_empire_outback
+			owner_species = { save_global_event_target_as = outback_occupiers }
+			save_global_event_target_as = outback_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_outback
+				set_global_flag = occupied_outback
+				save_global_event_target_as = occupied_outback
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_outback
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_highland }
+			}
+			set_country_flag = homeworld_occupiers_empire_highland
+			owner_species = { save_global_event_target_as = highland_occupiers }
+			save_global_event_target_as = highland_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_highland
+				set_global_flag = occupied_highland
+				save_global_event_target_as = occupied_highland
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_highland
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_lake }
+			}
+			set_country_flag = homeworld_occupiers_empire_lake
+			owner_species = { save_global_event_target_as = lake_occupiers }
+			save_global_event_target_as = lake_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_lake
+				set_global_flag = occupied_lake
+				save_global_event_target_as = occupied_lake
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_lake
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_veld }
+			}
+			set_country_flag = homeworld_occupiers_empire_veld
+			owner_species = { save_global_event_target_as = veld_occupiers }
+			save_global_event_target_as = veld_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_veld
+				set_global_flag = occupied_veld
+				save_global_event_target_as = occupied_veld
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_veld
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_mud }
+			}
+			set_country_flag = homeworld_occupiers_empire_mud
+			owner_species = { save_global_event_target_as = mud_occupiers }
+			save_global_event_target_as = mud_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_mud
+				set_global_flag = occupied_mud
+				save_global_event_target_as = occupied_mud
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_mud
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_megaflora }
+			}
+			set_country_flag = homeworld_occupiers_empire_megaflora
+			owner_species = { save_global_event_target_as = megaflora_occupiers }
+			save_global_event_target_as = megaflora_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_megaflora
+				set_global_flag = occupied_megaflora
+				save_global_event_target_as = occupied_megaflora
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_megaflora
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_coral }
+			}
+			set_country_flag = homeworld_occupiers_empire_coral
+			owner_species = { save_global_event_target_as = coral_occupiers }
+			save_global_event_target_as = coral_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_coral
+				set_global_flag = occupied_coral
+				save_global_event_target_as = occupied_coral
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_coral
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_storm }
+			}
+			set_country_flag = homeworld_occupiers_empire_storm
+			owner_species = { save_global_event_target_as = storm_occupiers }
+			save_global_event_target_as = storm_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_storm
+				set_global_flag = occupied_storm
+				save_global_event_target_as = occupied_storm
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_storm
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_rogue }
+			}
+			set_country_flag = homeworld_occupiers_empire_rogue
+			owner_species = { save_global_event_target_as = rogue_occupiers }
+			save_global_event_target_as = rogue_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_rogue
+				set_global_flag = occupied_rogue
+				save_global_event_target_as = occupied_rogue
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_rogue
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_acid }
+			}
+			set_country_flag = homeworld_occupiers_empire_acid
+			owner_species = { save_global_event_target_as = acid_occupiers }
+			save_global_event_target_as = acid_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_acid
+				set_global_flag = occupied_acid
+				save_global_event_target_as = occupied_acid
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_acid
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_tepid }
+			}
+			set_country_flag = homeworld_occupiers_empire_tepid
+			owner_species = { save_global_event_target_as = tepid_occupiers }
+			save_global_event_target_as = tepid_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_tepid
+				set_global_flag = occupied_tepid
+				save_global_event_target_as = occupied_tepid
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_tepid
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_semiarid }
+			}
+			set_country_flag = homeworld_occupiers_empire_semiarid
+			owner_species = { save_global_event_target_as = semiarid_occupiers }
+			save_global_event_target_as = semiarid_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_semiarid
+				set_global_flag = occupied_semiarid
+				save_global_event_target_as = occupied_semiarid
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_semiarid
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_glacio }
+			}
+			set_country_flag = homeworld_occupiers_empire_glacio
+			owner_species = { save_global_event_target_as = glacio_occupiers }
+			save_global_event_target_as = glacio_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_glacio
+				set_global_flag = occupied_glacio
+				save_global_event_target_as = occupied_glacio
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_glacio
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_eyeball }
+			}
+			set_country_flag = homeworld_occupiers_empire_eyeball
+			owner_species = { save_global_event_target_as = eyeball_occupiers }
+			save_global_event_target_as = eyeball_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_eyeball
+				set_global_flag = occupied_eyeball
+				save_global_event_target_as = occupied_eyeball
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_eyeball
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				capital_scope = { is_planet_class = pc_sulfur }
+			}
+			set_country_flag = homeworld_occupiers_empire_sulfur
+			owner_species = { save_global_event_target_as = sulfur_occupiers }
+			save_global_event_target_as = sulfur_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_sulfur
+				set_global_flag = occupied_sulfur
+				save_global_event_target_as = occupied_sulfur
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_sulfur
+				}
+			}
+		}
+	}
+}

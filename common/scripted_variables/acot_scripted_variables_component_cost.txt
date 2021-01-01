@@ -1,0 +1,280 @@
+########################################DM
+
+# Small
+
+@s_enig_cost = 22 #29
+@s_enig_sr_cost = 6 #29
+@s_enig_upkeep_energy = 0.29
+@s_enig_upkeep_alloys = 0.058
+
+@s_dm_cost = 11 #29
+@s_dm_sr_cost = 2.7 #29
+@s_dm_upkeep_energy = 0.29
+@s_dm_upkeep_alloys = 0.058
+
+@s_ae_cost = 4 #29
+@s_ae_sr_cost = 9.5 #29
+@s_ae_upkeep_energy = 0.58
+@s_ae_upkeep_alloys = 0.058
+
+@s_se_cost = 2 #4
+@s_se_sr_cost = 12.00 #29
+@s_se_upkeep_energy = 1.12
+
+@s_pe_cost = 220 #4
+@s_pe_upkeep_energy = 22
+
+# Medium
+
+@m_enig_cost = 44 #74
+@m_enig_sr_cost = 11 #29
+@m_enig_upkeep_energy = 0.57
+@m_enig_upkeep_alloys = 0.104
+
+@m_dm_cost = 22 #74
+@m_dm_sr_cost = 5.4 #29
+@m_dm_upkeep_energy = 0.57
+@m_dm_upkeep_alloys = 0.104
+
+@m_ae_cost = 7 #74
+@m_ae_sr_cost = 13.5 #29
+@m_ae_upkeep_energy = 1.04
+@m_ae_upkeep_alloys = 0.104
+
+@m_se_cost = 5 #10
+@m_se_sr_cost = 16.00 #29
+@m_se_upkeep_energy = 2.08
+
+@m_pe_cost = 440 #4
+@m_pe_upkeep_energy = 44
+
+# Large
+
+@l_pleb_enig_cost = 88 #74
+@l_pleb_enig_sr_cost = 16 #29
+@l_pleb_enig_upkeep_energy = 1.14
+@l_pleb_enig_upkeep_alloys = 0.228
+
+@l_pleb_dm_cost = 44 #74
+@l_pleb_dm_sr_cost = 8.1 #29
+@l_pleb_dm_upkeep_energy = 1.14
+@l_pleb_dm_upkeep_alloys = 0.228
+
+@l_pleb_ae_cost = 22 #74
+@l_pleb_ae_sr_cost = 18.0 #29
+@l_pleb_ae_upkeep_energy = 2.28
+@l_pleb_ae_upkeep_alloys = 0.228
+
+@l_pleb_se_cost = 13 #74
+@l_pleb_se_sr_cost = 24.0 #29
+@l_pleb_se_upkeep_energy = 4.56
+
+@l_pleb_pe_cost = 880 #4
+@l_pleb_pe_upkeep_energy = 88
+
+@l_true_enig_cost = 148 #74
+@l_true_enig_sr_cost = 19 #29
+@l_true_enig_upkeep_energy = 1.48
+@l_true_enig_upkeep_alloys = 0.296
+
+@l_true_dm_cost = 74 #74
+@l_true_dm_sr_cost = 9.9 #29
+@l_true_dm_upkeep_energy = 1.48
+@l_true_dm_upkeep_alloys = 0.296
+
+@l_true_ae_cost = 37 #74
+@l_true_ae_sr_cost = 20.5 #29
+@l_true_ae_upkeep_energy = 2.96
+@l_true_ae_upkeep_alloys = 0.296
+
+@l_true_se_cost = 18 #74
+@l_true_se_sr_cost = 31.0 #29
+@l_true_se_upkeep_energy = 5.92
+
+@l_true_pe_cost = 1480 #74
+@l_true_pe_upkeep_energy = 148
+
+# Extra Large
+
+@xl_enig_cost = 176 #298
+@xl_enig_sr_cost = 27
+@xl_enig_upkeep_energy = 2.98
+@xl_enig_upkeep_alloys = 0.596
+
+@xl_dm_cost = 88 #298
+@xl_dm_sr_cost = 13.5
+@xl_dm_upkeep_energy = 2.98
+@xl_dm_upkeep_alloys = 0.596
+
+@xl_ae_cost = 44 #298
+@xl_ae_sr_cost = 24.0
+@xl_ae_upkeep_energy = 2.98
+@xl_ae_upkeep_alloys = 0.596
+
+@xl_se_cost = 24 #298
+@xl_se_sr_cost = 32.0
+@xl_se_upkeep_energy = 5.00
+
+@xl_pe_cost = 1760 #74
+@xl_pe_upkeep_energy = 176
+
+# Titanic
+
+@titanic_enig_cost = 456 #593
+@titanic_enig_sr_cost = 44.0
+@titanic_enig_upkeep_energy = 11.86 #4.56
+@titanic_enig_upkeep_alloys = 1.186 #0.912
+
+@titanic_dm_cost = 228 #593
+@titanic_dm_sr_cost = 22.0
+@titanic_dm_upkeep_energy = 11.86 #4.56
+@titanic_dm_upkeep_alloys = 1.186 #0.912
+
+@titanic_ae_cost = 114 #593
+@titanic_ae_sr_cost = 90 
+@titanic_ae_upkeep_energy = 4.93 #4.56
+@titanic_ae_upkeep_alloys = 1.086 #0.912
+
+@titanic_se_cost = 57 #593
+@titanic_se_sr_cost = 80
+@titanic_se_upkeep_energy = 6.75 #4.56
+
+@titanic_pe_cost = 4560 #593
+@titanic_pe_upkeep_energy = 456 #4.56
+
+@super_titanic_pe_cost = 10000 #593
+@super_titanic_pe_upkeep_energy = 1000 #4.56
+
+#################
+# SHIELDS
+#################
+
+# Small
+
+@shield_s_enig_cost = 16 #24
+@shield_s_enig_upkeep_energy = 0.44
+@shield_s_enig_sr_cost = 3.00
+
+@shield_s_dm_cost = 6 #24
+@shield_s_dm_upkeep_energy = 0.44
+@shield_s_dm_sr_cost = 3.00
+
+@shield_s_ae_cost = 6 #24
+@shield_s_ae_upkeep_energy = 0.44
+@shield_s_ae_sr_cost = 3.00
+
+@shield_s_se_cost = 3 #24
+@shield_s_se_upkeep_energy = 0.88
+@shield_s_se_sr_cost = 10.00
+
+@shield_s_pe_cost = 160 #24
+@shield_s_pe_upkeep_energy = 16
+
+# Medium
+
+@shield_m_enig_cost = 38
+@shield_m_enig_upkeep_energy = 0.75
+@shield_m_enig_sr_cost = 6.00
+
+@shield_m_dm_cost = 8
+@shield_m_dm_upkeep_energy = 0.75
+@shield_m_dm_sr_cost = 6.00
+
+@shield_m_ae_cost = 8
+@shield_m_ae_upkeep_energy = 0.75
+@shield_m_ae_sr_cost = 6.00
+
+@shield_m_se_cost = 8
+@shield_m_se_upkeep_energy = 1.50
+@shield_m_se_sr_cost = 20.00
+
+@shield_m_pe_cost = 380 #24
+@shield_m_pe_upkeep_energy = 38
+
+# Large
+
+@shield_l_enig_cost = 57
+@shield_l_enig_upkeep_energy = 1.45
+@shield_l_enig_sr_cost = 12.0
+
+@shield_l_dm_cost = 16
+@shield_l_dm_upkeep_energy = 1.45
+@shield_l_dm_sr_cost = 12.0
+
+@shield_l_ae_cost = 16
+@shield_l_ae_upkeep_energy = 1.45
+@shield_l_ae_sr_cost = 12.0
+
+@shield_l_se_cost = 16
+@shield_l_se_upkeep_energy = 2.90
+@shield_l_se_sr_cost = 40.0
+
+@shield_l_pe_cost = 570 #24
+@shield_l_pe_upkeep_energy = 57
+
+#################
+# ARMORS
+#################
+
+# Small
+
+@armor_s_enig_cost = 21 #24
+@armor_s_enig_sr_cost = 3.00
+@armor_s_enig_upkeep_alloy = 0.11
+
+@armor_s_dm_cost = 6 #24
+@armor_s_dm_sr_cost = 3.00
+@armor_s_dm_upkeep_alloy = 0.11
+
+@armor_s_ae_cost = 6 #24
+@armor_s_ae_sr_cost = 3.00
+@armor_s_ae_upkeep_alloy = 0.11
+
+@armor_s_se_cost = 3 #24
+@armor_s_se_sr_cost = 10.00
+@armor_s_se_upkeep_alloy = 0.88
+
+@armor_s_pe_cost = 210 #24
+@armor_s_pe_upkeep_alloy = 21
+
+# Medium
+
+@armor_m_enig_cost = 38
+@armor_m_enig_sr_cost = 6.00
+@armor_m_enig_upkeep_alloy = 0.16
+
+@armor_m_dm_cost = 8
+@armor_m_dm_sr_cost = 6.00
+@armor_m_dm_upkeep_alloy = 0.16
+
+@armor_m_ae_cost = 8
+@armor_m_ae_sr_cost = 6.00
+@armor_m_ae_upkeep_alloy = 0.16
+
+@armor_m_se_cost = 8
+@armor_m_se_upkeep_alloy = 1.50
+@armor_m_se_sr_cost = 20.00
+
+@armor_m_pe_cost = 380 #24
+@armor_m_pe_upkeep_alloy = 38
+
+# Large
+
+@armor_l_enig_cost = 74
+@armor_l_enig_sr_cost = 12.0
+@armor_l_enig_upkeep_alloy = 0.36
+
+@armor_l_dm_cost = 16
+@armor_l_dm_sr_cost = 12.0
+@armor_l_dm_upkeep_alloy = 0.36
+
+@armor_l_ae_cost = 16
+@armor_l_ae_sr_cost = 12.0
+@armor_l_ae_upkeep_alloy = 0.36
+
+@armor_l_se_cost = 16
+@armor_l_se_upkeep_alloy = 2.00
+@armor_l_se_sr_cost = 40.0
+
+@armor_l_pe_cost = 740 #24
+@armor_l_pe_upkeep_alloy = 74

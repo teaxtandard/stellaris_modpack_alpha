@@ -1,0 +1,57 @@
+generate_home_planet_final_pass = {
+	if = {
+		limit = {
+			owner = {
+				has_origin = extended_origin_organic_ai
+			}
+		}
+		owner = {
+			capital_scope = {
+				add_deposit = d_biomechanics_institute					
+				add_building = building_biomechanics_institute_1
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			owner = {
+				has_origin = extended_origin_uplift_experiment
+			}
+		}
+		owner = {
+			capital_scope = {
+				add_deposit = d_crashed_station				
+				add_building = building_wreck_salvage_site
+			}
+		}
+	}
+	
+	if = {
+		limit = {
+			has_planet_flag = hierishent_calypsis
+		}	
+		add_deposit = gpm_tb_Sprawling_Archipelago
+		add_deposit = gpm_tb_Grand_Reef	
+		add_deposit = gpm_tb_Colossal_Coral_Life			
+	}
+	
+	if = {
+		limit = {
+			has_planet_flag = dezon_vinax
+		}	
+		add_deposit = gpm_tb_Dense_Forests
+		add_deposit = gpm_tb_Seasonal_Flooding
+		add_deposit = d_bubbling_swamp
+	}
+	
+	if = {
+		limit = {
+			has_planet_flag = lumascas_tarcus
+		}
+		add_deposit = d_subterranean_cities					
+		add_deposit = gpm_tb_Colossal_Subterranean_Cavern
+		add_deposit = gpm_tb_Salt_Flats
+	}
+}
+

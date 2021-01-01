@@ -1,0 +1,85 @@
+#starbase_level_foo = {
+#	ship_size = starbase_foo 		# Required
+#	next_level = starbase_level_bar	# Optional
+#	show_in_outliner = yes			# Default yes, if yes starbase will be shown in outliner
+#	display_empire_shield = no		# Default no, if yes empire shield will be shown even if there's no colony
+#	display_map_icon = yes			# Default yes, if yes starbase map icon will be shown even if there's no colony
+#	level_weight = 1				# Default 0, used for claim cost and required module/building level
+#	ai_weight = { weight = 1.0 }	# Default 0, THIS = Starbase, FROM = Country - determines which levels are more important to upgrade from
+#}
+
+# Special
+
+starbase_level_acot_precusor_starbase = {
+	ship_size = acot_precusor_starbase
+	potential_home_base = yes
+	level_weight = 1
+	ai_weight = { weight = 5 }
+	display_empire_shield = yes
+	next_level = starbase_level_acot_precusor_starfortress
+}
+
+starbase_level_acot_precusor_starfortress = {
+	ship_size = acot_precusor_starfortress
+	potential_home_base = yes
+	level_weight = 2
+	ai_weight = { weight = 6 }
+	display_empire_shield = yes
+	next_level = starbase_level_acot_precusor_starcitadel
+}
+
+starbase_level_acot_precusor_starcitadel = {
+	ship_size = acot_precusor_starcitadel
+	potential_home_base = yes
+	level_weight = 3
+	ai_weight = { weight = 7 }
+	display_empire_shield = yes
+}
+
+starbase_level_acot_precusor_sigma_starbase = {
+	ship_size = acot_precusor_sigma_starbase
+	potential_home_base = yes
+	level_weight = 1
+	ai_weight = { weight = 5 }
+	display_empire_shield = yes
+	next_level = starbase_level_acot_precusor_sigma_starfortress
+}
+
+starbase_level_acot_precusor_sigma_starfortress = {
+	ship_size = acot_precusor_sigma_starfortress
+	potential_home_base = yes
+	level_weight = 2
+	ai_weight = { weight = 6 }
+	display_empire_shield = yes
+	next_level = starbase_level_acot_precusor_sigma_starcitadel
+}
+
+starbase_level_acot_precusor_sigma_starcitadel = {
+	ship_size = acot_precusor_sigma_starcitadel
+	potential_home_base = yes
+	level_weight = 3
+	ai_weight = { weight = 7 }
+	display_empire_shield = yes
+}
+
+starbase_level_precursor_colossus = {
+	ship_size = precursor_colossus
+	potential_home_base = yes
+	show_in_outliner = no
+	display_map_icon = yes
+}
+
+starbase_level_acot_precusor_phanon_starcitadel = {
+	ship_size = acot_precusor_phanon_starcitadel
+	potential_home_base = yes
+	level_weight = 1
+	ai_weight = { weight = 7 }
+	display_empire_shield = yes
+}
+
+starbase_level_acot_star_commander = {
+	ship_size = acot_star_commander
+	potential_home_base = yes
+	level_weight = 1
+	display_empire_shield = yes
+}

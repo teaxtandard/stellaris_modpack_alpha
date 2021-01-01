@@ -1,0 +1,2619 @@
+﻿### Terran Republic
+Human_TR = {
+	randomized = no
+
+	ship_names = {
+
+		generic = { Werner Emerald Gemini Johrai Konried Markov Vaemar Stilwater Saerro Morgannis "Jagged Lance" "Black Ridge" Alkali Briggs Snowshear "Rust Mesa" Mallory Lithcorp Ceres Woodman Miller Cobalt Voight Torremar Palos Helios Genudine Everett Benson Connery Waterson SolTech "Snake Ravine" Mattherson Jaeger DeepCore AuraxiCom Apex
+			
+		}
+
+		corvette = { Mao Allatum Saurva Peris Rashnu Dahaka Tawrich Zurvan Connery "Crimson Bluff" "Defense of the Crown" Crossroads "Indar Bay" "Vanu Archives" "Regent Rock" Feldspar Arroyo Overflow Helios Alkali CoraMed Benson Briggs "Howling Pass" Quartz "West Highlands" Seabed "Ti Alloys" Ceres "Galaxy Solar" Palisade Highland Ayani "Snake Ravine" Xenotech "Broken Arch" "Gravel Pass" "Rust Mesa" Stockpile Scar Auraxium Copper Blackshard Iridium Sharpe Edgewater Wainwright "Offal Pit" Armoury "Kessel's Crossing" Hossin Vex Bunker Fallbridge Halcyon "OMR Terraforming" Iron "Broken Vale" Woodman Roothouse "Hunter's Blind" Gourney "SRP Hydroponics" Nettlemire "Whispering Pass" "Four Fingers" Genudine Cairn Southgate Bravata Matsuda Hayd Hatcher Nason Naum Harukan Ixtab Acan
+			
+		}
+		
+		destroyer = { Bitol Zotz Ghanan Mulac Chac Takkon Zeta Ikanam Heyoka Sungrey Mekala Onatha Wokuk Tumas Xelas LithCorp Crux Splitpeak Granite Jagged Lance "Hidden Ridge" Soltech Deserted AuraxiCom Cobalt DeepCore "Silver Valley" "Chimney Rock" Torremar Highroads Aramax Raven Moss Shroud Skyway Scarfield LithCorp Eastshore Barrik Kwahtee Onatha 
+
+		}
+		
+		cruiser = { "Crystal Ridge" Haven Aurora Apex Stillwater "Grey Heron" Traverse "Jaeger's Crossing" "Pale Canyon" "Old Shore" Everett Elli Frostfall Snowshear Mattherson Northpoint Saerro Waterson Redemption Bulwark Andvari Freyr Eisa Nott "Bridge-ward" Frostbite "East River" "Two Stone" Mani Nott Ymir Rime Rink
+			
+		}
+		
+		battleship = { Werner Emerald Gemini Johrai Konried Markov Vaemar Stilwater Saerro Morgannis "Jagged Lance" "Black Ridge" Alkali Briggs Snowshear "Rust Mesa" Mallory Lithcorp Ceres Woodman Miller Cobalt Voight Torremar Palos Helios Genudine Everett Benson Connery Waterson SolTech "Snake Ravine" Mattherson Jaeger DeepCore AuraxiCom Apex
+			
+		}
+		
+		science = { Helium Neon Krypton Xenon Ion Nitrogen Carbon Excimer Deuterium Coil Agil Strontium Manganese Ruby Ytterbium Thulium Chromium Promethium Erbium Samarium "F-Center"
+			
+		}
+		
+		colonizer = { Wrel Alarox Visigodo Wisdom Jaroostine Sinist Brutus Kelv Phaetonevl Guildion Dirdra Bequ Arevok Torok Takumi Moha Asveri Gornn Breizhpower Krodin PoleShift Andrus Lallerpan Earlino Keirus Krups Binary 
+			
+		}
+		
+		constructor = { Kriegshaser Hoffman Jones Bishop Champion Miranda Sites Burness Yeatts Sherman Clauss Good Diamond Kerr Sigmund Wells Hackney Schenck Elam Clegg Wisenhunt Krohn Bennett Issac Higby Carey Dowell James Anderson Moyer Lichty Vu Owens Navage Lafontaine Worley Smedley
+			
+		}
+		
+		mining_station = { }
+		research_station = { }
+		wormhole_station = { }
+		terraform_station = { }
+		observation_station = { }
+		outpost_station = {
+			random_names = {
+				Ceres Vesta Pallas Hygiea Euphrosyne Interamnia Davida Herculina Eunomia Juno Psyche Europa Thisbe Iris Egeria Diotima Amphitrite Sylvia Doris
+			}
+			sequential_name = "%O% Republic Forward Outpost"
+		}
+		
+		transport = {
+			Galaxy
+		}
+		
+		military_station_small = {}
+		
+		#"Star Post 1" "Star Post 2" "Star Post 3" "Star Post 4" "Star Post 5" "Star Post 6" "Star Post 7" "Star Post 8" "Star Post 9" "Star Post 10" "Star Post 11" "Star Post 12"
+		#"Star Post 13" "Star Post 14" "Star Post 15" "Star Post 16" "Star Post 17" "Star Post 18" "Star Post 19" "Star Post 20" "Star Post 21" "Star Post 22" "Star Post 23"
+		#"Star Post 24" "Star Post 25" "Star Post 26" "Star Post 27" "Star Post 28" "Star Post 29" "Star Post 30" "Star Post 31" "Star Post 32" "Star Post 33" "Star Post 34"
+		#"Star Post 35" "Star Post 36" "Star Post 37" "Star Post 38" "Star Post 39" "Star Post 40"
+		
+		military_station_medium = {}
+		
+		#"Fort Victory" "Fort Success" "Fort Triumph" "Fort Supremacy" "Fort Superior" "Fort Adventure"
+		#"Fort Ascendancy" "Fort Paramount" "Fort Preponderous" "Fort Exemplary" "Fort Eximious"
+		#"Fort Acclaim" "Fort Honor" "Fort Renown" "Fort Glory" "Fort Superb" "Fort Magnificence" 
+		#"Fort Majestic" "Fort Splendor" "Fort Paradigm" "Fort Flawless" "Fort Consummate" "Fort Merit"
+		#"Fort Perfection" "Fort Virtue" "Fort Advantage" "Fort Rectitude" "Fort Incorruptible" 
+		#"Fort Integrity" "Fort Justice" "Fort Probity" "Fort Prudence" "Fort Purity" "Fort Resolute"
+		#"Fort Dignity" "Fort Distinction" "Fort Excellence" "Fort Faithful" "Fort Discipline"
+		#"Fort Recompense" "Fort Retribution" "Fort Requiem" "Fort Courage" "Fort Valor" "Fort Gallant"
+		#"Fort Daring" "Fort Constancy" "Fort Perseverence" "Fort Tenacity" "Fort Sedulity" "Fort Diligence"
+		#"Fort Pertinacity" "Fort Steadfast"
+		
+		military_station_large = {
+			Victory Success Triumph Supremacy Superior Adventure Ascendancy Paramount Preponderous Exemplary Eximious
+			Acclaim Honor Renown Glory Superb Magnificence Majestic Splendor Paradigm Flawless Consummate Merit
+			Perfection Virtue Advantage Rectitude Incorruptible Integrity Justice Probity Prudence Purity Resolute
+			Dignity Distinction Excellence Faithful Discipline Recompense Retribution Requiem Courage Valor Gallant
+			Daring Constancy Perseverence Tenacity Sedulity Diligence Pertinacity Steadfast
+		}
+		
+		
+		# "Battlestation Impregnable" "Battlestation Insurmountable" "Battlestation Impenetrable" "Battlestation Unbreakable" "Battlestation Implacable" 
+		# "Battlestation Impervious" "Battlestation Unswerving" "Battlestation Inexorable" "Battlestation Inflexible" "Battlestation Unyielding"
+		
+	}
+
+	fleet_names = {
+		random_names = {
+			"Republic Battlefleet Glory" "Republic Battlefleet Honor" "Republic Battlefleet Victory" "Republic Battlefleet Courage" "Republic Battlefleet Unconquerable" "Republic Battlefleet Implacable" "Republic Battlefleet Inexorable" "Republic Battlefleet Inflexible" "Republic Battlefleet Unyielding" "Republic Battlefleet Resolute" "Republic Battlefleet Dignity" "Republic Battlefleet Diligence" "Republic Battlefleet Flawless" "Republic Battlefleet Splendour" "Republic Battlefleet Tenacity" "Republic Battlefleet Perserverence" "Republic Battlefleet Unbreakable" "Republic Battlefleet Endless" "Republic Battlefleet Crown" "Republic Battlefleet Auraxium" "Republic Battlefleet Hossin" "Republic Battlefleet Esamir" "Republic Battlefleet Indar" "Republic Battlefleet Amerish" "Republic Battlefleet Steadfast"
+		}
+		sequential_name = "%O% Republic Battlefleet"
+	}
+	
+	army_names = {
+		generic = { 
+			sequential_name = "%O% TR Garrison Outfit"
+		}
+
+		assault_army = {
+			sequential_name = "%O% TR Assault Outfit"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Mindblank Auxiliary Division"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% TR Nanite-Reborn Assault Outfit"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% SolTech Robotics Division"
+		}
+		
+		android_army = {
+			sequential_name = "%O% LithCorp Android Division"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O% Infiltrator Outfit"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Vanu-tech Experimental Division"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% TR Nanite-Enhanced Assault Outfit"
+		}
+	}
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			names = { Gailamir Gailar Gaiseric Gento Gunderic Gunthamund Hilderic Huneric Thrasamund Genseric Burvista Decebal Decebalus Dorpaneus Sitalkes Zamolxis Feletheus Feva Aspar Chagan Galindo Oroctulf Rechiarius Ricimer Wehha Wuffa Tytila Raedwald Eorpwald Ricbehrt Sigeberht Ecgric Aethelhere AEthelwold Eadwulf Aefwald Beonna Aethelred Offa Ceolwulf Beornwulf Aethelstan Eadmund Aethelweard Guthrum Eohric
+
+			}
+		}
+		
+		pc_desert = {
+			names = { Set Geb Anput Anubis Anuket Aten Hapi Hathor Heket Khnum Khonsu Maat Mafdet Menhit Nephthys Nekhbet Ptah Ra Serqet Shu Sobek Tawaret Tefnut Wadjet
+				
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				Sinharaja "Santa Elena" Kinabalu Tongass Daintree Valdivian Karri "Valley of Giants" Dampier Wandella Tallaganda Gondwana Yakushima
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				Set Geb Anput Anubis Anuket Aten Hapi Hathor Heket Khnum Khonsu Maat Mafdet Menhit Nephthys Nekhbet Ptah Ra Serqet Shu Sobek Tawaret Tefnut Wadjet
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				Basiliscae Zeno Anastasius Leona Romula Nepos Julius Glycerion Olybria Anthemia Severa Majorian Avita Petronia Valentinia Constantinia Honoria Theodosia Magna Arcadia Gratia Jovia Vetrania Constans Licinia Maxentia Maximinia Galeria Diocletia
+			}
+		}
+		
+		pc_gaia = {
+			names = {
+				Sanctuary Serendipity Deliverance Apollonia Eden Saggitaron Plenty Refuge Progress "New Earth" "New Terra"
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+				Letica "Zheng He" Togo Nelson Cunningham "Yi Sun Shin" Fletcher Lepanto Tsushima Midway Farragut Yamamoto Duilius
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+				Kangchenjunga Parbat Lhotse Manaslu Makalu Oyu Nanda Dablam Kailash "Broad Peak" Kamet Machapuchare Gasherbrum Kamet "Kala Patthar" "Gyachung Kang" "Imja Tse"
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+				Everest Hillary K2 Tenzing Norgay Percival Mallory Ruttledge Namba Fischer Hall Hansen Harris Paljor Morup Smanla
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+	character_names = {
+
+		names1 = {
+			weight = 100
+			first_names_male = { Private Private Private Private Private Private Private Private Private PFC PFC PFC PFC PFC PFC PFC PFC PFC PFC Specialist "Lance Corporal" Sergeant "Staff Sergeant" "Tech Sergeant" "Sergeant 1st Class" "Master Sergeant" "First Sergeant" "Sergeant Major" "Command Sergeant Major" "Warrant Officer" "Second Lieutenant" "First Lieutenant" "Lieutenant Commander" Commander Captain Major "Lieutenant Colonel" Commissar Veteran Founder Exterminator
+				
+			}
+			first_names_female = { Private Private Private Private Private Private Private Private Private PFC PFC PFC PFC PFC PFC PFC PFC PFC PFC Specialist "Lance Corporal" Sergeant "Staff Sergeant" "Tech Sergeant" "Sergeant 1st Class" "Master Sergeant" "First Sergeant" "Sergeant Major" "Command Sergeant Major" "Warrant Officer" "Second Lieutenant" "First Lieutenant" "Lieutenant Commander" Commander Captain Major "Lieutenant Colonel" Commissar Veteran Founder Exterminator
+				
+			}
+			second_names = { Adlard Alflatt Allnatt
+Allwright Almer Almond
+Alred Alston Alvar
+Alvey Alwin Ammon
+Arbon Ashwin Averay
+Aylward Aylwin Azo
+Badrick Baldey Balding
+Balman Balston Bedloe
+Brightmore Brunger Brunker
+Brunwin Burchard Burrage
+Burward Cobbald Cutteridge
+Darwin Dearman Dewdney
+Eastman Eddols Eddy
+Ellwood Elphee Elsegood
+Elsey Elvey Elward
+Erwin Freegard Freelove
+Frewer Frewin Gladman
+Gladwin Godbert Godhold
+Godwin Goldbard Goldburg
+Goldhawk Goldwin Gomer
+Goodliffe Goodwin Gumbold
+Gummer Halding Hulbert
+Isgar Kenward Kenway
+Kerrich Kinsey Lambrick
+Leaves Leavey Leavins
+Leavold Lemmer 
+Lilleyman Litwin Lovegod
+Loveguard Medwin Milborrow
+Ordway Orrick Osmer
+Othen Outridge Quenell
+Redway Seavers Sherrard
+Siggers Sirett Stannard
+Stidolph Trumble Utteridge
+Wackrill Walwin Wennell
+Whatman Whittard Wilmer
+Winbolt Winbow Winmer
+Winney Wolnoth Wolsey
+Woolgar Wyard Wyberg
+Wyman Wymer Yonwin
+Youngmay Abbott Aguilar Alderman
+Ambler Archer Arkwright
+Armer Armour Arrowsmith
+Ashburner Ashman Aurifaber
+Ayler Bacchus Bachelor
+Backer Bacon Bailey
+Baker Ballester Balmer
+Banister Bannerman Barber
+Barker Baron Barrell
+Barter Baxter Bayliss
+Beamer Bean Beeman
+Bellringer Belt Berryman
+Bessemer Bishop Bisp
+Blacker Blaker Blaxter
+Blecher Bloom Bloomer
+Boatswain Boatwright Bond
+Bookbinder Booker Boorman
+Boot Boote Boothman
+Botwright Boucher Boulter
+Bourchier Bowerman Bowler
+Bowmaker Bowman Bowring
+Bowyer Boyter Brasher
+Brasseur Brayer Brazier
+Brewer Brewster Bridgeman
+Bridger Bridle Brownsmith
+Buckler Buckman Bulger
+Bullinger Bulmer Burgess
+Burl Burle Burman
+Bushell Buss Butcher
+Butler Butner Butters
+Buttery Button Cake
+Cakebread Calverd Camp
+Cann Cannel Cannell
+Canter Caperon Capon
+Capper Card Carder
+Carpenter Carter Cartwright
+Carver Catchpole Cater
+Century Chafer Chaffer
+Chalker Challender Challenger
+Challinor Chalmers Chamberlain
+Chambers Chancellor Chandler
+Chaplin Chapman Chase
+Chaucer Chauncellor Chaundler
+Cheator Cheese Cheeseman
+Cheesewright Chenevix Clarges
+Clark Clarke Cleaver
+Clerk Clothier Cloutman
+Coke Collier Colthard
+Coltman Conner Constable
+Cook Cooke Cooper
+Copestake Coppersmith Corden
+Cordiner Cordwainer Corker
+Costner Cotter Cotterill
+Cottier Cotton Couch
+Coucher Couchman Coulthard
+Coultman Counter Courtiour
+Cowper Coxetter Cribb
+Crocker Croker Cropper
+Crowther Crozier Cryer
+Culpepper Cuss Cutter
+Dance Dancer Day
+Dayman Daymond Deacon
+Deathridge Demmer Dempster
+Dethewright Dexter Digweed
+Diver Draper Drapper
+Drawer Dray Dring
+Driver Dyer Earl
+Earle Ewer Faber
+Falconar Falconer Falder
+Falkner Farman Farmer
+Farrar Farrier Faulkner
+Fearon Feather Feaver
+Femister Fender Fennell
+Ferrier Fewster Fewtrell
+Fiddler Fielder Filer
+Finesilver Fisher Fisk
+Fiske Fitter Flann
+Flanner Flaxman Flesher
+Fletcher Flinter Floater
+Flower Footman Foreman
+Forest Forester Forestier
+Forster Fournier Fowler
+Franklin Frankling Franklyn
+Frater Freebody Freeland
+Freeman Frere Freshwater
+Frobisher Fuller Furber
+Furminger Galley Galpin
+Gard Gardiner Gardner
+Garland Garlic Garlicke
+Garnet Garnett Gaylor
+Gilder Gilroy Ginger
+Girdler Glaisher Glass
+Glover Goatman Goldsmith
+Gossard Grainger Grave
+Gravenor Greensmith Grieve
+Groom Groser Grosvenor
+Grunsell Guild Hacker
+Hansard Harper Hawker
+Hayward Hensman Herd
+Hewer Hine Hollier
+Hollister Hooper Hopper
+Horder Hornblower Horner
+Hotter Hucker Hunt
+Hunter Husband Hussey
+Inman Iremonger Jagger
+Jenner Joiner Judge
+Keech Kellogg Kember
+Kemp Kempe Kempster
+Kew Kilner Kiss
+Kisser Knight Labbett
+Ladel Ladell Lander
+Langcake Larbalestier Larner
+Latimer Latter Lavender
+Lawman Le Mare Le Patourel
+Le Sueur Leach Leadbeater
+Leadbetter Leadbitter Leaker
+Leaper Leather Lecomber
+Ledbetter Leech Legate
+Limer Lister Loader
+Lockhart Locksmith Lockyear
+Lodder Lorimer Lusher
+Luther Lymburner Machin
+Maidman Malter Mangall
+Mangold Marbler Marchant
+Mariner Marker Marler
+Marner Marshall Mason
+Massinger Masters Mather Mercer Merchant
+Messenger Mew Meystre
+Miller Millman Mills
+Milner Minter Molyneaux
+Monger Monk Mower
+Moyne Mulliner Mustard
+Mutter Naismith Napier
+Napper Naylor Neate
+Needler Nunn Nurse
+Offer Officer Osler
+Ostler Ostridge Otter
+Oxnard Oyler Packer
+Page Paget Paige
+Painter Pakeman Pallister
+Palmer Paniers Panter
+Panther Pape Pardner
+Pargeter Parker Parkman
+Parmenter Paroissien Parson
+Parsons Partner Patten
+Pattern Pearl Pearman
+Pease Peever Pegler
+Pelter Pepper Peppercorn
+Perrier Pestell Pester
+Petcher Peutherer Physick
+Pilcher Pillinger Pinder
+Pinn Piper Pitman
+Plater Player Pledger
+Plowman Plowright Plum
+Plumer Plummer Porcher
+Porter Pothecary Potter
+Pottinger Poulter Priest
+Prince Prior Procter
+Provost Punter Purser
+Purves Quaif Quaife
+Quarrell Quarry Quilter
+Raper Rastel Rastell
+Ratter Reader Redman
+Reeve Renner Restler
+Retter Rider Ridler
+Rimmer Ringer Ripper
+Roadnight Roller Roope
+Roper Rover Rower
+Rozier Runciman Rutter
+Rymer Sacker Sadler
+Sailer Salter Sanger
+Sangster Sapper Sargent
+Sawyer Sayer Scrimgeor
+Scrimgeour Scrimshaw Scullion
+Scutt Seaman Secker
+Sedgman Sellar Sellars
+Senior Service Sevier
+Sewer Sexton Seyler
+Sharman Sheather Shepherd
+Sheriff Shingler Ship
+Shipman Shipwright Shoesmith
+Shooter Shopper Shutler
+Shuttle Sievewright Sievwright
+Silk Silver Silversmith
+Simister Singer Sixsmith
+Sizer Skinner Slater
+Slaymaker Slipper Sloper
+Smith Smither Smithers
+Snider Sniders Soper
+Spence Spencer Spender
+Spice Spicer Spier
+Spindler Spooner Spurrier
+Squier Squiers Squires
+Stainer Steadman Stearman
+Steel Steele Steward
+Stocker Stockfish Storer
+Stringer Sucksmith Summer
+Sumner Surgeon Sutler
+Swingler Tabberner Taberer
+Tanner Taper Tapper
+Tasker Taverner Taylor
+Teacher Tector Tennant
+Thatcher Thaxter Theaker
+Thew Threader Thresher
+Thrower Tiller Tillman
+Timberman Tinker Tinkler
+Tisser Tisserand Todhunter
+Toller Tolman Toner
+Tozer Tranter Trenchard
+Trencher Tricker Trinder
+Tripe Trippe Tripper
+Trist Trouncer Trumper
+Tubman Tucker Tuckerman
+Tumman Tunnah Tunnard
+Tupper Turner Tyler
+Ulman Usher Vavasour
+Vavasseur Veck Veil
+Vender Venner Verrier
+Vicar Vicars Vickers
+Vickery Vinter Voller
+Wafer Wager Waggoner
+Waghorn Waghorne Wagstaff
+Wagstaffe Wain Waine
+Wainman Wainwright Wait
+Waite Wakeman Walker
+Waller Want Ward
+Warde Warden Warman
+Warner Warrender Warrener
+Washer Watchman Waterer
+Waterman Wax
+Weather Weaver Webb
+Webbe Webber Webster
+Wheeler Wheelwright Whistler
+Whitbread Whitcher Whiter
+Whitesmith Whittier Wicker
+Wildsmith Woodger Woodman
+Woodward Woodyer Wooler
+Wooller Woolman Workman
+Wort Wright Wrighte
+Yeoman Abse Abt Ackermann
+Adelung Adenauer Adler
+Ahlmann Aigner Albers
+Albertz Alhmann Allbach
+Altaner Althusser Altmann
+Alzen Amlinger Amstadter
+Anger Angerhausen Angermann
+Angermeier Angrenny Anhauser
+Anschitz Apel Apenzeller
+Arendt Arentz Argelander
+Argerich Arlt Armborst
+Arndt Arnim Arnold
+Arrau Artz Aschenbach
+Auch Auerbach Ausborn
+Austerlitz Axmann BØellman
+BØsendorfer Bòtow Baal
+Baatz Babbel Babel
+Bachert Bachman Bacht
+Bachus Backstadt Backstedt
+Baeker Bagula Bahnsen
+Baier Baigelman Balck
+Baltz Balzer Bambach
+Barkai Barna Barth
+Bartolf Basler Bastnagel
+Batte Bauchennss Baudendistel
+Bauer Bäumer Baumgaertel
+Baumgart Baumschlager Baune
+Baur Bayerl Bayerlein
+Bayt Bechmann Bechstein
+Beck Becker Bedurftig
+Beer Beerbaum Begerow
+Behle Behner Behrendt
+Behringer Beimler Bek
+Benscheidt Bentele Benz
+Berens Bergen Berger
+Berghahn Bermont Berneker
+Bernhoffer Bernstein Berthold
+Besse Bethmann Betker
+Betsch Beyer Bezzenberg
+Biebow Biele Bielenberg
+Bielenstein Bierhoff Bihlmeyer
+Binder Binus Birnbaum
+Bischoff Bischoffshausen Bittenbinder
+Bittinger Bittner Blòmel
+Blassneck Bleeker Blenker
+Bloch Block Bloeckner
+Blum Blume Bock
+Bockhold Bode Boden
+Bodenheimer Boderode Boerth
+Bogen Bohland Bohlen
+Bohm Bohman Böhmer
+Bohringer Boller Bolm
+Bonner Borgeling Bormann
+Bosler Bosse Brò ggen
+Brò nnow Braasch Bracher
+Brack Brackmann Brandl
+Braun Brauner Braunsberger
+Braunsteiner Brecht Bregar
+Brehmer Brehn Breinlich
+Breitling Breitmayer Brem
+Brendel Brenden Brenner
+Brennicke Breu Breuer
+Brink Brockhaus Brott
+Bruch Brück Bruckner
+Brugger Brugmann Bruhne
+Brunner Bruns Bucer
+Buchalter Buchert Buchholz
+Buchner Bucholtz Buder
+Buettner Bugge Buhle
+Buhler Bunge Burchard
+Burgdorf Burghardt Burgsmuller
+Burmann Burnstein Busald
+Busch Buschmann Busemann
+Buser Buss Büttner
+Cananis Cerfas Christ
+Cimerman Cimmerman Classen
+Cresp Creuzfeldt Cullmann
+Cunk Czudaj DØhring
+Dahrendorf Damaske Dankers
+Dapper Daschke Dautzenberg
+Dautzenburg Deardorff Decker
+Dehmel Dehmer Denhardt
+Denk Dernesch Derr
+Deschu Deutscher Diebus
+Dieckmann Dieing Diesel
+Dieskau Dieterle Dietsch
+Dietz Dietzsch Diffenderffer
+Dill Dillhoff Dimaske
+Dindorf Disl Dittmar
+Dittrich Doepker Döhl
+Dolder Dolmetsch Dombrecht
+Donis Dopfer Dorn
+Dornacher Dostthaller Draeger
+Dreekmann Dreher Dreifelds
+Drescher Dreschler Drexel
+Drum Duba Duhr
+Dümmler Durkheim Durlacher
+Dziomba Ebner Eckener
+Eckert Eckholdt Eckstein
+Edelman Edelmann Edvrch
+Egerman Eggen Ehle
+Ehlers Ehlinger Ehmsperger
+Ehrenburg Ehrnsperger Eich
+Eichendorf Eichhorn Eichmann
+Eick Eifert Eilts
+Einbund Einsidel Einstein
+Eirich Eler Elsesser
+Emrich Endress Endresz
+Engel Engemann Engl
+Ensslin Eppstein Erdei
+Erdmann Ereiwitz Erhardt
+Erhart Erk Erlang
+Erndt Ernst Ersler
+Ertl Esch Eschenbach
+Escz Essig Esterl
+Ettenhoffer Ettinger Ettingshausen
+Ettmuller Eubel Ewen
+Ewig Fabel Falck
+Fallmerayer Farbman Farmand
+Fasch Fass Fassbaender
+Fassbinder Faulhaber Fauner
+Faust Faustmann Fehrenbacher
+Feimer Feinblatt Feistkorn
+Feiter Feitz Felder
+Feldhahn Felke Feller
+Fendler Fenner Fernau
+Ferschtman Fersten Fetscher
+Fette Feynman Fichte
+Fichter Fillinger Finkbiner
+Fischer Fischhauer Fischler
+Fissler Flegmann Flesch
+Flicke Fliegle Fliehman
+Foch Foerster Fogel
+FrØ be FrØ hnel FrØ hnes
+Fraenckel Franke Frankenheimer
+Frankenstein Frankl Frauenfelder
+Freigang Frenkiel Frenzel
+Freude Freund Fried
+Friedberg Friedeck Friedek
+Friedel Friedensburg Friedlander
+Friedmann Frielinghaus Fries
+Friesinger Fritsch Fritsche
+Froberger Froebel Froehucher
+Fromme Frommel Fruehwirt
+Fruhwirth Fuchs Funck
+Funk Funke Gò daschke
+Gò ttler Gaebler Gan
+Garbrecht Gardemeister Gastenveld
+Gaubatz Geglein Gehrig
+Geiberger Geier Geilinger
+Geisheimer Geiss Gellhaus
+Gephart Gerasch Gerbeck
+Gerber Gereke Gerg
+Gerhard Gerhardt Gerold
+Gerstaecker Gesell Geserer
+Gespeck Gessler Geswein
+Gette Gettelfinger Gibsch
+Gier Gietl Gillich
+Gimelstob Gisler Gislinge
+Glaber Gladisch Glaise
+Glass Glauber Gleber
+Gleitsch Glotz Gnass
+Göbelbecker Goebel Goehler
+Goehr Goellner Goermer
+Goethe Goettinger Goetz
+Goetzer Gogele Gögler
+Göhler Gohmann Goldenberger
+Goller Göller Goltz
+Gorz Goslar Gott
+Gottlieb Grò ndgrens Graf
+Gramm Graupnar Grbech
+Greiner Greiser Griem
+Gries Grieshop Grill
+Grillmeier Grimme Grisar
+Grob Grobler Groebe
+Groezinger Grogloth Gross
+Grossman Grotefend Gruber
+Grueter Grumach Grumel
+Grundherr Grundmann Grupa
+Gruppe Gudereit Guendler
+Guenthner Guggenberger Gugler
+Guldenschuh Gulp Gunsche
+Günter Gunther Guschlbauer
+Gutensohn Guth Gutman
+Gutsche Guttfreund Hò bsch
+HØ gel Haar Haas
+Habe Haberfeld Haberlands
+Habermas Hackl Haertel
+Haessler Haeusl Haeusler
+Hafonstaangel Hagel Hagelauer
+Hagen Hagenlocher Hagner
+Hahn Hahne Hahnel
+Halder Haller Halmer
+Hals Haltzel Hamann
+Hambitzer Hammerich Hammerle
+Hammerstein Hammes Hampe
+Hampel Hanfman Hannawald
+Hansmeier Hapsberg Harnock
+Hartinger Hartl Hartleben
+Hartlieb Hartwig Hartz
+Hartzer Haschke Haselrieder
+Haslinger Hasseroeder Hassler
+Hauch Haug Hauser
+Haussmann Haverfldt Hax
+Hazelzet Hecht Heck
+Heckmair Heffner Hegel
+Heger Heiden Heidenfelder
+Heidingsfelder Heidloff Heidt
+Heigel Heil Heimer
+Heimpel Heindel Heine
+Heineman Heinemann Heinen
+Heinkel Heinrich Heins
+Heinzel Heldt Helfenbein
+Helfkin Helfrich Helfter
+Helgenberger Hellekant Hellen
+Hellfritzsch Hellinger Hellmann
+Hellmich Helmer Helmerichs
+Helwich Hempel Hengst
+Hengstenberg Henkel Henschel
+Hense Hentsch Heofle
+Herber Herberhold Herberich
+Herbst Herde Herder
+Herdfeld Hergenröther Herhard
+Herold Herzfeld Herzl
+Herzog Hess Hesse
+Hessler Hester Heu
+Heumann Heusinveld Heusler
+Heymann Heynemann Hicke
+Hiebl Hiebsch Hieke
+Hiemer Hier Hieronymus
+Hietsch Hilgarth Himmler
+Hinetze Hintermeier Hintz
+Hinz Hipp Hipper
+Hirsch Hirschauer Hirschfeld
+Hirtreiter Hitzfeld Hoch
+Hochlat Hoebig Hoechst
+Hoefling Hoern Hoetker
+Hofer Hoffmann Hofmeihr
+Hofstater Hogler Hohenleutner
+Höhne Hollinger Hollmann
+Hollweg Holthausen Holtzmann
+Holz Holzhauser Homeier
+Hooss Hopfer Höpken
+Hoppe Horas Horn
+Houtmacker Hü Huber
+Hubner Hübsch Hugel
+Huke Humbert Hümmel
+Hunkoos Hunsberger Huntziger
+Hupetcoff Hupetri Huporkorny
+Hurtgen Husmann Husserl
+Hutflötz Huthwohl Huwiter
+Idesheim Ilgner Imelmann
+Immelman Inken Isecke
+Isekenmeier Isekenmeir Jager
+Jaeke Jaekle Jahnet
+Jakobs Jancke Jancker
+Janz Jedin Jerratsch
+Jesser Joachimsthaler Jost
+Jotten Jülicher Junghnel
+Kòchle KØhlund Kòhn
+KØrner Kaempfer Kahl
+Kahn Kaiser Kalkbrenner
+Kallabis Kallenbach Kallenberger
+Kallisch Kammerling Kandarr
+Kani Kapitan Kapp
+Kappmeyer Karbacher Karge
+Kasler Kastner Kegel
+Kehler Kehr Keifer
+Keitel Kelleners Keller
+Kemle Kemner Kemper
+Kempf Kenter Kerndl
+Kessing Kessler Kestelmann
+Kettenacker Kezer Khelsch
+Kiefer Kielgass Kiemle
+Kiemlen Kiemlin Kiep
+Kierkegaard Kihlstedt Kimmel
+Kinkel Kirch Kirchbach
+Kirchenbauer Kircher Kirchheim
+Kirchhoff Kirsch Kirschner
+Kirschofer Kirshbaum Kirsten
+Kisslinger Klaeber Klah
+Klais Klauber Klauschen
+Klazens Klebel Kleber
+Klee Kleiber Kleiman
+Klein Kleinendorst Kleinert
+Kleinpaul Kleinschmidt Kleitsch
+Klemert Klewitz Klimmer
+Klinck Klingberg Klinger
+Klinsmann Klohse Klöpsch
+Klosel Klosner Klostermann
+Klozbücher Klug Kluge
+Knippel Knipper Knippschild
+Knittle Knoll Knueven
+Ko Kobs Koch
+Kochta Koehl Koehler
+Koehneman Koelmel Koesters
+Kohler Kohlmann Kohlruss
+Kohlsaat Kohn Köhncke
+Kohning Kolb Kolf
+Koller Konrad Kopke
+Koppen Korff Korner
+Kost Köster Kostner
+Kota Kowarsch Kraatz
+Krabbe Krafstein Krahmer
+Krall Kramer Kraus
+Krause Kraushaar Krausse
+Krauthammer Krautheimer Krebs
+Krech Krehbiel Kreissig
+Krenckel Kresch Kreuger
+Kreutzer Kreutzwald Kriebl
+Krin Kroeger Krohn
+Kroner Krueckel Krug
+Krugman Krull Krumel
+Krumholtz Krummenacher Kruppa
+Kruyer Kubel Kuegler
+Kuehn Kuehne Kuerten
+Kühnemund Kuhnt Kuijken
+Kulhberg Kumbernuss Kümblin
+Kümlin Kuntz Kunz
+Kupkat Kuszmann Lackenbach
+Lackner Lacksz Lahr
+Lambeck Lambrecht Lammesfelder
+Lamper Lampl Landauer
+Landgut Landler Landwerlen
+Lanerd Lang Langen
+Langenkamp Lankes Lassen
+Laszmann Lau Lauchart
+Lauterback Lector Ledermann
+Leese Leffler Lehman
+Lehmann Lehner Lehnich
+Lehr Leib Leibbrandt
+Leibenguth Leiber Leidholdt
+Leimann Leitenberger Leitinger
+Leitner Lengnisch Lenz
+Lessing Letzetter Lickliter
+Liebenthal Lieber Liebermann
+Liekmar Lietzke Linden
+Lindenmaier Linder Lindulf
+Linesch Linge Lingeman
+Lingen Lingens Linneberg
+Linster Lippelt Lippold
+Littman Litzmann Ljankes
+Lobinger Lobsien Lobstein
+Loef Loeffelmann Loffler
+Loheit Lohmann Lohmer
+Lohmeyer Lohner Lohse
+Lopper Lorenz Lorre
+Loth Löwe Loy
+Lubitsch Ludeker Ludeman
+Ludendorff Ludentz Lugar
+Luhrman Lung Lurhmann
+Lustgarten Lüz Mò hlbach
+Maazel Maczey Madler
+Maehl Magel Mahlenkamp
+Mahler Mahlke Maichel
+Maier Mair Maj
+Majer Majerhoffer Makk
+Mallenbrandt Malz Mann
+Manstein Manzenberger Marunde
+Maske Massuthe Mast
+Masur Mathes Mattern
+Matzenkopf Mauelshagen Maurer
+Mauser Medtner Meerapfels
+Meidl Meier Meimberg
+Meinecke Meise Meisner
+Meiss Meissen Meissner
+Meistreich Mellenthin Mendel
+Mendelsohn Mengele Merk
+Merkel Merklein Merkler
+Merschdorf Merstorff Meser
+Messerschmidt Messmer Metelman
+Metterling Metting Mettler
+Metz Metzler Meunecker
+Meurer Meyer Meyerbeer
+Michels Miedl Mierisch
+Milde Millberg Mirbt
+Mirwald Misch Mittermayer
+Moellendorff Moeller Moelling
+Möhler Mohr Mohrhaus
+Moller Morgenthau Morlock
+Mosbauer Motevassel Mronz
+Muehlberg Muehlegg Mueller
+Muessig Mühle Mulch
+Mullenhoff Muller Munchow
+Münster Munz Nachbauer
+Nadelhoffer Naegeli Narr
+Naumann Nebe Neckel
+Nederstatter Neezer Nerius
+Nerlinger Nesselman Nessler
+Neubert Neumann Neumayer
+Neuss Neustatter Nickel
+Nieberg Niedernhuber Niederstatter
+Niemann Niemeyer Nienaber
+Nimtz Nitschke Nitze
+Norling Nussbaum Nyffenegger
+Oberacker Oberhammer Oberhofner
+Oberle Oberman Odenthal
+Oelsner Oertel Ohrenstiel
+Oldekop Olinger Ondruj
+Ophoven Oshin Ostendarp
+Ostendorp Osterloh Ottke
+Overresch Pajonk Pakula
+Palen Pallenberg Paschke
+Patzwahl Pechsteinn Peiser
+Peissel Pepke Perathoner
+Perls Pesch Pesseingimpel
+Peterhansel Pfaff Pfaller
+Pfeiffauf Pfeiffer Pfeil
+Pfeiler Pfister Phiesel
+Pichner Piech Piel
+Piller Pilsner Pischetrieder
+Pistohlkors Plage Plankensteiner
+Platz Platzdasch Platzer
+Plöchl Pohl Posch
+Poschner Potthof Preiss
+Presser Pretzsch Priebke
+Priemer Prinosil Probst
+Prokler Prugger Puetz
+Putzer Quebbemann Quint
+RØ hl Raab Raeder
+Raindl Rainer Rangosch
+Ranicki Rantzen Rasch
+Rassow Rau Rauch
+Rauh Reber Rebholz
+Reck Recker Regel
+Rehberg Rehn Reich
+Reichel Reicher Reichhardt
+Reiler Reinelt Reiner
+Reinhardt Reinke Reiss
+Reize Reizenstein Remmel
+Rener Renoth Renzenbrink
+Reski Retzner Reusing
+Reuter Ribbe Ribhegge
+Richter Rickert Riedel
+Riederer Riedle Riedman
+Riefenstahl Rieff Riege
+Rieger Riehl Ries
+Rihm Rilla Rippel
+Rippner Riske Rith
+Ritschel Ritter Rittinger
+Robel Rochkes Rockmeier
+Rödinger Roerich Roethlisberger
+Rohlander Röhm Rohre
+Röhricht Rohwer Rollenhagen
+Rolnik Rommel Rond
+Rosch Roschmann Rosen
+Rosenbaum Rosener Rosenfeld
+Rositzke Roskopf Rosler
+Rosmer Rosner Rossen
+Rosskopf Rösslar Rotheberg
+Rothfels Rotholz Rotsch
+Rottenberger Rotzsch Ruchendorf
+Rucker Rüdiger Rueckl
+Ruehe Ruff Ruge
+Rumpelmeier Rundstedt Runggaldier
+Rupp Rupprath Ruschin
+Rust Ruth Sachs
+Sachse Sack Sackel
+Sagebrecht Saggau Salzenstein
+Sammer Sandel Sandschulte
+Sarrazin Sassmanshausen Sattler
+Sattmann Sauer Sauerland
+Sawallisch Scacht Schfer
+Schffer SchØnle Schacht
+Schachte Schact Schactschneider
+Schaecter Schaeffer Schaenzer
+Schaffhauser Schams Schantz
+Scharping Schaub Schavillie
+Schbert Schechter Scheer
+Scheffers Scheideler Scheidler
+Schell Schellenberg Schelling
+Schenck Schenk Schenkel
+Schepfel Scherich Scherpenberg
+Schied Schiemann Schiff
+Schiller Schilling Schillinger
+Schimmel Schindelar Schindewolf
+Schindler Schinkel Schlarp
+Schlauch Schleisher Schlesser
+Schliefen Schlieffen Schliemann
+Schliessmann Schlneicher Schlomer
+Schlöndorff Schlotterbeck Schluep
+Schluetter Schmaltz Schmelling
+Schmetzer Schmidinger Schmidling
+Schmidt Schmitt Schmitz
+Schnabel Schneider Schnell
+Schnerb Schnicker Schnurre
+Schockemohle Schoencher Schoene
+Schoettlekotte Schoffel Scholkopf
+Scholl Schollenberger Scholze
+Schone Schonenberger Schonlebe
+Schöpp Schopper Schramm
+Schreiner Schriter Schroder
+Schroff Schroter Schuch
+Schuck Schuerbrock Schulberg
+Schuld Schulden Schuler
+Schulhauser Schuller Schult
+Schulte Schulten Schültz
+Schumann Schummer Schuncke
+Schuster Schutte Schuttler
+Schwacke Schwaiger Schwarz
+Schwarzacher Schweisser Schwetschenau
+Scragenheim Seelig Segel
+Seibel Seiberling Seibold
+Seidel Seidelman Seidl
+Seiler Seitz Seizinger
+Sell Senglin Seppelt
+Serkin Settlemeyer Shaefer
+Shrapnel Sieb Siebert
+Siebke Siebmacher Siebold
+Siedlmayer Sievers Sievert
+Silde Simmendinger Singer
+Sinner Sippel Sittig
+Sittler Slesina Smelser
+Smerdel Soergel Sokoll
+Somm Sommer Sondheim
+Sonn Sonnenberg Sonntag
+Sophus Spaneth Spätling
+Specht Spee Speker
+Spengler Sperl Speth
+Spielberg Spindler Spitzer
+Spitzy Spon Sprecher
+Sschwendt Staatsrat Stabler
+Stadelman Stadler Stahl
+Stahlberg Stahlecker Staier
+Stamm Stammel Stanfelj
+Stangel Stankalla Staubel
+Stauber Stauss Stegar
+Stehle Steigauf Stein
+Steinbauer Steinberg Steinem
+Steiner Steinhauser Steinhoffel
+Steinschneider Stenger Stenhammar
+Stenz Stephan Stepperfellt
+Stergar Sternfeld Sternhagen
+Stettin Steuer Steur
+Stich Stickl Stirnemann
+Stiteller Stober Stoffels
+Stoffler Stolle Stoltz
+Stolz Storp Stortebeker
+Stötzer Straub Strauss
+Strazzer Strege Strick
+Stritter Stroebel Strolin
+Strossmayer Strub Strunz
+Stuckenschmidt Studer Stuhmiller
+Stuhrepenberg Stuiber Stumpfer
+Sturmer Sturms Styger
+Sundhaussen Switzer Szalai
+Szelig Taegert Tammerk
+Tampke Tannenbaum Tarkmann
+Tarnat Taube Taubernberger
+Täubl Taudenrauch Tauler
+Tauscher Tebbel Teichmann
+Teischer Tellenbach Teller
+Terenther Teschendorff Tettelbach
+Tettelback Tetzel Teubert
+Teubner Thò rmer Thaner
+Theile Theiner Theloke
+Theusen Thiessen Thode
+Thoma Thoms Thon
+Thonis Thorner Thost
+Thuel Thul Thurneysen
+Tiedtke Tieleman Tietmeyer
+Tilele Till Timmer
+Tintner Tippold Titschinger
+Titz Toba Tölle
+Tolzmann Topp Toth
+Traultmann Trauner Trauttmann
+Treppel Trettel Troger
+Tschetter Tschopp Tuch
+Tuegel Tuttwitz Uhlirz
+Uiberall Ule Ullmannn
+Umstaedter Unger Unterzuber
+Upert Utpadel Van Heune
+Veith Vendelin Verst
+Videk Vielhaber Vincentz
+Vinck Voeller Vogt
+Vogts Volker Volkert
+Volkmann Vollmer Vollner
+Volz "Von Ettingshausen" "Von Freidenreich"
+"Von schroeder" "Von Stroheim" "Von Tirpitz"
+"Von Trotha" "Von Zitzewitz" Vorburger
+Voss Wachholz Wachtsmuth
+Wacker Wackerle Wagner
+Wahlberg Waigel Waldenmaier
+Wallauer Wallfisch Wallishauser
+Wallroth Walma Wander
+Wanneck Wappler Wassel
+Wassenaer Wasser Wassermann
+Wassersug Wassmeir Weber
+Wecker Wedding Wegener
+Wegl Wehe Weibrecht
+Weidner Weigl Weigle
+Weiglein Weil Weinbrecht
+Weingertner Weinschrott Weinsheimer
+Weinstein Weirather Weisbrantz
+Weisensteiner Weisflog Weishoff
+Weiss Weissensteiner Weisskeit
+Weiz Weizmann Weller
+Wellisch Welter Wenck
+Wendelin Wendlinger Wendorf
+Wendt Wenelin Wenger
+Wening Wentz Wenz
+Wepper Werdman Werner
+Wernicke Wert Wessel
+Wesselingh Westmann Weygrand
+Widmann Wieck Wiedeking
+Wiedemann Wiedl Wiegand
+Wiens Wiese Wiesenbauer
+Wiesenthal Wildhaber Wilhelm
+Wille Wilmetz Wimmer
+Wimmers Winckelmann Winkelhock
+Winschermann Winter Winterhalter
+Wirtz Wise Witmeyer
+Wittman Wittram Wleber
+Wodarg Woerns Woetzel
+Wohlgemuth Woile Wolf
+Wolfensberger Wolfer Wolfert
+Wollenberg Wollheim Wolter
+Wooge Worns Wotzel
+Wuestenhagen Wuhl Wulker
+Wullenweber Wulschner Wunderlich
+Wust Yäcklel Yahnel
+Zabel Zahn Zech
+Zechlin Zehb Zettel
+Zetter Zetterberg Zieff
+Ziege Zielke Ziesemer
+Ziewe Zimmerman Zimmermann
+Zipperling Zobel Zoeber
+Zoecke Zoeggler Zoeller
+Zoepfel Zoepfl Zurbrugg
+Zylberstein Abe Abukara Adachi Aida Aihara Aizawa
+Ajibana Akaike Akamatsu Akatsuka Akechi Akera
+Akimoto Akita Akiyama Akutagawa Amagawa Amaya
+Amori Anami Ando Anzai Aoki Arai
+Arakawa Araki Arakida Arato Arihyoshi Arishima
+Arita Ariwa Ariwara Asahara Asahi Asai
+Asano Asanuma Asari Ashia Ashida Ashikaga
+Asuhara Atshushi Ayabito Ayugai Baba Baisotei
+Bando Bunya Chiba Chikamatsu Chikanatsu Chino
+Chishu Choshi Daishi Dan Date Dazai
+Deguchi Deushi Doi Ebina Ebisawa Eda
+Egami Eguchi Ekiguchi Endo Endoso Enoki
+Enomoto Erizawa Eto Etsuko Ezakiya Fuchida
+Fugunaga Fujikage Fujimaki Fujimoto Fujioka Fujishima
+Fujita Fujiwara Fukao Fukayama Fukuda Fukumitsu
+Fukunaka Fukuoka Fukusaku Fukushima Fukuyama Fukuzawa
+Fumihiko Funabashi Funaki Funakoshi Furusawa Fuschida
+Fuse Futabatei Fuwa Gakusha Genda Genji
+Gensai Godo Goto Gushiken Hachirobei Haga
+Hagino Hagiwara Hama Hamacho Hamada Hamaguchi
+Hamamoto Hanabusa Hanari Handa Hara Harada
+Haruguchi Hasegawa Hasekura Hashimoto Hasimoto Hatakeda
+Hatakeyama Hatayama Hatoyama Hattori Hayakawa Hayami
+Hayashi Hayashida Hayata Hayuata Hida Hideaki
+Hideki Hideyoshi Higashikuni Higashiyama Higo Higoshi
+Higuchi Hike Hino Hira Hiraga Hiraki
+Hirano Hiranuma Hiraoka Hirase Hirasi Hirata
+Hiratasuka Hirayama Hiro Hirose Hirota Hiroyuki
+Hisamatsu Hishida Hishikawa Hitomi Hiyama Hohki
+Hojo Hokusai Honami Honda Hori Horigome
+Horigoshi Horiuchi Horri Hoshino Hosokawa Hosokaya
+Hotate Hotta Hyata Hyobanshi Ibi Ibu
+Ibuka Ichigawa Ichihara Ichikawa Ichimonji Ichiro
+Ichisada Ichiyusai Idane Iemochi Ienari Iesada
+Ieyasu Ieyoshi Igarashi Ihara Ii Iida
+Iijima Iitaka Ijichi Ijiri Ikeda Ikina
+Ikoma Imada Imagawa Imai Imaizumi Imamura
+Imoo Ina Inaba Inao Inihara Ino
+Inoguchi Inokuma Inoue Inouye Inukai Ippitsusai
+Irie Iriye Isayama Ise Iseki Iseya
+Ishibashi Ishida Ishiguro Ishihara Ishikawa Ishimaru
+Ishimura Ishinomori Ishiyama Isobe Isoda Isozaki
+Itagaki Itami Ito Itoh Iwahara Iwahashi
+Iwakura Iwasa Iwasaki Izumi Jimbo Jippensha
+Jo Joshuya Joshuyo Jukodo Jumonji Kada
+Kagabu Kagawa Kahae Kahaya Kaibara Kaima
+Kajahara Kajitani Kajiwara Kajiyama Kakinomoto Kakutama
+Kamachi Kamata Kaminaga Kamio Kamioka Kamisaka
+Kamo Kamon Kan Kanada Kanagaki Kanegawa
+Kaneko Kanesaka Kano Karamorita Karube Karubo
+Kasahara Kasai Kasamatsu Kasaya Kase Kashiwagi
+Kasuse Kataoka Katayama Katayanagi Kate Kato
+Katoaka Katsu Katsukawa Katsumata Katsura Katsushika
+Kawabata Kawachi Kawagichi Kawagishi Kawaguchi Kawai
+Kawaii Kawakami Kawamata Kawamura Kawasaki Kawasawa
+Kawashima Kawasie Kawatake Kawate Kawayama Kawazu
+Kaza Kazuyoshi Kenkyusha Kenmotsu Kentaro Ki
+Kido Kihara Kijimuta Kijmuta Kikkawa Kikuchi
+Kikugawa Kikui Kikutake Kimio Kimiyama Kimura
+Kinashita Kinoshita Kinugasa Kira Kishi Kiski
+Kita Kitabatake Kitagawa Kitamura Kitano Kitao
+Kitoaji Ko Kobayashi Kobi Kodama Koga
+Kogara Kogo Koguchi Koiso Koizumi Kojima
+Kokan Komagata Komatsu Komatsuzaki Komine Komiya
+Komon Komura Kon Konae Konda Kondo
+Konishi Kono Konoe Koruba Koshin Kotara
+Kotoku Koyama Koyanagi Kozu Kubo Kubota
+Kudara Kudo Kuga Kumagae Kumasaka Kunda
+Kunikida Kunisada Kuno Kunomasu Kuramochi Kuramoto
+Kurata Kurkawa Kurmochi Kuroda Kurofuji Kurogane
+Kurohiko Kuroki Kurosawa Kurusu Kusatsu Kusonoki
+Kusuhara Kusunoki Kuwabara Kwakami Kyubei Maeda
+Maehata Maeno Maita Makiguchi Makino Makioka
+Makuda Marubeni Marugo Marusa Maruya Maruyama
+Masanobu Masaoka Mashita Masoni Masudu Masuko
+Masuno Masuzoe Matano Matokai Matoke Matsuda
+Matsukata Matsuki Matsumara Matsumoto Matsumura Matsuo
+Matsuoka Matsura Matsushina Matsushita Matsuya Matsuzawa
+Mayuzumi Mazaki Mazawa Mazuka Mifune Mihashi
+Miki Mimasuya Minabuchi Minami Minamoto Minatoya
+Minobe Mishima Mitsubishi Mitsuharu Mitsui Mitsukuri
+Mitsuwa Mitsuya Mitzusaka Miura Miwa Miyagi
+Miyahara Miyajima Miyake Miyamae Miyamoto Miyazaki
+Miyazawa Miyoshi Mizoguchi Mizumaki Mizuno Mizutani
+Modegi Momotami Momotani Monomonoi Mori Moriguchi
+Morimoto Morinaga Morioka Morishita Morisue Morita
+Morri Moto Motoori Motoyoshi Munakata Munkata
+Muraguchi Murakami Muraoka Murasaki Murase Murata
+Murkami Muro Muruyama Mushanaokoji Mushashibo Muso
+Mutsu Nagahama Nagai Nagano Nagasawa Nagase
+Nagata Nagatsuka Nagumo Naito Nakada Nakadai
+Nakadan Nakae Nakagawa Nakahara Nakajima Nakamoto
+Nakamura Nakane Nakanishi Nakano Nakanoi Nakao
+Nakasato Nakasawa Nakasone Nakata Nakatoni Nakayama
+Nakazawa Namiki Nanami Narahashi Narato Narita
+Nataga Natsume Nawabe Nemoto Niijima Nijo
+Ninomiya Nishi Nishihara Nishikawa Nishimoto Nishimura
+Nishimuraya Nishio Nishiwaki Nitta Nobunaga Noda
+Nogi Noguchi Nogushi Nomura Nonomura Noro
+Nosaka Nose Nozaki Nozara Numajiri Numata
+Obata Obinata Obuchi Ochiai Ochida Odaka
+Ogata Ogiwara Ogura Ogyu Ohba Ohira
+Ohishi Ohka Ohmae Ohmiya Oichi Oinuma
+Oishi Okabe Okada Okakura Okamoto Okamura
+Okanao Okanaya Okano Okasawa Okawa Okazaki
+Okazawaya Okimasa Okimoto Okita Okubo Okuda
+Okui Okuma Okuma Okumura Okura Omori
+Omura Onishi Ono Onoda Onoe Onohara
+Ooka Osagawa Osaragi Oshima Oshin Ota
+Otaka Otake Otani Otomo Otsu Otsuka
+Ouchi Oyama Ozaki Ozawa Ozu Raikatuji
+Royama Ryusaki Sada Saeki Saga Saigo
+Saiki Saionji Saito Saitoh Saji Sakagami
+Sakai Sakakibara Sakamoto Sakanoue Sakata Sakiyurai
+Sakoda Sakubara Sakuraba Sakurai Sammiya Sanda
+Sanjo Sano Santo Saromi Sarumara Sasada
+Sasakawa Sasaki Sassa Satake Sato Satoh
+Satoya Sawamatsu Sawamura Sayuki Segawa Sekigawa
+Sekine Sekozawa Sen Senmatsu Seo Serizawa
+Shiba Shibaguchi Shibanuma Shibasaki Shibasawa Shibata
+Shibukji Shichirobei Shidehara Shiga Shiganori Shige
+Shigeki Shigemitsu Shigi Shikitei Shikuk Shima
+Shimada Shimakage Shimamura Shimanouchi Shimaoka Shimazaki
+Shimazu Shimedzu Shimizu Shimohira Shimon Shimura
+Shimuzu Shinko Shinozaki Shinozuka Shintaro Shiokawa
+Shiomi Shiomiya Shionoya Shiotani Shioya Shirahata
+Shirai Shiraishi Shirane Shirasu Shiratori Shirokawa
+Shiroyama Shiskikura Shizuma Shobo Shoda Shunji
+Shunsen Siagyo Soga Sohda Soho Soma
+Someya Sone Sonoda Soseki Sotomura Suenami
+Sugai Sugase Sugawara Sugihara Sugimura Sugisata
+Sugita Sugitani Sugiyama Sumitimo Sunada Suzambo
+Suzuki Tabuchi Tadeshi Tagawa Taguchi Taira
+Taka Takabe Takagaki Takagawa Takagi Takahama
+Takahashi Takaki Takamura Takano Takaoka Takara
+Takarabe Takashi Takashita Takasu Takasugi Takayama
+Takecare Takeda Takei Takekawa Takemago Takemitsu
+Takemura Takenouchi Takeshita Taketomo Takeuchi Takewaki
+Takimoto Takishida Takishita Takizawa Taku Takudo
+Takudome Tamazaki Tamura Tamuro Tanaka Tange
+Tani Taniguchi Tanizaki Tankoshitsu Tansho Tanuma
+Tarumi Tatenaka Tatsuko Tatsuno Tatsuya Tawaraya
+Tayama Temko Tenshin Terada Terajima Terakado
+Terauchi Teshigahara Teshima Tochikura Togo Tojo
+Tokaji Tokuda Tokudome Tokuoka Tomika Tomimoto
+Tomioka Tommii Tomonaga Tomori Tono Torii
+Torisei Toru Toshishai Toshitala Toshusai Toyama
+Toyoda Toyoshima Toyota Toyotomi Tsubouchi Tsucgimoto
+Tsuchie Tsuda Tsuji Tsujimoto Tsujimura Tsukada
+Tsukade Tsukahara Tsukamoto Tsukatani Tsukawaki Tsukehara
+Tsukioka Tsumemasa Tsumura Tsunoda Tsurimi Tsuruga
+Tsuruya Tsushima Tsutaya Tsutomu Uboshita Uchida
+Uchiyama Ueda Uehara Uemura Ueshima Uesugi
+Uetake Ugaki Ui Ukiyo Umari Umehara
+Umeki Uno Uoya Urogataya Usami Ushiba
+Utagawa Wakai Wakatsuki Watabe Watanabe Watari
+Watnabe Watoga Yakuta Yamabe Yamada Yamagata
+Yamaguchi Yamaguchiya Yamaha Yamahata Yamakage Yamakawa
+Yamakazi Yamamoto Yamamura Yamana Yamanaka Yamanouchi
+Yamanoue Yamaoka Yamashita Yamato Yamawaki Yamazaki
+Yamhata Yamura Yanagawa Yanagi Yanagimoto Yanagita
+Yano Yasuda Yasuhiro Yasui Yasujiro Yasukawa
+Yasutake Yoemon Yokokawa Yokoyama Yonai Yosano
+Yoshida Yoshifumi Yoshihara Yoshikawa Yoshimatsu Yoshinobu
+Yoshioka Yoshitomi Yoshizaki Yoshizawa Yuasa Yuhara
+Yunokawa Aarland Aartse Abrahamse
+Acker Adriaens Adrianszen
+Advocat Aertsen Ageet
+Ager Albertse Albertszen
+Alger Aliee Aljie
+Alyea Amerman Amient
+Andries Anseyving Antoniszen
+Arbaugh Arendse Arendsz
+Arents Assuerus Aten
+Auke Ayer Ayers
+Baal Baans Bacher
+Bachuijs Badie Bahn
+Bakel Balk Banckert
+Bant Banta Barberie
+Bare Barentse Barentstochter
+Barentsze Barneveld Bartels
+Barth Bartholds Bartholf
+Bateu Beakes Beal
+Beam Beeres Begemann
+Behney Bekker Belgraver
+Bellier Benda Benson
+Berchoven Berdan Berden
+Berens Bergkamp Bertholf
+Bertotten Bervoets Bester
+Beukema Beyleveld Bezuyen
+Bills Blaikie Blanck
+Blank Blasser Blauvelt
+Bleekemolen Bleom Bleyck
+Blijlevens Blind Blinkerhof
+Bloem Blom Bloodgood
+Blumberger Bocquet Boeke
+Boertgens Bogaardt Bogaert
+Bogarde Bogardus Bogart
+Bogert Boje Bomberger
+Bonen Bongaert Bonger
+Bongert Bonn Bonnel
+Boogaard Boogert Boome
+Boomer Borden Borgond
+Born Bos Bosch
+Botes Botha Boucquet
+Boud Bougart Bouscholte
+Bouwer Bovie Boymans
+Braconie Bradt Brattbakk
+Bredder Bredenbent Brentjens
+Breughel Breukink Brevort
+Breyandt Breytenbach Brink
+Brinkerhoff Brits Bronckhorst
+Brout Brouwer Brower
+Brubaker Brugmans Bruijn
+Brune Brunner Bruyn
+Buikema Buma Burdg
+Burger Burgis Burkholder
+Burpo Burtis Buys
+Cadmus Calitz Camac
+Canniff Carolus Casjouw
+Caspers Cassou Celer
+Christoffel Christus Claar
+Claesen Claessen Clap
+Clapgut Classut Clauss
+Clein Cleine Clemens
+Clement Clenen Cleyn
+Cocu Coejeman Coers
+Coerten Coetsee Cogh
+Coolhaas Cootzee Corleis
+Corlies Cornel Cornelis
+Cornelisda Cornelissen Cornell
+Corniel Coteel Coustodis
+Cresson Cronenburgh Cronk
+Crouse Crouter Cruse
+Cruyff Cuvilje Cuyper
+Cyper Dòbbeldam Dahm
+Dalling Darlang Dater
+Davids "De Baen" "De Bane"
+"De Baun" "De Boer" "De Boog"
+"De Boogh" "De Bruijn" "De Camp"
+"De Cow" "De Forest" "De Goeij"
+"De Goey" "De Graff" "De Grauw"
+"De Graves" "De Graw" "De Groot"
+"De Haan" "De Haes" "De Heere"
+"De Herville" "De Houtman" "De Jager"
+"De Jongh" "De Klerk" "De Kook"
+"De Maree" "De Marest" "De Nijs"
+"De Pre" "de Randt" "De Remis"
+"De Ruine" "De Sille" "De Veaux"
+"De Vlaming" "De Voe" "De Vol"
+"De Voor" "De Vouw" "De Vreese"
+"De Vriend" "De Waart" "De Witt"
+"De Zeeuw" "De Zoete" Deburghraeve
+Decker Declark Dedekind
+Dedkind Dedrick Dejong
+Dekker Dekkers Delamater
+Delamontagne Delavigne Delorme
+"Den Bakker" Dennies Dennysen
+Derksen Derr Dey
+Deyoe Didricks Dierman
+Dircks Dirksdr Doars
+Dobbelaere Dominicus Doorn
+Doremus Dorer Dost
+Doull Douwesen Drabbe
+Drats Drebbel Dret
+Drotske Druppers Dubbeldam
+Dubou Dudok Duisenderb
+Dumarteene Durfee Durje
+Dutoit Duyking Duzant
+Dyckman Ebersole Eby
+Eckhart Eckhaus Edema
+Egbertse Egborts Ekker
+Elting Eltingh Emans
+Embich Emden Enck
+Engel Engelsman Ennes
+Ennis Ensminger Epke
+Epkese Erasmus Erb
+Eschelm Esterhuysen Etsels
+Evers Everse Everts
+Evertszen Ewout Exel
+Faas Fassnacht Feake
+Ferseur Fersyeur Fessler
+Fesyeur Fies Fleck
+Flierboom Floris Fluitsma
+Fobes Fonda Fones
+Foos Foshuer Francen
+Frans Franse Fransse
+Franssen Fransz Fredericks
+Frederiks Fredrick Fredricks
+Fredrickse Fredrickszen Frena
+Froelich Frohlich Fruytiers
+Fugard Galle Garber
+Garrabrant Gassert Geerlingh
+Geertz Geingob Gerber
+Gerberich Gericke Gerlach
+Geroe Gerrebrantse Gerrits
+Gerritsdr Gerritse Gerritzen
+Gerryts Gesner Gessel
+Geurts Gheeraerts Gies
+Gieysztor Gillam Gisze
+Goetschius Goosen Goosens
+Gootblod Goubau Graaf
+Groen Groeneveldt Groethuysen
+Groff Groll Groos
+Groote Grupp Gurnee
+Gurtrich Gysbrechts Haacke
+Haag Haarhuis Hackenbroch
+Haeckle Hafte Hageman
+Hagerman Hahlo Haight
+Haldron Hals Hanekom
+Hanse Hansen Harden
+Harding Haring Harman
+Harmanse Harmense Harmse
+Harnish Hartje Hartmanse
+Hartshorne Hasbrouck Haward
+Hecht Heekeren Heevink
+Helmigse Hendrick Hendricks
+Hendrickse Hendricksen Hendrickson
+Hendrickszen Hendrix Hendrykxx
+Henion Henning Hennion
+Henrard Herbrüggen Hermans
+Herque Herr Herring
+Hershey Hersman Hertje
+Herty Hesp Hess
+Hessels Hesselse Heynkes
+Hibon Hiddink Hoebacke
+Hoefnagel Hoegersteyer Hoekstra
+Hoff Hofman Hofmeyr
+Hofstra Hol Holbein
+Holdrum Holst Honig
+Hoogduytscher Hoogeveen Hooglandt
+Hoornik Hooten Hoover
+Hoppe Hoppen Hopper
+Horenbout Hornstra Horsch
+Horst Horstink Hostetter
+Housman Hout Hoy
+Huber Hugesson Hulit
+Hulse Hunsberger Hurgronje
+Huster Huybertszen Huyghen
+Huyler Iani Ignatius
+Isselsteen Jacobse Jacobusse
+Jans Jansdr Jansen
+Janssens Jeuriaens Jewell
+Jimmink Jonge Jongejans
+Jongman Jongmans Jonk
+Joosten Jopie Joralemon
+Jorise Joriszen Junghuhn
+Jurcks Jurckse Jurcksen
+Jurckx Jurcx Juroksen
+Jurrie Kalff Kalkman
+Kamerling Kamps Kamstra
+Kanschra Kapt Karaay
+Karch Karremans Kauffman
+Kayser Keemer Keizer
+Kempers Kendig Kepper
+Kerck Kern Ketel
+Keurvorst Khoza Sa Kiers
+Kiersen Kierstede Kieslaer
+Kiess Kiestra Kindt
+Kinne Kipp Klausman
+Kleynhans Klock Kluivert
+Klusener Knaus Knippschd
+Koch Koekkoek Köella
+Koemans Koenradt Koertzen
+Koler Konight Koninck
+Koning Konink Konnight
+Koopman Koopmans Kornmann
+Kortright Korving Koshney
+Kosters Kough Krajicek
+Kramer Kreider Kreitz
+Krey Krige Krijnen
+Kroes Krom Kruger
+Kruyt Kuipers Kulmus
+Küng Kuyper Lafeber
+Lambrechts Lander Landis
+Lansink Laros Lashier
+Lawrenson Leedt Leenhoff
+Leeuwangh Leffert "Leiter-Nijpels"
+Lent Lepper Lewin
+Leydecker Lieuwes Linckford
+Lintweaver Loers Lootens
+Loots Lorine Losier
+Louw Louwerense Louwman
+Lovica Lozier Lubbe
+Lubberts Lubbertse Lubertson
+Lucieer Lueders Lutjens
+Lutkens Lutz Lutzenius
+Luyt Luz Lydecker
+Maart Maase Mabie
+Mackelyck Maertens Maisinger
+Malan Mandeviel Mangin
+Mans Mantanye Manus
+Marais Mares Maris
+Maritz Markgraaf Marsellis
+Marsellise Marsuryn Marteling
+Martense Maston Mathis
+Matthijse Matthyssen Maurhoffer
+Mauritzen Mauve Maysinger
+Meens Mees Meesen
+Meet Meeuws Mehrtens
+"Meilink-Roelofsz" Melchiot Memlinc
+Mennes Merri Merselis
+Merselius Mervis Messeker
+Metsalaer Metsys Meulmans
+Mey Meyer Meyers
+Meynderts Meysinger Michielszen
+Mickler Miedema Minnaar
+Mjoberg Moerenhout Moleg
+Molenaar Mollema Montanje
+Mor Morisett Mouritse
+Mouwerson Mowerson Mulder
+Muller Muntz Muskens
+Musser Myers Mylin
+Mytens Naertens Nagel
+Nagle Nainkin Naude
+Naugle Nedry Neethling
+Neth Neuwenschwander Nieuwenhuys
+Niewendyk Nixon Noldt
+Nolt Noordholt Noorlander
+Nordhagen Nordien Norval
+Noteboom Numan Nyssen
+Oberholtzer Oosterhuis Oosteroom
+Oostinge Ophuysen Oprel
+Oremans Ostenstad Ostrum
+Oudshoorn Ouijer Ouke
+Overmars Paers Paesen
+Parlevliet Paulen Paulse
+Paulus Peers Peeters
+Peiffer Peterse Peterson
+Petilon Peu Pienaar
+Pier Pierterse Pieters
+Pieterse Pietersen Pieterszen
+Pitje Plettenburg Ploegmakers
+Poeze Pooe Poortman
+Postma Postmael Potgeiter
+Poulse Poulsen Poulus
+Pouwelse Powelse Pretorius
+Prins Provoost Prys
+Pukstys Pulis Pulisfelt
+Quackenbosch Quasten Ramaalas
+Rapalje Rapareillet Rau
+Redeker Reichard Reiff
+Reijerss Reimer Reiss
+Reitz Reiziger Reizinger
+Remmelts Rendich Renimen
+Resink Rettan Reyer
+Reyers Reyner Rhoodie
+Ricklefs Riddenaer Ridnaer
+Rienks Rijkaard Rindel
+Ristenbatt Ristenblatt Ritsma
+Robberts Roding Roeloffs
+Roelofs Roelofse Roggeveen
+Rohland Rohrer Rom
+Rombley Romeyn Romme
+Romp Ronhaar Roorda
+Roos Roosmalen Rorendaal
+Rosendaal Rossouw Rottier
+Rouestoff Ruegsegger Ruimschoot
+Rulon Rumpff Rupp
+Rutan Ruychou Rycke
+Ryer Ryersen Ryke
+Saal Saarloos Sabin
+Sanderse Saraulla Sauvagie
+Savich Saylor Schad
+Schaedel Schaeffer Schaers
+Schaffrot Schalken Scharer
+Scheepers Scheffler Schefold
+Scheltens Schenck Schenk
+Schermerhorn Schillebeeckx Schluchter
+Schmalhausen Schmitt Schoeman
+Schoert Scholey Scholl
+Scholten Scholters Schonen
+Schoon Schoonmaker Schott
+Schouten Schuiling Schulster
+Schulte Schultz Schulze
+Schut Schuyler Schyourt
+Scrots Seedorf Sensenig
+Seran Serontein Serven
+Seubering Seyerling Seyouche
+Sherk Shermer Shiebel
+Shirk Shrantz Shreve
+Shurte Shurtze Sickedr
+Siemerink Sipkens Sips
+Sjoerte Skindstad Sljivich
+Sloothaak Slot Smedes
+Smeets Smidt Smit
+Smuts Sneden Snoek
+Snyder Snyman Soete
+Sohier Some Somer
+Sonnefeld Sooy Soutendijk
+Speer Speicher Spier
+Spijkers Springsteen Staats
+Stacye Stam Stapel
+Stauffer Steck Steenbeck
+Steffy Stegg Steinmets
+Stenneke Sterling Stevens
+Stevense Stille Stimets
+Stoll Stompe Storback
+Stot Stoutenburgh Straet
+Stratemaker Straut Street
+Strijdom Stroo Struycken
+Stryckers Strydom Stucker
+Stuwaert Stuyvesant Stypers
+Suffern Suvaal Suzman
+Swaim Swanepoel Swarr
+Swart Swartwout Swin
+Swits Switser Sybrandt
+Sykes Symons Syourt
+Taelman Talens Tantum
+Tappan Tappen Taument
+Teerlinc Teetaert Teeuw
+Teeuwe Teichmann Ten Boom Terheun
+Terhune Terpstra Tersteeg
+Terwilleger Teunis Teuniszen
+Thacher Theis Theunis
+Theysson Thiel Thijs
+Thomasse Thyssen Tibbets
+Tibout Tice Tichelman
+Tiele Tieleman Tiemessen
+Tietsort Tilba Tilborch
+Tilburg Timmer Toers
+Toors Tops Torion
+Touers Traphagen Treurnicht
+Trichardt Trico Tromp
+Tschanz Tullier Turck
+Tuyl Uitgeverij Underdonk
+Ungerer Valen Valentijn
+Valleau "Van Der Linde" "Van Aernhem"
+"Van Alstyne" "Van As" "Van Aulen"
+"Van Baal" "Van Balkom" "Van Biesbrouck"
+"Van Blercom" "Van Blerkum" "Van Bon"
+"Van Brevoort" "Van Buren" "Van Bussen"
+"Van Cleve" "Van Coeneen" "Van Couvenhoven"
+"Van Daalen" "Van Dalsen" "Van Dansich"
+"van de Sanden" "Van Delinde" "Van Den Brul"
+"Van Der Beek" "Van Der Berg" "Van Der Bilt
+"Van Der Bogaerde" "Van Der Broek" "Van Der Burgh"
+"Van Der Capellen" "Van Der Elst" "Van Der Goot"
+"Van Der Hagen" "Van Der Heyden" "Van Der Hoef"
+"Van Der Hoek" "Van Der Hoof" "Van Der Kuyp"
+"Van Der Leur" "Van Der Linde" "Van Der Meer"
+Vanderzee Vansteenburghe "Van't" Veer
+Varick Vedder Vedeker
+Veens Vehaarst Veldkamp
+Veldman Venneker Vennemars
+Venter Verbeek Verhoeven
+Verhoog Verhulst Verken
+Verkuhl Verlinden Vermeulen
+Vermilye Verplanck Verplancken
+Versfeld Verspagen Verstappen
+Versteeg Verster Verstoerod
+Verstraeten Vervey Verwey
+Verwoerd Veseur Vever
+Viebranz Vilas Viljoen
+Vink Vis Visagie
+Vlekke Vlieghuis Vliese
+Vlok Voelker Voienne
+Volck Volckert Volkertszen
+Voorhees Voorhis Vorderman
+Vorster Vos Vreeland
+Vries Vriesde Vrije
+Vroeman Vroom Vrooman
+Vuuren Waerdt Wagner
+Wagter Wakelin Walingse
+Walraven Wannemacher Wannemaker
+Wanner Wapnick Wassen
+Weber Weekveldt Weimer
+Wenger Wenne Wenzler
+Wertheim Wessel Wessels
+Westerhof Westerhout Westerveldt
+Westervelt Westhuizen Wibier
+Widlak Wiekens Wiese
+Wijnberg Wijnhard Wilgus
+Wilken Willems Willemse
+Willets Wilnis Wind
+Winne Winnink Winter
+Witschg Wittstock Witwer
+Wizzelpenning Woeder Woelffs
+Woertman Woglom Wolpe
+Wolthers Woodmansee Wortendyke
+Wortmann Wouda Wouterse
+Wouterson Wustgen Wyckoff
+Yeager Yeoumans Yonkman
+Yost Zabriskie Zeelenberg
+Zenden Zetterlund Zie
+Zijlstra Zimmerman Zink
+Zuyderwyk Zweistra Abeille About Abrassart
+Adam Agarand Aguilar
+Alacoque Alard Albert
+Albouraie Alembert Alexandre
+Allard Allaro Alloncle
+Allut Alphand Althape
+Althusser Amable Amann
+Ambre Amélineau Amelotte
+Amiez Amiot Amoudry
+Ampère Ancel Anciaux
+Andreu Andrieux Anelka
+Angloma Angrand Anouilh
+Arata Arbelet Arbez
+Arcand Ardant Arguelles
+Arnaud Arpinon Arquette
+Arquilière Arrablay Arrau
+Arron Arzel Asquebord
+Asselineau Assouad Astruc
+Attilio Aubarat Auber
+Aubert Aubertin Aubon
+Aubry Aucagne Audiard
+Aufort Augendre Auger
+Augier Auneil Auradou
+Aurenche Auric Auriol
+Autain Authie Auzias
+Ayarai Bacha
+Bachelin Badeau Badinter
+Badre Baijot Baille
+Baillieu Baix Balandier
+Balanque Balibar Ballanger
+Ballerat Balleroy Ballou
+Ballu Baluze Bangue
+Banquet Barat Baratte
+Barbier Barbusse Bardot
+Bardou Bareau Bariani
+Barres Barret Barthez
+Bartholdy Barthou Bartolone
+Bary Bassiere Bastiani
+Bastide Batiffol Baudart
+Baudelaire Baudet Baudouin
+Baudry Baumont Bautain
+Bazille Bazire Beauchaud
+Beaumarchais Beaumont Beauregard
+Beausjour Beautell Beauvais
+Beauvallet Becart Becot
+Bedard Beineix Belchat
+Belcour Belgraver Bellot
+Benazi Benetton Benichou
+Benoit Benth Berangere
+Berbizier Berchet Berge
+Berger Bergerat Beriou
+Berlinguer Bernadaux Bernadis
+Bernadotte Bernard Bernat
+Bernier Berthome Bertillon
+Bertin Berton Berty
+Besaçon Besanceney Bescanceny
+Besonhé Bessette Besson
+Bessy Beteille Beul
+Bevis Beylier Bezace
+Biez Bigeard Bigeois
+Bilencourt Billerey Bimbenet
+Binoche Bisaillon Blacque
+Blanc Blanchard Blanche
+Blanco Bleneau Blevigne
+Bliche Blondeau Blondel
+Blouin Bluteau Bobot
+Bocande Bochette Bodart
+Body Boeuf Boileau
+Boirot Bois Boisellier
+Bonacieux Bonaly Bonamy
+Bondoufle Bonet Bonfrere
+Bonnard Bonnat Bonnefroy
+Bonneville Bonnissel Bonnot
+Bontin Bontoux Bonvoisin
+Bony Bopurgin Borain
+Bordeaux Bordelon Bordieu
+Bordreuil Bordurin Bore
+Borély Borot Boscardin
+Bosquet Bossicar Bossoire
+Bottanet Bouchard Bouchet
+Bouchez Bouchier Boudin
+Boudouani Boughé Bouic
+Bouillon Boulais Boulange
+Boulez Boulianne Boulineau
+"Boulot-Tolle" Bourassa Bourdieu
+Bourdin Bourdy Bourel
+Bourelly Bourgeat Bourgeau
+Bourgeoys Bourget Bourgoing
+Bourgonje Bourgouin Bourlet
+Bourneuf Bourque Boursier
+Boursin Boussac Boussod
+Boutard Boutellier Bouteyre
+Boutiette Boutin Boutron
+Boutter Bouvard Bouvron
+Boyer Boyette Bozon
+Breton Braconnier Bracquemond
+Brassard Brasseur Braud
+Braudel Brébeuf Brechu
+Bregmestre Brehaut Brenet
+Breton Bréton Brezin
+Briane Brindal Brion
+Briot Briquet Brissaud
+Brissault Brisson Broc
+Brocard Brochard Brochet
+Broissia Brosseau Brouset
+Broussard Brouzet Brucy
+Brulois Bruneau Brunet
+Brunius Bruyas Buchon
+Budé Buisson Bujold
+Bunul Buque Burtin
+Burty Burville Buzaine
+Cabal Cabanel Cabaner
+Cabannes Cachemaille Cadart
+Cadeloro Cagnat Caillebotte
+Caillet Caillot Cailloux
+Cailteux Cali Califano
+Callier Calmes Calmette
+Cals Cambarabero Camdessus
+Camelot Camoin Campiche
+Campouyre Camus Candela
+Capelle Carala Carbonneau
+Cardin Cardone Caree
+Carnot Caron Carpeaux
+Carpentier Carrard Carrat
+Carraz Cartier Casabou
+Cassard Cassatt Cassel
+Castagnary Castaignade Castang
+Castel Castelnuovo Caster
+Castets Catellier Catteau
+Caubere Causier Causs
+Caussinade Cavagnoud Cavour
+Cazalet Cazalis Cazenave
+Cazenove Censier Ceran
+Cevaer Cézanne Chereau
+Chabert Chaboche Chabon
+Chaboteaux Chabrier Chabroux
+Chaigneau Chailly Chambon
+Chambriard Chamorin Champollion
+Chanteur Charbonneau Charbonnier
+Chardon Charisse Charlier
+Charmant Charpentier Charrieres
+Charriol Charron Charteris
+Chartier Chartoire Chartrand
+Charzat Chastagnol Chastel
+Chatard Chatas Chatelet
+Chatellain Chaumeau Chaussinand
+Chauveau Chauvelier Chauvet
+Chavasse Chenal Cheniaguine
+Chennault Cherel Cherier
+Chesnais Chesneau Cheval
+Chevalier Chevenement Chevillon
+Chevit Chevrier Chirot
+Choiseux Choquet Chretien
+Chuillier Cincebeaux Cinelu
+Citte Cixous Clairmonte
+Claret Clarico Clarissie
+Clavell Cleach Cleda
+Clemenceau Clémencet Clement
+Clerc Clerico Cleutinx
+Clevenot Clouet Clouseau
+Cloutier Clouzot Cochetel
+Cocheteux Cocteau Coeur
+Coeuroy Coffier Cohendet
+Collard Collbras Collignon
+Collonville Collopy Comay
+Combe Combes Comeau
+Commandeur Comtois Conil
+Conte Contencin Corot
+Coste Coté Cottard
+Cottaz Cottins Couderc
+Cougelet Coulette Couperie
+Couperin Couprie Courbet
+Courshesne Courtois Cousin
+Cousteau Cousteix Coutela
+Coutourier Couture Couve
+Crasson Cremer Crespy
+Cretier Criville Cros
+Crossette Cuattrin Cueff
+Cugnon Cupidon Curtayne
+Curutchet Cusson Cuvier
+"d'Aigreville" "d'Aubec" "d'Espivant"
+"d'Orsay" "d'Orty" Daboussier
+Dabry Dacier Dacourt
+Dagort Daladier Dalle
+Dallons Dampier Dandieu
+Danel Danfrie Danville
+Daoustd Daranluz Darragon
+Dary Daubigny Daubresse
+Daudet Daumier Daumoinx
+Daunay Dautane Dauvergne
+Daux Debavelaere Deblock Deboos
+Debove Debusse Debussy
+Decaux Dechanet Dechaume
+Dechy Declercq Decoteau
+Decugis Deferne Degas
+Degert Deglau Dehaene
+Deharo Delacave Delacroix
+Delaigue Delair Delaitre
+Delalande Delamere Delaroux
+Delaune Delecoeur Delevoye
+Delluc Delnatte Delong
+Delorm Delpech Delporte
+Delvaux Demercastel Demilly
+Demongeot Demy Deneriaz
+Deneuve Deneye Deniau
+Denis Denizot Denon
+Denot Deprez Déprez
+Derain Derame Deroulade
+Desailly Desanlis Desbiens
+Desboutin Deschamps Deshors
+Desire Desjardins Desmares
+Desneux Despatie Dessaigne
+Dessum Destatte Destine
+Destot Detchenique Devaluez
+Devantier Dewees Deylaud
+"D'hauterive" Dhenin Dhinnin
+Diderot Didier Dietou
+Diligent Dimier Diole
+Diomede Dionne Dispagne
+Distel Docquier Doillac
+Doleuze Dolige Domenche
+Donciuex Donnadieu Dor
+Doreau Dorsile Doublet
+Doucet Douie Doumen
+Doumer Dourthe Drafondre
+Droette Drouet "Du Plat"
+Dubernel Dubertret Dubosc
+Ducat Duchatelet Duchesneau
+Duclos Ducoton Ducret
+Ducros Dudevant Duellet
+Duèse Dufaux Duffet
+Dufoix Dufourcq Dufournet
+Dufrene Dufresne Dugarry
+Dugas Duguay Dumas
+Dumay Dumesnil Dunand
+Duphot Dupin Duplan
+Dupouey Dupray Dupuiche
+Duquenoy Duran Durand
+Duranty Duret Durieux
+Durot Durufl Duthuit
+Dutoit Dutronc Dutruel
+Duval Duvall Duvillard
+Duvivier Ega Elby
+Elien Emery Emperaire
+Entremont Eparvier Ephrussi
+Ereau Erignac Eriq
+Erler Ermenault Erondelle
+Escoutou Escude Esprit
+Evigan Evrard Fabre
+Faby Faille Falcon
+Falcoz Fallières Fammeree
+Fantin Farner Farry
+Fasquelle Fauche Fauchlevent
+Faure Fauvel Favour
+Favre Favreau Fébre
+Fénéon Férat Ferga
+Ferga Feroulet Ferques
+Ferrol Ferrier Ferttet
+Fevre Feydeau Ficher
+Fiere Fieveris Filion
+Finance Fioupou Fiquet
+Fivet Flambeau Flaubert
+Flavigny Fleury Flor
+Floray Florent Flory
+Flotard Focquet Foletier
+Fondaire Fontang Fontenay
+Fonteyre Foray Foree
+Foreville Forgeard Forget
+Forissier Forneris Forquaist
+Forqueray Forquest Fostroy
+Foubert Foucan Foucault
+Foucher Foucras Foulon
+Foulques Fouques Fouquet
+Fourier Fournier Foury
+Foy Fraigneau Franchet
+Francillon Franquemont Frechette
+Fremont Frequesse Friquest
+Frondeville Fruquest Frutaz
+Fuchs Fumon Furnon
+Gabriel Gachet Gachot
+Gagnon Gaigneur Gaillard
+Galfione Gallet Galliene
+Gallieni Galliott Gallois
+Galthie Gamelin Ganteaume
+Gantois Gaounon Garaudy
+Gardenne Gareau Gariel
+Garinet Garnerin Garnier
+Garreau Gasnault Gaspard
+Gasquet Gassou Gatien
+Gatignol Gatteaux Gaubil
+Gaudernet Gaudet Gaudibert
+Gaudry Gauliet Gauliot
+Gaultier Gauthier Gauthiot
+Gautier Gautreau Gay
+Gayrard Geffroy Gene
+Genevie Geney Géromé
+Gervex Gery Ghil
+Gibernau Gilbert Gill
+Gillard Gillardin Gillaumin
+Gillemet Gillenormand Gillet
+Gillette Giner Giot
+Giradou Girardin Giraud
+Gireaud Giron Giroux
+Gleyre Gobert Gobinet
+Godard Goddard Goddat
+Godet Godignon Godin
+Goffin Gogny Golmard
+Goncourt Gonse Gossett
+Gottignie Goubert Gougot
+Goulancourt Goulet Goupil
+Gouron Gouteyron Gouvenou
+Gouverne Goyette Grand
+Grandet Grandin Grandjean
+Grandmont Grandon Granet
+Grataloup Gratien Grava
+Gravel Gravier Grébaut
+Grelot Grignion Grignon
+Grillon Grimault Grimmette
+Groisard Grony Gros
+Grosbelhomme Grosjean Groulx
+Grumiaux Gruson Guenier
+Guepy Guérard Guerbois
+Guerin Guerin. Guerrier
+Guesdon Guichard Guidry
+Guihard Guilbert Guillaut
+Guillemani Guillemet Guillermin
+Guillon Guillot Guims
+Guiomar Guiraud Guisset
+Guitry Guivarch Guizet
+Guizot Gumy Gusmeroli
+Guys Habig Hainault
+Halard Hamoncourt Hanchard
+Hanequart Hanotel Harend
+Harnoncourt Hasse Hebert
+Heinis Helleu Hennecart
+Herbaut Herbaux Herlemont
+Hermant Herment Hervé
+Higounet Hilaire Homo
+Hormel Hoschedé Hostache
+Houllier Houssaye Houssin
+Hout Hubert Huet
+Hugo Huguenard Huillet
+Huont Huriet Hurtis
+Hyères Impetraz Ingres
+Ingroville "Isaac-Sibille" Iserbyt
+Issorat Jacquelin Jacquemin
+Jacquet Jadin Jadot
+Jalabert Jambart Janin
+Janquin Jarnet Jarre
+Jarry Javert "Jean-Aubry"
+Jeanmaire Jeanniot Jeannot
+Jeanteaud Jeune Jeunet
+Jillette Jobert Joffre
+Jogues Joilcoeur Jolivet
+Jolves Jondet Jospin
+Josselin Joubert Jourdonnais
+Juillet Julia Jurassien
+Kampe Karembeu Kert
+Kiffer Killy Kucheida
+La Berche La Pérouse La Rochenoire
+La Touche Labande Labaye
+Labbé Labit Labourdette
+Labouré Labre Labrousse
+Labyorteaux Lachaille Lacharriere
+Laclau Lacombe Laconi
+Lacroix Lafenestre "Laffon-parias"
+Lafitte Laforet Lafrenière
+Lagouarde Lagoutte Laguilhon
+Laigle Lalande Lalanne
+Lama Lamache Lamaison
+Lamarre Lambert Lamiel
+Lamine Lamy Lanctot
+Landrain Landre Landry
+Lang Langey Langlois
+Lapasset Lapointe Laporte
+Lapôtre Laprade Larbaletrier
+Largillière Larguier Larosière
+Larroquette Larrouse Larue
+Laskine Lassucq Lastex
+Latarjet Latcherie Lathuile
+Latour Latreille Lauga
+Laune Laurent Laurier
+Laussacq Laussucq Lavagne
+Lavalliere Lavanchy Lavandais
+Lavergne Lavicq Lavigne
+Lavignen Laviniere Lavoie
+Layard Lazaro Le Braz
+Le Brocq Le Chanony Le dauphin
+Le Goyet Le Jeune Le marquand
+Le moigne Le Nain Le Nôtre
+Le Petit Le Sueur Lebel
+Leboeuf Lebouc Lebretton
+Lecadre Leccia Leconte
+Lecouvé Lecroix Lefebre
+Lefevre Leflamand Leflon
+Lefou Lefranc Legendre
+Leger Legout Legros
+Lejosne Lellouche Lelong
+Lelouch Lelu Lemaire
+Lemer Lemercier Lemerre
+Lemonnier Lemorne Lempereur
+Leonard Leotard Lepercq
+Leplat Lequiller Lesaché
+Lesbordes Lesbros Lesclide
+Lesein Lestonnac Letheran
+Letice Letoute Lettiere
+Leveaux Leveille Levet
+Levicq Levienaise Leydier
+Lézine "L'Heureux" Liegeois
+Lievremont Ligier Limouzylise
+Liotard Lise Lit
+Lizarazu Lizerand Loit
+Lombard Lomont Lonard
+Longeserre Longin Longuet
+Loquinaire Lorcy Lorelliere
+Loret Lorgnon Loria
+Lorrain Lorraine Lortie
+Louagie Loubens Louet
+Louppe Luart Lubin
+Luçay Lucre Lumet
+Luquet Mably Macaque
+Maccaux Madalle Madrelle
+Magliorie Magne Magre
+Maillard Maissoneuve Malassis
+Malaurie Malcher Malecot
+Malenfant Malherbe Malhuret
+Mallarmé Mallen Mallet
+Malleville Malmert Malraux
+Maminot Mandeville Manet
+Manoury Marais Marat
+Marceau Marcelin Marchand
+Marchés Marconnet Marfaing
+Marguin Marielle Mariette
+Marin Marion Marliere
+Marnet Marot Marquand
+Marrone Marrot Marrou
+Marseille Martel Martelot
+Martin Martineau Martineaud
+Martinet "Masdeu-Arus" Maspero
+Massenet Massoni Matagne
+Mateau Mathou Mathy
+Matisse Mattier Matton
+Maupassant Mauresmo Maurois
+Maxse Mazan Mazarin
+Mazas Mazerolle Mazin
+Meillet Meissonier Melennec
+Meley Ménard Mendès
+Mendiburu Mendy Menjou
+Mennesson Menou Menuel
+Mercatel Mercie Mercier
+Merguillier Merivel Merle
+Merleau Merrien Mertillot
+Merville Mesmin Mesnard
+Mesnier Metman Métraux
+Meunier Meurent Meurice
+Meurisse Meyer Meystrell
+Micaux Michelet Michon
+Miere Mignard Millin
+Millot Mingeon Minie
+Mionnet Mirabeau Mirbeau
+Mitterand Modeste Moinard
+Moirin Mollais Mollaret
+Mollat Mollet Monami
+Moncassin Moncel Moncelle
+Moncey Monchaty Monciaux
+Moncoutie Monet Moniotte
+Montand Montet Monteux
+Montillet Montminy Montrosier
+Moreau Morier Morillon
+Morin Morisot Morvoisieux
+Mosse Mothron Mouffe
+Mouligne Moulu Mouly
+Mourge Mouschard Moushine
+Mousson Mouterde Muche
+Murat Muscat Muselier
+Musset Nadeau Nargeolet
+Nattier Nautin Navarre
+Naveau Naville Nazon
+Negret Nélaton Nerciat
+Nestoret Nicollet Niquet
+Nivard Nivel Nivelon
+Nizan Noirault Noiret
+Nordin Noriac Olleris
+Ollivier Oreille Oresme
+Othon Oudant Oudet
+Oudinot Ougier Ouimette
+Ouvier Pacaut Pacome
+Pagnol Paillard Pain
+Paix Palairet Paléologue
+Pallegoix Paneloux Panis
+Papon Paradis Parillaud
+Parmentier Parrottin Pasquier
+Pastor Pastoral Pasturei
+Paton Paty Pauli
+Paulot Peizerat Pelchat
+Pélissier Pellissier Pelloutier
+Pelous Peloux Penaud
+Pencreach Pepin Perec
+Perie Perreau Perrer
+Perrey Perrier Perrin
+Perrot Perroy Perteau
+Pertuiset Pescheux Peslier
+Petiot Petit Petitclerc
+Petrou Pettit Peugniez
+Peyrot Philibert Picard
+Pichois Pichot Picollet
+Picotin Piédalu Pierpoint
+Pigeonnier Pigorel Pilar
+Pilon Pinard Pincemail
+Pinette Pingaud Pinochet
+Pinon Pinot Pinquier
+Pinte Pioline Piquereau
+Pires Piroth Pitteaux
+Planche Planchenault Plasait
+Plaziat Pleshette Plesseraud
+Plouviez Pluchet Poidebard
+Poilblan Poiret Poitevin
+Poitier Pomarès Pons
+Pontillon Ponty Poret
+Portefait Portenier Pouchet
+Poudrier Pouget Poujade
+Poujoulet Poujouly Poulet
+Pouqueville Pourchet Pouzade
+Prat Preaux Presle
+Prevot Priaulx Prideaux
+Primeau Prins Privat
+Prolat Proriol Prost
+Proust Provins Puget
+Pulle Queneau Quenhenerve
+Quentin Quesnel Quilleboeuf
+Rabbi Rambert Rameau
+Ramelle Ramet Rampal
+Rannequin Rantaine Raoux
+Raphanel Rapnouil Rappeneau
+Rastignac Ratel Rault
+Rault Ravel Ravon
+Reaume Regnault Remesey
+Remesy Remond Remusat
+Renan Renaud Renaudas
+Renaudie Renault Renier
+Renoir Renouard Renouf
+Restencourt Retel Revel
+Revol Rey Ribot
+Richard Richelieu Richemont
+Richepin Richert Richir
+Rieux Rigaudias Rigaudiere
+Rimbaud Rimbert Rimeaux
+Riu Rivette Riviere
+Roachant Robert Roblou
+Rochant Roche Rochebloine
+Rochefort Rochon Rodin
+Roge Roger Roig
+Rollin Rollinat Romançon
+Romary Rondeaux Ronet
+Roquentin Roty Rouaix
+Rouard Rouart Roubel
+Roufosse Rouget Rouille
+Rouleau Roumet Roupardin
+Roussel Rousset Rouvière
+Roux Ruel Rufin
+Ruinart Saby Sadourny
+Saglier "Saint-Andre" Saisset
+Salerou Salles Sangier
+Sartain Sartre Sastre
+Saunier Saurine Saury
+Sauvaigo Seguro Seigner
+Seigre Seillier Sene
+Senue Serrault Serrou
+Serusclat Sérusier Severand
+Seydoux Sidot Signoret
+Silhouette Simenon Simenton
+Simond Simoneau Simonet
+Sinnette Sireyjol Siries
+Slima Soisson Solari
+Soleil Soleuze Solves
+Sonnes Sorel Soula
+Soulary Soulette Soulice
+Soulie Soulis Spagnol
+Suchet Suguenot Sulis
+Surin Syvret Tabarant
+Tahon Tailbot Taillard
+Taillez Taillon Tanlay
+Tardivel Tarnaud Tarrou
+Tauziat Tavernier Tellier
+Temay Temry Tenaillon
+Teppe Terblanche Terhune
+Ternien Terrier Terrot
+Tessier Testud Teza
+Thenardier Thereson Theriot
+Theron Theroux Thevenet
+Thibaudet Thibaut Thibedeaux
+Thibourst Thiebaud Thiers
+Thillot Thiry Thomassin
+Thonon Thulliez Thuram
+Tihon Tiolier Tiphaine
+Tissot Tistounet Tobel
+Toché Tortelier Tortellier
+Tour Tourette Tournachon
+Tourneur Tourret Toussaint
+Toutain Toyé Trantinon
+Traore Trappette Trebert
+Tremblay Trenet Trentin
+Treveiler Trezeguet Tribes
+Triep Trintignant Troubal
+Troussier Turgeon Turquet
+Vachon Valabrègue Valadon
+Valenod Vallet Valois
+Vanel Varase Varlet
+Vasselle Vasseur Velines
+Vénard Vendele Veniard
+Verbist Verchoux Verdier
+Verdoux Verguet Verlet
+Vernon Veron Verret
+Versois Vertefeuille Veuillet
+Veyron Vezelize Vial
+Vianney Viars Vibert
+Vidal Vidler Vien
+Vigne Villars Villehardouin
+Villeneuve Villepreux Villeret
+Villevieille Vinet Vinoy
+Violet "Viollet-Le-Duc" Vion
+Virenque Virieux Visse
+Vittoz Vivant Voisenon
+Voisin Vollard Vollonville
+Voltaire Vuillard Vuitton
+Vulliamy Walleme Wambergue
+Warusful Watteau Wavelet
+Wilmart Xavier Yverneau
+Zabelle
+				
+			}
+			regnal_first_names_male = { Thomas Henry Benjamin Samuel Joshua Alex Tony Christopher James Gary Andy Bryan Bill Matthew Jason Richard Matthew Luke Ryan Tom Adam James David Kevin Corey Clint John Justin Lucas Marcus Max Severin Eric Ronan Eamon Thorsten Philippe Luc
+				
+			}
+			regnal_first_names_female = { Elizabeth Victoria Camille Sarah Katharine Margaret Samantha Margeaux Meghan Alexandra Emma Aelia Flavia Honoria Herennia Carolena
+				
+			}
+			regnal_second_names = {
+				Adlard Alflatt Allnatt
+Allwright Almer Almond
+Alred Alston Alvar
+Alvey Alwin Ammon
+Arbon Ashwin Averay
+Aylward Aylwin Azo
+Badrick Baldey Balding
+Balman Balston Bedloe
+Brightmore Brunger Brunker
+Brunwin Burchard Burrage
+Burward Cobbald Cutteridge
+Darwin Dearman Dewdney
+Eastman Eddols Eddy
+Ellwood Elphee Elsegood
+Elsey Elvey Elward
+Erwin Freegard Freelove
+Frewer Frewin Gladman
+Gladwin Godbert Godhold
+Godwin Goldbard Goldburg
+Goldhawk Goldwin Gomer
+Goodliffe Goodwin Gumbold
+Gummer Halding Hulbert
+Isgar Kenward Kenway
+Kerrich Kinsey Lambrick
+Leaves Leavey Leavins
+Leavold Lemmer 
+Lilleyman Litwin Lovegod
+Loveguard Medwin Milborrow
+Ordway Orrick Osmer
+Othen Outridge Quenell
+Redway Seavers Sherrard
+Siggers Sirett Stannard
+Stidolph Trumble Utteridge
+Wackrill Walwin Wennell
+Whatman Whittard Wilmer
+Winbolt Winbow Winmer
+Winney Wolnoth Wolsey
+Woolgar Wyard Wyberg
+Wyman Wymer Yonwin
+Youngmay Abbott Aguilar Alderman
+Ambler Archer Arkwright
+Armer Armour Arrowsmith
+Ashburner Ashman Aurifaber
+Ayler Bacchus Bachelor
+Backer Bacon Bailey
+Baker Ballester Balmer
+Banister Bannerman Barber
+Barker Baron Barrell
+Barter Baxter Bayliss
+Beamer Bean Beeman
+Bellringer Belt Berryman
+Bessemer Bishop Bisp
+Blacker Blaker Blaxter
+Blecher Bloom Bloomer
+Boatswain Boatwright Bond
+Bookbinder Booker Boorman
+Boot Boote Boothman
+Botwright Boucher Boulter
+Bourchier Bowerman Bowler
+Bowmaker Bowman Bowring
+Bowyer Boyter Brasher
+Brasseur Brayer Brazier
+Brewer Brewster Bridgeman
+Bridger Bridle Brownsmith
+Buckler Buckman Bulger
+Bullinger Bulmer Burgess
+Burl Burle Burman
+Bushell Buss Butcher
+Butler Butner Butters
+Buttery Button Cake
+Cakebread Calverd Camp
+Cann Cannel Cannell
+Canter Caperon Capon
+Capper Card Carder
+Carpenter Carter Cartwright
+Carver Catchpole Cater
+Century Chafer Chaffer
+Chalker Challender Challenger
+Challinor Chalmers Chamberlain
+Chambers Chancellor Chandler
+Chaplin Chapman Chase
+Chaucer Chauncellor Chaundler
+Cheator Cheese Cheeseman
+Cheesewright Chenevix Clarges
+Clark Clarke Cleaver
+Clerk Clothier Cloutman
+Coke Collier Colthard
+Coltman Conner Constable
+Cook Cooke Cooper
+Copestake Coppersmith Corden
+Cordiner Cordwainer Corker
+Costner Cotter Cotterill
+Cottier Cotton Couch
+Coucher Couchman Coulthard
+Coultman Counter Courtiour
+Cowper Coxetter Cribb
+Crocker Croker Cropper
+Crowther Crozier Cryer
+Culpepper Cuss Cutter
+Dance Dancer Day
+Dayman Daymond Deacon
+Deathridge Demmer Dempster
+Dethewright Dexter Digweed
+Diver Draper Drapper
+Drawer Dray Dring
+Driver Dyer Earl
+Earle Ewer Faber
+Falconar Falconer Falder
+Falkner Farman Farmer
+Farrar Farrier Faulkner
+Fearon Feather Feaver
+Femister Fender Fennell
+Ferrier Fewster Fewtrell
+Fiddler Fielder Filer
+Finesilver Fisher Fisk
+Fiske Fitter Flann
+Flanner Flaxman Flesher
+Fletcher Flinter Floater
+Flower Footman Foreman
+Forest Forester Forestier
+Forster Fournier Fowler
+Franklin Frankling Franklyn
+Frater Freebody Freeland
+Freeman Frere Freshwater
+Frobisher Fuller Furber
+Furminger Galley Galpin
+Gard Gardiner Gardner
+Garland Garlic Garlicke
+Garnet Garnett Gaylor
+Gilder Gilroy Ginger
+Girdler Glaisher Glass
+Glover Goatman Goldsmith
+Gossard Grainger Grave
+Gravenor Greensmith Grieve
+Groom Groser Grosvenor
+Grunsell Guild Hacker
+Hansard Harper Hawker
+Hayward Hensman Herd
+Hewer Hine Hollier
+Hollister Hooper Hopper
+Horder Hornblower Horner
+Hotter Hucker Hunt
+Hunter Husband Hussey
+Inman Iremonger Jagger
+Jenner Joiner Judge
+Keech Kellogg Kember
+Kemp Kempe Kempster
+Kew Kilner Kiss
+Kisser Knight Labbett
+Ladel Ladell Lander
+Langcake Larbalestier Larner
+Latimer Latter Lavender
+Lawman Le Mare Le Patourel
+Le Sueur Leach Leadbeater
+Leadbetter Leadbitter Leaker
+Leaper Leather Lecomber
+Ledbetter Leech Legate
+Limer Lister Loader
+Lockhart Locksmith Lockyear
+Lodder Lorimer Lusher
+Luther Lymburner Machin
+Maidman Malter Mangall
+Mangold Marbler Marchant
+Mariner Marker Marler
+Marner Marshall Mason
+Massinger Masters Mather Mercer Merchant
+Messenger Mew Meystre
+Miller Millman Mills
+Milner Minter Molyneaux
+Monger Monk Mower
+Moyne Mulliner Mustard
+Mutter Naismith Napier
+Napper Naylor Neate
+Needler Nunn Nurse
+Offer Officer Osler
+Ostler Ostridge Otter
+Oxnard Oyler Packer
+Page Paget Paige
+Painter Pakeman Pallister
+Palmer Paniers Panter
+Panther Pape Pardner
+Pargeter Parker Parkman
+Parmenter Paroissien Parson
+Parsons Partner Patten
+Pattern Pearl Pearman
+Pease Peever Pegler
+Pelter Pepper Peppercorn
+Perrier Pestell Pester
+Petcher Peutherer Physick
+Pilcher Pillinger Pinder
+Pinn Piper Pitman
+Plater Player Pledger
+Plowman Plowright Plum
+Plumer Plummer Porcher
+Porter Pothecary Potter
+Pottinger Poulter Priest
+Prince Prior Procter
+Provost Punter Purser
+Purves Quaif Quaife
+Quarrell Quarry Quilter
+Raper Rastel Rastell
+Ratter Reader Redman
+Reeve Renner Restler
+Retter Rider Ridler
+Rimmer Ringer Ripper
+Roadnight Roller Roope
+Roper Rover Rower
+Rozier Runciman Rutter
+Rymer Sacker Sadler
+Sailer Salter Sanger
+Sangster Sapper Sargent
+Sawyer Sayer Scrimgeor
+Scrimgeour Scrimshaw Scullion
+Scutt Seaman Secker
+Sedgman Sellar Sellars
+Senior Service Sevier
+Sewer Sexton Seyler
+Sharman Sheather Shepherd
+Sheriff Shingler Ship
+Shipman Shipwright Shoesmith
+Shooter Shopper Shutler
+Shuttle Sievewright Sievwright
+Silk Silver Silversmith
+Simister Singer Sixsmith
+Sizer Skinner Slater
+Slaymaker Slipper Sloper
+Smith Smither Smithers
+Snider Sniders Soper
+Spence Spencer Spender
+Spice Spicer Spier
+Spindler Spooner Spurrier
+Squier Squiers Squires
+Stainer Steadman Stearman
+Steel Steele Steward
+Stocker Stockfish Storer
+Stringer Sucksmith Summer
+Sumner Surgeon Sutler
+Swingler Tabberner Taberer
+Tanner Taper Tapper
+Tasker Taverner Taylor
+Teacher Tector Tennant
+Thatcher Thaxter Theaker
+Thew Threader Thresher
+Thrower Tiller Tillman
+Timberman Tinker Tinkler
+Tisser Tisserand Todhunter
+Toller Tolman Toner
+Tozer Tranter Trenchard
+Trencher Tricker Trinder
+Tripe Trippe Tripper
+Trist Trouncer Trumper
+Tubman Tucker Tuckerman
+Tumman Tunnah Tunnard
+Tupper Turner Tyler
+Ulman Usher Vavasour
+Vavasseur Veck Veil
+Vender Venner Verrier
+Vicar Vicars Vickers
+Vickery Vinter Voller
+Wafer Wager Waggoner
+Waghorn Waghorne Wagstaff
+Wagstaffe Wain Waine
+Wainman Wainwright Wait
+Waite Wakeman Walker
+Waller Want Ward
+Warde Warden Warman
+Warner Warrender Warrener
+Washer Watchman Waterer
+Waterman Wax
+Weather Weaver Webb
+Webbe Webber Webster
+Wheeler Wheelwright Whistler
+Whitbread Whitcher Whiter
+Whitesmith Whittier Wicker
+Wildsmith Woodger Woodman
+Woodward Woodyer Wooler
+Wooller Woolman Workman
+Wort Wright Wrighte
+Yeoman
+			}
+		}
+	}
+}

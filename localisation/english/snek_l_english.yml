@@ -1,0 +1,19 @@
+﻿l_english:
+ Snek:0 "Snek"
+ Snek_desc:0 "Snek"
+ Snek_plural:0 "Sneks"
+ Snek_insult_01:0 "scalie"
+ Snek_insult_plural_01:0 "scalies"
+ Snek_compliment_01:0 "serpent"
+ Snek_compliment_plural_01:0 "serpents"
+ Snek_spawn:0 "egg"
+ Snek_spawn_plural:0 "eggs"
+ Snek_sound_01:0 "hissing"
+ Snek_sound_02:0 "growling"
+ Snek_sound_03:0 "rattling"
+ Snek_sound_04:0 "rasping"
+ Snek_sound_05:0 "screeching"
+ Snek_organ:0 "entrails"
+ Snek_mouth:0 "snoot"  
+  
+

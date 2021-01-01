@@ -1,0 +1,923 @@
+### PRE-SCRIPTED
+
+# Refugees, Alien Conquerors
+part = {
+	location = 0
+	localization = "START_SCREEN_MZILLI_EXILES_ALIEN"
+
+	trigger = {
+		has_origin = origin_mzilli_exiles
+		NOT = { has_country_flag = custom_start_screen }
+		OR = {
+			AND = {
+				has_country_flag = distant_origin_empire_earth
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_earth
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_xarmir
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_xarmir
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_continental
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_continental
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tropical
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tropical
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ocean
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ocean
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_arid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_arid
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_desert
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_savannah
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_savannah
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_arctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_arctic
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_alpine
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_alpine
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tundra
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tundra
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_cascadian
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_cascadian
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desertislands
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_desertislands
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_wetswamp
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_wetswamp
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_subarctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_subarctic
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mangrove
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mangrove
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hajungle
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_hajungle
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_retinal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_retinal
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_forest
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_forest
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_steppe
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_steppe
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sandsea
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_sandsea
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_outback
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_outback
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_oasis
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_oasis
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mesa
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mesa
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hadesert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_hadesert
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_prairie
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_prairie
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_med
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_med
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_swamp
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_swamp
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_frozen_desert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_frozen_desert
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_highland
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_highland
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacial
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_glacial
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_boreal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_boreal
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mushroom
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mushroom
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_antarctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_antarctic
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_snow
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_snow
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_geothermal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_geothermal
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_superhabitable
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_superhabitable
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tidallylocked
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tidallylocked
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_biolumen
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_biolumen
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_karst
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_karst
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_salt
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_salt
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_primal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_primal
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_aquatic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_aquatic
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ammonia
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ammonia
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_methane
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_methane
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_irradiated
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_irradiated
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ash
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ash
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_lake
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_lake
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_veld
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_veld
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mud
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mud
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_megaflora
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_megaflora
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_coral
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_coral
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_storm
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_storm
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_rogue
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_rogue
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_acid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_acid
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tepid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tepid
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_semiarid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_semiarid
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacio
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_glacio
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_eyeball
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_eyeball
+					NOT = { is_same_species = ROOT }
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sulfur
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_sulfur
+					NOT = { is_same_species = ROOT }
+				}
+			}
+		}
+	}
+}
+
+# Refugees, Same-Species Conquerors
+part = {
+	location = 0
+	localization = "START_SCREEN_MZILLI_EXILES_SAME"
+
+	trigger = {
+		has_origin = origin_mzilli_exiles
+		NOT = { has_country_flag = custom_start_screen }
+		OR = {
+			AND = {
+				has_country_flag = distant_origin_empire_earth
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_earth
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_xarmir
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_xarmir
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_continental
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_continental
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tropical
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tropical
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ocean
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ocean
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_arid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_arid
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_desert
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_savannah
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_savannah
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_arctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_arctic
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_alpine
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_alpine
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tundra
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tundra
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_cascadian
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_cascadian
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desertislands
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_desertislands
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_wetswamp
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_wetswamp
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_subarctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_subarctic
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mangrove
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mangrove
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hajungle
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_hajungle
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_retinal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_retinal
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_forest
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_forest
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_steppe
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_steppe
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sandsea
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_sandsea
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_outback
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_outback
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_oasis
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_oasis
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mesa
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mesa
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hadesert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_hadesert
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_prairie
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_prairie
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_med
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_med
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_swamp
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_swamp
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_frozen_desert
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_frozen_desert
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_highland
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_highland
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacial
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_glacial
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_boreal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_boreal
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mushroom
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mushroom
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_antarctic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_antarctic
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_snow
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_snow
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_geothermal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_geothermal
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_superhabitable
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_superhabitable
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tidallylocked
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tidallylocked
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_biolumen
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_biolumen
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_karst
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_karst
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_salt
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_salt
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_primal
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_primal
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_aquatic
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_aquatic
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ammonia
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ammonia
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_methane
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_methane
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_irradiated
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_irradiated
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ash
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_ash
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_lake
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_lake
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_veld
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_veld
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mud
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_mud
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_megaflora
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_megaflora
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_coral
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_coral
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_storm
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_storm
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_rogue
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_rogue
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_acid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_acid
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tepid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_tepid
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_semiarid
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_semiarid
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacio
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_glacio
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_eyeball
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_eyeball
+					is_same_species = ROOT
+				}
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sulfur
+				any_country = {
+					has_country_flag = homeworld_occupiers_empire_sulfur
+					is_same_species = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Normal Refugees, Part 3
+part = {
+	location = 2
+	localization = "START_SCREEN_MZILLI_EXILES_3"
+
+	trigger = {
+		has_origin = origin_mzilli_exiles
+		NOR = {
+			has_country_flag = custom_start_screen
+			has_civic = civic_vengeful_refugees
+		}
+	}
+}
+
+# Vengeful Refugees, Part 3
+part = {
+	location = 2
+	localization = "START_SCREEN_MZILLI_VENGEFUL_REFUGEES"
+
+	trigger = {
+		has_origin = origin_mzilli_exiles
+		has_civic = civic_vengeful_refugees
+		NOT = { has_country_flag = custom_start_screen }
+	}
+}
+
+# Xarmiri
+part = {
+	location = 0
+	localization = "custom_xarmiri_start_screen"
+
+	trigger = {
+		has_country_flag = xarmiri
+	}
+}
+
+# Pasceal
+part = {
+	location = 0
+	localization = "custom_pasceal_start_screen"
+
+	trigger = {
+		has_country_flag = pasceal
+	}
+}
+
+# Martian
+part = {
+	location = 0
+	localization = "custom_martian_start_screen"
+
+	trigger = {
+		has_country_flag = martian
+	}
+}

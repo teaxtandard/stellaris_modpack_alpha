@@ -1,0 +1,1056 @@
+namespace = acot_mega
+
+country_event = {
+	id = acot_mega.0
+	title = "acot_mega.0.name"
+	desc = "acot_mega.0.desc"
+	picture = GFX_acot_precursor_station_plans
+	show_sound = event_ringworld_build_upgrade
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_citadel_site }
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_country_flag = precursor_citadel_built
+				}
+			}
+			create_ship_design = { design = "NAME_ACOT_CITADEL_2" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_ACOT_CITADEL_3" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_ACOT_CITADEL_1" }
+			add_ship_design = last_created_design
+		}
+		FROMFROMFROM  = {
+			if = {
+				limit = {
+					NOT = {
+						is_ship_size = precursor_constructor
+					}
+				 }
+				 delete_fleet = this
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.0.a"
+		set_country_flag = precursor_citadel_built
+	}
+}
+
+country_event = {
+	id = acot_mega.1
+	title = "acot_mega.1.name"
+	desc = "acot_mega.1.desc"
+	picture = GFX_acot_precursor_station
+	show_sound = event_citadel_ready
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_citadel_base }
+	}
+
+	immediate = {
+		FROM = {
+			remove_megastructure = this
+		}
+		FROMFROM = {
+			if = {
+				limit = {
+					any_ship_in_system = {
+						is_ship_class = shipclass_starbase
+						NOR = {
+							is_ship_size = precursor_colossus
+							is_ship_size = juggernaut
+						}
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						NOR = {
+							is_ship_size = precursor_colossus
+							is_ship_size = juggernaut
+						}
+						}
+					}
+					destroy_fleet = this
+				}
+			}		
+			create_starbase = {
+				size = "acot_precusor_starbase"
+				owner = root
+		
+				effect = {	
+				}
+			}				
+		}
+	}
+
+	option = {
+		name = "acot_mega.1.a"
+	}
+}
+
+country_event = {
+	id = acot_mega.2
+	title = "acot_mega.2.name"
+	desc = "acot_mega.2.desc"
+	picture = GFX_acot_precursor_sigma_station_plans
+	show_sound = event_ringworld_build_upgrade
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_sigma_citadel_site }
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_country_flag = precursor_sigma_citadel_built
+				}
+			}
+			create_ship_design = { design = "NAME_ACOT_SIGMA_CITADEL_2" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_ACOT_SIGMA_CITADEL_3" }
+			add_ship_design = last_created_design
+			create_ship_design = { design = "NAME_ACOT_SIGMA_CITADEL_1" }
+			add_ship_design = last_created_design
+		}
+		FROMFROMFROM  = {
+			if = {
+				limit = {
+					NOT = {
+						is_ship_size = precursor_constructor
+					}
+				 }
+				 delete_fleet = this
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.2.a"
+		set_country_flag = precursor_sigma_citadel_built
+	}
+}
+
+country_event = {
+	id = acot_mega.3
+	title = "acot_mega.3.name"
+	desc = "acot_mega.3.desc"
+	picture = GFX_acot_precursor_sigma_station
+	show_sound = event_citadel_ready
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_sigma_citadel_base }
+	}
+
+	immediate = {
+		FROM = {
+			remove_megastructure = this
+		}
+		FROMFROM = {
+			if = {
+				limit = {
+					any_ship_in_system = {
+						is_ship_class = shipclass_starbase
+						NOT = {
+							is_ship_size = precursor_colossus
+						}
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						NOR = {
+							is_ship_size = precursor_colossus
+							is_ship_size = juggernaut
+						}
+						}
+					}
+					destroy_fleet = this
+				}
+			}		
+			create_starbase = {
+				size = "acot_precusor_sigma_starbase"
+				owner = root
+		
+				effect = {	
+				}
+			}				
+		}
+	}
+
+	option = {
+		name = "acot_mega.3.a"
+	}
+}
+
+#### PHANON
+
+country_event = {
+	id = acot_mega.200
+	title = "acot_mega.2.name"
+	desc = "acot_mega.2.desc"
+	picture = GFX_acot_precursor_sigma_station_plans
+	show_sound = event_ringworld_build_upgrade
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_phanon_citadel_site }
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				NOT = {
+					has_country_flag = precursor_phanon_citadel_built
+				}
+			}
+			create_ship_design = { design = "NAME_ACOT_PHANON_CITADEL_3" }
+			add_ship_design = last_created_design
+		}
+		FROMFROMFROM  = {
+			if = {
+				limit = {
+					NOT = {
+						is_ship_size = precursor_constructor
+					}
+				 }
+				 delete_fleet = this
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.2.a"
+		set_country_flag = precursor_phanon_citadel_built
+	}
+}
+
+country_event = {
+	id = acot_mega.300
+	title = "acot_mega.3.name"
+	desc = "acot_mega.3.desc"
+	picture = GFX_acot_precursor_sigma_station
+	show_sound = event_citadel_ready
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_megastructure_type = acot_precursor_phanon_citadel_base }
+	}
+
+	immediate = {
+		FROM = {
+			remove_megastructure = this
+		}
+		FROMFROM = {
+			if = {
+				limit = {
+					any_ship_in_system = {
+						is_ship_class = shipclass_starbase
+						NOT = {
+							is_ship_size = precursor_colossus
+						}
+					}
+				}
+				random_fleet_in_system = {
+					limit = {
+						any_owned_ship = {
+							is_ship_class = shipclass_starbase
+						NOR = {
+							is_ship_size = precursor_colossus
+							is_ship_size = juggernaut
+						}
+						}
+					}
+					destroy_fleet = this
+				}
+			}		
+			create_starbase = {
+				size = "acot_precusor_phanon_starcitadel"
+				owner = root
+		
+				effect = {	
+				}
+			}				
+		}
+	}
+
+	option = {
+		name = "acot_mega.3.a"
+	}
+}
+
+#PLATFORM ARMED
+country_event = {
+	id = acot_mega.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			is_megastructure_type = acot_precursor_platform_m_site 
+		}
+	}
+
+	immediate = {
+		FROM = {
+			save_event_target_as = place_platform_here
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					NOR = {
+						has_fleet_flag = precursor_builder_delta
+						has_fleet_flag = precursor_builder_alpha
+						has_fleet_flag = precursor_builder_sigma
+						has_fleet_flag = precursor_builder_omega
+					}
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_m
+								effect = {
+									ship_event = { id = acot_mega.6 days = 60 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_delta
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_m
+								effect = {
+									ship_event = { id = acot_mega.6 days = 120 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_alpha
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_m
+								effect = {
+									ship_event = { id = acot_mega.6 days = 240 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_sigma
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_m
+								effect = {
+									ship_event = { id = acot_mega.6 days = 480 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_omega
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_m
+								effect = {
+									ship_event = { id = acot_mega.6 days = 960 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		FROM = {
+			remove_megastructure = this
+		}
+	}
+}
+
+#PLATFORM ARMED X
+country_event = {
+	id = acot_mega.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			OR = {
+				is_megastructure_type = acot_precursor_platform_l_site 
+			}
+		}
+	}
+
+	immediate = {
+		FROM = {
+			save_event_target_as = place_platform_here
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					NOR = {
+						has_fleet_flag = precursor_builder_delta
+						has_fleet_flag = precursor_builder_alpha
+						has_fleet_flag = precursor_builder_sigma
+						has_fleet_flag = precursor_builder_omega
+					}
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_l
+								effect = {
+									ship_event = { id = acot_mega.6 days = 120 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_delta
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_l
+								effect = {
+									ship_event = { id = acot_mega.6 days = 240 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_alpha
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_l
+								effect = {
+									ship_event = { id = acot_mega.6 days = 480 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_sigma
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_l
+								effect = {
+									ship_event = { id = acot_mega.6 days = 960 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		IF = {
+			limit = {
+				FROMFROMFROM  = {
+					has_fleet_flag = precursor_builder_omega
+				}
+			}
+			FROM = {
+				solar_system = {
+					create_fleet = {
+						effect = {
+							set_owner = root	
+							create_ship = { 
+								random_existing_design = precursor_platform_l
+								effect = {
+									ship_event = { id = acot_mega.6 days = 1820 }
+								}
+							}						
+							set_location = {
+								target = event_target:place_platform_here		
+								distance = 0
+								angle = random
+							}
+							set_owner = root					
+						}
+					}					
+				}
+			}
+		}
+		FROM = {
+			remove_megastructure = this
+		}
+	}
+}
+
+
+#PLATFORM EXPIRED
+ship_event = {
+	id = acot_mega.6
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		delete_ship = this
+	}
+}
+
+#HERCULEAN BEGIN
+country_event = {
+	id = acot_mega.7
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+	}
+}
+
+#HERCULEAN SITE
+country_event = {
+	id = acot_mega.8
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			is_megastructure_type = acot_precursor_colossus_site
+		}
+	}
+
+	immediate = {
+	}
+}
+
+#HERCULEAN BASE
+country_event = {
+	id = acot_mega.9
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			is_megastructure_type = acot_precursor_colossus_base
+		}
+	}
+
+	immediate = {
+	}
+}
+
+#HERCULEAN STAGE TWO
+country_event = {
+	id = acot_mega.10
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			is_megastructure_type = acot_precursor_colossus_stage_two
+		}
+	}
+
+	immediate = {
+	}
+}
+
+#HERCULEAN FINAL
+country_event = {
+	id = acot_mega.11
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { 
+			is_megastructure_type = acot_precursor_colossus_final
+		}
+	}
+
+	immediate = {
+		capital_scope = {
+			solar_system = {
+				
+				create_fleet = {
+					settings = {
+						 spawn_debris = no 
+						 is_boss = yes
+					}
+					effect = {
+						set_owner = root
+						while = {
+							count = 1
+							create_ship = {
+								random_existing_design = precursor_colossus
+								graphical_culture = root
+								effect = {
+									set_disable_at_health = 0.02
+								}
+							}
+						}
+						set_location = {
+							target = prev
+							distance = 45
+							angle = random
+						}
+					}
+				}
+			}
+		}
+		FROM = {
+			remove_megastructure = this
+		}
+	}
+}	
+
+
+### COLOSSUS BEGIN
+country_event = {
+	id = acot_mega.12
+	title = "acot_mega.12.name"
+	desc = "acot_mega.12.desc"
+	picture = GFX_acot_precursor_station_plans
+	show_sound = event_curious
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT =  {
+			has_country_flag = herculean_started
+		}
+	}
+
+	immediate = {
+		set_country_flag = herculean_started
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_fallen_empire = yes
+					is_machine_empire = no
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				has_country_flag = attacked_curators
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.12.a"
+	}
+}
+
+### BASE ####
+country_event = {
+	id = acot_mega.13
+	title = "acot_mega.13.name"
+	desc = "acot_mega.13.desc"
+	picture = GFX_acot_precursor_colossus_base
+	show_sound = event_curious
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_fallen_empire = yes
+					is_machine_empire = no
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				has_country_flag = attacked_curators
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.13.a"
+	}
+
+	option = {
+		name = "acot_mega.13.b"
+	}
+}
+
+### STAGE ONE ####
+country_event = {
+	id = acot_mega.14
+	title = "acot_mega.14.name"
+	desc = "acot_mega.14.desc"
+	picture = GFX_acot_precursor_colossus_stage_one
+	show_sound = event_curious
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_fallen_empire = yes
+					is_machine_empire = no
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				has_country_flag = attacked_curators
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.14.a"
+	}
+
+	option = {
+		name = "acot_mega.14.b"
+	}
+}
+
+### STAGE TWO ####
+country_event = {
+	id = acot_mega.15
+	title = "acot_mega.15.name"
+	desc = "acot_mega.15.desc"
+	picture = GFX_acot_precursor_colossus_stage_two
+	show_sound = event_curious
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_fallen_empire = yes
+					is_machine_empire = no
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				has_country_flag = attacked_curators
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.15.a"
+	}
+
+	option = {
+		name = "acot_mega.15.b"
+	}
+}
+
+### COMPLETION ####
+country_event = {
+	id = acot_mega.16
+	title = "acot_mega.16.name"
+	desc = "acot_mega.16.desc"
+	picture = GFX_acot_precursor_colossus_stage_two
+	show_sound = event_herculean_start
+	location = FROMFROM
+
+	is_triggered_only = yes
+
+	trigger = {
+	}
+
+	immediate = {
+		set_country_flag = herculean_built
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = default
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_fallen_empire = yes
+					is_machine_empire = no
+					NOT = {
+						is_same_value = root
+					}
+				}
+			}
+		}
+		IF = {
+			limit = {
+				any_country = {
+					is_country_type = enclave
+					has_country_flag = curator_enclave_country
+				}
+				has_country_flag = attacked_curators
+			}
+		}
+	}
+
+	option = {
+		name = "acot_mega.16.a"
+	}
+
+	option = {
+		name = "acot_mega.16.b"
+	}
+}

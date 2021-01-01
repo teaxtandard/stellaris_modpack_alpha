@@ -1,0 +1,188 @@
+is_playable_country = {
+	OR = {
+		is_country_type = default
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empire
+		is_country_type = ascended_empire
+		is_country_type = lost_empire
+		is_country_type = eternal_empire
+		is_country_type = original_empire_active
+	}
+}
+
+has_dm_tier_munitions = {
+	OR = {
+		has_technology = tech_kinetic_artillery_dm
+		has_technology = tech_energy_torpedo_dm
+		has_technology = tech_barrage_missile_dm
+	}
+}
+
+has_ae_tier_munitions = {
+	OR = {
+		has_technology = tech_kinetic_artillery_ae
+		has_technology = tech_energy_torpedo_ae
+		has_technology = tech_barrage_missile_ae
+	}
+}
+
+has_se_tier_munitions = {
+	OR = {
+		has_technology = tech_stellarite_artillery
+		has_technology = tech_stellarite_plasma_cannon
+		has_technology = tech_barrage_missile_se
+	}
+}
+
+has_oe_tier_munitions = {
+	OR = {
+		has_technology = tech_lightmatter_artillery
+		has_technology = tech_lightmatter_plasma_cannon
+		has_technology = tech_barrage_missile_oe
+	}
+}
+
+has_ae_capital_tech = {
+	OR = {
+		has_technology = tech_ae_ancient_palace
+		has_technology = tech_ae_ancient_control_center
+		has_technology = tech_ae_ancient_hive_cluster
+	}
+}
+
+is_hero_tech = {
+	OR = {
+		last_increased_tech = tech_black_widow
+		last_increased_tech = tech_commissar_lord
+		last_increased_tech = tech_captain_pacifist
+		last_increased_tech = tech_godofwar
+		last_increased_tech = tech_godmech
+		last_increased_tech = tech_dark_matter_megatank
+		last_increased_tech = tech_liberty_prime
+		last_increased_tech = tech_xenoartillery
+		last_increased_tech = tech_living_saint
+		last_increased_tech = tech_terror_beyond
+		last_increased_tech = tech_omnisynth
+		last_increased_tech = tech_dark_psion
+		last_increased_tech = tech_doom_hero
+	}
+}
+
+habitable_structure = {
+	OR = {
+		### PLEBIAN
+		is_planet_class = pc_ringworld_habitable
+		is_planet_class = pc_habitat
+		### ACOT
+		is_planet_class = pc_dark_fractured
+		is_planet_class = pc_dark_fractured_ae
+		is_planet_class = pc_acot_enigmopolis
+		### SOFE
+		is_planet_class = pc_golden_world
+        is_planet_class = pc_golden_world_habitable
+        is_planet_class = pc_omega_ringworld_habitable
+        is_planet_class = pc_omega_ringworld_seam
+		is_planet_class = pc_omega_ringworld_tech
+		is_planet_class = pc_goodman_gaia_world
+        is_planet_class = pc_golden_fortress
+		is_planet_class = pc_sosi_proto_gaia_world	
+		### GIGA AND OTHER MODS
+        is_planet_class = pc_gigaorbital_ring
+        is_planet_class = pc_habitable_gas_giant
+        is_planet_class = pc_interstellar_habitat
+        is_planet_class = pc_interstellar_ringworld_habitable
+        is_planet_class = pc_giga_penrose_habitable
+        is_planet_class = pc_ringworld_city
+        is_planet_class = pc_ringworld_machine
+        is_planet_class = pc_ringworld_hive
+        is_planet_class = pc_equatorial_shipyard
+        is_planet_class = pc_birch
+        is_planet_class = pc_squareworld_habitable
+        is_planet_class = pc_virtual_reality
+        is_planet_class = pc_virtual_industry
+        is_planet_class = pc_virtual_stellar_industry
+        is_planet_class = pc_alderson_slice_gaia
+        is_planet_class = pc_alderson_slice_pc
+        is_planet_class = pc_alderson_slice_ecu
+        is_planet_class = pc_pouchkinn_black_hole
+        is_planet_class = pc_flat_world	
+		### TWINKS
+		is_planet_class = pc_archive
+		is_planet_class = pc_eternos
+		is_planet_class = pc_eternal_city
+		is_planet_class = pc_eternalring
+		is_planet_class = pc_eternity
+		is_planet_class = pc_astropolis
+		is_planet_class = pc_eternal_ringworld_habitable
+        is_planet_class = pc_eternal_ringworld_seam
+        is_planet_class = pc_eternal_ringworld_tech
+	}
+}
+
+can_build_precursor_ship = {
+	OR = {
+		AND = {
+			is_scope_type = megastructure
+			OR = {
+				is_megastructure_type = mega_shipyard_3 ### ONLY HIGHEST TIER SHOULD BE WORTHY
+				is_megastructure_type = acot_precursor_colossus_base
+				is_megastructure_type = acot_precursor_colossus_stage_two
+				is_megastructure_type = acot_amerigo
+				is_megastructure_type = acot_amerigo_ae
+				is_megastructure_type = acot_amerigo_se
+				is_megastructure_type = acot_amerigo_oe
+				is_megastructure_type = acot_amerigo_pe
+				is_megastructure_type = acot_phanon_master_reactor_sphere
+			}
+		}
+		AND = {
+			is_scope_type = starbase
+			OR = {
+				has_starbase_size >= juggernaut ### Even if no one's gonna use it ever.
+				has_starbase_module = virtual_shipyard_uplink ### Gigaman X6
+				has_starbase_building = acot_precursor_database	
+				has_starbase_size >= acot_precusor_starbase
+				has_starbase_size >= acot_precusor_sigma_starbase		
+				has_starbase_size >= acot_precusor_phanon_starcitadel			
+				has_starbase_size >= precursor_colossus ### Actually is Herculean	
+				has_starbase_size >= origin_super_citadel_playable	
+				has_starbase_size >= acot_star_commander #### Phanonmercy
+			}
+		}
+	}
+}
+
+can_build_phanon_ship = {
+	OR = {
+		AND = {
+			is_scope_type = megastructure
+			OR = {
+				is_megastructure_type = acot_phanon_master_reactor_sphere
+			}
+		}
+		AND = {
+			is_scope_type = starbase
+			OR = {
+				has_starbase_size >= acot_star_commander
+				has_starbase_size >= acot_precusor_phanon_starcitadel
+			}
+		}
+	}
+}
+
+
+has_precursaor_tech = {
+	OR = {
+		has_technology = tech_precursor_bc
+		has_technology = tech_precursor_escort
+		has_technology = tech_precursor_guardian
+		has_technology = tech_precursor_titan
+		has_technology = tech_fe_tower_offense
+		has_technology = tech_fe_assault_carrier
+		has_technology = tech_precursor_science
+		has_technology = tech_precursor_colonizer
+		has_technology = tech_precursor_construcor
+		has_technology = tech_precursor_citadel
+		has_technology = tech_precursor_colossus
+	}
+}

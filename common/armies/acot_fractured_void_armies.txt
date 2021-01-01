@@ -1,0 +1,222 @@
+
+############## FRACTURED WORLD BS ANNOYING AF ARMIES ##########################
+
+acot_void_fiends_army = {
+	defensive = yes
+	damage = 1.25
+	health = 1.75
+	has_morale = no
+	has_species = no
+	morale_damage = 3.0
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_fiends_hero = {
+	defensive = yes
+	damage = 12.5
+	health = 17.5
+	has_morale = no
+	has_species = no
+	morale_damage = 3.0
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_mutants_army = {
+	defensive = yes
+	damage = 1.75
+	health = 1.25
+	has_morale = no
+	has_species = no
+	morale_damage = 1.25
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_mutants_hero = {
+	defensive = yes
+	damage = 17.5
+	health = 12.5
+	has_morale = no
+	has_species = no
+	morale_damage = 1.25
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_crystal_army = {
+	defensive = yes
+	damage = 3.50
+	health = 5.00
+	has_morale = no
+	has_species = no
+	morale_damage = 0.50
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_crystal_hero = {
+	defensive = yes
+	damage = 35.0
+	health = 50.0
+	has_morale = no
+	has_species = no
+	morale_damage = 0.50
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_machine_army = {
+	defensive = yes
+	damage = 1.50
+	health = 1.50
+	has_morale = no
+	has_species = no
+	morale_damage = 1.00
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_machine_hero = {
+	defensive = yes
+	damage = 15
+	health = 15
+	has_morale = no
+	has_species = no
+	morale_damage = 1.00
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_plant_army = {
+	defensive = yes
+	damage = 5.00
+	health = 3.50
+	has_morale = no
+	has_species = no
+	morale_damage = 5.00
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}
+
+acot_void_plant_hero = {
+	defensive = yes
+	damage = 50
+	health = 35
+	has_morale = no
+	has_species = no
+	morale_damage = 5.00
+	collateral_damage = 0
+	icon_frame = 8
+	war_exhaustion = 0
+
+	resources = {
+		category = armies
+		cost = {
+		}
+	}
+
+	potential = {
+		always = no
+	}
+}

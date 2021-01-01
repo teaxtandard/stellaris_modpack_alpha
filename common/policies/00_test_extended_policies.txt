@@ -1,0 +1,2577 @@
+
+investment_doctrine = { 
+		
+	potential = {
+					OR
+				{is_country_type = default 
+	}
+	}	
+		
+	option = {
+		name = "planetary_investment"
+		
+		
+		modifier = {
+			planet_jobs_produces_mult = 0.15
+			planet_jobs_upkeep_mult = -0.15
+			planet_jobs_minerals_produces_mult = 0.15
+			planet_jobs_energy_produces_mult = 0.15
+			stations_produces_mult = -0.5
+			ships_upkeep_mult = 0.35
+			starbases_upkeep_mult = 0.5
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "balanced_investment"
+		
+		modifier = {
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+		}
+	}
+option = {
+		name = "space_investment"
+		
+		modifier = {
+			stations_produces_mult = 0.5
+			ships_upkeep_mult = -0.35
+			starbases_upkeep_mult = -0.5
+			planet_jobs_produces_mult = -0.15
+			planet_jobs_upkeep_mult = 0.15
+			planet_jobs_minerals_produces_mult = -0.15
+			planet_jobs_energy_produces_mult = -0.15
+
+		}
+		
+		AI_weight = {
+			factor = 1
+		}
+}
+}
+
+foreign_affairs = {
+		potential = {
+			has_comms_with_alien_empire = yes
+			is_country_type = default
+		}
+		option = {
+
+			name = "isolated"
+			
+			valid = {
+			OR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}	
+		}
+			
+			policy_flags = {
+				isolated
+			}
+			modifier = {
+				ship_anomaly_fail_risk = -0.15
+				ship_anomaly_research_speed_mult = -0.1
+				country_trust_cap_add = -40
+				country_trade_attractiveness = -0.1	
+			}
+		AI_weight = {
+       				weight = 100
+					}					
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_xenophobe"
+              				has_ethic = "ethic_fanatic_xenophobe"
+							has_ethic = ethic_pacifist
+							has_ethic = ethic_fanatic_pacifist
+							has_valid_civic = civic_machine_terminator
+							has_valid_civic = civic_hive_devouring_swarm
+							has_valid_civic = civic_fanatic_purifiers
+		
+           				}
+       				}
+		}
+	
+		option = {
+
+			name = "controlled"
+			
+			policy_flags = {
+				controlled
+			}
+			modifier = {
+				country_trust_cap_add = -20
+				planet_crime_add = -5
+				planet_stability_add = 5
+				ountry_energy_produces_mult = -0.05	
+				country_trade_attractiveness = -0.05				
+				}
+				AI_weight = {
+					factor = 0
+				}
+			}
+			
+
+		option = {
+
+			name = "balanced_foreign"
+			
+			policy_flags = {
+				balanced_foreign
+			}
+			modifier = {
+			}
+			AI_weight = {
+			factor = 3
+	}
+		}
+		
+		option = {
+
+			name = "globalism"
+			
+			policy_flags = {
+				globalism
+			}
+			modifier = {
+				country_trust_cap_add = 25
+				country_trust_growth = 0.1
+				planet_migration_xeno_pull = 0.33
+				country_unity_produces_mult = 0.05
+				planet_crime_add = +5
+				planet_stability_add = -5
+				country_trade_attractiveness = 0.05
+				planet_pops_organics_food_upkeep_mult = 0.05
+				
+				AI_weight = {
+			factor = 1
+	}
+
+			}
+		}
+
+}
+lobbyism_legislation = {
+		potential = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		
+		option = {
+
+			name = "high_lobbyism"
+			
+			policy_flags = {
+				high_lobbyism
+			}
+			modifier = {
+				country_base_influence_produces_add = 1
+				country_energy_produces_mult = 0.15
+				leaders_upkeep_mult = -0.15
+				pop_happiness = -0.20
+				country_trust_growth = -0.10
+				planet_stability_add = -5
+			}
+			AI_weight = {
+			factor = 1
+	}
+		}
+		
+		option = {
+
+			name = "some_lobbyism"
+			
+			policy_flags = {
+				some_lobbyism
+			}
+			modifier = {
+				country_base_influence_produces_add = 0.1
+				country_energy_produces_mult = 0.05
+				leaders_upkeep_mult = -0.05
+				country_trust_growth = -0.05
+				pop_happiness = -0.05
+			}
+			AI_weight = {
+			factor = 3
+	}
+		}
+		
+		option = {
+
+			name = "fight_lobbyism"
+			
+			policy_flags = {
+				fight_lobbyism
+			}
+			modifier = {
+				country_trust_growth = 0.05
+				country_base_influence_produces_add = -0.1
+				country_energy_produces_mult = -0.05
+			}
+			AI_weight = {
+			factor = 1
+	}
+		}
+		option = {
+
+			name = "no_lobbyism"
+			
+			policy_flags = {
+				no_lobbyism
+			}
+			modifier = {
+				country_trust_growth = 0.15
+				pop_happiness = 0.15
+				country_base_influence_produces_add = -1
+				country_energy_produces_mult = -0.15
+			}
+			AI_weight = {
+			factor = 1
+	}
+		}
+}
+
+police = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "empire_police"
+		
+		valid = {
+			OR = {
+				has_valid_civic = civic_police_state
+			}		
+		}
+		
+		modifier = {
+			planet_crime_add = -40
+			country_energy_produces_mult = -0.15
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "sector_police"
+		
+		modifier = {
+			planet_crime_add = -15
+			country_energy_produces_mult = -0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "planetary_police"
+		
+		modifier = {
+			planet_crime_add = -10
+			country_energy_produces_mult = -0.03
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "local_authorities"
+		
+		modifier = {
+			planet_crime_add = -5
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "no_protection"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		
+		modifier = {
+			country_energy_produces_mult = +0.1
+			planet_crime_add = +40
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+prison_management = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "decent_conditions"
+		
+		valid = {
+			OR = {
+				has_ethic = "ethic_fanatic_egalitarian"
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_xenophile"
+				has_ethic = "ethic_xenophile"
+			}
+		
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		
+		modifier = {
+			pop_ethic_egalitarian_attraction_mult = 0.1
+			pop_happiness = 0.05
+			country_energy_produces_mult = -0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "standard_imprisonment"
+		
+		modifier = {	
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "harsh_conditions"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_egalitarian"
+            }
+        }
+		
+		modifier = {
+			country_energy_produces_mult = 0.05
+			pop_ethic_egalitarian_attraction_mult = -0.1
+			pop_happiness = -0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "rehabilitation"
+		
+		modifier = {
+			country_energy_produces_mult = -0.1
+			pop_ethic_egalitarian_attraction_mult = 0.1
+			pop_government_ethic_attraction = 0.1
+			pop_happiness = 0.05
+
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "forced_labor"
+		
+		valid = {
+            OR = {
+                has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+            }
+        }
+		
+		modifier = {
+			country_energy_produces_mult = 0.05
+			planet_jobs_minerals_produces_mult = 0.1
+			planet_jobs_food_produces_mult = 0.1
+			pop_ethic_egalitarian_attraction_mult = -0.1
+			pop_government_ethic_attraction = -0.1
+			pop_happiness = -0.05
+
+
+		}
+		
+		AI_weight = {
+       			weight = 100	
+       			modifier = {
+           			factor = 10
+           			OR = {
+						has_ethic = "ethic_authoritarian"
+						has_ethic = "ethic_fanatic_authoritarian"
+						
+            }
+        }
+	}
+}
+
+option = {
+		name = "death_penalty"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_egalitarian"
+				has_ethic = "ethic_fanatic_xenophile"
+            }
+        }
+		
+		modifier = {
+			planet_jobs_food_produces_mult = 0.1
+			pop_ethic_xenophile_attraction_mult = -0.2
+			pop_happiness = -0.30
+
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+healthcare = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "free_public_healthcare"
+		
+		modifier = {
+				leader_age = 10
+				pop_growth_speed = 0.1
+				biological_pop_happiness = 0.1
+				planet_stability_add = 5
+				country_energy_produces_mult = -0.15
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "public_and_private_healthcare"
+		
+		modifier = {
+				leader_age = 5
+				pop_growth_speed = 0.05
+				biological_pop_happiness = 0.05
+				country_energy_produces_mult = -0.1
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "private_healthcare"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		
+		modifier = {
+				leader_age = -5
+				pop_growth_speed = -0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "no_healthcare"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		
+		modifier = {
+				country_energy_produces_mult = +0.1
+				leader_age = -10
+				pop_growth_speed = -0.1
+				biological_pop_happiness = -0.1
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+population_regulation = {
+
+    potential = {
+        NOT = { has_ethic = "ethic_gestalt_consciousness" }
+    }
+
+    option = {
+        name = "single_child_policy"
+
+        valid = {
+            NOT = { has_ethic = "ethic_fanatic_egalitarian" }
+        }
+
+        policy_flags = { single_child_policy }
+        modifier = {
+            pop_growth_speed = -0.3
+            pop_happiness = -0.1
+        }
+    }
+
+    option = {
+        name = "freedom_of_birth"
+
+        policy_flags = { freedom_of_birth }
+        modifier = {
+            pop_happiness = 0.02
+        }
+
+        ai_weight = {
+            weight = 110
+        }
+    }
+
+    option = {
+        name = "growth_first"
+
+        policy_flags = { growth_first }
+        modifier = {
+            pop_growth_speed = 0.07
+        }
+    }
+
+    option = {
+        name = "mandatory_growth"
+        
+        valid = {
+            OR = {
+                has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+
+                has_ethic = "ethic_fanatic_spiritualist"
+            }
+        }
+
+        policy_flags = { mandatory_growth }
+        modifier = {
+            pop_happiness = -0.2
+            pop_growth_speed = 0.4
+        }
+    }
+}
+
+food_quality = { 
+		potential = {	
+		OR = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			has_valid_civic = civic_machine_servitor
+		}
+	}	
+			
+	option = {
+		name = "high_quality"
+		
+		modifier = {
+			pop_happiness = 0.05
+			pop_government_ethic_attraction = 0.05
+			planet_pops_organics_food_upkeep_mult = 0.05
+			planet_farmers_food_produces_mult = -0.1
+			country_energy_produces_mult = -0.03
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "decent_quality"
+		
+		modifier = {
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "low_quality"
+		
+		modifier = {
+			country_energy_produces_mult = +0.03
+			planet_pops_organics_food_upkeep_mult = -0.05
+			planet_farmers_food_produces_mult = 0.1
+			leader_age = -5
+			pop_government_ethic_attraction = -0.05
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+
+
+environment = { 
+
+		potential = {
+		OR
+			{is_country_type = default
+			}
+			}	
+			
+	option = {
+		name = "safeguarding_environment"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+		
+		modifier = {
+			biological_pop_happiness = 0.1
+			planet_amenities_mult = 0.1
+			pop_environment_tolerance = 0.2
+			country_energy_produces_mult = -0.1
+			planet_jobs_consumer_goods_produces_mult = -0.05
+			planet_jobs_alloys_produces_mult = -0.05
+
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "not_a_priority"
+		
+		modifier = {
+			country_energy_produces_mult = -0.03
+			biological_pop_happiness = 0.05
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "unprotected"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+				has_valid_civic = civic_environmentalist
+			}
+		}
+		
+		modifier = {
+			planet_jobs_consumer_goods_produces_mult = +0.05
+			planet_jobs_alloys_produces_mult = +0.05
+			country_energy_produces_mult = +0.1
+			biological_pop_happiness = -0.1
+			planet_amenities_mult = -0.1
+			pop_environment_tolerance = -0.2
+
+		}
+				AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_xenophobe"
+              				has_ethic = "ethic_fanatic_xenophobe"
+           				}
+       				}
+		}
+	}
+}
+
+energy_and_water_usage= { 
+
+		potential = {
+		OR
+			{is_country_type = default
+			}
+			}	
+			
+	option = {
+		name = "restricted"
+		
+		modifier = {
+		
+			country_energy_produces_mult = 0.05
+			planet_pops_consumer_goods_upkeep_mult = -0.10
+			pop_happiness = -0.1
+			pop_government_ethic_attraction = -0.1
+
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "there_are_execptions"
+		
+		modifier = {
+			country_energy_produces_mult = 0.05
+			planet_jobs_consumer_goods_produces_mult = -0.05
+			planet_jobs_alloys_produces_mult = -0.05
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "overconsumption"
+		
+		modifier = {			
+			pop_growth_speed = 0.05
+			pop_happiness = 0.05
+			pop_government_ethic_attraction = 0.1
+			planet_pops_consumer_goods_upkeep_mult = 0.10
+			country_energy_produces_mult = -0.05
+			pop_housing_usage_mult = 0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+animal_protection = { 
+
+		potential = {
+		OR
+			{is_country_type = default
+			}
+			}	
+	option = {
+		name = "protected"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+		
+		modifier = {
+			pop_happiness = 0.1
+			pop_government_ethic_attraction = 0.1
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "partially_protected"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+		
+		modifier = {
+			pop_government_ethic_attraction = +0.05
+			pop_happiness = -0.05
+
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+
+option = {
+		name = "no_animal_laws"
+		
+				valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+		
+		modifier = {
+			country_energy_produces_mult = +0.05
+			pop_happiness = -0.1
+			pop_government_ethic_attraction = -0.1
+
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_xenophobe"
+              				has_ethic = "ethic_fanatic_xenophobe"
+           				}
+       				}
+		}
+}
+}
+
+education_type = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+	option = {
+		name = "private_school"
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.2
+			planet_jobs_physics_research_produces_mult = 0.2
+			planet_jobs_engineering_research_produces_mult = 0.2
+			pop_ethic_materialist_attraction_mult = -0.3
+			biological_pop_happiness = -0.25
+			country_energy_produces_mult = 0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+	option = {
+		name = "advanced_public_school"
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.2
+			planet_jobs_physics_research_produces_mult = 0.2
+			planet_jobs_engineering_research_produces_mult = 0.2
+			pop_ethic_materialist_attraction_mult = 0.2
+			pop_ethic_egaliatarian_attraction_mult = 0.2
+			biological_pop_happiness = 0.1
+			country_energy_produces_mult = -0.25
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "public_school"
+		
+		valid = {
+			NOR = {
+				has_valid_civic = civic_aristocratic_elite
+			}		
+		}
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.1
+			planet_jobs_physics_research_produces_mult = 0.1
+			planet_jobs_engineering_research_produces_mult = 0.1
+			pop_ethic_materialist_attraction_mult = 0.1
+			pop_ethic_egalitarian_attraction_mult = 0.1
+			biological_pop_happiness = 0.1
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+
+option = {
+		name = "non_xeno_education"
+		
+		valid = {
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.05
+			planet_jobs_physics_research_produces_mult = 0.05
+			planet_jobs_engineering_research_produces_mult = 0.05
+			pop_ethic_materialist_attraction_mult = 0.1
+			pop_ethic_egaliatarian_attraction_mult = -0.2
+			pop_ethic_xenophile_attraction_mult = -0.2
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_xenophobe"
+              				has_ethic = "ethic_fanatic_xenophobe"
+           				}
+       				}
+		}
+	}
+
+option = {
+		name = "no_education"
+		
+				valid = {
+			NOR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+			}
+		}
+		
+		modifier = {
+			country_energy_produces_mult = 0.15
+			planet_jobs_society_research_produces_mult = -0.3
+			planet_jobs_physics_research_produces_mult = -0.3
+			planet_jobs_engineering_research_produces_mult = -0.3
+			biological_pop_happiness = -0.2
+			pop_ethic_materialist_attraction_mult = -0.5
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+education_quality = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+	option = {
+		name = "heavy_focus"
+		
+		valid = {
+			OR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+			}
+		}
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.2
+			planet_jobs_physics_research_produces_mult = 0.2
+			planet_jobs_engineering_research_produces_mult = 0.2
+			pop_ethic_materialist_attraction_mult = 0.2
+			biological_pop_happiness = 0.1
+			country_energy_produces_mult = -0.35
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "research_grants"
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.1
+			planet_jobs_physics_research_produces_mult = 0.1
+			planet_jobs_engineering_research_produces_mult = 0.1
+			biological_pop_happiness = 0.1
+			country_energy_produces_mult = -0.20
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "mandatory_till_adult"
+		
+		modifier = {
+			planet_jobs_society_research_produces_mult = 0.05
+			planet_jobs_physics_research_produces_mult = 0.05
+			planet_jobs_engineering_research_produces_mult = 0.05
+			biological_pop_happiness = 0.05
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "basic_education"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_materialist"
+				has_ethic = "ethic_fanatic_materialist"
+			}
+		}
+		
+		modifier = {
+
+			country_energy_produces_mult = 0.05
+			biological_pop_happiness = -0.1
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+religion = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "all_religions_allowed"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		
+		modifier = {
+			pop_ethic_spiritualist_attraction_mult = 0.2
+			pop_ethic_egalitarian_attraction_mult = 0.1
+			pop_government_ethic_attraction = 0.05
+			pop_happiness = 0.05
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "secularism"
+		
+		modifier = {	 
+			pop_government_ethic_attraction = 0.05
+			pop_ethic_egalitarian_attraction_mult = 0.05
+			pop_happiness = 0.05
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_xenophobe"
+              				has_ethic = "ethic_fanatic_xenophobe"
+							has_ethic = "ethic_authoritarian"
+              				has_ethic = "ethic_fanatic_authoritarian"
+           				}
+       				}
+		}
+}
+option = {
+		name = "personality_cult"
+		
+		valid = {
+			OR = {
+				has_ethic = "ethic_fanatic_authoritarian"
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_spiritualist"
+				has_ethic = "ethic_spiritualist"
+			}
+		}
+		
+		valid = {
+			OR = {
+				has_valid_civic = civic_imperial_cult
+			}
+		}
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		
+		modifier = {	 
+			pop_government_ethic_attraction = 0.20
+			pop_ethic_egalitarian_attraction_mult = -0.1
+			pop_ethic_authoritarian_attraction_mult = 0.3
+			pop_happiness = 0.05
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              			    has_ethic = "ethic_fanatic_spiritualist"
+							has_ethic = "ethic_spiritualist"
+							has_ethic = "ethic_authoritarian"
+              				has_ethic = "ethic_fanatic_authoritarian"
+           				}
+       				}
+		}
+}
+
+
+option = {
+		name = "only_main_and_similiar"
+		
+		modifier = {
+			pop_ethic_spiritualist_attraction_mult = 0.05
+			pop_government_ethic_attraction = 0.05
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "only_main"
+		
+		modifier = {
+				 
+			pop_ethic_authoritarian_attraction_mult = 0.05
+			pop_ethic_spiritualist_attraction_mult = -0.1
+			pop_ethic_egalitarian_attraction_mult = -0.05
+			pop_happiness = -0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "prohibited"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_spiritualist"
+				has_ethic = "ethic_fanatic_spiritualist"
+			}
+		}
+		
+		modifier = {     
+			pop_ethic_authoritarian_attraction_mult = 0.3
+			pop_ethic_spiritualist_attraction_mult = -0.2
+			pop_ethic_egalitarian_attraction_mult = -0.1
+			pop_happiness = -0.20
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+propaganda = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "no_interference"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		
+		modifier = {
+			pop_ethic_egalitarian_attraction_mult = 0.2
+			pop_happiness = 0.1
+			pop_government_ethic_attraction = -0.15
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+
+option = {
+		name = "small_interference"
+		
+		modifier = {
+			pop_ethic_authoritarian_attraction_mult = 0.1
+			pop_happiness = 0.05
+			
+		}
+		AI_weight = {
+		factor = 1
+	}
+
+}
+option = {
+		name = "goverment_values"
+		
+		modifier = {
+			pop_government_ethic_attraction = 0.1
+			pop_ethic_egalitarian_attraction_mult = -0.1
+			pop_ethic_authoritarian_attraction_mult = 0.1
+			pop_happiness = -0.05
+		}
+		AI_weight = {
+		factor = 1
+	}
+		
+}
+option = {
+		name = "propaganda"
+		
+		valid = {
+			OR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}
+		}
+		
+		modifier = {
+			pop_government_ethic_attraction = 0.4
+			pop_ethic_egalitarian_attraction_mult = -0.3
+			pop_ethic_authoritarian_attraction_mult = 0.3
+			pop_happiness = -0.1
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+							has_ethic = "ethic_authoritarian"
+              				has_ethic = "ethic_fanatic_authoritarian"
+           				}
+       				}
+		}
+}
+}
+
+information= { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "freedom_information"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+            }
+        }
+		
+		modifier = {
+
+			pop_government_ethic_attraction = -0.10
+			pop_happiness = 0.20
+			
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+
+option = {
+		name = "restricted"
+		
+		modifier = {
+			pop_government_ethic_attraction = 0.15
+			pop_happiness = -0.1
+			country_energy_produces_mult = -0.05
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "censored"
+		
+		valid = {
+            OR = {
+                has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+            }
+        }
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_egalitarian"
+				has_ethic = "ethic_fanatic_egalitarian"
+			}
+		}
+		
+		modifier = {
+			pop_happiness = -0.20
+			pop_government_ethic_attraction = 0.35
+			country_energy_produces_mult = -0.1
+
+		}
+		
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+							has_ethic = "ethic_authoritarian"
+              				has_ethic = "ethic_fanatic_authoritarian"
+           				}
+       				}
+		}
+}
+}
+
+freedom_of_press = {
+
+    potential = {
+        NOT = { has_ethic = "ethic_gestalt_consciousness" }
+    }
+
+    option = {
+        name = "fundamental_freedom"
+
+        policy_flags = { fundamental_freedom }
+        valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+            }
+        }
+
+        modifier = {
+            pop_happiness = 0.1
+            pop_government_ethic_attraction = -0.1
+            pop_ethics_shift_speed_mult = 0.2
+            pop_factions_influence_produces_mult = 0.25
+        }
+    }
+
+    option = {
+        name = "executive_freedom"
+        
+        policy_flags = { executive_freedom }
+        modifier = {
+            pop_ethics_shift_speed_mult = 0.10
+            pop_factions_influence_produces_mult = 0.05
+        }
+
+        ai_weight = {
+            weight = 110
+        }
+    }
+
+    option = {
+        name = "state_approval"
+        
+        policy_flags = { state_approval }
+        modifier = {
+            pop_happiness = -0.05
+            pop_government_ethic_attraction = 0.1
+            pop_factions_influence_produces_mult = -0.2
+        }
+    }
+
+    option = {
+        name = "state_press"
+
+        policy_flags = { state_press }
+        valid = {
+            OR = {
+                has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+            }
+        }
+
+        modifier = {
+            pop_government_ethic_attraction = 0.3
+            pop_ethics_shift_speed_mult = -0.2 
+            country_base_influence_produces_add = 1
+            pop_factions_influence_produces_mult = -0.5
+        }
+		AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+							has_ethic = "ethic_authoritarian"
+              				has_ethic = "ethic_fanatic_authoritarian"
+           				}
+       				}
+		}
+    }
+}
+
+working_conditions= { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "following_all_rules"
+		
+		modifier = {
+			leader_age = 10
+			pop_happiness = 0.25
+			pop_government_ethic_attraction = 0.4
+			planet_jobs_consumer_goods_produces_mult = -0.1
+			planet_jobs_alloys_produces_mult = -0.1
+			planet_jobs_minerals_produces_mult = -0.1
+			planet_jobs_energy_produces_mult = -0.1
+			planet_jobs_food_produces_mult = -0.1
+
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "mostly_following_rules"
+		
+		modifier = {
+			leader_age = 5
+			pop_happiness = 0.1
+			pop_government_ethic_attraction = 0.2
+			planet_jobs_consumer_goods_produces_mult = -0.05
+			planet_jobs_alloys_produces_mult = -0.05
+			planet_jobs_minerals_produces_mult = -0.05
+			planet_jobs_energy_produces_mult = -0.05
+			planet_jobs_food_produces_mult = -0.05
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "rules_are_meant_to_be_broken"
+		
+		modifier = {
+			planet_jobs_consumer_goods_produces_mult = 0.05
+			planet_jobs_alloys_produces_mult = 0.05
+			planet_jobs_minerals_produces_mult = 0.05
+			planet_jobs_energy_produces_mult = 0.05
+			planet_jobs_food_produces_mult = 0.05
+			leader_age = -4
+			pop_happiness = -0.1
+			pop_government_ethic_attraction = -0.2
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+option = {
+		name = "your_job_our_rules"
+		
+		modifier = {
+			planet_jobs_consumer_goods_produces_mult = 0.1
+			planet_jobs_alloys_produces_mult = 0.1
+			planet_jobs_minerals_produces_mult = 0.1
+			planet_jobs_energy_produces_mult = 0.1
+			planet_jobs_food_produces_mult = 0.1
+			leader_age = -10
+			pop_happiness = -0.2
+			pop_government_ethic_attraction = -0.4
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+migration = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+	option = {
+		name = "land_of_oppurtunity"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_xenophobe"
+                has_ethic = "ethic_xenophobe"
+            }
+        }
+		
+		modifier = {
+			planet_immigration_pull_mult = 0.1
+			pop_growth_speed = 0.1
+			trade_value_mult = 0.1
+			country_energy_produces_mult = -0.1
+			
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "promotion_of_home"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_xenophobe"
+                has_ethic = "ethic_xenophobe"
+            }
+        }
+		
+		modifier = {
+			planet_immigration_pull_mult = 0.05
+			pop_growth_speed = 0.05
+			trade_value_mult = 0.05
+			country_energy_produces_mult = -0.05
+			
+		}
+		
+		AI_weight = 3
+			factor = 1
+	}
+}
+
+option = {
+		name = "not_controlled"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_xenophobe"
+                has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_authoritarian"
+                has_ethic = "ethic_authoritarian"
+            }
+        }
+		
+		modifier = {
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "not_recommended"
+		
+		modifier = {
+			country_energy_produces_mult = +0.05
+			planet_immigration_pull_mult = -0.05
+			pop_growth_speed = -0.05
+			trade_value_mult = -0.05
+
+			
+		}
+		
+		AI_weight = {
+       			weight = 100	
+       			modifier = {
+           			factor = 10
+           			OR = {
+						has_ethic = "ethic_fanatic_xenophobe"
+						has_ethic = "ethic_xenophobe"
+            }
+        }
+	}
+}
+}
+
+drug_legalization = { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+	option = {
+		name = "illegal"
+		
+		modifier = {
+			leader_age = 10
+			pop_government_ethic_attraction = 0.1
+			biological_pop_happiness = -0.1
+			planet_crime_add = 15
+				
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "partially_legal"
+		
+		modifier = {
+			pop_government_ethic_attraction = 0.05
+			biological_pop_happiness = 0.1
+			planet_crime_add = 5
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+
+option = {
+		name = "legal"
+		
+		modifier = {
+			country_energy_produces_mult = 0.05
+			biological_pop_happiness = 0.1
+			planet_crime_add = -5
+			leader_age = -10
+			pop_government_ethic_attraction = -0.1
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+art= { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "art_is_the_soul_of_our_nation"
+		
+		modifier = {
+
+			pop_happiness = 0.1
+			pop_government_ethic_attraction = 0.1
+			planet_amenities_mult = 0.1
+			country_energy_produces_mult = -0.05
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "art_is_money"
+		
+		modifier = {
+			country_energy_produces_mult = +0.05
+			pop_happiness = -0.05
+			planet_amenities_mult = -0.1
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "bauhaus"
+		
+		modifier = {
+			country_energy_produces_mult = +0.1
+			pop_happiness = -0.1
+			planet_amenities_mult = -0.15
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+gun_legislation= { 
+
+		potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}	
+			
+	option = {
+		name = "gun_allowed"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+		
+		modifier = {
+			pop_ethic_militarist_attraction_mult = 0.1
+			pop_government_ethic_attraction = 0.1
+			pop_happiness = 0.02
+			planet_crime_add = 10
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "application_process"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_pacifist"
+			}
+		}
+		
+		modifier = {
+			pop_ethic_militarist_attraction_mult = 0.05
+			pop_government_ethic_attraction = 0.05
+
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "gun_proibited"
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_militarist"
+				has_ethic = "ethic_fanatic_militarist"
+			}
+		}
+		
+		modifier = {
+			planet_crime_add = -10
+			pop_ethic_militarist_attraction_mult = -0.05
+			pop_happiness = -0.02
+			pop_government_ethic_attraction = -0.1
+
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+naval_agenda = {
+		potential = {
+			is_country_type = default
+		}
+		allow = {
+			is_at_war = no
+		}
+		option = {
+
+			name = "small_fleet_focus"
+			
+			policy_flags = {
+				small_fleet_focus
+			}
+			modifier = {
+				starbase_upgrade_cost_mult = 0.15
+				country_naval_cap_mult = 0.05
+				shipclass_starbase_damage_mult = -0.10
+				starbases_upkeep_mult = 0.1
+			}
+			AI_weight = {	
+       				weight = 100
+       				modifier = {
+           				factor = 0.8
+           				OR = {
+              				 has_ethic = "ethic_pacifist"
+              				 has_ethic = "ethic_xenophile"
+					 has_ethic = "ethic_materialist"
+					 has_ethic = "ethic_egalitarian"		
+           				}
+       				}
+				modifier = {
+           				factor = 1.2
+           				OR = {
+              				 has_ethic = "ethic_militarist"
+              				 has_ethic = "ethic_xenophobe"
+					 has_ethic = "ethic_spiritualist"
+					 has_ethic = "ethic_authoritarian"		
+           				}
+       				}
+				modifier = {
+           				factor = 0.5
+           				OR = {
+              				 has_ethic = "ethic_fanatic_pacifist"
+              				 has_ethic = "ethic_fanatic_xenophile"
+					 has_ethic = "ethic_fanatic_materialist"
+					 has_ethic = "ethic_fanatic_egalitarian"		
+           				}
+       				}
+   			}
+		}
+		option = {
+
+			name = "big_fleet_focus"
+			
+			policy_flags = {
+				big_fleet_focus
+			}
+			modifier = {
+				starbase_upgrade_cost_mult = 0.15
+				country_starbase_capacity_add = -1
+				country_naval_cap_mult = 0.10
+				shipclass_starbase_damage_mult = -0.2
+				starbases_upkeep_mult = 0.2
+			}
+			AI_weight = {
+       				weight = 100
+				modifier = {
+           				factor = 1.5
+           				OR = {
+              				 has_ethic = "ethic_fanatic_militarist"		
+           				}
+       				}
+   			}
+		}
+		option = {
+
+			name = "small_station_focus"
+			
+			policy_flags = {
+				small_station_focus
+			}
+			modifier = {
+				starbase_upgrade_cost_mult = -0.15
+				country_naval_cap_mult = -0.05
+				shipclass_starbase_damage_mult = 0.10
+				starbases_upkeep_mult = -0.05
+
+			}
+			AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 1.2
+           				OR = {
+              				 has_ethic = "ethic_pacifist"
+              				 has_ethic = "ethic_xenophile"
+					 has_ethic = "ethic_materialist"
+					 has_ethic = "ethic_egalitarian"		
+           				}
+       				}
+				modifier = {
+           				factor = 0.8
+           				OR = {
+              				 has_ethic = "ethic_militarist"
+              				 has_ethic = "ethic_xenophobe"
+					 has_ethic = "ethic_spiritualist"
+					 has_ethic = "ethic_authoritarian"		
+           				}
+       				}
+				modifier = {
+           				factor = 0.5
+           				OR = {
+              				 has_ethic = "ethic_fanatic_militarist"
+              				 has_ethic = "ethic_fanatic_xenophobe"
+					 has_ethic = "ethic_fanatic_spiritualist"
+					 has_ethic = "ethic_fanatic_authoritarian"		
+           				}
+       				}
+   			}
+		}
+		option = {
+
+			name = "big_station_focus"
+			
+			policy_flags = {
+				big_station_focus
+			}
+			modifier = {
+				starbase_upgrade_cost_mult = -0.15
+				country_starbase_capacity_add = 1
+				country_naval_cap_mult = -0.10
+				shipclass_starbase_damage_mult = 0.15
+				starbases_upkeep_mult = -0.1
+			}
+			AI_weight = {
+       				weight = 100
+				modifier = {
+           				factor = 1.5
+           				AND = {
+              				 has_ethic = "ethic_fanatic_pacifist"		
+           				}
+       				}
+   			}
+		}
+}
+
+fleet_quality = { 
+
+		potential = {
+		OR
+			{is_country_type = default
+			}
+			}	
+	option = {
+		name = "highest_quality"
+		
+		valid = {
+			OR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+		modifier = {
+			ship_fire_rate_mult = 0.2
+			ship_hull_mult = 0.2
+			ship_armor_mult = 0.2
+			ship_shield_mult = 0.2
+			ships_upkeep_mult = 0.25
+			country_alloys_produces_mult = -0.2
+			
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+			
+	option = {
+		name = "good_quality"
+		
+		modifier = {
+			ship_fire_rate_mult = 0.1
+			ship_hull_mult = 0.1
+			ship_armor_mult = 0.1
+			ship_shield_mult = 0.1
+			ships_upkeep_mult = 0.15
+			country_alloys_produces_mult = -0.1
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+
+option = {
+		name = "standard_quality"
+		
+		modifier = {
+
+			
+		}
+		
+		AI_weight = {
+			factor = 3
+	}
+}
+option = {
+		name = "cheap_models"
+		
+		valid = {
+            NOR = {
+                has_ethic = "ethic_fanatic_militarist"
+				has_ethic = "ethic_militarist"
+            }
+        }
+		
+		modifier = {
+			ships_upkeep_mult = -0.20
+			ship_fire_rate_mult = -0.1
+			ship_hull_mult = -0.1
+			ship_armor_mult = -0.1
+			ship_shield_mult = -0.1
+		}
+		
+		AI_weight = {
+			factor = 1
+	}
+}
+}
+
+troop_doctrine = {
+		potential = {
+			is_country_type = default
+		}
+		allow = {
+			is_at_war = no
+		}
+		option = {
+
+			name = "light_defensive"
+			
+			policy_flags = {
+				td_smallantitroop
+			}
+			modifier = {
+				army_defense_damage_mult = 0.05
+				army_attack_morale_mult = -0.05
+			}
+		}
+		option = {
+
+			name = "defensive"
+			
+			policy_flags = {
+				td_largeantitroop
+			}
+			modifier = {
+				army_defense_morale_mult = 0.1
+				army_attack_morale_mult = 0.05
+				army_damage_mult = -0.1
+				army_disengage_chance_mult = 0.33
+			}
+			AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 10
+           				OR = {
+              				 has_ethic = "ethic_pacifist"
+              				 has_ethic = "ethic_fanatic_pacifist"
+		
+           				}
+       				}
+		}
+	}
+		option = {
+
+			name = "light_offensive"
+			
+			policy_flags = {
+				td_smalltroop
+			}
+			modifier = {
+				army_attack_damage_mult = 0.05
+				army_defense_morale_mult = -0.05
+			}
+		}
+		option = {
+
+			name = "offensive"
+			
+			policy_flags = {
+				td_largetroop
+			}
+			modifier = {
+				army_defense_morale_mult = -0.1
+				army_attack_morale_mult = -0.05
+				army_damage_mult = 0.1
+				army_collateral_damage_mult = 0.33
+			}
+		}
+}
+
+
+
+gambling = {
+
+	potential = {
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+	
+	option = {
+		name = "not_monitored"
+		
+		policy_flags = {
+			not_monitored
+		}
+		
+		modifier = {
+		country_trade_attractiveness = 0.05
+		planet_immigration_pull_mult = 0.05
+		}
+		
+		AI_weight = {
+		}
+		
+	}
+	
+	option = {
+		name = "legal_gambling"
+		
+		policy_flags = {
+			legal_gambling
+		}
+		modifier = {
+			country_energy_produces_mult = 0.05
+			pop_happiness = 0.05
+			country_trade_attractiveness = 0.05
+			planet_immigration_pull_mult = 0.05
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 2
+				OR = {
+					has_ethic = "ethic_fanatic_egalitarian"
+					has_ethic = "ethic_egalitarian"
+					has_ethic = "ethic_fanatic_xenophile"
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_militarist"
+					has_ethic = "ethic_fanatic_pacifist"
+					has_ethic = "ethic_pacifist"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "state_controlled"
+		
+		policy_flags = {
+			state_controlled
+		}
+		modifier = {
+		country_energy_produces_mult = 0.1
+		pop_ethic_authoritarian_attraction_mult = 0.1
+		planet_immigration_pull_mult = 0.05
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 2
+				OR = {
+					has_ethic = "ethic_fanatic_materialist"
+					has_ethic = "ethic_materialist"
+					has_ethic = "ethic_fanatic_authoritarian"
+					has_ethic = "ethic_authoritarian"
+					has_ethic = "ethic_fanatic_militarist"
+				}
+			}
+		}
+}
+	
+	option = {
+		name = "illegal_gambling"
+		
+		policy_flags = {
+			illegal
+		}
+		modifier = {
+				planet_crime_add = -5
+				pop_ethic_egalitarian_attraction_mult = -0.05
+				pop_happiness = -0.05
+				pop_ethic_authoritarian_attraction_mult = 0.1
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 2
+				OR = {
+					has_ethic = "ethic_fanatic_spiritualist"
+				}
+			}
+		}
+		
+	}
+}
+
+surveillance_policy = {
+		potential = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+
+		}
+		
+		option = {
+
+			name = "all_the_population"
+			
+			policy_flags = {
+				all_the_population
+			}
+			modifier = {
+				country_energy_produces_mult = -0.15
+				planet_crime_add = -40
+				planet_stability_add = 20
+				biological_pop_happiness = -0.20
+				country_trust_growth = -0.1
+
+
+			}
+			AI_weight = {
+			modifier = {
+				factor = 5
+				OR = {
+					has_ethic = "ethic_authoritarian"
+					has_ethic = "ethic_fanatic_authoritarian"
+				}
+			}
+		}
+		}
+		
+		option = {
+
+			name = "only_xeno-population"
+			
+			policy_flags = {
+				only_xeno-population
+			}
+			
+			valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophile"
+				has_ethic = "ethic_xenophile"
+			}
+		}
+			modifier = {
+				country_energy_produces_mult = -0.05
+				planet_crime_add = -5
+				planet_stability_add = 5
+				country_trust_growth = -0.15
+
+			}
+			AI_weight = {
+			factor = 1
+	}
+		}
+		
+		option = {
+
+			name = "only_slave"
+			
+			policy_flags = {
+				only_slave
+			}
+			modifier = {
+				country_energy_produces_mult = -0.05
+				planet_crime_add = -5
+				planet_stability_add = 10
+
+			}
+			AI_weight = {
+			factor = 1
+	}
+		}
+		option = {
+
+			name = "only_workers"
+			
+			policy_flags = {
+				only_workers
+			}
+			modifier = {
+				country_energy_produces_mult = -0.05
+				planet_crime_add = -20
+				planet_stability_add = 5
+				pop_cat_worker_happiness = -0.20
+
+			}
+			AI_weight = {
+			factor = 1
+			}
+		}
+		option = {
+
+			name = "no_surveillance"
+			
+			policy_flags = {
+				no_surveillance
+			}
+			modifier = {
+				pop_happiness = 0.20
+				planet_crime_add = 5
+				planet_stability_add = -10
+			}
+			AI_weight = {
+			factor = 3
+			}
+		}
+}
+
+voting_rights = {
+		potential = {
+			OR =  { has_authority = auth_democratic } 
+		}
+		option = {
+
+			name = "all"
+			
+			policy_flags = {
+				all
+			}
+			modifier = {
+				pop_happiness = 0.1
+				country_trust_cap_add = 10
+				pop_ethic_egalitarian_attraction_mult = 0.05
+				
+			}
+			
+			AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 3
+           				OR = {
+              				has_ethic = "ethic_xenophile"
+							has_ethic = "ethic_egalitarian"
+							has_ethic = "ethic_fanatic_egalitarian"
+							has_ethic = "ethic_fanatic_xenophile"	
+           				}
+       				}
+   			}
+		}
+		option = {
+
+			name = "vote_men_only"
+			
+			policy_flags = {
+				men_only
+			}
+			modifier = {
+				pop_growth_speed = 0.05
+				pop_happiness = -0.3
+				pop_ethic_spiritualist_attraction_mult = 0.2
+				army_damage_mult = 0.05
+			}
+		}
+		option = {
+
+			name = "vote_women_only"
+			
+			policy_flags = {
+				vd_women
+			}
+			modifier = {
+				pop_growth_speed = 0.05
+				pop_happiness = -0.3
+				pop_ethic_spiritualist_attraction_mult = 0.2
+				leader_age = 5
+			}
+		}
+		
+		option = {
+
+			name = "vote_rigged"
+			
+			policy_flags = {
+				rigged
+			}
+			modifier = {
+				country_base_influence_produces_add = -0.1
+				pop_happiness = -0.1
+				pop_ethic_authoritarian_attraction_mult = 0.1
+				country_trust_growth = -0.1
+			}
+			AI_weight = {
+       				weight = 100	
+       				modifier = {
+           				factor = 3
+           				OR = {
+              				has_ethic = "ethic_authoritarian"
+							has_ethic = "ethic_fanatic_authoritarian"	
+           				}
+       				}
+   			}
+		}
+}
+
+tourism = {
+	potential = {
+			has_comms_with_alien_empire = yes
+			NOT = {
+				has_ethic = ethic_fanatic_xenophobe
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+				
+			}	
+		}
+	
+	option = {
+		name = "closed_borders"
+		
+		policy_flags = {
+			closed_borders
+		}
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+		
+		modifier = {
+					pop_ethics_shift_speed_mult = -0.1
+					pop_ethic_xenophobe_attraction_mult = 0.1
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 5
+				OR = {
+					has_ethic = "ethic_xenophobe"
+				}
+			}
+		}		
+	}
+	
+	option = {
+		name = "visa_restricted"
+		
+		policy_flags = {
+			visa_restricted
+		}
+		
+		valid = {
+			NOR = {
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+		}
+		
+		modifier = {
+			country_energy_produces_mult = 0.05
+			pop_ethics_shift_speed_mult = 0.05
+			country_unity_produces_mult = 0.03
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 3
+				OR = {
+					has_ethic = "ethic_authoritarian"
+					has_ethic = "ethic_fanatic_authoritarian"
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "passport_restricted"
+		
+		policy_flags = {
+			passport_restricted
+		}
+		modifier = {
+			country_energy_produces_mult = 0.05
+			pop_ethics_shift_speed_mult = 0.1
+			country_unity_produces_mult = 0.05
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 2
+				OR = {
+				has_ethic = "ethic_fanatic_pacifist"
+					has_ethic = "ethic_pacifist"
+				}
+			}
+		}
+	}
+	
+		option = {
+		name = "free_movement"
+		
+		policy_flags = {
+			free_movement
+		}
+		valid = {
+			NOR = {
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+				has_ethic = "ethic_xenophobe"
+			}
+		}
+		
+		modifier = {
+			country_energy_produces_mult = 0.10
+			pop_ethics_shift_speed_mult = 0.1
+			country_unity_produces_mult = 0.1
+			pop_ethic_xenophobe_attraction_mult = -0.05
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 3
+				OR = {
+					has_ethic = "ethic_fanatic_xenophile"
+					has_ethic = "ethic_egalitarian"
+					has_ethic = "ethic_fanatic_egalitarian"
+				}
+			}
+		}
+	}
+}

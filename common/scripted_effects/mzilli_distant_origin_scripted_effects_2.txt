@@ -1,0 +1,2558 @@
+setup_distant_origin_empires = {
+	# Vanilla
+	if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_arid } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_arid
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_arid }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_arid
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_arid } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_arid
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_arid
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_arid
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_arid
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:arid_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_arid }
+			save_event_target_as = lost_colony_child
+			event_target:arid_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_desert } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_desert
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_desert }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_desert
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_desert } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_desert
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_desert
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_desert
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_desert
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:desert_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_desert }
+			save_event_target_as = lost_colony_child
+			event_target:desert_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_savannah } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_savannah
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_savannah }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_savannah
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_savannah } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_savannah
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_savannah
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_savannah
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_savannah
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:savannah_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_savannah }
+			save_event_target_as = lost_colony_child
+			event_target:savannah_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_arctic } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_arctic
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_arctic }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_arctic
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_arctic } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_arctic
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_arctic
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_arctic
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_arctic
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:arctic_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_arctic }
+			save_event_target_as = lost_colony_child
+			event_target:arctic_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_alpine } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_alpine
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_alpine }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_alpine
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_alpine } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_alpine
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_alpine
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_alpine
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_alpine
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:alpine_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_alpine }
+			save_event_target_as = lost_colony_child
+			event_target:alpine_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_tundra } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_tundra
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_tundra }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_tundra
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_tundra } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_tundra
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_tundra
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_tundra
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_tundra
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:tundra_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_tundra }
+			save_event_target_as = lost_colony_child
+			event_target:tundra_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_continental } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_continental
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_continental }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_continental
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_continental } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_continental
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_continental
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_continental
+					reroll_planet = yes
+					set_planet_entity = { entity = "continental_planet_03_entity" }
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_continental
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:continental_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_continental }
+			save_event_target_as = lost_colony_child
+			event_target:continental_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_tropical } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_tropical
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_tropical }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_tropical
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_tropical } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_tropical
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_tropical
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_tropical
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_tropical
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:tropical_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_tropical }
+			save_event_target_as = lost_colony_child
+			event_target:tropical_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_ocean } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_ocean
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_ocean }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_ocean
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_ocean } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_ocean
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_ocean
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_ocean
+					reroll_planet = yes
+					set_planet_entity = { entity = "ocean_planet_02_entity" }
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_ocean
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:ocean_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_ocean }
+			save_event_target_as = lost_colony_child
+			event_target:ocean_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	# Planetary Diversity
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_mangrove } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_mangrove
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_mangrove }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_mangrove
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_mangrove } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_mangrove
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_mangrove
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_mangrove
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_mangrove
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:mangrove_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_mangrove }
+			save_event_target_as = lost_colony_child
+			event_target:mangrove_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_hajungle } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_hajungle
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_hajungle }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_hajungle
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_hajungle } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_hajungle
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_hajungle
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_hajungle
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_hajungle
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:hajungle_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_hajungle }
+			save_event_target_as = lost_colony_child
+			event_target:hajungle_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_desertislands } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_desertislands
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_desertislands }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_desertislands
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_desertislands } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_desertislands
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_desertislands
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_desertislands
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_desertislands
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:desertislands_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_desertislands }
+			save_event_target_as = lost_colony_child
+			event_target:desertislands_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_cascadian } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_cascadian
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_cascadian }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_cascadian
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_cascadian } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_cascadian
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_cascadian
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_cascadian
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_cascadian
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:cascadian_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_cascadian }
+			save_event_target_as = lost_colony_child
+			event_target:cascadian_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_swamp } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_swamp
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_swamp }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_swamp
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_swamp } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_swamp
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_swamp
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_swamp
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_swamp
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:swamp_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_swamp }
+			save_event_target_as = lost_colony_child
+			event_target:swamp_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_geothermal } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_geothermal
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_geothermal }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_geothermal
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_geothermal } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_geothermal
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_geothermal
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_geothermal
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_geothermal
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:geothermal_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_geothermal }
+			save_event_target_as = lost_colony_child
+			event_target:geothermal_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_glacial } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_glacial
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_glacial }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_glacial
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_glacial } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_glacial
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_glacial
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_glacial
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_glacial
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:glacial_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_glacial }
+			save_event_target_as = lost_colony_child
+			event_target:glacial_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_subarctic } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_subarctic
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_subarctic }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_subarctic
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_subarctic } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_subarctic
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_subarctic
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_subarctic
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_subarctic
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:subarctic_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_subarctic }
+			save_event_target_as = lost_colony_child
+			event_target:subarctic_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_mesa } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_mesa
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_mesa }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_mesa
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_mesa } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_mesa
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_mesa
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_mesa
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_mesa
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:mesa_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_mesa }
+			save_event_target_as = lost_colony_child
+			event_target:mesa_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_oasis } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_oasis
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_oasis }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_oasis
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_oasis } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_oasis
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_oasis
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_oasis
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_oasis
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:oasis_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_oasis }
+			save_event_target_as = lost_colony_child
+			event_target:oasis_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_sandsea } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_sandsea
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_sandsea }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_sandsea
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_sandsea } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_sandsea
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_sandsea
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_sandsea
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_sandsea
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:sandsea_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_sandsea }
+			save_event_target_as = lost_colony_child
+			event_target:sandsea_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_frozen_desert } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_frozen_desert
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_frozen_desert }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_frozen_desert
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_frozen_desert } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_frozen_desert
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_frozen_desert
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_frozen_desert
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_frozen_desert
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:frozen_desert_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_frozen_desert }
+			save_event_target_as = lost_colony_child
+			event_target:frozen_desert_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_steppe } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_steppe
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_steppe }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_steppe
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_steppe } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_steppe
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_steppe
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_steppe
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_steppe
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:steppe_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_steppe }
+			save_event_target_as = lost_colony_child
+			event_target:steppe_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_hadesert } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_hadesert
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_hadesert }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_hadesert
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_hadesert } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_hadesert
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_hadesert
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_hadesert
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_hadesert
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:hadesert_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_hadesert }
+			save_event_target_as = lost_colony_child
+			event_target:hadesert_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_methane } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_methane
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_methane }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_methane
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_methane } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_methane
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_methane
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_methane
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_methane
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:methane_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_methane }
+			save_event_target_as = lost_colony_child
+			event_target:methane_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_ammonia } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_ammonia
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_ammonia }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_ammonia
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_ammonia } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_ammonia
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_ammonia
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_ammonia
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_ammonia
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:ammonia_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_ammonia }
+			save_event_target_as = lost_colony_child
+			event_target:ammonia_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_tidallylocked } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_tidallylocked
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_tidallylocked }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_tidallylocked
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_tidallylocked } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_tidallylocked
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_tidallylocked
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_tidallylocked
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_tidallylocked
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:tidallylocked_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_tidallylocked }
+			save_event_target_as = lost_colony_child
+			event_target:tidallylocked_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_biolumen } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_biolumen
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_biolumen }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_biolumen
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_biolumen } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_biolumen
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_biolumen
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_biolumen
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_biolumen
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:biolumen_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_biolumen }
+			save_event_target_as = lost_colony_child
+			event_target:biolumen_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_boreal } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_boreal
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_boreal }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_boreal
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_boreal } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_boreal
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_boreal
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_boreal
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_boreal
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:boreal_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_boreal }
+			save_event_target_as = lost_colony_child
+			event_target:boreal_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_mushroom } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_mushroom
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_mushroom }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_mushroom
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_mushroom } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_mushroom
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_mushroom
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_mushroom
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_mushroom
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:mushroom_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_mushroom }
+			save_event_target_as = lost_colony_child
+			event_target:mushroom_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_superhabitable } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_superhabitable
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_superhabitable }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_superhabitable
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_superhabitable } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_superhabitable
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_superhabitable
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_superhabitable
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_superhabitable
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:superhabitable_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_superhabitable }
+			save_event_target_as = lost_colony_child
+			event_target:superhabitable_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_retinal } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_retinal
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_retinal }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_retinal
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_retinal } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_retinal
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_retinal
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_retinal
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_retinal
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:retinal_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_retinal }
+			save_event_target_as = lost_colony_child
+			event_target:retinal_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_forest } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_forest
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_forest }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_forest
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_forest } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_forest
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_forest
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_forest
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_forest
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:forest_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_forest }
+			save_event_target_as = lost_colony_child
+			event_target:forest_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_prairie } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_prairie
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_prairie }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_prairie
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_prairie } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_prairie
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_prairie
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_prairie
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_prairie
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:prairie_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_prairie }
+			save_event_target_as = lost_colony_child
+			event_target:prairie_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_med } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_med
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_med }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_med
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_med } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_med
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_med
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_med
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_med
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:med_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_med }
+			save_event_target_as = lost_colony_child
+			event_target:med_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_antarctic } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_antarctic
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_antarctic }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_antarctic
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_antarctic } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_antarctic
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_antarctic
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_antarctic
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_antarctic
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:antarctic_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_antarctic }
+			save_event_target_as = lost_colony_child
+			event_target:antarctic_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_snow } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_snow
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_snow }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_snow
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_snow } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_snow
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_snow
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_snow
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_snow
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:snow_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_snow }
+			save_event_target_as = lost_colony_child
+			event_target:snow_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_karst } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_karst
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_karst }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_karst
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_karst } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_karst
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_karst
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_karst
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_karst
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:karst_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_karst }
+			save_event_target_as = lost_colony_child
+			event_target:karst_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_primal } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_primal
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_primal }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_primal
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_primal } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_primal
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_primal
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_primal
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_primal
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:primal_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_primal }
+			save_event_target_as = lost_colony_child
+			event_target:primal_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_irradiated } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_irradiated
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_irradiated }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_irradiated
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_irradiated } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_irradiated
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_irradiated
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_irradiated
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_irradiated
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:irradiated_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_irradiated }
+			save_event_target_as = lost_colony_child
+			event_target:irradiated_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_ash } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_ash
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_ash }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_ash
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_ash } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_ash
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_ash
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_ash
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_ash
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:ash_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_ash }
+			save_event_target_as = lost_colony_child
+			event_target:ash_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_aquatic } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_aquatic
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_aquatic }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_aquatic
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_aquatic } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_aquatic
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_aquatic
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_aquatic
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_aquatic
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:aquatic_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_aquatic }
+			save_event_target_as = lost_colony_child
+			event_target:aquatic_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_salt } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_salt
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_salt }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_salt
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_salt } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_salt
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_salt
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_salt
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_salt
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:salt_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_salt }
+			save_event_target_as = lost_colony_child
+			event_target:salt_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_wetswamp } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_wetswamp
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_wetswamp }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_wetswamp
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_wetswamp } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_wetswamp
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_wetswamp
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_wetswamp
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_wetswamp
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:wetswamp_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_wetswamp }
+			save_event_target_as = lost_colony_child
+			event_target:wetswamp_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_outback } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_outback
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_outback }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_outback
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_outback } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_outback
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_outback
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_outback
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_outback
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:outback_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_outback }
+			save_event_target_as = lost_colony_child
+			event_target:outback_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_highland } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_highland
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_highland }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_highland
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_highland } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_highland
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_highland
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_highland
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_highland
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:highland_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_highland }
+			save_event_target_as = lost_colony_child
+			event_target:highland_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_lake } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_lake
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_lake }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_lake
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_lake } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_lake
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_lake
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_lake
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_lake
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:lake_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_lake }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_veld } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_veld
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_veld }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_veld
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_veld } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_veld
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_veld
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_veld
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_veld
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:veld_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_veld }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_mud } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_mud
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_mud }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_mud
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_mud } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_mud
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_mud
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_mud
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_mud
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:mud_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_mud }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_megaflora } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_megaflora
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_megaflora }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_megaflora
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_megaflora } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_megaflora
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_megaflora
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_megaflora
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_megaflora
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:megaflora_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_megaflora }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_coral } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_coral
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_coral }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_coral
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_coral } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_coral
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_coral
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_coral
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_coral
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:coral_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_coral }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_storm } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_storm
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_storm }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_storm
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_storm } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_storm
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_storm
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_storm
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_storm
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:storm_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_storm }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_rogue } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_rogue
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_rogue }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_rogue
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_rogue } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_rogue
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_rogue
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_rogue
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_rogue
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:rogue_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_rogue }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_acid } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_acid
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_acid }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_acid
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_acid } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_acid
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_acid
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_acid
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_acid
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:acid_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_acid }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_tepid } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_tepid
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_tepid }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_tepid
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_tepid } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_tepid
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_tepid
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_tepid
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_tepid
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:tepid_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_tepid }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_semiarid } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_semiarid
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_semiarid }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_semiarid
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_semiarid } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_semiarid
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_semiarid
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_semiarid
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_semiarid
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:semiarid_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_semiarid }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_glacio } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_glacio
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_glacio }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_glacio
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_glacio } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_glacio
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_glacio
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_glacio
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_glacio
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:glacio_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_glacio }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_eyeball } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_eyeball
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_eyeball }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_eyeball
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_eyeball } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_eyeball
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_eyeball
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_eyeball
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_eyeball
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:eyeball_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_eyeball }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+	else_if = {
+		limit = { owner_species = { has_trait = trait_mzilli_distant_origin_sulfur } }
+		if = {
+			limit = {
+				NOR = {
+					ideal_planet_class = pc_sulfur
+					is_distant_origin_space_civ = yes
+				}
+			}
+			modify_species = { ideal_planet_class = pc_sulfur }
+		}
+		remove_distant_origin_trait = yes
+		set_country_flag = distant_origin_empire_sulfur
+		if = {
+			limit = { NOT = { any_system = { has_star_flag = distant_origin_homeworld_sulfur } } }
+			spawn_lost_homeworld = yes
+			random_system = {
+				limit = { has_star_flag = distant_origin_homeworld_blank }
+				set_star_flag = distant_origin_homeworld_sulfur
+				remove_star_flag = distant_origin_homeworld_blank
+				random_system_planet = {
+					limit = { has_planet_flag = distant_origin_homeworld_blank }
+					set_planet_flag = distant_origin_homeworld_sulfur
+					remove_planet_flag = distant_origin_homeworld_blank
+					change_pc = pc_sulfur
+					reroll_planet = yes
+					setup_lost_homeworld = yes
+				}
+				every_system_planet = {
+					limit = { num_pops = 1 }
+					change_pc = pc_sulfur
+				}
+			}
+		}
+		else = {
+			set_country_flag = special_intro_for@event_target:sulfur_occupiers_country
+			owner_species = { set_species_homeworld = event_target:occupied_sulfur }
+			save_event_target_as = lost_colony_child
+			event_target:_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+	}
+}

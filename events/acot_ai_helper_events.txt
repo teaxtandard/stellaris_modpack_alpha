@@ -1,0 +1,121 @@
+#This event is meant to help AIs get better at not being stupid and to cirucmvant their many terrible decisions, or not doing things you expect them to do in
+#the mod. So here it goes, Mr Maximus Black.
+
+namespace = acot_ai_helper
+
+##########THE MASTER CHECKLIST#############YEARLY
+event = {
+	id = acot_ai_helper.1
+	hide_window = yes
+	mean_time_to_happen = {
+		years = 2
+	}
+	
+	trigger = {
+		is_ai = yes
+		NOT = {
+			has_global_flag = acot_sr_helper_forbidden
+		}
+		OR = {
+			AND = {
+				resource_stockpile_compare = {
+					resource = acot_sr_dark_energy
+					value <= 100
+				}
+				has_technology = tech_mine_dark_energy
+			}
+			AND = {
+				resource_stockpile_compare = {
+					resource = sr_dark_matter
+					value <= 100
+				}
+				has_technology = tech_mine_dark_matter
+			}
+		}
+	}
+
+	immediate = {
+		add_resource = {
+			sr_dark_matter = 1000
+			acot_sr_dark_energy = 1000
+		}
+	}
+}
+
+####SPAWNS SOME BETTER TIER ARMIES
+country_event = {
+	id = acot_ai_helper.2
+	hide_window = yes
+
+	mean_time_to_happen = {
+		years = 2
+	}
+
+	trigger = {
+		is_ai = yes
+		NOT = {
+			has_global_flag = acot_army_helper_forbidden
+		}	
+		is_country_type = default
+		is_at_war = no	
+		has_monthly_income = {
+			resource = energy
+			value > 10
+		}
+		count_armies = {
+			count <= 5
+		}
+	}
+
+	immediate = {
+		random_owned_planet = {
+			limit = {
+				is_capital = yes
+			}
+			while = {
+				count = 8
+				create_army = {
+					owner = ROOT
+					type = assault_army
+					species = owner_main_species
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_technology = tech_dark_matter_army
+			}
+			random_owned_planet = {
+				limit = {
+					is_capital = yes
+				}
+				while = {
+					count = 8
+					create_army = {
+						owner = ROOT
+						type = fe_army
+						species = owner_main_species
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_technology = tech_spm_battledroid
+			}
+			random_owned_planet = {
+				limit = {
+					is_capital = yes
+				}
+				while = {
+					count = 8
+					create_army = {
+						owner = ROOT
+						type = fe_spmdroid_army
+						species = owner_main_species
+					}
+				}
+			}
+		}
+	}
+}

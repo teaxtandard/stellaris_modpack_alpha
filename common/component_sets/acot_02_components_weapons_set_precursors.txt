@@ -1,0 +1,55 @@
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_POP"
+	
+	icon = "GFX_ship_part_extra_pop"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_TROOPS"
+	
+	icon = "GFX_ship_part_extra_infantry"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_DROIDS"
+	
+	icon = "GFX_ship_part_extra_droid"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_LAB"
+	
+	icon = "GFX_ship_part_extra_lab"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_GIGA"
+	
+	icon = "GFX_ship_part_extra_giga"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_SKYSHIELD"
+	
+	icon = "GFX_ship_part_extra_sky_shield"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_ASSEMBLY"
+	
+	icon = "GFX_ship_part_extra_robo_assembly"
+	icon_frame = 1	
+}
+
+component_set = {
+	key = "ACOT_EMISSART_EXTRA_NEXUS"
+	
+	icon = "GFX_ship_part_extra_nexus"
+	icon_frame = 1	
+}

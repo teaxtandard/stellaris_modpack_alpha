@@ -1,0 +1,1223 @@
+has_a_distant_origin_trait = {
+	OR = {
+		owner_species = { has_trait = trait_mzilli_distant_origin_earth }
+		owner_species = { has_trait = trait_mzilli_distant_origin_xarmir }
+		owner_species = { has_trait = trait_mzilli_distant_origin_continental }
+		owner_species = { has_trait = trait_mzilli_distant_origin_tropical }
+		owner_species = { has_trait = trait_mzilli_distant_origin_ocean }
+		owner_species = { has_trait = trait_mzilli_distant_origin_alpine }
+		owner_species = { has_trait = trait_mzilli_distant_origin_tundra }
+		owner_species = { has_trait = trait_mzilli_distant_origin_arctic }
+		owner_species = { has_trait = trait_mzilli_distant_origin_arid }
+		owner_species = { has_trait = trait_mzilli_distant_origin_desert }
+		owner_species = { has_trait = trait_mzilli_distant_origin_savannah }
+		owner_species = { has_trait = trait_mzilli_distant_origin_mangrove }
+		owner_species = { has_trait = trait_mzilli_distant_origin_hajungle }
+		owner_species = { has_trait = trait_mzilli_distant_origin_desertislands }
+		owner_species = { has_trait = trait_mzilli_distant_origin_cascadian }
+		owner_species = { has_trait = trait_mzilli_distant_origin_swamp }
+		owner_species = { has_trait = trait_mzilli_distant_origin_geothermal }
+		owner_species = { has_trait = trait_mzilli_distant_origin_glacial }
+		owner_species = { has_trait = trait_mzilli_distant_origin_subarctic }
+		owner_species = { has_trait = trait_mzilli_distant_origin_mesa }
+		owner_species = { has_trait = trait_mzilli_distant_origin_oasis }
+		owner_species = { has_trait = trait_mzilli_distant_origin_sandsea }
+		owner_species = { has_trait = trait_mzilli_distant_origin_frozen_desert }
+		owner_species = { has_trait = trait_mzilli_distant_origin_steppe }
+		owner_species = { has_trait = trait_mzilli_distant_origin_hadesert }
+		owner_species = { has_trait = trait_mzilli_distant_origin_methane }
+		owner_species = { has_trait = trait_mzilli_distant_origin_ammonia }
+		owner_species = { has_trait = trait_mzilli_distant_origin_tidallylocked }
+		owner_species = { has_trait = trait_mzilli_distant_origin_biolumen }
+		owner_species = { has_trait = trait_mzilli_distant_origin_boreal }
+		owner_species = { has_trait = trait_mzilli_distant_origin_mushroom }
+		owner_species = { has_trait = trait_mzilli_distant_origin_superhabitable }
+		owner_species = { has_trait = trait_mzilli_distant_origin_retinal }
+		owner_species = { has_trait = trait_mzilli_distant_origin_forest }
+		owner_species = { has_trait = trait_mzilli_distant_origin_prairie }
+		owner_species = { has_trait = trait_mzilli_distant_origin_med }
+		owner_species = { has_trait = trait_mzilli_distant_origin_antarctic }
+		owner_species = { has_trait = trait_mzilli_distant_origin_snow }
+		owner_species = { has_trait = trait_mzilli_distant_origin_karst }
+		owner_species = { has_trait = trait_mzilli_distant_origin_primal }
+		owner_species = { has_trait = trait_mzilli_distant_origin_irradiated }
+		owner_species = { has_trait = trait_mzilli_distant_origin_ash }
+		owner_species = { has_trait = trait_mzilli_distant_origin_aquatic }
+		owner_species = { has_trait = trait_mzilli_distant_origin_salt }
+		owner_species = { has_trait = trait_mzilli_distant_origin_wetswamp }
+		owner_species = { has_trait = trait_mzilli_distant_origin_outback }
+		owner_species = { has_trait = trait_mzilli_distant_origin_highland }
+		owner_species = { has_trait = trait_mzilli_distant_origin_lake }
+		owner_species = { has_trait = trait_mzilli_distant_origin_veld }
+		owner_species = { has_trait = trait_mzilli_distant_origin_mud }
+		owner_species = { has_trait = trait_mzilli_distant_origin_megaflora }
+		owner_species = { has_trait = trait_mzilli_distant_origin_coral }
+		owner_species = { has_trait = trait_mzilli_distant_origin_storm }
+		owner_species = { has_trait = trait_mzilli_distant_origin_rogue }
+		owner_species = { has_trait = trait_mzilli_distant_origin_acid }
+		owner_species = { has_trait = trait_mzilli_distant_origin_tepid }
+		owner_species = { has_trait = trait_mzilli_distant_origin_semiarid }
+		owner_species = { has_trait = trait_mzilli_distant_origin_glacio }
+		owner_species = { has_trait = trait_mzilli_distant_origin_eyeball }
+		owner_species = { has_trait = trait_mzilli_distant_origin_sulfur }
+	}
+}
+
+has_distant_origin_flag = {
+	OR = {
+		has_country_flag = distant_origin_empire_xarmir
+		has_country_flag = distant_origin_empire_earth
+		has_country_flag = distant_origin_empire_continental
+		has_country_flag = distant_origin_empire_tropical
+		has_country_flag = distant_origin_empire_ocean
+		has_country_flag = distant_origin_empire_arid
+		has_country_flag = distant_origin_empire_desert
+		has_country_flag = distant_origin_empire_savannah
+		has_country_flag = distant_origin_empire_alpine
+		has_country_flag = distant_origin_empire_tundra
+		has_country_flag = distant_origin_empire_arctic
+		has_country_flag = distant_origin_empire_mangrove
+		has_country_flag = distant_origin_empire_hajungle
+		has_country_flag = distant_origin_empire_desertislands
+		has_country_flag = distant_origin_empire_cascadian
+		has_country_flag = distant_origin_empire_swamp
+		has_country_flag = distant_origin_empire_geothermal
+		has_country_flag = distant_origin_empire_glacial
+		has_country_flag = distant_origin_empire_subarctic
+		has_country_flag = distant_origin_empire_mesa
+		has_country_flag = distant_origin_empire_oasis
+		has_country_flag = distant_origin_empire_sandsea
+		has_country_flag = distant_origin_empire_frozen_desert
+		has_country_flag = distant_origin_empire_steppe
+		has_country_flag = distant_origin_empire_hadesert
+		has_country_flag = distant_origin_empire_methane
+		has_country_flag = distant_origin_empire_ammonia
+		has_country_flag = distant_origin_empire_tidallylocked
+		has_country_flag = distant_origin_empire_biolumen
+		has_country_flag = distant_origin_empire_boreal
+		has_country_flag = distant_origin_empire_mushroom
+		has_country_flag = distant_origin_empire_superhabitable
+		has_country_flag = distant_origin_empire_retinal
+		has_country_flag = distant_origin_empire_forest
+		has_country_flag = distant_origin_empire_prairie
+		has_country_flag = distant_origin_empire_med
+		has_country_flag = distant_origin_empire_antarctic
+		has_country_flag = distant_origin_empire_snow
+		has_country_flag = distant_origin_empire_karst
+		has_country_flag = distant_origin_empire_primal
+		has_country_flag = distant_origin_empire_irradiated
+		has_country_flag = distant_origin_empire_ash
+		has_country_flag = distant_origin_empire_aquatic
+		has_country_flag = distant_origin_empire_salt
+		has_country_flag = distant_origin_empire_wetswamp
+		has_country_flag = distant_origin_empire_outback
+		has_country_flag = distant_origin_empire_highland
+		has_country_flag = distant_origin_empire_lake
+		has_country_flag = distant_origin_empire_veld
+		has_country_flag = distant_origin_empire_mud
+		has_country_flag = distant_origin_empire_megaflora
+		has_country_flag = distant_origin_empire_coral
+		has_country_flag = distant_origin_empire_storm
+		has_country_flag = distant_origin_empire_rogue
+		has_country_flag = distant_origin_empire_acid
+		has_country_flag = distant_origin_empire_tepid
+		has_country_flag = distant_origin_empire_semiarid
+		has_country_flag = distant_origin_empire_glacio
+		has_country_flag = distant_origin_empire_eyeball
+		has_country_flag = distant_origin_empire_sulfur
+	}
+}
+
+is_valid_vestigal_colony_site = {
+	planet_size > 11
+	planet_size < 26
+	NOR = {
+		has_planet_flag = vestigal_colony
+		has_planet_flag = prescripted_ideal
+		has_modifier = "holy_planet"
+		has_modifier = "titanic_life"
+		is_planet_class = pc_nuked
+		is_planet_class = pc_relic
+		is_planet_class = pc_ringworld_habitable
+		exists = owner
+	}
+	OR = {
+		NOR = {
+			solar_system = { is_star_class = sc_black_hole }
+			solar_system = { is_star_class = sc_neutron_star }
+			solar_system = { is_star_class = sc_pulsar }
+		}
+		is_planet_class = pc_subterranean_wet
+		is_planet_class = pc_subterranean_dry
+		is_planet_class = pc_subterranean_cold
+	}
+	solar_system = {
+		NOR = {
+			any_neighbor_system = {
+				exists = space_owner
+				space_owner = { has_country_flag = fallen_empire_4 }
+			}
+			exists = space_owner
+			exists = starbase
+			has_star_flag = wenkwort_system
+			has_star_flag = empire_home_system
+			has_star_flag = primitive_system
+			has_star_flag = sanctuary_system
+			has_star_flag = hostile_system
+			has_star_flag = sealed_system
+			has_star_flag = enclave
+			has_star_flag = guardian
+			has_star_flag = vechtar_zavonia_system
+			has_star_flag = big_rip_system
+			has_star_flag = time_loop_world_system
+			has_star_flag = toxic_moon_system
+			has_star_flag = shattered_world_system
+			has_star_flag = ice_system
+			has_star_flag = primitive_robot_system
+			has_star_flag = superflare_system 
+			has_star_flag = collapse_system
+			has_star_flag = old_foes_system
+			has_star_flag = scavenger_bot_system
+			has_star_flag = living_planet_system
+			has_star_flag = elderly_tiyanki_system
+			has_star_flag = ratling_system
+			has_star_flag = ruined_empire
+			has_star_flag = escape_pod_system
+			has_star_flag = phaseshift_system
+			has_star_flag = marauder_system
+			has_star_flag = sol
+			has_star_flag = ai_system
+			has_star_flag = manufactory_system
+		}
+	}
+}
+
+duplicate_homeworlds_exist = {
+	NOT = { has_country_flag = vestigal_empire_earth }
+	OR = {
+		AND = {
+			ideal_planet_class = pc_continental
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_continental
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_tropical
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_tropical
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_ocean
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_ocean
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_alpine
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_alpine
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_tundra
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_tundra
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_arctic
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_arctic
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_desert
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_desert
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_savannah
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_savannah
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_arid
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_arid
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_cascadian
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_cascadian
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_desertislands
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_desertislands
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_subarctic
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_subarctic
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_mangrove
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_mangrove
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_hajungle
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_hajungle
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_retinal
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_retinal
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_forest
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_forest
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_steppe
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_steppe
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_sandsea
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_sandsea
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_oasis
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_oasis
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_mesa
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_mesa
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_hadesert
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_hadesert
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_prairie
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_prairie
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_med
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_med
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_swamp
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_swamp
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_frozen_desert
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_frozen_desert
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_glacial
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_glacial
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_boreal
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_boreal
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_mushroom
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_mushroom
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_antarctic
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_antarctic
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_snow
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_snow
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_geothermal
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_geothermal
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_superhabitable
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_superhabitable
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_tidallylocked
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_tidallylocked
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_biolumen
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_biolumen
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_karst
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_karst
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_primal
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_primal
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_aquatic
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_aquatic
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_salt
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_salt
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_wetswamp
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_wetswamp
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_outback
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_outback
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_highland
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_highland
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_ammonia
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_ammonia
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_methane
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_methane
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_irradiated
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_irradiated
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_ash
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_ash
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_lake
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_lake
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_veld
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_veld
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_mud
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_mud
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_megaflora
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_megaflora
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_coral
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_coral
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_storm
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_storm
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_rogue
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_rogue
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_acid
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_acid
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_tepid
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_tepid
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_semiarid
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_semiarid
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_glacio
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_glacio
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_eyeball
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_eyeball
+					NOT = { exists = owner }
+				}
+			}
+		}
+		AND = {
+			ideal_planet_class = pc_sulfur
+			any_system = {
+				any_system_planet = {
+					has_planet_flag = distant_origin_homeworld_sulfur
+					NOT = { exists = owner }
+				}
+			}
+		}
+	}
+}
+
+ie_to_ch = {
+	event_target:contact_empire = { has_origin = origin_mzilli_exiles }
+	OR = {
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_earth
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_earth }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_xarmir
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_xarmir }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_continental
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_continental }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_ocean
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_ocean }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_tropical
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_tropical }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_cascadian
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_cascadian }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_desertislands
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_desertislands }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_subarctic
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_subarctic }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_mangrove
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_mangrove }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_hajungle
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_hajungle }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_retinal
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_retinal }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_forest
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_forest }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_desert
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_desert }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_arid
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_arid }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_savannah
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_savannah }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_steppe
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_steppe }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_sandsea
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_sandsea }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_oasis
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_oasis }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_mesa
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_mesa }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_hadesert
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_hadesert }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_prairie
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_prairie }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_med
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_med }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_arctic
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_arctic }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_alpine
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_alpine }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_tundra
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_tundra }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_swamp
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_swamp }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_frozen_desert
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_frozen_desert }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_glacial
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_glacial }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_boreal
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_boreal }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_mushroom
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_mushroom }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_antarctic
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_antarctic }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_snow
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_snow }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_geothermal
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_geothermal }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_superhabitable
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_superhabitable }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_tidallylocked
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_tidallylocked }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_biolumen
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_biolumen }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_karst
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_karst }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_primal
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_primal }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_aquatic
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_aquatic }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_salt
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_salt }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_wetswamp
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_wetswamp }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_outback
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_outback }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_highland
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_highland }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_ammonia
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_ammonia }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_methane
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_methane }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_irradiated
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_irradiated }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_ash
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_ash }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_lake
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_lake }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_veld
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_veld }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_mud
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_mud }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_megaflora
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_megaflora }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_coral
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_coral }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_storm
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_storm }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_rogue
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_rogue }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_acid
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_acid }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_tepid
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_tepid }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_semiarid
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_semiarid }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_glacio
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_glacio }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_eyeball
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_eyeball }
+		}
+		AND = {
+			has_country_flag = homeworld_occupiers_empire_sulfur
+			event_target:contact_empire = { has_country_flag = distant_origin_empire_sulfur }
+		}
+	}
+}
+
+ch_to_ie = {
+	has_origin = origin_mzilli_exiles
+	OR = {
+		AND = {
+			has_country_flag = distant_origin_empire_earth
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_earth }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_xarmir
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_xarmir }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_continental
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_continental }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_ocean
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_ocean }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_tropical
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_tropical }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_cascadian
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_cascadian }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_desertislands
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_desertislands }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_subarctic
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_subarctic }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_mangrove
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_mangrove }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_hajungle
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_hajungle }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_retinal
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_retinal }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_forest
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_forest }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_desert
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_desert }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_arid
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_arid }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_savannah
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_savannah }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_steppe
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_steppe }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_sandsea
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_sandsea }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_oasis
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_oasis }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_mesa
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_mesa }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_hadesert
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_hadesert }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_prairie
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_prairie }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_med
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_med }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_arctic
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_arctic }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_alpine
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_alpine }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_tundra
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_tundra }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_swamp
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_swamp }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_frozen_desert
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_frozen_desert }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_glacial
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_glacial }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_boreal
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_boreal }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_mushroom
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_mushroom }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_antarctic
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_antarctic }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_snow
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_snow }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_geothermal
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_geothermal }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_superhabitable
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_superhabitable }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_tidallylocked
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_tidallylocked }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_biolumen
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_biolumen }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_karst
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_karst }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_primal
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_primal }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_aquatic
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_aquatic }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_salt
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_salt }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_wetswamp
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_wetswamp }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_outback
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_outback }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_highland
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_highland }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_ammonia
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_ammonia }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_methane
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_methane }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_irradiated
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_irradiated }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_ash
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_ash }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_lake
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_lake }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_veld
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_veld }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_mud
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_mud }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_megaflora
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_megaflora }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_coral
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_coral }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_storm
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_storm }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_rogue
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_rogue }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_acid
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_acid }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_tepid
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_tepid }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_semiarid
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_semiarid }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_glacio
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_glacio }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_eyeball
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_eyeball }
+		}
+		AND = {
+			has_country_flag = distant_origin_empire_sulfur
+			event_target:contact_empire = { has_country_flag = homeworld_occupiers_empire_sulfur }
+		}
+	}
+}
+
+is_distant_origin_space_civ = {
+	OR = {
+		has_origin = origin_void_dwellers
+		has_origin = origin_void_nomads
+		has_origin = origin_void_marauders
+		has_origin = origin_void_reavers
+		has_origin = origin_ancient_drones
+	}
+}

@@ -1,0 +1,334 @@
+# STANDARD
+
+opinion_distant_origin_olive_branch = {
+	opinion = {
+		base = 20
+	}
+	decay = {
+		base = 1
+	}
+}
+
+opinion_distant_origin_rejected_olive_branch = {
+	opinion = {
+		base = -20
+	}
+	decay = {
+		base = 1
+	}
+}
+
+opinion_distant_origin_old_rivalries = {
+	opinion = {
+		base = -200
+	}
+	decay = {
+		base = 1
+	}
+}
+
+opinion_vengeful_refugees_planet_destroyed = {
+	opinion = {
+		base = 200
+		modifier = {
+			add = -800
+			has_civic = civic_vengeful_refugees
+		}
+	}
+	decay = {
+		base = 1
+	}
+}
+
+
+
+# TRIGGERED
+
+# Scope is the opinionator and FROM the target of their opinion
+
+# Two Vengeful Refugees sharing a homeworld
+triggered_opinion_distant_origin_rival_vengeful_refugees = {
+	trigger = {
+		has_civic = civic_vengeful_refugees
+		FROM = { has_civic = civic_vengeful_refugees }
+		home_planet = { is_planet = FROM.home_planet }
+	}
+	opinion = {
+		base = -75
+	}
+}
+
+# Exiles mad at you for conquering their planet
+triggered_opinion_distant_origin_angry_exiles = {
+	trigger = {
+		has_origin = origin_mzilli_exiles
+		FROM = { has_origin = origin_homeworld_occupiers }
+		OR = {
+			AND = {
+				has_country_flag = distant_origin_empire_arid
+				FROM = { has_country_flag = homeworld_occupiers_empire_arid }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desert
+				FROM = { has_country_flag = homeworld_occupiers_empire_desert }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_savannah
+				FROM = { has_country_flag = homeworld_occupiers_empire_savannah }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_continental
+				FROM = { has_country_flag = homeworld_occupiers_empire_continental }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tropical
+				FROM = { has_country_flag = homeworld_occupiers_empire_tropical }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ocean
+				FROM = { has_country_flag = homeworld_occupiers_empire_ocean }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_alpine
+				FROM = { has_country_flag = homeworld_occupiers_empire_alpine }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_arctic
+				FROM = { has_country_flag = homeworld_occupiers_empire_arctic }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tundra
+				FROM = { has_country_flag = homeworld_occupiers_empire_tundra }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_earth
+				FROM = { has_country_flag = homeworld_occupiers_empire_earth }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_xarmir
+				FROM = { has_country_flag = homeworld_occupiers_empire_xarmir }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mangrove
+				FROM = { has_country_flag = homeworld_occupiers_empire_mangrove }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hajungle
+				FROM = { has_country_flag = homeworld_occupiers_empire_hajungle }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_desertislands
+				FROM = { has_country_flag = homeworld_occupiers_empire_desertislands }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_cascadian
+				FROM = { has_country_flag = homeworld_occupiers_empire_cascadian }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_swamp
+				FROM = { has_country_flag = homeworld_occupiers_empire_swamp }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_geothermal
+				FROM = { has_country_flag = homeworld_occupiers_empire_geothermal }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacial
+				FROM = { has_country_flag = homeworld_occupiers_empire_glacial }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_subarctic
+				FROM = { has_country_flag = homeworld_occupiers_empire_subarctic }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mesa
+				FROM = { has_country_flag = homeworld_occupiers_empire_mesa }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_oasis
+				FROM = { has_country_flag = homeworld_occupiers_empire_oasis }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sandsea
+				FROM = { has_country_flag = homeworld_occupiers_empire_sandsea }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_frozen_desert
+				FROM = { has_country_flag = homeworld_occupiers_empire_frozen_desert }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_steppe
+				FROM = { has_country_flag = homeworld_occupiers_empire_steppe }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_hadesert
+				FROM = { has_country_flag = homeworld_occupiers_empire_hadesert }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_methane
+				FROM = { has_country_flag = homeworld_occupiers_empire_methane }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ammonia
+				FROM = { has_country_flag = homeworld_occupiers_empire_ammonia }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tidallylocked
+				FROM = { has_country_flag = homeworld_occupiers_empire_tidallylocked }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_biolumen
+				FROM = { has_country_flag = homeworld_occupiers_empire_biolumen }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_boreal
+				FROM = { has_country_flag = homeworld_occupiers_empire_boreal }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mushroom
+				FROM = { has_country_flag = homeworld_occupiers_empire_mushroom }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_superhabitable
+				FROM = { has_country_flag = homeworld_occupiers_empire_superhabitable }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_retinal
+				FROM = { has_country_flag = homeworld_occupiers_empire_retinal }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_forest
+				FROM = { has_country_flag = homeworld_occupiers_empire_forest }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_prairie
+				FROM = { has_country_flag = homeworld_occupiers_empire_prairie }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_med
+				FROM = { has_country_flag = homeworld_occupiers_empire_med }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_antarctic
+				FROM = { has_country_flag = homeworld_occupiers_empire_antarctic }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_snow
+				FROM = { has_country_flag = homeworld_occupiers_empire_snow }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_karst
+				FROM = { has_country_flag = homeworld_occupiers_empire_karst }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_primal
+				FROM = { has_country_flag = homeworld_occupiers_empire_primal }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_irradiated
+				FROM = { has_country_flag = homeworld_occupiers_empire_irradiated }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_ash
+				FROM = { has_country_flag = homeworld_occupiers_empire_ash }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_aquatic
+				FROM = { has_country_flag = homeworld_occupiers_empire_aquatic }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_salt
+				FROM = { has_country_flag = homeworld_occupiers_empire_salt }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_wetswamp
+				FROM = { has_country_flag = homeworld_occupiers_empire_wetswamp }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_outback
+				FROM = { has_country_flag = homeworld_occupiers_empire_outback }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_highland
+				FROM = { has_country_flag = homeworld_occupiers_empire_highland }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_lake
+				FROM = { has_country_flag = homeworld_occupiers_empire_lake }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_veld
+				FROM = { has_country_flag = homeworld_occupiers_empire_veld }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_mud
+				FROM = { has_country_flag = homeworld_occupiers_empire_mud }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_megaflora
+				FROM = { has_country_flag = homeworld_occupiers_empire_megaflora }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_coral
+				FROM = { has_country_flag = homeworld_occupiers_empire_coral }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_storm
+				FROM = { has_country_flag = homeworld_occupiers_empire_storm }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_rogue
+				FROM = { has_country_flag = homeworld_occupiers_empire_rogue }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_acid
+				FROM = { has_country_flag = homeworld_occupiers_empire_acid }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_tepid
+				FROM = { has_country_flag = homeworld_occupiers_empire_tepid }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_semiarid
+				FROM = { has_country_flag = homeworld_occupiers_empire_semiarid }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_glacio
+				FROM = { has_country_flag = homeworld_occupiers_empire_glacio }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_eyeball
+				FROM = { has_country_flag = homeworld_occupiers_empire_eyeball }
+			}
+			AND = {
+				has_country_flag = distant_origin_empire_sulfur
+				FROM = { has_country_flag = homeworld_occupiers_empire_sulfur }
+			}
+		}
+	}
+	opinion = {
+		base = -100
+	}
+}
+
+# Vengeful Refugees want their planet back
+triggered_opinion_distant_origin_vengeful_refugees = {
+	trigger = {
+		has_ai_personality = vengeful_refugees
+		home_planet = { is_inside_border = FROM }
+	}
+	opinion = {
+		base = -1000
+	}
+}
+
+# Same as above, but your subject has their homeworld
+triggered_opinion_distant_origin_vengeful_refugees_subject = {
+	trigger = {
+		has_civic = civic_vengeful_refugees
+		FROM = { any_subject = { any_system_within_border = { any_system_planet = { is_planet = root.home_planet } } } }
+	}
+	opinion = {
+		base = -200
+	}
+}

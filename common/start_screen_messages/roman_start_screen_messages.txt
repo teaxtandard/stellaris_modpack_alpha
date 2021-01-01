@@ -1,0 +1,11 @@
+
+# Roman Empire
+part = {
+	location = 0
+	localization = "START_SCREEN_ROME"
+
+	trigger = {
+		has_country_flag = roman
+	}
+}
+

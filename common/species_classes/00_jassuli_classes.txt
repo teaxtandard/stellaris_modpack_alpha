@@ -1,0 +1,20 @@
+jassuli = {
+    archetype = BIOLOGICAL
+	portrait_modding = yes
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+	
+	portraits = {
+	"Cuelan"
+	"hyenafolk"
+	"sergal1"
+	}
+	
+	non_randomized_portraits = {	
+	"Cuelan"
+	"hyenafolk"
+	"sergal1"
+	}
+	
+	graphical_culture = hw_02
+	move_pop_sound_effect = "avian_pops_move"
+}

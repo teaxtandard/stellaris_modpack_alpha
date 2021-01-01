@@ -1,0 +1,39 @@
+### prehistoric
+
+Saurian = {
+	troodon = {
+		name = "Troodon"
+		plural = "Troodons"
+		home_planet = "Agartha"
+		home_system = "Sol"
+		name_list = "REP3"
+	}	
+	saurischian = {
+		name = "Astroraptor"
+		plural = "Astroraptors"
+		home_planet = "Cratzipec"
+		home_system = "Quark"
+		name_list = "sauriannames"
+	}
+	Dromaeosauridae = {
+		name = "Vrashoki"
+		plural = "Vrashoki"
+		home_planet = "Tarnah"
+		home_system = "Veridis"
+		name_list = "REP1"
+	}
+	kig = {
+		name = "Kig-Yar"
+		plural = "Kig-Yar"
+		home_planet = "Eayn"
+		home_system = "Y'Deio"
+		name_list = "HUM2"
+	}	
+	Spinosaurus = {
+		name = "Vinerai"
+		plural = "Vinerai"
+		home_planet = "Vinax"
+		home_system = "Dezon"
+		name_list = "REP1"
+	}
+}

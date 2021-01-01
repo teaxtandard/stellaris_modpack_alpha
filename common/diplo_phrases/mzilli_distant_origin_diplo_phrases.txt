@@ -1,0 +1,2787 @@
+### 
+# FROM is the actor ie the initiator of the diplomatic action
+# ROOT is the recipient of the diplomatic action
+
+greetings = {
+	# Hostile
+	# "You are the worst sort of cowards, relying on the mercy of your betters to spare what you refuse to defend."
+
+	HW_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+	# "When the [arid_occupiers.GetName] race first made contact, many of our people believed they could be trusted. That mistake cost us our homeworld, and we do not intend to repeat it."
+
+	VR_HOSTILE_GREETING_01_ARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arid
+		}
+	}
+	VR_HOSTILE_GREETING_01_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desert
+		}
+	}
+	VR_HOSTILE_GREETING_01_SAVANNAH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_savannah
+		}
+	}
+	VR_HOSTILE_GREETING_01_CONTINENTAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_continental
+		}
+	}
+	VR_HOSTILE_GREETING_01_TROPICAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tropical
+		}
+	}
+	VR_HOSTILE_GREETING_01_OCEAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ocean
+		}
+	}
+	VR_HOSTILE_GREETING_01_ALPINE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_alpine
+		}
+	}
+	VR_HOSTILE_GREETING_01_ARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arctic
+		}
+	}
+	VR_HOSTILE_GREETING_01_TUNDRA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tundra
+		}
+	}
+	VR_HOSTILE_GREETING_01_EARTH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_earth
+		}
+	}
+	VR_HOSTILE_GREETING_01_XARMIR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_xarmir
+		}
+	}
+	VR_HOSTILE_GREETING_01_MANGROVE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mangrove
+		}
+	}
+	VR_HOSTILE_GREETING_01_HAJUNGLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hajungle
+		}
+	}
+	VR_HOSTILE_GREETING_01_DESERTISLANDS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desertislands
+		}
+	}
+	VR_HOSTILE_GREETING_01_CASCADIAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_cascadian
+		}
+	}
+	VR_HOSTILE_GREETING_01_SWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_swamp
+		}
+	}
+	VR_HOSTILE_GREETING_01_GEOTHERMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_geothermal
+		}
+	}
+	VR_HOSTILE_GREETING_01_GLACIAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacial
+		}
+	}
+	VR_HOSTILE_GREETING_01_SUBARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_subarctic
+		}
+	}
+	VR_HOSTILE_GREETING_01_MESA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mesa
+		}
+	}
+	VR_HOSTILE_GREETING_01_OASIS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_oasis
+		}
+	}
+	VR_HOSTILE_GREETING_01_SANDSEA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sandsea
+		}
+	}
+	VR_HOSTILE_GREETING_01_FROZEN_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_frozen_desert
+		}
+	}
+	VR_HOSTILE_GREETING_01_STEPPE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_steppe
+		}
+	}
+	VR_HOSTILE_GREETING_01_HADESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hadesert
+		}
+	}
+	VR_HOSTILE_GREETING_01_METHANE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_methane
+		}
+	}
+	VR_HOSTILE_GREETING_01_AMMONIA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ammonia
+		}
+	}
+	VR_HOSTILE_GREETING_01_TIDALLYLOCKED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tidallylocked
+		}
+	}
+	VR_HOSTILE_GREETING_01_BIOLUMEN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_biolumen
+		}
+	}
+	VR_HOSTILE_GREETING_01_BOREAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_boreal
+		}
+	}
+	VR_HOSTILE_GREETING_01_MUSHROOM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mushroom
+		}
+	}
+	VR_HOSTILE_GREETING_01_SUPERHABITABLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_superhabitable
+		}
+	}
+	VR_HOSTILE_GREETING_01_RETINAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_retinal
+		}
+	}
+	VR_HOSTILE_GREETING_01_FOREST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_forest
+		}
+	}
+	VR_HOSTILE_GREETING_01_PRAIRIE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_prairie
+		}
+	}
+	VR_HOSTILE_GREETING_01_MED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_med
+		}
+	}
+	VR_HOSTILE_GREETING_01_ANTARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_antarctic
+		}
+	}
+	VR_HOSTILE_GREETING_01_SNOW = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_snow
+		}
+	}
+	VR_HOSTILE_GREETING_01_KARST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_karst
+		}
+	}
+	VR_HOSTILE_GREETING_01_PRIMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_primal
+		}
+	}
+	VR_HOSTILE_GREETING_01_IRRADIATED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_irradiated
+		}
+	}
+	VR_HOSTILE_GREETING_01_ASH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ash
+		}
+	}
+	VR_HOSTILE_GREETING_01_AQUATIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_aquatic
+		}
+	}
+	VR_HOSTILE_GREETING_01_SALT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_salt
+		}
+	}
+	VR_HOSTILE_GREETING_01_WETSWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_wetswamp
+		}
+	}
+	VR_HOSTILE_GREETING_01_OUTBACK = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_outback
+		}
+	}
+	VR_HOSTILE_GREETING_01_HIGHLAND = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_highland
+		}
+	}
+	VR_HOSTILE_GREETING_01_LAKE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_lake
+		}
+	}
+	VR_HOSTILE_GREETING_01_VELD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_veld
+		}
+	}
+	VR_HOSTILE_GREETING_01_MUD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mud
+		}
+	}
+	VR_HOSTILE_GREETING_01_MEGAFLORA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_megaflora
+		}
+	}
+	VR_HOSTILE_GREETING_01_CORAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_coral
+		}
+	}
+	VR_HOSTILE_GREETING_01_STORM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_storm
+		}
+	}
+	VR_HOSTILE_GREETING_01_ROGUE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_rogue
+		}
+	}
+	VR_HOSTILE_GREETING_01_ACID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_acid
+		}
+	}
+	VR_HOSTILE_GREETING_01_TEPID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tepid
+		}
+	}
+	VR_HOSTILE_GREETING_01_SEMIARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_semiarid
+		}
+	}
+	VR_HOSTILE_GREETING_01_GLACIO = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacio
+		}
+	}
+	VR_HOSTILE_GREETING_01_EYEBALL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_eyeball
+		}
+	}
+	VR_HOSTILE_GREETING_01_SULFUR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sulfur
+		}
+	}
+
+	# "You would find us a formidable opponent, [From.GetSpeciesName], even without our homeworld."
+
+	VR_HOSTILE_GREETING_02A = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			NOT = { is_same_species = FROM }
+		}
+	}
+	# "You would find us a formidable opponent, [From.GetRulerTitle], even without our homeworld."
+
+	VR_HOSTILE_GREETING_02B = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			is_same_species = FROM
+		}
+	}
+	# "The [Root.GetSpeciesAdj] people stand united against you, [From.GetSpeciesNameInsult]. You will NOT defeat us a second time!"
+	VR_HOSTILE_GREETING_03 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# "[Root.home_planet.GetName] will be ours again. We are back, and we will have our vengeance one day!"
+	VR_HOSTILE_GREETING_04 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_hostile_to = FROM
+				is_unfriendly_to = FROM
+			}
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# Domineering
+	# "We spare you now because we know how it feels to be helpless before an alien power. But make no mistake, we WILL smite you if it proves necessary."
+
+	VR_DOMINEERING_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# "How does it feel, [From.GetSpeciesName]? To stand completely helpless before an alien threat? A reckoning is coming soon, [From.GetSpeciesNameInsult], and we will ensure that none of you escape the blastwave."
+
+	VR_DOMINEERING_GREETING_02 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_domineering_to = FROM
+			}
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# Neutral
+	# "Honor our agreements and respect our might and we will repay you in kind, [From.GetSpeciesName]."
+
+	HW_NEUTRAL_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	# "The [Root.GetSpeciesName] trust you to be a [From.GetSpeciesName] of your word."
+
+	HW_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 50000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	# "You may follow your principles with dignity, but what does your love of peace matter if you care not to defend it?"
+
+	HW_NEUTRAL_GREETING_03 = {
+		weight = {
+			weight = 50000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+		}
+	}
+	# "We used to live on another world, one called [This.home_planet.GetName]. But when [arid_occupiers.GetName] forces invaded, centuries ago, we were forced to leave that place behind. We will return... someday..."
+
+	VR_NEUTRAL_GREETING_01_ARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arid
+		}
+	}
+	VR_NEUTRAL_GREETING_01_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desert
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SAVANNAH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_savannah
+		}
+	}
+	VR_NEUTRAL_GREETING_01_CONTINENTAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_continental
+		}
+	}
+	VR_NEUTRAL_GREETING_01_TROPICAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tropical
+		}
+	}
+	VR_NEUTRAL_GREETING_01_OCEAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ocean
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ALPINE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_alpine
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arctic
+		}
+	}
+	VR_NEUTRAL_GREETING_01_TUNDRA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tundra
+		}
+	}
+	VR_NEUTRAL_GREETING_01_EARTH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_earth
+		}
+	}
+	VR_NEUTRAL_GREETING_01_XARMIR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_xarmir
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MANGROVE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mangrove
+		}
+	}
+	VR_NEUTRAL_GREETING_01_HAJUNGLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hajungle
+		}
+	}
+	VR_NEUTRAL_GREETING_01_DESERTISLANDS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desertislands
+		}
+	}
+	VR_NEUTRAL_GREETING_01_CASCADIAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_cascadian
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_swamp
+		}
+	}
+	VR_NEUTRAL_GREETING_01_GEOTHERMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_geothermal
+		}
+	}
+	VR_NEUTRAL_GREETING_01_GLACIAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacial
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SUBARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_subarctic
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MESA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mesa
+		}
+	}
+	VR_NEUTRAL_GREETING_01_OASIS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_oasis
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SANDSEA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sandsea
+		}
+	}
+	VR_NEUTRAL_GREETING_01_FROZEN_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_frozen_desert
+		}
+	}
+	VR_NEUTRAL_GREETING_01_STEPPE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_steppe
+		}
+	}
+	VR_NEUTRAL_GREETING_01_HADESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hadesert
+		}
+	}
+	VR_NEUTRAL_GREETING_01_METHANE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_methane
+		}
+	}
+	VR_NEUTRAL_GREETING_01_AMMONIA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ammonia
+		}
+	}
+	VR_NEUTRAL_GREETING_01_TIDALLYLOCKED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tidallylocked
+		}
+	}
+	VR_NEUTRAL_GREETING_01_BIOLUMEN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_biolumen
+		}
+	}
+	VR_NEUTRAL_GREETING_01_BOREAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_boreal
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MUSHROOM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mushroom
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SUPERHABITABLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_superhabitable
+		}
+	}
+	VR_NEUTRAL_GREETING_01_RETINAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_retinal
+		}
+	}
+	VR_NEUTRAL_GREETING_01_FOREST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_forest
+		}
+	}
+	VR_NEUTRAL_GREETING_01_PRAIRIE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_prairie
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_med
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ANTARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_antarctic
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SNOW = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_snow
+		}
+	}
+	VR_NEUTRAL_GREETING_01_KARST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_karst
+		}
+	}
+	VR_NEUTRAL_GREETING_01_PRIMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_primal
+		}
+	}
+	VR_NEUTRAL_GREETING_01_IRRADIATED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_irradiated
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ASH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ash
+		}
+	}
+	VR_NEUTRAL_GREETING_01_AQUATIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_aquatic
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SALT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_salt
+		}
+	}
+	VR_NEUTRAL_GREETING_01_WETSWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_wetswamp
+		}
+	}
+	VR_NEUTRAL_GREETING_01_OUTBACK = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_outback
+		}
+	}
+	VR_NEUTRAL_GREETING_01_HIGHLAND = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_highland
+		}
+	}
+	VR_NEUTRAL_GREETING_01_LAKE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_lake
+		}
+	}
+	VR_NEUTRAL_GREETING_01_VELD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_veld
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MUD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mud
+		}
+	}
+	VR_NEUTRAL_GREETING_01_MEGAFLORA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_megaflora
+		}
+	}
+	VR_NEUTRAL_GREETING_01_CORAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_coral
+		}
+	}
+	VR_NEUTRAL_GREETING_01_STORM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_storm
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ROGUE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_rogue
+		}
+	}
+	VR_NEUTRAL_GREETING_01_ACID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_acid
+		}
+	}
+	VR_NEUTRAL_GREETING_01_TEPID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tepid
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SEMIARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_semiarid
+		}
+	}
+	VR_NEUTRAL_GREETING_01_GLACIO = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacio
+		}
+	}
+	VR_NEUTRAL_GREETING_01_EYEBALL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_eyeball
+		}
+	}
+	VR_NEUTRAL_GREETING_01_SULFUR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sulfur
+		}
+	}
+
+	# "We intend to re-claim our homeworld, by any means necessary. So long as the [From.GetName] does not stand in our way, we will have no quarrel with you."
+	VR_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_neutral_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# Threatened
+	# "We've been outnumbered before. Do what you will -- the [Root.GetSpeciesNamePlural] will survive regardless."
+
+	VR_THREATENED_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+		}
+	}
+	# "The [Root.GetSpeciesNamePlural] will never yield, [From.GetSpeciesNameInsult]! Even if you take [Root.Capital.GetName] too, it will only make us stronger in the long run."
+	VR_THREATENED_GREETING_02 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_at_war_with = FROM }
+			is_threatened_to = FROM
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# Friendly
+	# "What better way to spend this time of peace than to celebrate past and future triumphs with our [From.GetSpeciesAdj] friends?"
+
+	HW_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_at_war = no
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	# "Legends of our ongoing war will be retold for millennia. You will be invited to celebrate our forthcoming glory, [From.GetSpeciesName]."
+
+	HW_FRIENDLY_GREETING_03 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_at_war = yes
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	# "May your innocence remain untrampled by the dishonorable villains of the galaxy, [From.GetSpeciesName]."
+
+	HW_FRIENDLY_GREETING_04 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			FROM = {
+				OR = {
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# "It will be a joy to fight side by side with noble [From.GetSpeciesNamePluralCompliment] such as you."
+	HW_FRIENDLY_GREETING_05 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_in_federation_with = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+	# "With friends such as the [From.GetName] by our side, the [home_planet.System.Owner.GetAdj] forces won't know what hit them. [home_planet.GetName] is finally within our reach again!"
+
+	VR_FRIENDLY_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_in_federation_with = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# "To what do we own the pleasure, [From.GetRulerTitle]? Have you come to lend us aid against the [home_planet.System.Owner.GetAdj] fleets guarding [home_planet.GetName]?"
+
+
+	VR_FRIENDLY_GREETING_02 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_in_federation_with = FROM
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+
+	# War
+	# "We offer no mercy, only justice."
+
+	HW_WAR_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# "You have no idea what's begun here."
+	VR_WAR_GREETING_01 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+		}
+	}
+	# "The [arid_occupiers.GetName] military couldn't destroy us. What makes you think you [From.GetSpeciesNamePlural] will?"
+	VR_WAR_GREETING_02_ARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arid
+		}
+	}
+	VR_WAR_GREETING_02_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desert
+		}
+	}
+	VR_WAR_GREETING_02_SAVANNAH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_savannah
+		}
+	}
+	VR_WAR_GREETING_02_CONTINENTAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_continental
+		}
+	}
+	VR_WAR_GREETING_02_TROPICAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tropical
+		}
+	}
+	VR_WAR_GREETING_02_OCEAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ocean
+		}
+	}
+	VR_WAR_GREETING_02_ALPINE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_alpine
+		}
+	}
+	VR_WAR_GREETING_02_ARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_arctic
+		}
+	}
+	VR_WAR_GREETING_02_TUNDRA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tundra
+		}
+	}
+	VR_WAR_GREETING_02_EARTH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_earth
+		}
+	}
+	VR_WAR_GREETING_02_XARMIR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_xarmir
+		}
+	}
+	VR_WAR_GREETING_02_MANGROVE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mangrove
+		}
+	}
+	VR_WAR_GREETING_02_HAJUNGLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hajungle
+		}
+	}
+	VR_WAR_GREETING_02_DESERTISLANDS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_desertislands
+		}
+	}
+	VR_WAR_GREETING_02_CASCADIAN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_cascadian
+		}
+	}
+	VR_WAR_GREETING_02_SWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_swamp
+		}
+	}
+	VR_WAR_GREETING_02_GEOTHERMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_geothermal
+		}
+	}
+	VR_WAR_GREETING_02_GLACIAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacial
+		}
+	}
+	VR_WAR_GREETING_02_SUBARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_subarctic
+		}
+	}
+	VR_WAR_GREETING_02_MESA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mesa
+		}
+	}
+	VR_WAR_GREETING_02_OASIS = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_oasis
+		}
+	}
+	VR_WAR_GREETING_02_SANDSEA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sandsea
+		}
+	}
+	VR_WAR_GREETING_02_FROZEN_DESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_frozen_desert
+		}
+	}
+	VR_WAR_GREETING_02_STEPPE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_steppe
+		}
+	}
+	VR_WAR_GREETING_02_HADESERT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_hadesert
+		}
+	}
+	VR_WAR_GREETING_02_METHANE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_methane
+		}
+	}
+	VR_WAR_GREETING_02_AMMONIA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ammonia
+		}
+	}
+	VR_WAR_GREETING_02_TIDALLYLOCKED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tidallylocked
+		}
+	}
+	VR_WAR_GREETING_02_BIOLUMEN = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_biolumen
+		}
+	}
+	VR_WAR_GREETING_02_BOREAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_boreal
+		}
+	}
+	VR_WAR_GREETING_02_MUSHROOM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mushroom
+		}
+	}
+	VR_WAR_GREETING_02_SUPERHABITABLE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_superhabitable
+		}
+	}
+	VR_WAR_GREETING_02_RETINAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_retinal
+		}
+	}
+	VR_WAR_GREETING_02_FOREST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_forest
+		}
+	}
+	VR_WAR_GREETING_02_PRAIRIE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_prairie
+		}
+	}
+	VR_WAR_GREETING_02_MED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_med
+		}
+	}
+	VR_WAR_GREETING_02_ANTARCTIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_antarctic
+		}
+	}
+	VR_WAR_GREETING_02_SNOW = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_snow
+		}
+	}
+	VR_WAR_GREETING_02_KARST = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_karst
+		}
+	}
+	VR_WAR_GREETING_02_PRIMAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_primal
+		}
+	}
+	VR_WAR_GREETING_02_IRRADIATED = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_irradiated
+		}
+	}
+	VR_WAR_GREETING_02_ASH = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_ash
+		}
+	}
+	VR_WAR_GREETING_02_AQUATIC = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_aquatic
+		}
+	}
+	VR_WAR_GREETING_02_SALT = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_salt
+		}
+	}
+	VR_WAR_GREETING_02_WETSWAMP = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_wetswamp
+		}
+	}
+	VR_WAR_GREETING_02_OUTBACK = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_outback
+		}
+	}
+	VR_WAR_GREETING_02_HIGHLAND = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_highland
+		}
+	}
+	VR_WAR_GREETING_02_LAKE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_lake
+		}
+	}
+	VR_WAR_GREETING_02_VELD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_veld
+		}
+	}
+	VR_WAR_GREETING_02_MUD = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_mud
+		}
+	}
+	VR_WAR_GREETING_02_MEGAFLORA = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_megaflora
+		}
+	}
+	VR_WAR_GREETING_02_CORAL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_coral
+		}
+	}
+	VR_WAR_GREETING_02_STORM = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_storm
+		}
+	}
+	VR_WAR_GREETING_02_ROGUE = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_rogue
+		}
+	}
+	VR_WAR_GREETING_02_ACID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_acid
+		}
+	}
+	VR_WAR_GREETING_02_TEPID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_tepid
+		}
+	}
+	VR_WAR_GREETING_02_SEMIARID = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_semiarid
+		}
+	}
+	VR_WAR_GREETING_02_GLACIO = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_glacio
+		}
+	}
+	VR_WAR_GREETING_02_EYEBALL = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_eyeball
+		}
+	}
+	VR_WAR_GREETING_02_SULFUR = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+			has_country_flag = distant_origin_empire_sulfur
+		}
+	}
+
+	# "This war will be your end, [From.GetSpeciesName]. When the dust settles on [This.home_planet.GetName], the [From.GetName] will be no more and the [Root.GetSpeciesNamePlural] people will have finally had our revenge!"
+	VR_WAR_GREETING_03 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# "For [This.home_planet.GetName]! For every [Root.GetSpeciesSpawnName] that died in the first war, and every [Root.GetSpeciesSpawnName] to be born after this one!"
+	VR_WAR_GREETING_04 = {
+		weight = {
+			weight = 5000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			is_at_war_with = FROM
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+	# Vassal
+	# "This is just a temporary arrangement, of course. We look forward to regaining our sovereignty once [This.home_planet.GetName] is ours again."
+
+	VR_VASSAL_GREETING_01 = {
+		weight = {
+			weight = 50000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_disloyal_to = FROM }
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# "This is growing tiresome, [From.GetRulerTitle]. If you won't return our homeworld to us, perhaps it is time for us to part ways and do it ourselves."
+	VR_VASSAL_GREETING_DISLOYAL_01 = {
+		weight = {
+			weight = 50000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+			NOT = { home_planet = { is_inside_border = FROM } }
+		}
+	}
+	# "[From.GetSpeciesAdj] filth! We will remember this humiliation when our armies land on [From.Capital.GetName]!"
+	VR_VASSAL_GREETING_DISLOYAL_02 = {
+		weight = {
+			weight = 500000
+		}
+		trigger = {
+			has_ai_personality = vengeful_refugees
+			exists = overlord
+			overlord = { is_same_value = FROM }
+			NOT = { is_at_war_with = FROM }
+			is_disloyal_to = FROM
+			home_planet = { is_inside_border = FROM }
+		}
+	}
+}
+
+action_declare_war = {
+	select = { }
+	propose = {
+		# "The [Root.GetName] have proven to be an obstacle to the [From.GetAdj] cause. That threat must be removed, by any means necessary."
+		VR_DOW_PROPOSE_01 = {
+			weight = {
+				weight = 5000
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = vengeful_refugees
+					NOT = { home_planet = { is_inside_border = THIS } }
+				}
+			}
+		}
+		# "We are back, [Root.GetSpeciesName], and we are coming for you! [From.home_planet.GetName] will soon belong to the [From.GetSpeciesNamePlural] once again!"
+		VR_DOW_PROPOSE_02 = {
+			weight = {
+				weight = 500000
+			}
+			trigger = {
+				FROM = {
+					has_ai_personality = vengeful_refugees
+					home_planet = { is_inside_border = THIS }
+				}
+			}
+		}
+	}
+	accept = {
+		# Hostile
+		# "We expected as much. [Root.GetSpeciesName]-kind already survived one alien invasion, and we are fully capable of surviving this one."
+		VR_01_DOW_HOSTILE_ACCEPT = {
+			trigger = {
+				has_ai_personality = vengeful_refugees
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+				NOT = { home_planet = { is_inside_border = FROM } }
+			}
+		}
+		# "This war will be your end, [From.GetSpeciesName]. [home_planet.GetName] will soon belong to [From.GetSpeciesName]-kind once again!"
+		VR_02_DOW_HOSTILE_ACCEPT = {
+			weight = {
+				weight = 50000
+			}
+			trigger = {
+				has_ai_personality = vengeful_refugees
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}
+				home_planet = { is_inside_border = FROM }
+			}
+		}
+		# Neutral
+		# "We should have known better than to trust you. You will find us ready to defend ourselves!"
+		VR_01_DOW_NEUTRAL_ACCEPT = {
+			weight = {
+				weight = 5000
+			}
+			trigger = {
+				has_ai_personality = vengeful_refugees
+				OR = {
+					is_neutral_to = FROM
+					is_threatened_to = FROM
+				}
+			}
+		}
+		# Friendly
+		# "Backstabbing [From.GetSpeciesNamePluralInsult]! You will not destroy us!"
+		VR_01_DOW_FRIENDLY_ACCEPT = {
+			weight = {
+				weight = 5000
+			}
+			trigger = {
+				has_ai_personality = vengeful_refugees
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+	}
+}

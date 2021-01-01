@@ -1,0 +1,125 @@
+xarmiri_tundra_tech = {
+	pc_tundra_habitability = 0.50
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_bleak.dds"
+}
+
+# Homeworld found
+distant_origin_homeworld_found_dead = {
+	biological_pop_happiness = -0.05
+
+	icon = "gfx/interface/icons/traits/trait_sedentary.dds"
+	icon_frame = 1
+}
+distant_origin_homeworld_found = {
+	biological_pop_happiness = 0.05
+
+	icon = "gfx/interface/icons/traits/trait_natural_sociologists.dds"
+	icon_frame = 1
+}
+distant_origin_homeworld_found_gaia = {
+	biological_pop_happiness = 0.10
+
+	icon = "gfx/interface/icons/traits/trait_natural_sociologists.dds"
+	icon_frame = 1
+}
+
+# Reactions to encountering DO/CH
+distant_origin_delayed_action = {
+	planet_jobs_society_research_produces_mult = 0.1
+	biological_pop_happiness = -0.05
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_reluctant.dds"
+	icon_frame = 1
+}
+distant_origin_military_buildup = {
+	planet_jobs_unity_produces_mult = 0.05
+	pop_ethic_militarist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_restrained.dds"
+	icon_frame = 1
+}
+distant_origin_exodus = {
+	ship_colonizer_cost_mult = -0.5
+	biological_pop_happiness = -0.05
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cautious.dds"
+	icon_frame = 1
+}
+distant_origin_vengeful_refugees = {
+	country_unity_produces_mult = 0.10
+	pop_ethic_militarist_attraction_mult = 0.2
+	pop_ethic_xenophobe_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_butcher.dds"
+	icon_frame = 1
+}
+distant_origin_old_rivalries = {
+	country_unity_produces_mult = 0.10
+	pop_ethic_xenophobe_attraction_mult = 0.2
+	pop_ethic_militarist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_butcher.dds"
+	icon_frame = 1
+}
+distant_origin_line_in_the_sand = {
+	country_unity_produces_mult = 0.10
+	pop_ethic_xenophobe_attraction_mult = 0.1
+	pop_ethic_militarist_attraction_mult = 0.2
+
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_restrained.dds"
+	icon_frame = 1
+}
+
+distant_origin_unacceptable_hive_mind = {
+	pop_ethic_xenophobe_attraction_mult = 0.1
+}
+
+mzilli_distant_origin_phile = {
+	pop_ethic_xenophile_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_phobe = {
+	pop_ethic_xenophobe_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_egal = {
+	pop_ethic_egalitarian_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_auth = {
+	pop_ethic_authoritarian_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_mil = {
+	pop_ethic_militarist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_pac = {
+	pop_ethic_pacifist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_spir = {
+	pop_ethic_spiritualist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}
+mzilli_distant_origin_mat = {
+	pop_ethic_materialist_attraction_mult = 0.1
+
+	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
+	icon_frame = 1
+}

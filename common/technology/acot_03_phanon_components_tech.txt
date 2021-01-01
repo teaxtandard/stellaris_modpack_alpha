@@ -1,0 +1,2398 @@
+@tier5weight4 = 7
+@tier5cost4 = 27500
+
+# Dark Matter Power Cores PHANON
+tech_dark_matter_power_core_pe = {
+	area = physics
+	category = { particles }
+	tier = 10
+	cost = @acot_tier10cost1
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_country_flag = acot_phanon_tech_enabled
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_DARK_MATTER_POWER_PE_TITLE"
+			desc = "TECH_UNLOCK_DARK_MATTER_POWER_PE_DESC"
+		}
+	}
+	
+}
+
+############################################################
+###                     TECHNOLOGIES                     ###
+############################################################
+
+tech_laser_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+
+############################################################
+##                   AE Plasmapedo                  ##
+##        Unlocks a tier 4 energy torpedo component       ##
+############################################################
+
+tech_super_detablizer_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+############################################################
+##                      AE Disurptor                  ##
+##           Unlocks a tier 5 disruptor component         ##
+############################################################
+
+tech_disruptor_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+############################################################
+##                    AE Plasma              ##
+##             Unlocks a tier 5 plasma component          ##
+############################################################
+
+tech_plasma_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+############################################################
+##                AE PD          ##
+##         Unlocks a tier 5 point defense component       ##
+############################################################
+
+tech_point_defense_pe = {
+	area = physics
+	category = { computing }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}	
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+############################################################
+##                        AE Gauss
+############################################################
+
+tech_mass_driver_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+
+############################################################
+##                     AE Autocannon
+############################################################
+
+tech_autocannon_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+}
+
+############################################################
+##                    AE Artillery
+############################################################
+
+tech_kinetic_artillery_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+tech_dakka_autocannon_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+############################################################
+##                    AE Flak
+############################################################
+
+
+tech_flak_batteries_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.95
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.05
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+}
+
+############################################################
+##                    AE Missiles
+############################################################
+
+tech_missile_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare	= yes
+
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+}
+
+############################################################
+##                     AE Barrage
+############################################################
+
+tech_barrage_missile_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+############################################################
+##                     AE XL Missile
+############################################################
+
+tech_xl_missile_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+############################################################
+##                     AE Nuke
+############################################################
+
+tech_missile_nuke_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}	
+	}
+	
+	ai_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+
+############################################################
+##               AE Strikers
+############################################################
+
+tech_strike_craft_fighter_pe = {
+	area = engineering
+	category = { voidcraft }	
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_strike_craft_bomber_pe = {
+	area = engineering
+	category = { voidcraft }	
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_strike_craft_gunship_pe = {
+	area = engineering
+	category = { voidcraft }	
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+
+############################################################
+##              AE Lance
+############################################################
+
+tech_energy_lance_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+}
+
+############################################################
+##                       AE Emitter
+############################################################
+
+tech_arc_emitter_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+}
+
+############################################################
+##                     AE Cannon
+############################################################
+
+tech_mass_accelerator_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost2
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+############################################################
+##                   AE Titan Perdition
+############################################################
+
+tech_perdition_beam_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+}
+
+
+tech_titan_emitter_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no	
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}	
+	}
+}
+
+tech_titan_accelerator_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost3
+	tier = 10
+	weight = 0
+	ai_update_type = military
+	is_reverse_engineerable = no
+	is_rare = yes
+	
+	potential = {
+		NOT = { has_global_flag = acot_weapons_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.8
+			has_ethic = ethic_fanatic_pacifist
+		}
+		modifier = {
+			factor = 0.9
+			has_ethic = ethic_pacifist
+		}
+		modifier = {
+			factor = 1.1
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.2
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_propulsion"
+			}
+		}
+	}
+}
+
+# ##################
+# FE Ship Tech
+# ##################
+
+tech_energy_core_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20
+	}
+}
+
+tech_kinetic_core_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20
+	}
+}
+
+tech_missile_core_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	prerequisites = { "tech_dark_matter_power_core_pe" }
+	
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20
+	}
+}
+
+tech_fighter_core_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_computing"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20
+	}
+}
+
+tech_enigmatic_drive_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { particles }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_ENIG_DRIVE"
+			desc = "TECH_UNLOCK_ENIG_DRIVE_DESC"
+		}
+	}	
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_particles"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20 #FTL techs are good
+	}
+}
+
+########FE Sensors
+
+tech_sensor_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all	
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}	
+	
+	ai_weight = {
+		factor = 1.25 #good component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+	
+	prereqfor_desc = {
+		component = {
+			title = "TECH_UNLOCK_FE_SENSOR_TITLE"
+			desc = "TECH_UNLOCK_FE_SENSOR_DESC"
+		}
+	}
+}
+
+########FE Super Thruster
+
+tech_pe_thruster = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_PE_THRUSTER_TITLE"
+			desc = "TECH_UNLOCK_PE_THRUSTER_DESC"
+		}
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+}
+
+# Dark Matter Deflectors AE
+tech_dark_matter_shield_pe = {
+	area = physics
+	category = { field_manipulation }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		NOT = { has_global_flag = acot_utilitys_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	
+	weight_modifier = {	
+	}
+}
+
+# Dark Matter Armor AE
+tech_armor_pe = {
+	area = engineering
+	category = { materials }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_utilitys_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+}
+
+# Dark Matter Armor AE
+tech_armor_hull_pe = {
+	area = engineering
+	category = { materials }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_utilitys_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+}
+
+###### AUX
+
+# Dark Matter Afterburner
+tech_darkmatter_afterburners_pe = {
+	area = engineering
+	category = { propulsion }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+}
+
+####Star Charter
+tech_darkmatter_star_charter_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all	
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}	
+	
+	ai_weight = {
+		factor = 1.25 #good component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+# Dark Matter Suprashielder
+tech_darkmatter_shield_supercharger_pe = {
+	area = physics
+	category = { field_manipulation }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {	
+	}
+}
+
+# Dark Matter Reacotr Booster
+tech_darkmatter_reactor_booster_pe = {
+	area = physics
+	category = { particles }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_aux_forbidden }
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+	}
+}
+
+# Dark Matter Drone
+tech_darkmatter_reactive_drone_pe = {
+	area = engineering
+	category = { materials }
+	cost = @acot_tier10cost1
+	tier = 10
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+	
+	potential = {
+		NOT = { has_global_flag = acot_aux_forbidden }
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	weight_modifier = {
+	}
+}
+
+tech_darkmatter_hyper_jump_drive_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { particles }
+	ai_update_type = all
+	is_reverse_engineerable = no
+	is_rare = yes
+	weight = 0
+	prerequisites = { "tech_enigmatic_drive" }
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_aux_forbidden }
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 0.1
+			NOR = {
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_expertise_particles"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_curator"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_spark_of_genius"
+				}
+				research_leader = {
+					area = physics
+					has_trait = "leader_trait_maniacal"
+				}
+			}		
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+	}
+	
+	ai_weight = {
+		factor = 20 #FTL techs are good
+	}
+}
+
+#Drainer
+tech_darkmatter_aura_energy_drainer_pe = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all	
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_aux_forbidden }
+	}
+	
+	prereqfor_desc = {
+		custom = {
+			title = "TECH_UNLOCK_ENERGY_DRAINER_AE_TITLE"
+			desc = "TECH_UNLOCK_ENERGY_DRAINER_AE_DESC"
+		}
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}	
+	
+	ai_weight = {
+		factor = 1.25 #good component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+}
+
+#bionic interface
+tech_computer_phi = {
+	area = physics
+	tier = 10
+	cost = @acot_tier10cost1
+	category = { computing }
+	ai_update_type = all	
+	weight = 0
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_shipcom_forbidden }
+	}
+	
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+				NOT = { has_technology = tech_dark_matter_power_core_pe }
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}	
+	
+	ai_weight = {
+		factor = 1.25 #good component
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+	
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_BIONIC_COMPUTER_TITLE"
+			desc = "TECH_UNLOCK_BIONIC_COMPUTER_DESC"
+		}
+	}
+}
+
+
+# Dark Matter Power Cores PHANON
+tech_pmc_decimator_beam = {
+	area = physics
+	category = { particles }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_weapons_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	
+}
+
+# Dark Matter Power Cores PHANON
+tech_pmc_yamato_cannon = {
+	area = physics
+	category = { particles }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_weapons_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	
+}
+
+# Dark Matter Power Cores PHANON
+tech_precursor_phanon_design = {
+	area = physics
+	category = { computing }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	prereqfor_desc = {
+		hide_prereq_for_desc = component
+		custom = {
+			title = "TECH_UNLOCK_PHANON_PRECURSOR_TITLE"
+			desc = "TECH_UNLOCK_PHANON_PRECURSOR_DESC"
+		}
+	}
+	
+}
+
+
+
+# Dark Matter Power Cores PHANON
+tech_phanon_army = {
+	area = society
+	category = { military_theory }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_army_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	
+}
+
+# Dark Matter Power Cores PHANON
+tech_phanon_attack_dog = {
+	area = society
+	category = { military_theory }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_army_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	
+}
+
+# Dark Matter Power Cores PHANON
+tech_phanon_operative = {
+	area = society
+	category = { military_theory }
+	tier = 10
+	cost = @acot_tier10cost3
+	weight = 0
+	ai_update_type = all
+	is_rare = yes
+	is_reverse_engineerable = no
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+		NOT = { has_global_flag = acot_army_forbidden }
+	}
+
+	prerequisites = {  }
+	
+	
+}
+
+#########################
+
+tech_phanon_fighter = {
+	area = engineering
+	cost = @acot_tier10cost1
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_cruiser = {
+	area = engineering
+	cost = @acot_tier10cost2
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_bb = {
+	area = engineering
+	cost = @acot_tier10cost2
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_titan = {
+	area = engineering
+	cost = @acot_tier10cost3
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_mothership = {
+	area = engineering
+	cost = @acot_tier10cost3
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_plat_m = {
+	area = engineering
+	cost = @acot_tier10cost1
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_plat_l = {
+	area = engineering
+	cost = @acot_tier10cost2
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
+tech_phanon_fighter = {
+	area = engineering
+	cost = @acot_tier10cost1
+	tier = 10
+	is_rare = yes
+	category = { voidcraft }
+	ai_update_type = military
+	weight = 0
+
+	potential = {
+		has_technology = tech_dark_matter_power_core_pe
+		NOT = { has_global_flag = acot_phanon_forbidden }
+	}
+	
+	ai_weight = {
+		factor = 5		#weapons are good
+		modifier = {
+			factor = 1.25
+			has_ethic = ethic_militarist
+		}
+		modifier = {
+			factor = 1.5
+			has_ethic = ethic_fanatic_militarist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}

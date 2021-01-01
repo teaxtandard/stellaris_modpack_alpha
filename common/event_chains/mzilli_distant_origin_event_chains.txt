@@ -1,0 +1,19 @@
+# Event chains.
+
+# counter, counters that can be increased and checked from effects and triggers
+#
+# Localization needed:
+# event_chain_chainnkey_title, a title to show in the situation log.
+# event_chain_chainnkey_desc, a description to show in the situation log.
+
+do_homeworld_chain = {
+	picture = GFX_evt_star_chart
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	counter = { do_homeworld_found = { max = 1 } }
+}
+
+vestigal_colony_search = {
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	picture = GFX_evt_city_ruins
+	counter = { vestigal_colonies = { max = 10 } }
+}

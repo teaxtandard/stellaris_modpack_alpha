@@ -1,0 +1,623 @@
+# DARK MATTER PROJECTS
+
+#DO IT OURSELVES
+special_project = {
+	key = "RESEARCH_STELLARITE_POWER"
+	days_to_research = 1800
+	tech_department = physics_technology
+	picture = GFX_evt_physics_research
+	
+	event_chain = acot_stellarite_chain
+
+	event_scope = planet_event
+
+	abort_trigger = {
+		NOT = {
+			any_owned_leader = {
+				has_leader_flag = stellarite_research_leader
+			}
+		}
+		OR = { 
+			has_technology = "tech_stellarite_reactor"
+			has_tech_option = tech_stellarite_reactor
+		}
+	}
+	
+	on_progress_25 = {
+		owner = {
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill < 5
+					}
+				 }
+				 random_list = {
+					65 = {
+					}
+					35 = {
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill >= 5
+					}
+				 }
+				 random_list = {
+					95 = {
+					}
+					5 = {
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_acot_curator_archon
+						}
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+		}
+	}
+
+	on_progress_50 = {
+		owner = {
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill < 7
+					}
+				 }
+				 random_list = {
+					50 = {
+					}
+					50 = {
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill >= 7
+					}
+				 }
+				 random_list = {
+					65 = {
+					}
+					35 = {
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_acot_curator_archon
+						}
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+		}
+	}
+
+	on_progress_75 = {
+		owner = {
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill < 7
+					}
+				 }
+				 random_list = {
+					35 = {
+					}
+					65 = {
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+			if = {
+				limit = { 
+					any_owned_leader = {
+						has_leader_flag = stellarite_research_leader
+						has_skill >= 7
+					}
+				 }
+				 random_list = {
+					50 = {
+					}
+					50 = {
+						modifier = {
+							factor = 0
+							has_trait = leader_trait_acot_curator_archon
+						}
+						country_event = { id = stellarite_events.4 }
+					}
+				}		
+			}
+		}
+	}
+
+	on_success = {
+		owner = {
+			country_event = { id = stellarite_events.2 }
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+#DO IT OURSELVES
+special_project = {
+	key = "RESEARCH_STELLARITE_COPY"
+	cost = 300000
+	tech_department = physics_technology
+	picture = GFX_evt_physics_research
+	
+	event_chain = acot_stellarite_chain
+
+	event_scope = planet_event
+
+	abort_trigger = {
+		OR = { 
+			has_technology = "tech_stellarite_reactor"
+			has_tech_option = tech_stellarite_reactor
+		}
+	}
+	
+	on_success = {
+		owner = {
+			random_list = {
+				60 = {
+					country_event = { id = stellarite_events.2 }
+				}
+				40 = {
+					country_event = { id = stellarite_events.4 }
+				}
+			}	
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+
+
+############### PRECURSOR ATTEMMPO
+
+special_project = {
+	key = "RESEARCH_PRECURSOR_ATTEMPT"
+	cost = 100000
+	tech_department = physics_technology
+	picture = GFX_evt_physics_research
+	
+	event_chain = acot_precursor_design_chain
+
+	event_scope = planet_event
+	location = no
+
+	abort_trigger = {
+	}
+	
+	on_success = {
+		owner = {
+			add_event_chain_counter = {
+				event_chain = acot_precursor_design_chain
+				counter = attempts_remain
+				amount = -1
+			}
+			change_variable = {
+				which = acot_quota_attempts
+				value = -1
+			}	
+			random_list = {
+				60 = {	
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 25
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -25
+					}						
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 50
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -50
+					}	
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 10
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -10
+					}	
+				}
+			}	
+			### SUCCESS !!?!?!?!
+			IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_required
+						value <= 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.904 }
+			}
+			### INCOMPLETED, BUT STILL HAS ATTEMPTS
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value > 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.902 }
+			}
+			### INCOMPLETED, NO ATTEMPTS LEFT
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value <= 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.903 }
+			}
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "RESEARCH_PRECURSOR_ATTEMPT_HIGH"
+	cost = 250000
+	tech_department = physics_technology
+	picture = GFX_evt_physics_research
+	
+	event_chain = acot_precursor_design_chain
+
+	event_scope = planet_event
+	location = no
+
+	abort_trigger = {
+	}
+	
+	on_success = {
+		owner = {
+			add_event_chain_counter = {
+				event_chain = acot_precursor_design_chain
+				counter = attempts_remain
+				amount = -1
+			}
+			change_variable = {
+				which = acot_quota_attempts
+				value = -1
+			}	
+			random_list = {
+				60 = {	
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 50
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -50
+					}						
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 100
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -100
+					}	
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 25
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -25
+					}	
+				}
+			}	
+			### SUCCESS !!?!?!?!
+			IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_required
+						value <= 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.904 }
+			}
+			### INCOMPLETED, BUT STILL HAS ATTEMPTS
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value > 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.902 }
+			}
+			### INCOMPLETED, NO ATTEMPTS LEFT
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value <= 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.903 }
+			}
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+
+special_project = {
+	key = "RESEARCH_PRECURSOR_ATTEMPT_EXTREME"
+	cost = 500000
+	tech_department = physics_technology
+	picture = GFX_evt_physics_research
+	
+	event_chain = acot_precursor_design_chain
+
+	event_scope = planet_event
+	location = no
+
+	abort_trigger = {
+	}
+	
+	on_success = {
+		owner = {
+			add_event_chain_counter = {
+				event_chain = acot_precursor_design_chain
+				counter = attempts_remain
+				amount = -1
+			}
+			change_variable = {
+				which = acot_quota_attempts
+				value = -1
+			}	
+			random_list = {
+				60 = {	
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 100
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -100
+					}						
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 200
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -200
+					}	
+				}
+				20 = {
+					add_event_chain_counter = {
+						event_chain = acot_precursor_design_chain
+						counter = progress_numbers
+						amount = 50
+					}
+					change_variable = {
+						which = acot_quota_required
+						value = -50
+					}	
+				}
+			}	
+			### SUCCESS !!?!?!?!
+			IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_required
+						value <= 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.904 }
+			}
+			### INCOMPLETED, BUT STILL HAS ATTEMPTS
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value > 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.902 }
+			}
+			### INCOMPLETED, NO ATTEMPTS LEFT
+			ELSE_IF = {
+				limit = {
+					check_variable = {
+						which = acot_quota_attempts
+						value <= 0
+					}
+					check_variable = {
+						which = acot_quota_required
+						value > 0
+					}
+				}
+				country_event = { id = acot_precursor_databank.903 }
+			}
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+####################### DIGSITE PROEJECT
+
+
+special_project = {
+	key = "RESTORE_AMERIGO_MEGA"
+	days_to_research = 3600
+	tech_department = engineering_technology
+	picture = GFX_acot_precursor_amerigo
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_constructor = 2
+		shipclass_science_ship = 1
+	}
+
+	abort_trigger = {
+
+	}
+	
+	on_success = {
+		owner = {
+			country_event = { id = acot_digsite_events.9 }	
+		}
+	}
+	
+	on_fail = {
+	}
+}
+
+
+####################### PLANET PROJECTS #######################
+
+special_project = {
+	key = "ACOT_FINAL_WORD_PLANET"
+	days_to_research = 360
+	tech_department = society_technology
+	picture = GFX_evt_fleet_from_surface
+	timelimit = 720
+
+	event_scope = planet_event
+
+	requirements = {
+	}
+
+	abort_trigger = {
+	}
+	
+	on_success = {
+		save_event_target_as = showered_planet
+		remove_planet_flag = final_word_underway
+		space_owner = {
+			country_event = { id = acot_exterminatus_event.1003 }				
+		}
+	}
+	
+	on_fail = {
+		from = {
+			remove_planet_flag = final_word_underway
+		}
+		add_resource = {
+			influence = 250
+		}
+	}
+}
+
+special_project = {
+	key = "ACOT_STABLIZE_PLANET"
+	cost = 3600000
+	tech_department = society_technology
+	picture = GFX_evt_planet_beam
+	timelimit = 7200
+
+	event_scope = planet_event
+
+	requirements = {
+	}
+
+	abort_trigger = {
+	}
+	
+	on_success = {
+		planet_event = { id = acot_exterminatus_event.1004 }		
+	}
+	
+	on_fail = {
+		from = {
+			planet_event = { id = acot_exterminatus_event.1004 }
+		}
+	}
+}
+
+special_project = {
+	key = "ACOT_CREATE_ENIGMAPOLIS"
+	days_to_research = 1800
+	tech_department = society_technology
+	picture = GFX_acot_precursor_uprising
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_constructor = 1
+		shipclass_science_ship = 1
+	}
+
+	abort_trigger = {
+
+	}
+	
+	on_success = {
+		ship_event = { id = acot_planets.5 }
+	}
+	
+	on_fail = {
+	}
+}

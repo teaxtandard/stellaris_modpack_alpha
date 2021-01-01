@@ -1,0 +1,694 @@
+﻿### New Conglomerate
+Human_NC = {
+	randomized = no
+
+	ship_names = {
+
+		generic = { Werner Emerald Gemini Johrai Konried Markov Vaemar Stilwater Saerro Morgannis "Jagged Lance" "Black Ridge" Alkali Briggs Snowshear "Rust Mesa" Mallory Lithcorp Ceres Woodman Miller Cobalt Voight Torremar Palos Helios Genudine Everett Benson Connery Waterson SolTech "Snake Ravine" Mattherson Jaeger DeepCore AuraxiCom Apex
+			
+		}
+
+		corvette = { Mao Allatum Saurva Peris Rashnu Dahaka Tawrich Zurvan Connery "Crimson Bluff" "Defense of the Crown" Crossroads "Indar Bay" "Vanu Archives" "Regent Rock" Feldspar Arroyo Overflow Helios Alkali CoraMed Benson Briggs "Howling Pass" Quartz "West Highlands" Seabed "Ti Alloys" Ceres "Galaxy Solar" Palisade Highland Ayani "Snake Ravine" Xenotech "Broken Arch" "Gravel Pass" "Rust Mesa" Stockpile Scar Auraxium Copper Blackshard Iridium Sharpe Edgewater Wainwright "Offal Pit" Armoury "Kessel's Crossing" Hossin Vex Bunker Fallbridge Halcyon "OMR Terraforming" Iron "Broken Vale" Woodman Roothouse "Hunter's Blind" Gourney "SRP Hydroponics" Nettlemire "Whispering Pass" "Four Fingers" Genudine Cairn Southgate Bravata Matsuda Hayd Hatcher Nason Naum Harukan Ixtab Acan
+			
+		}
+		
+		destroyer = { Bitol Zotz Ghanan Mulac Chac Takkon Zeta Ikanam Heyoka Sungrey Mekala Onatha Wokuk Tumas Xelas LithCorp Crux Splitpeak Granite Jagged Lance "Hidden Ridge" Soltech Deserted AuraxiCom Cobalt DeepCore "Silver Valley" "Chimney Rock" Torremar Highroads Aramax Raven Moss Shroud Skyway Scarfield LithCorp Eastshore Barrik Kwahtee Onatha 
+
+		}
+		
+		cruiser = { "Crystal Ridge" Haven Aurora Apex Stillwater "Grey Heron" Traverse "Jaeger's Crossing" "Pale Canyon" "Old Shore" Everett Elli Frostfall Snowshear Mattherson Northpoint Saerro Waterson Redemption Bulwark Andvari Freyr Eisa Nott "Bridge-ward" Frostbite "East River" "Two Stone" Mani Nott Ymir Rime Rink
+			
+		}
+		
+		battleship = { Werner Emerald Gemini Johrai Konried Markov Vaemar Stilwater Saerro Morgannis "Jagged Lance" "Black Ridge" Alkali Briggs Snowshear "Rust Mesa" Mallory Lithcorp Ceres Woodman Miller Cobalt Voight Torremar Palos Helios Genudine Everett Benson Connery Waterson SolTech "Snake Ravine" Mattherson Jaeger DeepCore AuraxiCom Apex
+			
+		}
+		
+		science = { Helium Neon Krypton Xenon Ion Nitrogen Carbon Excimer Deuterium Coil Agil Strontium Manganese Ruby Ytterbium Thulium Chromium Promethium Erbium Samarium "F-Center"
+			
+		}
+		
+		colonizer = { Wrel Alarox Visigodo Wisdom Jaroostine Sinist Brutus Kelv Phaetonevl Guildion Dirdra Bequ Arevok Torok Takumi Moha Asveri Gornn Breizhpower Krodin PoleShift Andrus Lallerpan Earlino Keirus Krups Binary 
+			
+		}
+		
+		constructor = { Kriegshaser Hoffman Jones Bishop Champion Miranda Sites Burness Yeatts Sherman Clauss Good Diamond Kerr Sigmund Wells Hackney Schenck Elam Clegg Wisenhunt Krohn Bennett Issac Higby Carey Dowell James Anderson Moyer Lichty Vu Owens Navage Lafontaine Worley Smedley
+			
+		}
+		
+		mining_station = { }
+		research_station = { }
+		wormhole_station = { }
+		terraform_station = { }
+		observation_station = { }
+		outpost_station = {
+			random_names = {
+				Ceres Vesta Pallas Hygiea Euphrosyne Interamnia Davida Herculina Eunomia Juno Psyche Europa Thisbe Iris Egeria Diotima Amphitrite Sylvia Doris
+			}
+			sequential_name = "%O% Republic Forward Outpost"
+		}
+		
+		transport = {
+			Galaxy
+		}
+		
+		military_station_small = {}
+		
+		#"Star Post 1" "Star Post 2" "Star Post 3" "Star Post 4" "Star Post 5" "Star Post 6" "Star Post 7" "Star Post 8" "Star Post 9" "Star Post 10" "Star Post 11" "Star Post 12"
+		#"Star Post 13" "Star Post 14" "Star Post 15" "Star Post 16" "Star Post 17" "Star Post 18" "Star Post 19" "Star Post 20" "Star Post 21" "Star Post 22" "Star Post 23"
+		#"Star Post 24" "Star Post 25" "Star Post 26" "Star Post 27" "Star Post 28" "Star Post 29" "Star Post 30" "Star Post 31" "Star Post 32" "Star Post 33" "Star Post 34"
+		#"Star Post 35" "Star Post 36" "Star Post 37" "Star Post 38" "Star Post 39" "Star Post 40"
+		
+		military_station_medium = {}
+		
+		#"Fort Victory" "Fort Success" "Fort Triumph" "Fort Supremacy" "Fort Superior" "Fort Adventure"
+		#"Fort Ascendancy" "Fort Paramount" "Fort Preponderous" "Fort Exemplary" "Fort Eximious"
+		#"Fort Acclaim" "Fort Honor" "Fort Renown" "Fort Glory" "Fort Superb" "Fort Magnificence" 
+		#"Fort Majestic" "Fort Splendor" "Fort Paradigm" "Fort Flawless" "Fort Consummate" "Fort Merit"
+		#"Fort Perfection" "Fort Virtue" "Fort Advantage" "Fort Rectitude" "Fort Incorruptible" 
+		#"Fort Integrity" "Fort Justice" "Fort Probity" "Fort Prudence" "Fort Purity" "Fort Resolute"
+		#"Fort Dignity" "Fort Distinction" "Fort Excellence" "Fort Faithful" "Fort Discipline"
+		#"Fort Recompense" "Fort Retribution" "Fort Requiem" "Fort Courage" "Fort Valor" "Fort Gallant"
+		#"Fort Daring" "Fort Constancy" "Fort Perseverence" "Fort Tenacity" "Fort Sedulity" "Fort Diligence"
+		#"Fort Pertinacity" "Fort Steadfast"
+		
+		military_station_large = {
+			Victory Success Triumph Supremacy Superior Adventure Ascendancy Paramount Preponderous Exemplary Eximious
+			Acclaim Honor Renown Glory Superb Magnificence Majestic Splendor Paradigm Flawless Consummate Merit
+			Perfection Virtue Advantage Rectitude Incorruptible Integrity Justice Probity Prudence Purity Resolute
+			Dignity Distinction Excellence Faithful Discipline Recompense Retribution Requiem Courage Valor Gallant
+			Daring Constancy Perseverence Tenacity Sedulity Diligence Pertinacity Steadfast
+		}
+		
+		
+		# "Battlestation Impregnable" "Battlestation Insurmountable" "Battlestation Impenetrable" "Battlestation Unbreakable" "Battlestation Implacable" 
+		# "Battlestation Impervious" "Battlestation Unswerving" "Battlestation Inexorable" "Battlestation Inflexible" "Battlestation Unyielding"
+		
+	}
+
+	fleet_names = {
+		random_names = {
+			"Conglomerate Strike Force Glory" "Conglomerate Strike Force Honor" "Conglomerate Strike Force Victory" "Conglomerate Strike Force Courage" "Conglomerate Strike Force Unconquerable" "Conglomerate Strike Force Implacable" "Conglomerate Strike Force Inexorable" "Conglomerate Strike Force Inflexible" "Conglomerate Strike Force Unyielding" "Conglomerate Strike Force Resolute" "Conglomerate Strike Force Dignity" "Conglomerate Strike Force Diligence" "Conglomerate Strike Force Flawless" "Conglomerate Strike Force Splendour" "Conglomerate Strike Force Tenacity" "Conglomerate Strike Force Perserverence" "Conglomerate Strike Force Unbreakable" "Conglomerate Strike Force Endless" "Conglomerate Strike Force Crown" "Conglomerate Strike Force Auraxium" "Conglomerate Strike Force Hossin" "Conglomerate Strike Force Esamir" "Conglomerate Strike Force Indar" "Conglomerate Strike Force Amerish" "Conglomerate Strike Force Steadfast"
+		}
+		sequential_name = "%O% Conglomerate Navy"
+	}
+	
+	army_names = {
+		generic = { 
+			sequential_name = "%O% NC Garrison Outfit"
+		}
+
+		assault_army = {
+			sequential_name = "%O% NC Assault Outfit"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Mindblank Auxiliary Division"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% NC Nanite-Reborn Assault Outfit"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% SolTech Robotics Division"
+		}
+		
+		android_army = {
+			sequential_name = "%O% LithCorp Android Division"
+		}
+		
+		psionic_army = { 
+			sequential_name = "%O% Infiltrator Outfit"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Vanu-tech Experimental Division"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% NC Nanite-Enhanced Assault Outfit"
+		}
+	}
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			sequential_name = "NC-%O%-MPD"
+			
+}
+		
+		pc_desert = {
+			names = { Denali Ularu Nullabor Gobi Kalahari Patagonia "Great Basin" Chihuahua "Great Sandy" Karakum Sonoran Kyzylkum Taklamakan Thar Gibson Dashte Registan Atacama Mojave "Nanite Systems Research Outpost"
+				
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				"The Jungle" Amazonia Rainfall "The Green" Niagara Sioux Caicos "New Bali" "The Swimup" "LithCorp Lumber Extraction Zone"
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				Denali Ularu Nullabor Gobi Kalahari Patagonia "Great Basin" Chihuahua "Great Sandy" Karakum Sonoran Kyzylkum Taklamakan Thar Gibson Dashte Registan Atacama Mojave "SolCorp Energy Extraction Zone"
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				"Second Earth" "Second Terra" Libertaria "Global Trust" "Westpac"
+			}
+		}
+		
+		pc_gaia = {
+			names = {
+				Freedom Liberty Life
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+				Adriatica Alantica Pacifica Caspian "SolCorp Hydropower Zone"
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+				Stonehead "Nova Samarkand" Evonium 
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+				Chilled Snowblind Esamir "The Fridge" Icebox
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+	character_names = {
+
+		names1 = {
+			weight = 100
+			first_names_male = { Recruit Grunt Cadet Trooper Gunner Guerilla Scout Vigilante Maverick Serviceman Guardsman Corporal Cavalier Commando Ranger Deputy Agent Ensign Raider Warden Overseer Sentinel Brigadier
+				
+			}
+			first_names_female = { Recruit Grunt Cadet Trooper Gunner Guerilla Scout Vigilante Maverick Serviceman Guardsman Corporal Cavalier Commando Ranger Deputy Agent Ensign Raider Warden Overseer Sentinel Brigadier
+				
+			}
+			second_names = { 
+Aaltonen Ahlapuro Ahonen
+Ahoniemi Ahtisaari Aikio
+Airikkala Alapassi Almila
+Alvar Ankelo Annukka
+Anttila Aulis Autio
+Bohinen Carpelan Erkko
+Esko Fisk Haapajarvi
+Haapakoski Haapasalo Haavikko
+Hakkarainen Hakkila Hakkinen
+Hakonen Halkoato Halvari
+Halvoni Hämäläinen HämeenAnttila
+Hännenen Hannila Hanninen
+Hannula Hanski Hanskki
+Harikali Harjanne Harju
+Harkki Harmaja Hartikainen
+Hartonen Hästesko Hättönen
+Hattunen Hautala Hayha
+Heikkilä HeikkiläLaakso Heinil
+Heiramo Heiskanen Hermesniemi
+Hesso Hiltunen Himanka
+Hinkkanene Hirvonen Holkeri
+Hollo Honka Hovi
+Huhtamo Huhtinen Huopio
+Huotari Hurme Hurskainen
+Huttunen Hynninen Iiasalo
+Ikonen Ilmonen Ilonen
+Immonen Ipatti Isokoski
+Isomäki Isometsae Isosomppi
+Isotalo Jaaskelainen Jaatinen
+Jalkanen Jallinoja Jänne
+Jarvela Jarvi Jarvilehto
+Järvinen Joutsela Juhana
+Juteini Jutikkala Jutila
+Juusten Jyrkkiö Kaku
+Kallela Kallio Kalmari
+Kaltiainen Kamu Kangas
+Kankkunnen Kanniainen Kantee
+Kapanan Kapanen Karhu
+Karila Karjalainen Karpinen
+Karppinen Karsikas Karttulan
+Karttunen Karvinen Karvonen
+Katajarnki Katajisto Kauppinen
+Kauranen Kaurismäki Keinonen
+Kekkonen Kemppinen Keskitalo
+Ketola Kikkunen Kiljunen
+Kilpinen Kinnunen Kirvesniemi
+Kivelä Kiveli Kivi
+Kivikoski Kivilahti Kivimaki
+Kivivuori Klami Kohvakka
+Koistinen Koivisto Koivu
+Koivula Koivunen Koivurinnen
+Kokko Kolehmainen Kollontai
+Kononen Koppala Korhonen
+Korkiakangas Korpelainen Korpi
+Koskela Koskinen Kotiranta
+Koutaniemi Kuetari Kuhanen
+Kuikkonen Kukkamo Kuusi
+Kuusinen Kuusisto Kyllonen
+Kytölehto Laakkonen Laaksonen
+Lahtela Lahtinen Laitila
+Laitinen Laituri Lajunen
+Lansivuoni Länsivuori Lapio
+Lappi Lappo Larva
+Lassila Laukkanen Laukkinen
+Laukkonen Laukkunen Laukonen
+Laurikko Lavinen Lehtinen
+Lehto Lehtola Lehtonen
+Lehväslaiho Leino Lemminkäinen
+Leskinen Lievonene Linkomies
+Linna Lipponen Liukko
+Loivamaa Louhi Louramo
+Luhtanen Lusa Luukkonen
+Lyytikäinen Lyytinen Mikel
+Määttä Madetoja Mäkilä
+Mäkinen Mäkitie Makkonen
+Mallat Mannila Manninen
+Mannisenmaki Marjaana Marjamaa
+Marjo Markula Marttila
+Mattila Mäyrä Merikanto
+Meriluoto Merta Miettinen
+Mikkola Moilanen Möttölä
+Murto Mustonen Muttilainen
+Myllylae Myllyniemi Näränen
+Narhi Nevakivi Niemelä
+Niemi Nieminen Niiranen
+Nikkanen Nikkola Nimonen
+Niskakangasi Niukkanen Noronen
+Nousiainen Nurmela Nurmi
+Nurminnen Nykanen Ojanen
+Ollila Onkeli Oramo
+Outinen Paakkonen Paananen
+Paanenen Paasikivi Paasilinna
+Paasio Paasivirta Paasivirte
+Paatelainen Pakkarinen Palonen
+Panula Parkkinen Parviainen
+Pasanen Pekkala Pellonpaa
+Peltola Peltonen Pesola
+Pesonen Peurajärvi Pietarinen
+Pietilä Pietilinen Pihlajamaa
+Pihlavisto Piipi Piironen
+Pirinen Pirnes Pöljänen
+Polvinen Pontinen Pontinen
+Poutanen Pöyhtäri Pulkkinen
+Puputti Puttonen Puumalainen
+Puurunen Pykallsto Pykkonen
+Raevuori Rahkamo Rahnasto
+Raikkonen Ramanen Rantamahu
+Rantamäki Rantanen Räsänen
+Rautiainen Reema Reini
+Rekiaro Repo Ridanpaa
+Riekkinen Riihivuori Riikonen
+Rinnekangas Rintala Rissanen
+Roine Ronkainen Rönkkö
+Rouhiainen Rovanperä Ruuska
+Ryti Saarenpää Saari
+Saarinen Saarisalo Sala
+Sallinen Salmela Salmi
+Salo Salomäki Salonen
+Sandemo Saraste Sari
+Sariola Särkilahti Sarpaneva
+Selin Serjala Sievenen
+Sievinen Siilasvuo Sillanpää
+Siltala Silven Sinisalo
+Sinkkonen Sinkonnen Sirkiä
+Sirola Sistonen Siurulainen
+Siurunen Sivonen Sneck
+Soimakallio Soininen Soisalo
+Sulkunen Suomalainen Sutinen
+Taina Taipale Taitto
+Takala Talonen Talus
+Talvela Tanskanen Tapaninen
+Tawastjerna Teravainen Tiainen
+Tiensuu Tiihonen Tiilikainen
+Tikkanen Toikka Toivenen
+Toiviainen Toivola Tokoi
+Tormis Töyli Trulli
+Tuominen Turja Turkula
+Turtola Turunen Tuulari
+Tykkylainen Uurainen UusiHakimo
+Uusitalo Vra Vaarakallio
+Vaaraniemi Vääräniemi Vacca
+Vähätalo Vaijärvi Väinöla
+Vakkuri Valkki Valtonen
+Vanhala Vanpera Vanska
+Vänskä Varjo Varonen
+Vatanen Vataren Vatoren
+Venlinen Verkko Vihavainen
+Viitasalo Vilkuna Virén
+Virjonen Virtanen Vuorio
+Waltari Weilin Wirkkala
+Wuorinen "YliRanka"
+Agani Ahmetaj Ahmeti
+Ajeti Albrup Alia
+Alibali Alii Alikaj
+Aliti Aliu Amiti
+Arbnori Bajraktari Bajrami
+Bajramovic Bardha Bardhi
+Bardici Bardulla Bazhunaishvili
+Bejko Bejta Berisha
+Berishaj Bislimi Bizi
+Blaku Boja Boshnjaku
+Broci Brozi Budo
+Bufi Bunjaku Bushaj
+Bushati Buzoku Bytygi
+Cacaj Cana Cano
+Carcani Ceka Cela
+Celaj Chani Chocholi
+Ciftja Cobaj Corbajram
+Culaj Cumani Daci
+Dedej Dejti Demachi
+Demaci Demai Demisovski
+Dhamo Dibra Dosti
+Dreshaj Duka Dzaferi
+Elezi Emini Fakaj
+Fazliu Frasheri Gacaferi
+Galica Galimuna Gashi
+Gecaj Gjika Gjikokaj
+Gjinali Gjokaj Gozhita
+Grazdani Hajdaraga Hajdari
+Hajdini Halii Halil
+Halili Haliti Hamiti
+Hamza Harxhi Hasangjekaj
+Hasani Hassan Haxhi
+Haxhiu Hisari Hoxha
+Hyseni Hysi Idrizi
+Isai Ismaili Istogu
+Isufaj Januzaj Jasari
+Julia Kadare Kalaj
+Kaleci Kapllani Kartallozi
+Kastrati Kiuprili Kochiu
+Koçi Kola Kolcei
+Kolonja Kona Kongoli
+Korkizoglou Kotta Kraja
+Krasnicki Krasniki Krasniqi
+Krizi Kula Kupi
+Kursumulu Kutishi Lamaj
+Latifi Lazami Logoreci
+Lokaj Lucca Luga
+Lumaj Lumani Lushi
+Luzaj Mala Mali
+Maniani Manjani Marishta
+Marku Maxharraj Maxhuni
+Meco Meidani Meksi
+Meshkalla Metarapi Mishaxhi
+Morina Mripa Mujushi
+Murati Murzaku Muslimi
+Naçi Nallbani Nano
+Nesimi Nexhipi Nnano
+Noli Nooja Nuhiji
+Oseku Paloka Peco
+Pernaska Petrela Pipa
+Pllana Pllumi Pocoli
+Poda Pojani Prela
+Prenkpalaj Prifti Prishtina
+Pula Qosja Raco
+Rama Ramadani Reufi
+Rexhepi Ristani Rrustemi
+Rugova Sadiku Sadiraj
+Salihu Saliu Sapunxiu
+Sava Sejko Selimi
+Selmani Seseri Shala
+Shehu Shima Shkelyim
+Shulku Shundi Siliqi
+Simaku Smajlaj Sopa
+Strakosha Sulejmani Surroi
+Syla Sylaj Tafaj
+Tahiri Tare Tatari
+Thaci Thaqi Thika
+Tolaj Tolka Tolr
+Topalli Toptani Troshani
+Tzeka Tzelili Useni
+Varoshi Vata Velo
+Vercuni Veseli Vllasi
+Vulaj Xhaferi Xhanari
+Xhaxhka Xhumba Ymeri
+Zagreda Zhugli Zhulati
+Zhuzhumi Ziberi Zogjani
+Zogu Smith Johnson Williams Jones Brown Davis Miller Wilson Moore Taylor Anderson Thomas Jackson White Harris Martin Thompson Garcia Martinez Robinson Clark Rodriguez Lewis Lee Walker Hall Allen Young Hernandez King Wright Lopez Hill Scott Green Adams Baker Gonzalez Nelson Carter Mitchell Perez Roberts Turner Phillips Campbell Parker Evans Edwards Collins Stewart Sanchez Morris Rogers Reed Cook Morgan Bell Murphy Bailey Rivera Cooper Richardson Cox Howard Ward Torres Peterson Gray Ramirez James Watson Brooks Kelly Sanders Price Bennett Wood Barnes Ross Henderson Coleman Jenkins Perry Powell Long Patterson Hughes Flores Washington Butler Simmons Foster Gonzales Bryant Alexander Russell Griffin Diaz Hayes yers Ford Hamilton Graham Sullivan Wallace Woods Cole West Jordan Owens Reynolds Fisher Ellis Harrison Gibson Mcdonald Cruz Marshall Ortiz Gomez Murray Freeman Wells Webb Simpson Stevens Tucker Porter Hunter Hicks Crawford Henry Boyd Mason Morales Kennedy Warren Dixon Ramos Reyes Burns Gordon Shaw Holmes Rice Robertson Hunt Black Daniels Palmer Mills Nichols Grant Knight Ferguson Rose Stone Hawkins Dunn Perkins Hudson Spencer Gardner Stephens Payne Pierce Berry Matthews Arnold Wagner Willis Ray Watkins Olson Carroll Duncan Snyder Hart Cunningham Bradley Lane Andrews Ruiz Harper Fox Riley Armstrong Carpenter Weaver Greene Lawrence Elliott Chavez Sims Austin Peters Kelley Franklin Lawson 
+				
+			}
+			regnal_first_names_male = { "Major General" "Deputy Director" "Director General" Executor
+				
+			}
+			regnal_first_names_female = { "Major General" "Deputy Director" "Director General" Executor
+				
+			}
+			regnal_second_names = {
+Aaltonen Ahlapuro Ahonen
+Ahoniemi Ahtisaari Aikio
+Airikkala Alapassi Almila
+Alvar Ankelo Annukka
+Anttila Aulis Autio
+Bohinen Carpelan Erkko
+Esko Fisk Haapajarvi
+Haapakoski Haapasalo Haavikko
+Hakkarainen Hakkila Hakkinen
+Hakonen Halkoato Halvari
+Halvoni Hämäläinen HämeenAnttila
+Hännenen Hannila Hanninen
+Hannula Hanski Hanskki
+Harikali Harjanne Harju
+Harkki Harmaja Hartikainen
+Hartonen Hästesko Hättönen
+Hattunen Hautala Hayha
+Heikkilä HeikkiläLaakso Heinil
+Heiramo Heiskanen Hermesniemi
+Hesso Hiltunen Himanka
+Hinkkanene Hirvonen Holkeri
+Hollo Honka Hovi
+Huhtamo Huhtinen Huopio
+Huotari Hurme Hurskainen
+Huttunen Hynninen Iiasalo
+Ikonen Ilmonen Ilonen
+Immonen Ipatti Isokoski
+Isomäki Isometsae Isosomppi
+Isotalo Jaaskelainen Jaatinen
+Jalkanen Jallinoja Jänne
+Jarvela Jarvi Jarvilehto
+Järvinen Joutsela Juhana
+Juteini Jutikkala Jutila
+Juusten Jyrkkiö Kaku
+Kallela Kallio Kalmari
+Kaltiainen Kamu Kangas
+Kankkunnen Kanniainen Kantee
+Kapanan Kapanen Karhu
+Karila Karjalainen Karpinen
+Karppinen Karsikas Karttulan
+Karttunen Karvinen Karvonen
+Katajarnki Katajisto Kauppinen
+Kauranen Kaurismäki Keinonen
+Kekkonen Kemppinen Keskitalo
+Ketola Kikkunen Kiljunen
+Kilpinen Kinnunen Kirvesniemi
+Kivelä Kiveli Kivi
+Kivikoski Kivilahti Kivimaki
+Kivivuori Klami Kohvakka
+Koistinen Koivisto Koivu
+Koivula Koivunen Koivurinnen
+Kokko Kolehmainen Kollontai
+Kononen Koppala Korhonen
+Korkiakangas Korpelainen Korpi
+Koskela Koskinen Kotiranta
+Koutaniemi Kuetari Kuhanen
+Kuikkonen Kukkamo Kuusi
+Kuusinen Kuusisto Kyllonen
+Kytölehto Laakkonen Laaksonen
+Lahtela Lahtinen Laitila
+Laitinen Laituri Lajunen
+Lansivuoni Länsivuori Lapio
+Lappi Lappo Larva
+Lassila Laukkanen Laukkinen
+Laukkonen Laukkunen Laukonen
+Laurikko Lavinen Lehtinen
+Lehto Lehtola Lehtonen
+Lehväslaiho Leino Lemminkäinen
+Leskinen Lievonene Linkomies
+Linna Lipponen Liukko
+Loivamaa Louhi Louramo
+Luhtanen Lusa Luukkonen
+Lyytikäinen Lyytinen Mikel
+Määttä Madetoja Mäkilä
+Mäkinen Mäkitie Makkonen
+Mallat Mannila Manninen
+Mannisenmaki Marjaana Marjamaa
+Marjo Markula Marttila
+Mattila Mäyrä Merikanto
+Meriluoto Merta Miettinen
+Mikkola Moilanen Möttölä
+Murto Mustonen Muttilainen
+Myllylae Myllyniemi Näränen
+Narhi Nevakivi Niemelä
+Niemi Nieminen Niiranen
+Nikkanen Nikkola Nimonen
+Niskakangasi Niukkanen Noronen
+Nousiainen Nurmela Nurmi
+Nurminnen Nykanen Ojanen
+Ollila Onkeli Oramo
+Outinen Paakkonen Paananen
+Paanenen Paasikivi Paasilinna
+Paasio Paasivirta Paasivirte
+Paatelainen Pakkarinen Palonen
+Panula Parkkinen Parviainen
+Pasanen Pekkala Pellonpaa
+Peltola Peltonen Pesola
+Pesonen Peurajärvi Pietarinen
+Pietilä Pietilinen Pihlajamaa
+Pihlavisto Piipi Piironen
+Pirinen Pirnes Pöljänen
+Polvinen Pontinen Pontinen
+Poutanen Pöyhtäri Pulkkinen
+Puputti Puttonen Puumalainen
+Puurunen Pykallsto Pykkonen
+Raevuori Rahkamo Rahnasto
+Raikkonen Ramanen Rantamahu
+Rantamäki Rantanen Räsänen
+Rautiainen Reema Reini
+Rekiaro Repo Ridanpaa
+Riekkinen Riihivuori Riikonen
+Rinnekangas Rintala Rissanen
+Roine Ronkainen Rönkkö
+Rouhiainen Rovanperä Ruuska
+Ryti Saarenpää Saari
+Saarinen Saarisalo Sala
+Sallinen Salmela Salmi
+Salo Salomäki Salonen
+Sandemo Saraste Sari
+Sariola Särkilahti Sarpaneva
+Selin Serjala Sievenen
+Sievinen Siilasvuo Sillanpää
+Siltala Silven Sinisalo
+Sinkkonen Sinkonnen Sirkiä
+Sirola Sistonen Siurulainen
+Siurunen Sivonen Sneck
+Soimakallio Soininen Soisalo
+Sulkunen Suomalainen Sutinen
+Taina Taipale Taitto
+Takala Talonen Talus
+Talvela Tanskanen Tapaninen
+Tawastjerna Teravainen Tiainen
+Tiensuu Tiihonen Tiilikainen
+Tikkanen Toikka Toivenen
+Toiviainen Toivola Tokoi
+Tormis Töyli Trulli
+Tuominen Turja Turkula
+Turtola Turunen Tuulari
+Tykkylainen Uurainen UusiHakimo
+Uusitalo Vra Vaarakallio
+Vaaraniemi Vääräniemi Vacca
+Vähätalo Vaijärvi Väinöla
+Vakkuri Valkki Valtonen
+Vanhala Vanpera Vanska
+Vänskä Varjo Varonen
+Vatanen Vataren Vatoren
+Venlinen Verkko Vihavainen
+Viitasalo Vilkuna Virén
+Virjonen Virtanen Vuorio
+Waltari Weilin Wirkkala
+Wuorinen "YliRanka"
+Agani Ahmetaj Ahmeti
+Ajeti Albrup Alia
+Alibali Alii Alikaj
+Aliti Aliu Amiti
+Arbnori Bajraktari Bajrami
+Bajramovic Bardha Bardhi
+Bardici Bardulla Bazhunaishvili
+Bejko Bejta Berisha
+Berishaj Bislimi Bizi
+Blaku Boja Boshnjaku
+Broci Brozi Budo
+Bufi Bunjaku Bushaj
+Bushati Buzoku Bytygi
+Cacaj Cana Cano
+Carcani Ceka Cela
+Celaj Chani Chocholi
+Ciftja Cobaj Corbajram
+Culaj Cumani Daci
+Dedej Dejti Demachi
+Demaci Demai Demisovski
+Dhamo Dibra Dosti
+Dreshaj Duka Dzaferi
+Elezi Emini Fakaj
+Fazliu Frasheri Gacaferi
+Galica Galimuna Gashi
+Gecaj Gjika Gjikokaj
+Gjinali Gjokaj Gozhita
+Grazdani Hajdaraga Hajdari
+Hajdini Halii Halil
+Halili Haliti Hamiti
+Hamza Harxhi Hasangjekaj
+Hasani Hassan Haxhi
+Haxhiu Hisari Hoxha
+Hyseni Hysi Idrizi
+Isai Ismaili Istogu
+Isufaj Januzaj Jasari
+Julia Kadare Kalaj
+Kaleci Kapllani Kartallozi
+Kastrati Kiuprili Kochiu
+Koçi Kola Kolcei
+Kolonja Kona Kongoli
+Korkizoglou Kotta Kraja
+Krasnicki Krasniki Krasniqi
+Krizi Kula Kupi
+Kursumulu Kutishi Lamaj
+Latifi Lazami Logoreci
+Lokaj Lucca Luga
+Lumaj Lumani Lushi
+Luzaj Mala Mali
+Maniani Manjani Marishta
+Marku Maxharraj Maxhuni
+Meco Meidani Meksi
+Meshkalla Metarapi Mishaxhi
+Morina Mripa Mujushi
+Murati Murzaku Muslimi
+Naçi Nallbani Nano
+Nesimi Nexhipi Nnano
+Noli Nooja Nuhiji
+Oseku Paloka Peco
+Pernaska Petrela Pipa
+Pllana Pllumi Pocoli
+Poda Pojani Prela
+Prenkpalaj Prifti Prishtina
+Pula Qosja Raco
+Rama Ramadani Reufi
+Rexhepi Ristani Rrustemi
+Rugova Sadiku Sadiraj
+Salihu Saliu Sapunxiu
+Sava Sejko Selimi
+Selmani Seseri Shala
+Shehu Shima Shkelyim
+Shulku Shundi Siliqi
+Simaku Smajlaj Sopa
+Strakosha Sulejmani Surroi
+Syla Sylaj Tafaj
+Tahiri Tare Tatari
+Thaci Thaqi Thika
+Tolaj Tolka Tolr
+Topalli Toptani Troshani
+Tzeka Tzelili Useni
+Varoshi Vata Velo
+Vercuni Veseli Vllasi
+Vulaj Xhaferi Xhanari
+Xhaxhka Xhumba Ymeri
+Zagreda Zhugli Zhulati
+Zhuzhumi Ziberi Zogjani
+Zogu Smith Johnson Williams Jones Brown Davis Miller Wilson Moore Taylor Anderson Thomas Jackson White Harris Martin Thompson Garcia Martinez Robinson Clark Rodriguez Lewis Lee Walker Hall Allen Young Hernandez King Wright Lopez Hill Scott Green Adams Baker Gonzalez Nelson Carter Mitchell Perez Roberts Turner Phillips Campbell Parker Evans Edwards Collins Stewart Sanchez Morris Rogers Reed Cook Morgan Bell Murphy Bailey Rivera Cooper Richardson Cox Howard Ward Torres Peterson Gray Ramirez James Watson Brooks Kelly Sanders Price Bennett Wood Barnes Ross Henderson Coleman Jenkins Perry Powell Long Patterson Hughes Flores Washington Butler Simmons Foster Gonzales Bryant Alexander Russell Griffin Diaz Hayes yers Ford Hamilton Graham Sullivan Wallace Woods Cole West Jordan Owens Reynolds Fisher Ellis Harrison Gibson Mcdonald Cruz Marshall Ortiz Gomez Murray Freeman Wells Webb Simpson Stevens Tucker Porter Hunter Hicks Crawford Henry Boyd Mason Morales Kennedy Warren Dixon Ramos Reyes Burns Gordon Shaw Holmes Rice Robertson Hunt Black Daniels Palmer Mills Nichols Grant Knight Ferguson Rose Stone Hawkins Dunn Perkins Hudson Spencer Gardner Stephens Payne Pierce Berry Matthews Arnold Wagner Willis Ray Watkins Olson Carroll Duncan Snyder Hart Cunningham Bradley Lane Andrews Ruiz Harper Fox Riley Armstrong Carpenter Weaver Greene Lawrence Elliott Chavez Sims Austin Peters Kelley Franklin Lawson 
+			}
+		}
+	}
+}

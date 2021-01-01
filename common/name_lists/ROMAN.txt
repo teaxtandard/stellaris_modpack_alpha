@@ -1,0 +1,560 @@
+### ROMAN NAME LIST
+### Made by Aquila Iovis, 16.07.2017
+
+
+ROMAN =
+{
+	randomized = no
+
+	ship_names =
+	{
+		generic =
+		{
+		}
+
+		corvette =
+		{
+			"Corbita" 
+		}
+		destroyer =
+		{
+			"Depulsor" 
+		}
+		cruiser =
+		{
+			"Circumitor" 
+		}
+		battleship =
+		{
+			"Bellator" 
+		}
+
+		constructor =
+		{
+			"Fabricator" 
+		}
+		colonizer =
+		{
+			"Colonus" 
+		}
+		science =
+		{
+			"Index" 
+		}
+		transport =
+		{
+			"Ponto" 
+		}
+
+		orbital_station =
+		{
+			"Portus" 
+		}
+		mining_station =
+		{
+			"Metallicus" 
+		}
+		research_station =
+		{
+			"Inventor" 
+		}
+		wormhole_station =
+		{
+			"Perforaculum" 
+		}
+		terraform_station =
+		{
+			"Transformatio" 
+		}
+		observation_station =
+		{
+			"Observator" 
+		}
+		outpost_station =
+		{
+			"Statio" 
+		}
+
+		military_station_small =
+		{
+			"Castellum" 
+		}
+		military_station_medium =
+		{
+			"Castrum" 
+		}
+		military_station_large =
+		{
+			"Arx" 
+		}
+	}
+
+	fleet_names =
+	{
+		random_names =
+		{
+		}
+		sequential_name = "Classis %R%"
+	}
+
+	army_names =
+	{
+		defense_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Firma %R%"
+		}
+		assault_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Victrix %R%"
+		}
+		slave_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Rapax %R%"
+		}
+		clone_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Virtutis %R%"
+		}
+		robotic_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Ferrata %R%"
+		}
+		android_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Constantia %R%"
+		}
+		psionic_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Fulminata %R%"
+		}
+		xenomorph_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Adiutrix %R%"
+		}
+		gene_warrior_army =
+		{
+			random_names =
+			{
+			}
+			sequential_name = "Legio Valentis %R%"
+		}
+	}	
+
+	planet_names =
+	{
+		generic =
+		{
+			names =
+			{
+				"Mercurius" "Venus" "Terra" "Luna" "Apophis" "Mars" "Deimos" "Phobos" "Ceres" "Pallas" "Vesta" "Hygiea" "Iuppiter" "Io" "Europa" "Ganymed" "Callisto" "Saturnus" "Mimas" "Enceladus" "Tethys" "Telesto" "Calypso" "Dione" "Helene" "Polydeuces" "Rhea" "Titan" "Hyperion" "Iapetus" "Phoebe" "Uranus" "Miranda" "Ariel" "Umbriel" "Titania" "Oberon" "Neptunus" "Proteus" "Triton" "Nereid" "Pluto" "Charon" "Orcus" "Vant" "Twotinos" "Cubewanos" "Haumea" "Salacia" "Varuna" "Eris" "Dysnomia" "Sedna" 
+			}
+		}
+		pc_desert =
+		{
+			names =
+			{
+			}
+		}
+		pc_arid =
+		{
+			names =
+			{
+			}
+		}
+		pc_tropical =
+		{
+			names =
+			{
+			}
+		}
+		pc_continental =
+		{
+			names =
+			{
+			}
+		}
+		pc_ocean =
+		{
+			names =
+			{
+			}
+		}
+		pc_tundra =
+		{
+			names =
+			{
+			}
+		}
+		pc_arctic =
+		{
+			names =
+			{
+			}
+		}
+		pc_gaia =
+		{
+			names =
+			{
+			}
+		}
+		pc_nuked =
+		{
+			names =
+			{
+			}
+		}
+		pc_ai =
+		{
+			names =
+			{
+			}
+		}
+	}
+
+	character_names =
+	{
+		### COMMON
+		names1 =
+		{
+			weight = 50
+			
+			full_names =
+			{
+			}
+			first_names =
+			{
+			}
+			first_names_male =
+			{
+				"Aulus" "Caelus" "Caius" "Cnaeus" "Flavius" "Lucius" "Marcus" "Mettius" "Publius" "Spurius" "Tiberius" "Titus"
+			}
+			first_names_female =
+			{
+				"Aula" "Caela" "Caia" "Cnaea" "Fausta" "Flavia" "Lucia" "Marcia" "Maxima" "Mettia" "Publia" "Spuria" "Statia" "Titia" "Tiberia" "Tita" "Volusa"
+			}
+			second_names =
+			{
+				"Aburius" "Accius" "Accoleius" "Acilius" "Aebutius" "Aedinius" "Aelius" "Aemilius" "Albanius" "Albatius" "Allectius" "Amatius" "Annius" "Antistius" "Antius" "Antonius" "Appuleius" "Aquillius" "Armenius" "Arrius" "Arsinius" "Artorius" "Asinius" "Ateius" "Atius" "Atilius" "Atrius" "Attius" "Aufidius" "Aurelius" "Aurius" "Ausonius" "Avidius" "Avitus" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Barrius" "Betilienus" "Betucius" "Blandius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecilius" "Caecinus" "Caecius" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calventius" "Calvisius" "Camillius" "Camelius" "Canidius" "Caninius" "Canius" "Cantilius" "Cantius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carius" "Caristanius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Clodius" "Cloelius" "Clovius" "Cluilius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Cordius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curiatius" "Curius" "Curtilius" "Curtius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Gabinius" "Galerius" "Gallius" "Gargonius" "Gavius" "Geganius" "Gellius" "Geminius" "Genucius" "Gessius" "Granius" "Gratius" "Gratidius"
+				"Decimius" "Decius" "Dellius" "Desticius" "Dexsius" "Didius" "Digitius" "Dillius" "Domitius" "Duccius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Faenius" "Falcidius" "Falerius" "Fannius" "Farsuleius" "Faucius" "Favonius" "Festinius" "Fidiculanius" "Flaminius" "Flavius" "Flavinius" "Flavonius" "Floridius" "Florius" "Floronius" "Fonteius" "Foslius" "Fuficius" "Fufidius" "Fufius" "Fulcinius" "Fulvius" "Fundanus" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvidius" "Helvius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius" "Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Liburnius" "Licinius" "Ligarius" "Livius" "Lollius" "Longinius" "Loreius" "Lucceius" "Lucienus" "Lucilius" "Lucius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Macrinius" "Maecilius" "Maecius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Manilius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Maximius" "Memmius" "Menenius" "Menius" "Mescinius" "Messienus" "Messius" "Metilius" "Mettius" "Milonius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Munius" "Murrius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidienus" "Nasidius" "Nautius" "Neratius" "Nerius" "Nigidius" "Ninnius" "Nipius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatinius" "Oclatius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppidius" "Oppius" "Opsidius" "Opsilius" "Opsius" "Oranius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfidius" "Orfius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pactumeius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papinius" "Papirius" "Papius" "Pasidienus" "Pasidius" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Peltrasius" "Percennius" "Perpernus" "Persius" "Pescennius" "Petellius" "Petillius" "Petronius" "Pinarius" "Pisentius" "Placidius" "Plautius" "Plinius" "Plotius" "Pollius" "Pompeius" "Pompilius" "Pomponius" "Pomptinus" "Pontidius" "Pontius" "Popidius" "Poppaeus" "Porcius" "Portius" "Postumius" "Potitius" "Publicius" "Pupius"
+				"Quinctilius" "Quinctius" "Quirinius"	
+				"Rabirius" "Rufius" "Rufrius" "Rusonius" "Rutilius"
+				"Sabucius" "Sallustius" "Salonius" "Salvius" "Scribonius" "Secundinius" "Secundius" "Seius" "Sempronius" "Sennius" "Sentius" "Septimius" "Sepunius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextilius" "Sextius" "Sidonius" "Silius" "Sittius" "Socellius" "Sornatius" "Spurius" "Statius" "Statilius" "Stertinius" "Suedius" "Sulpicius"
+				"Tadius" "Tanicius" "Tertinius" "Tettidius" "Tettienus" "Tettius" "Titiedius" "Titius" "Titinius" "Trebatius" "Trebellius" "Treblanus" "Tremellius" "Tuccius" "Tullius" "Turullius"
+				"Ulpius" "Umbrius" "Ummidius" "Urgulanius"
+				"Valerius" "Varius" "Vatinius" "Vedius" "Velius" "Veranius" "Verecundius" "Vergilius" "Verginius" "Vesnius" "Veturius" "Vibenius" "Vibidius" "Vibius" "Victricius" "Viducius" "Vinicius" "Vipsanius" "Vipstanus" "Viridius" "Virius" "Visellius" "Vitellius" "Vitruvius" "Volcatius" "Volumnius" "Volusennus" "Volusenus" "Volusius" "Vulius"
+			}
+			regnal_first_names =
+			{
+			}
+			regnal_first_names_male =
+			{
+				"Aulus" "Caelus" "Caius" "Cnaeus" "Flavius" "Lucius" "Marcus" "Mettius" "Publius" "Spurius" "Tiberius" "Titus"
+			}
+			regnal_first_names_female =
+			{
+				"Aula" "Caela" "Caia" "Cnaea" "Fausta" "Flavia" "Lucia" "Marcia" "Maxima" "Mettia" "Publia" "Spuria" "Statia" "Titia" "Tiberia" "Tita" "Volusa"
+			}
+			regnal_second_names =
+			{
+				"Abronius" "Aburius" "Accius" "Accoleius" "Acerronius" "Acilius" "Actorius" "Acutius" "Aebutius" "Aelius" "Aemilius" "Afranius" "Albius" "Albinius" "Albucius" "Alfenus" "Alfius" "Alienus" "Amafinius" "Ampius" "Ancharius" "Anicius" "Annaeus" "Anneius" "Annius" "Antius" "Antistius" "Antonius" "Aponius" "Appius" "Appuleius" "Apronius" "Apustius" "Aquillius" "Aquinius" "Arellius" "Arennius" "Arpineius" "Arrius" "Arruntius" "Articuleius" "Asconius" "Asinius" "Ateius" "Aternius" "Atius" "Atilius" "Atinius" "Atrius" "Attius" "Aufidius" "Aulius" "Aurelius" "Aurius" "Aurunculeius" "Autronius" "Avianus" "Avienus" "Avidius" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Betilienus" "Betucius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecius" "Caecilius" "Caecinus" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calvisius" "Canius" "Canidius" "Caninius" "Cantius" "Cantilius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Cloelius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curius" "Curiatius" "Curtius" "Curtilius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Cabinius" "Calerius" "Callius" "Cargonius" "Cavius" "Ceganius" "Cellius" "Ceminius" "Cenucius" "Cessius" "Cranius" "Cratidius"
+				"Decius" "Decimius" "Dellius" "Didius" "Digitius" "Domitius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Falcidius" "Fannius" "Farsuleius" "Faucius" "Fidiculanius" "Flaminius" "Flavius" "Fonteius" "Foslius" "Fufius" "Fuficius" "Fufidius" "Fulcinius" "Fulvius" "Fundanius" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvius" "Helvidius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius"Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Licinius" "Ligarius" "Livius" "Lollius" "Lucceius" "Lucienus" "Lucilius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Maecius" "Maecilius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Memmius" "Menenius" "Menius" "Mescinius" "Messius" "Metilius" "Mettius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidius" "Nasidienus" "Nautius" "Neratius" "Nerius" "Ninnius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatius" "Oclatinius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppius" "Oppidius" "Opsius" "Opsidius" "Opsilius" "Orbius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfius" "Orfidius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papius" "Papinius" "Papirius" "Pasidius" "Pasidienus" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Percennius" "Perpernus" "Persius" "Pescennius" "Petillius" "Petreius" "Petronius" "Pinarius" "Pompeius" "Pompilius" "Pomponius" "Poppaeus" "Porcius" "Postumius" "Potitius" "Procilius" "Publicius" "Publilius"
+				"Quinctius" "Quinctilius"
+				"Rabirius" "Remmius" "Romilius" "Roscius" "Rutilius"
+				"Salvius" "Scribonius" "Sedatius" "Sempronius" "Septimius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextius" "Sextilius" "Sicinius" "Sosius" "Stertinius" "Sulpicius"
+				"Tarpeius" "Tarquinius" "Tarquitius" "Terentius" "Tineius" "Titius" "Tullius"
+				"Ulpius" "Ummidius"
+				"Valerius" "Velius" "Verginius" "Vettius" "Veturius" "Villius" "Vivianus" "Vipsanius" "Visellius" "Vitellius"
+			}
+		}
+
+		### UNCOMMON
+		names2 =
+		{
+			weight = 20
+			
+			full_names =
+			{
+			}
+			first_names =
+			{
+			}
+			first_names_male =
+			{
+				"Agrippa" "Amulius" "Arruns" "Canus" "Cossus" "Gallus" "Hostus" "Lars" "Manius" "Marcellus" "Oppius" "Paullus" "Postumius" "Potitus" "Proculus" "Servius" "Sisenna" "Tullus" "Vel" "Vibius"
+			}
+			first_names_female =
+			{
+				"Agrippina" "Amulia" "Cana" "Cossa" "Galla" "Hosta" "Mania" "Marcella" "Oppia" "Paulla" "Postuma" "Potita" "Procula" "Servia" "Sisenna" "Tulla" "Vibia"
+			}
+			second_names =
+			{
+				"Aburius" "Accius" "Accoleius" "Acilius" "Aebutius" "Aedinius" "Aelius" "Aemilius" "Albanius" "Albatius" "Allectius" "Amatius" "Annius" "Antistius" "Antius" "Antonius" "Appuleius" "Aquillius" "Armenius" "Arrius" "Arsinius" "Artorius" "Asinius" "Ateius" "Atius" "Atilius" "Atrius" "Attius" "Aufidius" "Aurelius" "Aurius" "Ausonius" "Avidius" "Avitus" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Barrius" "Betilienus" "Betucius" "Blandius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecilius" "Caecinus" "Caecius" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calventius" "Calvisius" "Camillius" "Camelius" "Canidius" "Caninius" "Canius" "Cantilius" "Cantius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carius" "Caristanius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Clodius" "Cloelius" "Clovius" "Cluilius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Cordius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curiatius" "Curius" "Curtilius" "Curtius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Gabinius" "Galerius" "Gallius" "Gargonius" "Gavius" "Geganius" "Gellius" "Geminius" "Genucius" "Gessius" "Granius" "Gratius" "Gratidius"
+				"Decimius" "Decius" "Dellius" "Desticius" "Dexsius" "Didius" "Digitius" "Dillius" "Domitius" "Duccius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Faenius" "Falcidius" "Falerius" "Fannius" "Farsuleius" "Faucius" "Favonius" "Festinius" "Fidiculanius" "Flaminius" "Flavius" "Flavinius" "Flavonius" "Floridius" "Florius" "Floronius" "Fonteius" "Foslius" "Fuficius" "Fufidius" "Fufius" "Fulcinius" "Fulvius" "Fundanus" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvidius" "Helvius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius" "Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Liburnius" "Licinius" "Ligarius" "Livius" "Lollius" "Longinius" "Loreius" "Lucceius" "Lucienus" "Lucilius" "Lucius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Macrinius" "Maecilius" "Maecius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Manilius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Maximius" "Memmius" "Menenius" "Menius" "Mescinius" "Messienus" "Messius" "Metilius" "Mettius" "Milonius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Munius" "Murrius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidienus" "Nasidius" "Nautius" "Neratius" "Nerius" "Nigidius" "Ninnius" "Nipius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatinius" "Oclatius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppidius" "Oppius" "Opsidius" "Opsilius" "Opsius" "Oranius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfidius" "Orfius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pactumeius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papinius" "Papirius" "Papius" "Pasidienus" "Pasidius" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Peltrasius" "Percennius" "Perpernus" "Persius" "Pescennius" "Petellius" "Petillius" "Petronius" "Pinarius" "Pisentius" "Placidius" "Plautius" "Plinius" "Plotius" "Pollius" "Pompeius" "Pompilius" "Pomponius" "Pomptinus" "Pontidius" "Pontius" "Popidius" "Poppaeus" "Porcius" "Portius" "Postumius" "Potitius" "Publicius" "Pupius"
+				"Quinctilius" "Quinctius" "Quirinius"	
+				"Rabirius" "Rufius" "Rufrius" "Rusonius" "Rutilius"
+				"Sabucius" "Sallustius" "Salonius" "Salvius" "Scribonius" "Secundinius" "Secundius" "Seius" "Sempronius" "Sennius" "Sentius" "Septimius" "Sepunius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextilius" "Sextius" "Sidonius" "Silius" "Sittius" "Socellius" "Sornatius" "Spurius" "Statius" "Statilius" "Stertinius" "Suedius" "Sulpicius"
+				"Tadius" "Tanicius" "Tertinius" "Tettidius" "Tettienus" "Tettius" "Titiedius" "Titius" "Titinius" "Trebatius" "Trebellius" "Treblanus" "Tremellius" "Tuccius" "Tullius" "Turullius"
+				"Ulpius" "Umbrius" "Ummidius" "Urgulanius"
+				"Valerius" "Varius" "Vatinius" "Vedius" "Velius" "Veranius" "Verecundius" "Vergilius" "Verginius" "Vesnius" "Veturius" "Vibenius" "Vibidius" "Vibius" "Victricius" "Viducius" "Vinicius" "Vipsanius" "Vipstanus" "Viridius" "Virius" "Visellius" "Vitellius" "Vitruvius" "Volcatius" "Volumnius" "Volusennus" "Volusenus" "Volusius" "Vulius"
+			}
+			regnal_first_names =
+			{
+			}
+			regnal_first_names_male =
+			{
+				"Agrippa" "Amulius" "Arruns" "Canus" "Cossus" "Gallus" "Hostus" "Lars" "Manius" "Marcellus" "Oppius" "Paullus" "Postumius" "Potitus" "Proculus" "Servius" "Sisenna" "Tullus" "Vel" "Vibius"
+			}
+			regnal_first_names_female =
+			{
+				"Agrippina" "Amulia" "Cana" "Cossa" "Galla" "Hosta" "Mania" "Marcella" "Oppia" "Paulla" "Postuma" "Potita" "Procula" "Servia" "Sisenna" "Tulla" "Vibia"
+			}
+			regnal_second_names =
+			{
+				"Abronius" "Aburius" "Accius" "Accoleius" "Acerronius" "Acilius" "Actorius" "Acutius" "Aebutius" "Aelius" "Aemilius" "Afranius" "Albius" "Albinius" "Albucius" "Alfenus" "Alfius" "Alienus" "Amafinius" "Ampius" "Ancharius" "Anicius" "Annaeus" "Anneius" "Annius" "Antius" "Antistius" "Antonius" "Aponius" "Appius" "Appuleius" "Apronius" "Apustius" "Aquillius" "Aquinius" "Arellius" "Arennius" "Arpineius" "Arrius" "Arruntius" "Articuleius" "Asconius" "Asinius" "Ateius" "Aternius" "Atius" "Atilius" "Atinius" "Atrius" "Attius" "Aufidius" "Aulius" "Aurelius" "Aurius" "Aurunculeius" "Autronius" "Avianus" "Avienus" "Avidius" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Betilienus" "Betucius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecius" "Caecilius" "Caecinus" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calvisius" "Canius" "Canidius" "Caninius" "Cantius" "Cantilius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Cloelius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curius" "Curiatius" "Curtius" "Curtilius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Cabinius" "Calerius" "Callius" "Cargonius" "Cavius" "Ceganius" "Cellius" "Ceminius" "Cenucius" "Cessius" "Cranius" "Cratidius"
+				"Decius" "Decimius" "Dellius" "Didius" "Digitius" "Domitius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Falcidius" "Fannius" "Farsuleius" "Faucius" "Fidiculanius" "Flaminius" "Flavius" "Fonteius" "Foslius" "Fufius" "Fuficius" "Fufidius" "Fulcinius" "Fulvius" "Fundanius" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvius" "Helvidius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius"Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Licinius" "Ligarius" "Livius" "Lollius" "Lucceius" "Lucienus" "Lucilius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Maecius" "Maecilius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Memmius" "Menenius" "Menius" "Mescinius" "Messius" "Metilius" "Mettius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidius" "Nasidienus" "Nautius" "Neratius" "Nerius" "Ninnius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatius" "Oclatinius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppius" "Oppidius" "Opsius" "Opsidius" "Opsilius" "Orbius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfius" "Orfidius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papius" "Papinius" "Papirius" "Pasidius" "Pasidienus" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Percennius" "Perpernus" "Persius" "Pescennius" "Petillius" "Petreius" "Petronius" "Pinarius" "Pompeius" "Pompilius" "Pomponius" "Poppaeus" "Porcius" "Postumius" "Potitius" "Procilius" "Publicius" "Publilius"
+				"Quinctius" "Quinctilius"
+				"Rabirius" "Remmius" "Romilius" "Roscius" "Rutilius"
+				"Salvius" "Scribonius" "Sedatius" "Sempronius" "Septimius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextius" "Sextilius" "Sicinius" "Sosius" "Stertinius" "Sulpicius"
+				"Tarpeius" "Tarquinius" "Tarquitius" "Terentius" "Tineius" "Titius" "Tullius"
+				"Ulpius" "Ummidius"
+				"Valerius" "Velius" "Verginius" "Vettius" "Veturius" "Villius" "Vivianus" "Vipsanius" "Visellius" "Vitellius"
+			}
+		}
+
+		### DYNASTICAL
+		names3 = {
+			weight = 20
+			
+			full_names =
+			{
+			}
+			first_names =
+			{
+			}
+			first_names_male =
+			{
+				"Appius" "Caeso" "Camillus" "Decius" "Drusus" "Faustus" "Herius" "Mamercus" "Numerius" "Opiter" "Vopiscus"
+			}
+			first_names_female =
+			{
+				"Appia" "Caesula" "Camilla" "Decia" "Drusa" "Fausta" "Heria" "Mamerca" "Numeria" "Opitera" "Vopisca"
+			}
+			second_names =
+			{
+				"Aburius" "Accius" "Accoleius" "Acilius" "Aebutius" "Aedinius" "Aelius" "Aemilius" "Albanius" "Albatius" "Allectius" "Amatius" "Annius" "Antistius" "Antius" "Antonius" "Appuleius" "Aquillius" "Armenius" "Arrius" "Arsinius" "Artorius" "Asinius" "Ateius" "Atius" "Atilius" "Atrius" "Attius" "Aufidius" "Aurelius" "Aurius" "Ausonius" "Avidius" "Avitus" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Barrius" "Betilienus" "Betucius" "Blandius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecilius" "Caecinus" "Caecius" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calventius" "Calvisius" "Camillius" "Camelius" "Canidius" "Caninius" "Canius" "Cantilius" "Cantius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carius" "Caristanius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Clodius" "Cloelius" "Clovius" "Cluilius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Cordius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curiatius" "Curius" "Curtilius" "Curtius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Gabinius" "Galerius" "Gallius" "Gargonius" "Gavius" "Geganius" "Gellius" "Geminius" "Genucius" "Gessius" "Granius" "Gratius" "Gratidius"
+				"Decimius" "Decius" "Dellius" "Desticius" "Dexsius" "Didius" "Digitius" "Dillius" "Domitius" "Duccius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Faenius" "Falcidius" "Falerius" "Fannius" "Farsuleius" "Faucius" "Favonius" "Festinius" "Fidiculanius" "Flaminius" "Flavius" "Flavinius" "Flavonius" "Floridius" "Florius" "Floronius" "Fonteius" "Foslius" "Fuficius" "Fufidius" "Fufius" "Fulcinius" "Fulvius" "Fundanus" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvidius" "Helvius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius" "Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Liburnius" "Licinius" "Ligarius" "Livius" "Lollius" "Longinius" "Loreius" "Lucceius" "Lucienus" "Lucilius" "Lucius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Macrinius" "Maecilius" "Maecius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Manilius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Maximius" "Memmius" "Menenius" "Menius" "Mescinius" "Messienus" "Messius" "Metilius" "Mettius" "Milonius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Munius" "Murrius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidienus" "Nasidius" "Nautius" "Neratius" "Nerius" "Nigidius" "Ninnius" "Nipius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatinius" "Oclatius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppidius" "Oppius" "Opsidius" "Opsilius" "Opsius" "Oranius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfidius" "Orfius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pactumeius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papinius" "Papirius" "Papius" "Pasidienus" "Pasidius" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Peltrasius" "Percennius" "Perpernus" "Persius" "Pescennius" "Petellius" "Petillius" "Petronius" "Pinarius" "Pisentius" "Placidius" "Plautius" "Plinius" "Plotius" "Pollius" "Pompeius" "Pompilius" "Pomponius" "Pomptinus" "Pontidius" "Pontius" "Popidius" "Poppaeus" "Porcius" "Portius" "Postumius" "Potitius" "Publicius" "Pupius"
+				"Quinctilius" "Quinctius" "Quirinius"	
+				"Rabirius" "Rufius" "Rufrius" "Rusonius" "Rutilius"
+				"Sabucius" "Sallustius" "Salonius" "Salvius" "Scribonius" "Secundinius" "Secundius" "Seius" "Sempronius" "Sennius" "Sentius" "Septimius" "Sepunius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextilius" "Sextius" "Sidonius" "Silius" "Sittius" "Socellius" "Sornatius" "Spurius" "Statius" "Statilius" "Stertinius" "Suedius" "Sulpicius"
+				"Tadius" "Tanicius" "Tertinius" "Tettidius" "Tettienus" "Tettius" "Titiedius" "Titius" "Titinius" "Trebatius" "Trebellius" "Treblanus" "Tremellius" "Tuccius" "Tullius" "Turullius"
+				"Ulpius" "Umbrius" "Ummidius" "Urgulanius"
+				"Valerius" "Varius" "Vatinius" "Vedius" "Velius" "Veranius" "Verecundius" "Vergilius" "Verginius" "Vesnius" "Veturius" "Vibenius" "Vibidius" "Vibius" "Victricius" "Viducius" "Vinicius" "Vipsanius" "Vipstanus" "Viridius" "Virius" "Visellius" "Vitellius" "Vitruvius" "Volcatius" "Volumnius" "Volusennus" "Volusenus" "Volusius" "Vulius"
+			}
+			regnal_first_names =
+			{
+			}
+			regnal_first_names_male =
+			{
+				"Appius" "Caeso" "Camillus" "Decius" "Drusus" "Faustus" "Herius" "Mamercus" "Numerius" "Opiter" "Vopiscus"
+			}
+			regnal_first_names_female =
+			{
+				"Appia" "Caesula" "Camilla" "Decia" "Drusa" "Fausta" "Heria" "Mamerca" "Numeria" "Opitera" "Vopisca"
+			}
+			regnal_second_names =
+			{
+				"Abronius" "Aburius" "Accius" "Accoleius" "Acerronius" "Acilius" "Actorius" "Acutius" "Aebutius" "Aelius" "Aemilius" "Afranius" "Albius" "Albinius" "Albucius" "Alfenus" "Alfius" "Alienus" "Amafinius" "Ampius" "Ancharius" "Anicius" "Annaeus" "Anneius" "Annius" "Antius" "Antistius" "Antonius" "Aponius" "Appius" "Appuleius" "Apronius" "Apustius" "Aquillius" "Aquinius" "Arellius" "Arennius" "Arpineius" "Arrius" "Arruntius" "Articuleius" "Asconius" "Asinius" "Ateius" "Aternius" "Atius" "Atilius" "Atinius" "Atrius" "Attius" "Aufidius" "Aulius" "Aurelius" "Aurius" "Aurunculeius" "Autronius" "Avianus" "Avienus" "Avidius" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Betilienus" "Betucius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecius" "Caecilius" "Caecinus" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calvisius" "Canius" "Canidius" "Caninius" "Cantius" "Cantilius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Cloelius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curius" "Curiatius" "Curtius" "Curtilius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Cabinius" "Calerius" "Callius" "Cargonius" "Cavius" "Ceganius" "Cellius" "Ceminius" "Cenucius" "Cessius" "Cranius" "Cratidius"
+				"Decius" "Decimius" "Dellius" "Didius" "Digitius" "Domitius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Falcidius" "Fannius" "Farsuleius" "Faucius" "Fidiculanius" "Flaminius" "Flavius" "Fonteius" "Foslius" "Fufius" "Fuficius" "Fufidius" "Fulcinius" "Fulvius" "Fundanius" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvius" "Helvidius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius"Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Licinius" "Ligarius" "Livius" "Lollius" "Lucceius" "Lucienus" "Lucilius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Maecius" "Maecilius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Memmius" "Menenius" "Menius" "Mescinius" "Messius" "Metilius" "Mettius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidius" "Nasidienus" "Nautius" "Neratius" "Nerius" "Ninnius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatius" "Oclatinius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppius" "Oppidius" "Opsius" "Opsidius" "Opsilius" "Orbius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfius" "Orfidius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papius" "Papinius" "Papirius" "Pasidius" "Pasidienus" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Percennius" "Perpernus" "Persius" "Pescennius" "Petillius" "Petreius" "Petronius" "Pinarius" "Pompeius" "Pompilius" "Pomponius" "Poppaeus" "Porcius" "Postumius" "Potitius" "Procilius" "Publicius" "Publilius"
+				"Quinctius" "Quinctilius"
+				"Rabirius" "Remmius" "Romilius" "Roscius" "Rutilius"
+				"Salvius" "Scribonius" "Sedatius" "Sempronius" "Septimius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextius" "Sextilius" "Sicinius" "Sosius" "Stertinius" "Sulpicius"
+				"Tarpeius" "Tarquinius" "Tarquitius" "Terentius" "Tineius" "Titius" "Tullius"
+				"Ulpius" "Ummidius"
+				"Valerius" "Velius" "Verginius" "Vettius" "Veturius" "Villius" "Vivianus" "Vipsanius" "Visellius" "Vitellius"
+			}
+		}
+
+		### NUMERAL
+		names4 =
+		{
+			weight = 10
+			
+			full_names =
+			{
+			}
+			first_names =
+			{
+			}
+			first_names_male =
+			{
+				"Primus" "Secundus" "Tertius" "Quartus" "Quintus" "Sextus" "Septimus" "Octavianus" "Nonus" "Decimus"
+			}
+			first_names_female =
+			{
+				"Prima" "Secunda" "Tertia" "Quarta" "Quinta" "Sexta" "Septima" "Octavia" "Nona" "Decima"
+			}
+			second_names =
+			{
+				"Aburius" "Accius" "Accoleius" "Acilius" "Aebutius" "Aedinius" "Aelius" "Aemilius" "Albanius" "Albatius" "Allectius" "Amatius" "Annius" "Antistius" "Antius" "Antonius" "Appuleius" "Aquillius" "Armenius" "Arrius" "Arsinius" "Artorius" "Asinius" "Ateius" "Atius" "Atilius" "Atrius" "Attius" "Aufidius" "Aurelius" "Aurius" "Ausonius" "Avidius" "Avitus" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Barrius" "Betilienus" "Betucius" "Blandius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecilius" "Caecinus" "Caecius" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calventius" "Calvisius" "Camillius" "Camelius" "Canidius" "Caninius" "Canius" "Cantilius" "Cantius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carius" "Caristanius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Clodius" "Cloelius" "Clovius" "Cluilius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Cordius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curiatius" "Curius" "Curtilius" "Curtius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Gabinius" "Galerius" "Gallius" "Gargonius" "Gavius" "Geganius" "Gellius" "Geminius" "Genucius" "Gessius" "Granius" "Gratius" "Gratidius"
+				"Decimius" "Decius" "Dellius" "Desticius" "Dexsius" "Didius" "Digitius" "Dillius" "Domitius" "Duccius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Faenius" "Falcidius" "Falerius" "Fannius" "Farsuleius" "Faucius" "Favonius" "Festinius" "Fidiculanius" "Flaminius" "Flavius" "Flavinius" "Flavonius" "Floridius" "Florius" "Floronius" "Fonteius" "Foslius" "Fuficius" "Fufidius" "Fufius" "Fulcinius" "Fulvius" "Fundanus" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvidius" "Helvius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius" "Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Liburnius" "Licinius" "Ligarius" "Livius" "Lollius" "Longinius" "Loreius" "Lucceius" "Lucienus" "Lucilius" "Lucius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Macrinius" "Maecilius" "Maecius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Manilius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Maximius" "Memmius" "Menenius" "Menius" "Mescinius" "Messienus" "Messius" "Metilius" "Mettius" "Milonius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Munius" "Murrius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidienus" "Nasidius" "Nautius" "Neratius" "Nerius" "Nigidius" "Ninnius" "Nipius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatinius" "Oclatius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppidius" "Oppius" "Opsidius" "Opsilius" "Opsius" "Oranius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfidius" "Orfius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pactumeius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papinius" "Papirius" "Papius" "Pasidienus" "Pasidius" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Peltrasius" "Percennius" "Perpernus" "Persius" "Pescennius" "Petellius" "Petillius" "Petronius" "Pinarius" "Pisentius" "Placidius" "Plautius" "Plinius" "Plotius" "Pollius" "Pompeius" "Pompilius" "Pomponius" "Pomptinus" "Pontidius" "Pontius" "Popidius" "Poppaeus" "Porcius" "Portius" "Postumius" "Potitius" "Publicius" "Pupius"
+				"Quinctilius" "Quinctius" "Quirinius"	
+				"Rabirius" "Rufius" "Rufrius" "Rusonius" "Rutilius"
+				"Sabucius" "Sallustius" "Salonius" "Salvius" "Scribonius" "Secundinius" "Secundius" "Seius" "Sempronius" "Sennius" "Sentius" "Septimius" "Sepunius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextilius" "Sextius" "Sidonius" "Silius" "Sittius" "Socellius" "Sornatius" "Spurius" "Statius" "Statilius" "Stertinius" "Suedius" "Sulpicius"
+				"Tadius" "Tanicius" "Tertinius" "Tettidius" "Tettienus" "Tettius" "Titiedius" "Titius" "Titinius" "Trebatius" "Trebellius" "Treblanus" "Tremellius" "Tuccius" "Tullius" "Turullius"
+				"Ulpius" "Umbrius" "Ummidius" "Urgulanius"
+				"Valerius" "Varius" "Vatinius" "Vedius" "Velius" "Veranius" "Verecundius" "Vergilius" "Verginius" "Vesnius" "Veturius" "Vibenius" "Vibidius" "Vibius" "Victricius" "Viducius" "Vinicius" "Vipsanius" "Vipstanus" "Viridius" "Virius" "Visellius" "Vitellius" "Vitruvius" "Volcatius" "Volumnius" "Volusennus" "Volusenus" "Volusius" "Vulius"
+			}
+			regnal_first_names =
+			{
+			}
+			regnal_first_names_male =
+			{
+				"Primus" "Secundus" "Tertius" "Quartus" "Quintus" "Sextus" "Septimus" "Octavianus" "Nonus" "Decimus"
+			}
+			regnal_first_names_female =
+			{
+				"Prima" "Secunda" "Tertia" "Quarta" "Quinta" "Sexta" "Septima" "Octavia" "Nona" "Decima"
+			}
+			regnal_second_names =
+			{
+				"Abronius" "Aburius" "Accius" "Accoleius" "Acerronius" "Acilius" "Actorius" "Acutius" "Aebutius" "Aelius" "Aemilius" "Afranius" "Albius" "Albinius" "Albucius" "Alfenus" "Alfius" "Alienus" "Amafinius" "Ampius" "Ancharius" "Anicius" "Annaeus" "Anneius" "Annius" "Antius" "Antistius" "Antonius" "Aponius" "Appius" "Appuleius" "Apronius" "Apustius" "Aquillius" "Aquinius" "Arellius" "Arennius" "Arpineius" "Arrius" "Arruntius" "Articuleius" "Asconius" "Asinius" "Ateius" "Aternius" "Atius" "Atilius" "Atinius" "Atrius" "Attius" "Aufidius" "Aulius" "Aurelius" "Aurius" "Aurunculeius" "Autronius" "Avianus" "Avienus" "Avidius" "Axius"
+				"Baebius" "Balventius" "Bantius" "Barbatius" "Betilienus" "Betucius" "Blossius" "Bruttius" "Bucculeius" "Burrienus"
+				"Caecius" "Caecilius" "Caecinus" "Caedicius" "Caelius" "Caeparius" "Caepasius" "Caerellius" "Caesennius" "Caesetius" "Caesius" "Caesonius" "Caesulenus" "Caetronius" "Calavius" "Calidius" "Calpurnius" "Calvisius" "Canius" "Canidius" "Caninius" "Cantius" "Cantilius" "Canuleius" "Canutius" "Carfulenus" "Carisius" "Carpinatius" "Carteius" "Carvilius" "Cassius" "Castricius" "Castrinius" "Catius" "Catienus" "Catilius" "Ceionius" "Centenius" "Cestius" "Cicereius" "Cilnius" "Cincius" "Cispius" "Claudius" "Cloelius" "Cluentius" "Cluvius" "Cocceius" "Cominius" "Consentius" "Considius" "Coponius" "Corfidius" "Cornelius" "Cornificius" "Coruncanius" "Cosconius" "Cossinius" "Cossutius" "Cotius" "Cottius" "Crassitius" "Crepereius" "Critonius" "Cupiennius" "Curius" "Curiatius" "Curtius" "Curtilius" "Cuspius"
+				### PREVIOUSLY STARTING WITH G
+				"Cabinius" "Calerius" "Callius" "Cargonius" "Cavius" "Ceganius" "Cellius" "Ceminius" "Cenucius" "Cessius" "Cranius" "Cratidius"
+				"Decius" "Decimius" "Dellius" "Didius" "Digitius" "Domitius" "Duilius" "Durmius" "Duronius"
+				"Egilius" "Egnatius" "Egnatuleius" "Ennius" "Epidius" "Eppius" "Equitius" "Erucius"
+				"Fabius" "Fabricius" "Fadius" "Falcidius" "Fannius" "Farsuleius" "Faucius" "Fidiculanius" "Flaminius" "Flavius" "Fonteius" "Foslius" "Fufius" "Fuficius" "Fufidius" "Fulcinius" "Fulvius" "Fundanius" "Furius" "Furnius"
+				"Haterius" "Heius" "Helvius" "Helvidius" "Herennius" "Herminius" "Hirrius" "Hirtius" "Hirtuleius" "Horatius" "Hortensius" "Hosidius" "Hostilius"
+				"Iccius" "Icilius" "Insteius"Iulius" "Iunius" "Iuventius"
+				"Laberius" "Labienus" "Lacerius" "Laelius" "Laenius" "Laetilius" "Laetorius" "Lafrenius" "Lamponius" "Laronius" "Lartius" "Latinius" "Lavinius" "Lecanius" "Lentidius" "Licinius" "Ligarius" "Livius" "Lollius" "Lucceius" "Lucienus" "Lucilius" "Lucretius" "Lurius" "Luscius" "Lusius" "Lutatius"
+				"Maecius" "Maecilius" "Maelius" "Maenius" "Maevius" "Magius" "Mallius" "Mamilius" "Manilius" "Manlius" "Marcius" "Marius" "Matius" "Matienus" "Matinius" "Matrinius" "Memmius" "Menenius" "Menius" "Mescinius" "Messius" "Metilius" "Mettius" "Mimesius" "Minatius" "Minicius" "Minidius" "Minucius" "Modius" "Mucius" "Mummius" "Munatius" "Mussidius" "Mustius" "Mutius"
+				"Naevius" "Nasennius" "Nasidius" "Nasidienus" "Nautius" "Neratius" "Nerius" "Ninnius" "Nonius" "Norbanus" "Novellius" "Novius" "Numerius" "Numicius" "Numisius" "Numitorius" "Nummius" "Numonius" "Nymphidius"
+				"Obellius" "Obultronius" "Occius" "Oclatius" "Oclatinius" "Octavenus" "Octavius" "Ofanius" "Ofilius" "Ogulnius" "Ollius" "Opellius" "Opetreius" "Opimius" "Opiternius" "Oppius" "Oppidius" "Opsius" "Opsidius" "Opsilius" "Orbius" "Orbicius" "Orbilius" "Orchius" "Orcivius" "Orfius" "Orfidius" "Oscius" "Ostorius" "Otacilius" "Ovidius" "Ovinius"
+				"Paccius" "Pacidius" "Pacilius" "Paconius" "Pacuvius" "Palfurius" "Palpellius" "Pantuleius" "Papius" "Papinius" "Papirius" "Pasidius" "Pasidienus" "Passienus" "Patulcius" "Pedanius" "Pedius" "Peducaeus" "Percennius" "Perpernus" "Persius" "Pescennius" "Petillius" "Petreius" "Petronius" "Pinarius" "Pompeius" "Pompilius" "Pomponius" "Poppaeus" "Porcius" "Postumius" "Potitius" "Procilius" "Publicius" "Publilius"
+				"Quinctius" "Quinctilius"
+				"Rabirius" "Remmius" "Romilius" "Roscius" "Rutilius"
+				"Salvius" "Scribonius" "Sedatius" "Sempronius" "Septimius" "Sergius" "Sertorius" "Servilius" "Sestius" "Sextius" "Sextilius" "Sicinius" "Sosius" "Stertinius" "Sulpicius"
+				"Tarpeius" "Tarquinius" "Tarquitius" "Terentius" "Tineius" "Titius" "Tullius"
+				"Ulpius" "Ummidius"
+				"Valerius" "Velius" "Verginius" "Vettius" "Veturius" "Villius" "Vivianus" "Vipsanius" "Visellius" "Vitellius"" 
+			}
+		}
+
+	}
+}

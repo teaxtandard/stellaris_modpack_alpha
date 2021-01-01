@@ -1,0 +1,20 @@
+Dragonic = {
+	archetype = BIOLOGICAL
+	playable = { always = yes }
+	randomized = { always = yes }
+	robotic = no
+	
+	possible = { authority = { NOT = { value = auth_machine_intelligence text = SPECIES_CLASS_MUST_NOT_USE_MACHINE_INTELLIGENCE } } }
+	
+	portraits = {
+		"dragon"
+		"dragon_normal"
+	}
+	portraits = {
+		"dragon"
+		"dragon_normal"
+	}
+	
+	graphical_culture = navalships_01
+	move_pop_sound_effect = "dragon_pops_move_01"
+}

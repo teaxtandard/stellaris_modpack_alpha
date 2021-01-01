@@ -1,0 +1,952 @@
+
+#### UTILUTY SHIP COMPONENT RESPONDING
+
+## ENABLING SCANNER SYSTEMS FROM ORACLE PROCEEDING
+
+utility_component_template = {
+	key = "ORACLE_DELTA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_science_delta_comp"
+	icon_frame = 1
+	power = -100
+	size_restriction = { precursor_science } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	
+	upgrades_to = "ORACLE_ALPHA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 1
+			acot_sr_dark_energy = 1
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+utility_component_template = {
+	key = "ORACLE_ALPHA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_science_alpha_comp"
+	icon_frame = 1
+	power = -200
+	size_restriction = { precursor_science } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_science_alpha" }
+	
+	upgrades_to = "ORACLE_SIGMA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "ORACLE_SIGMA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_science_sigma_comp"
+	icon_frame = 1
+	power = -400
+	size_restriction = { precursor_science } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_science_sigma" }
+	
+	upgrades_to = "ORACLE_OMEGA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_stellarite
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_stellarite
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "ORACLE_OMEGA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_science_omega_comp"
+	icon_frame = 1
+	power = -2000
+	size_restriction = { precursor_science } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_science_omega" }
+	
+
+	resources = {
+		category = ship_components
+		cost = {
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+### CONSTRUCTION SERVICES STANDING BY FOR NEW ORDERS
+
+
+utility_component_template = {
+	key = "INITIALIZER_DELTA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_construct_delta_comp"
+	icon_frame = 1
+	power = -100
+	size_restriction = { precursor_constructor } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	
+	upgrades_to = "INITIALIZER_ALPHA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 1
+			acot_sr_dark_energy = 1
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+utility_component_template = {
+	key = "INITIALIZER_ALPHA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_construct_alpha_comp"
+	icon_frame = 1
+	power = -200
+	size_restriction = { precursor_constructor } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_construcor_alpha" }
+	
+	upgrades_to = "INITIALIZER_SIGMA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "INITIALIZER_SIGMA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_construct_sigma_comp"
+	icon_frame = 1
+	power = -400
+	size_restriction = { precursor_constructor } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_construcor_sigma" }
+	
+	upgrades_to = "INITIALIZER_OMEGA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_stellarite
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_stellarite
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "INITIALIZER_OMEGA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_construct_omega_comp"
+	icon_frame = 1
+	power = -2000
+	size_restriction = { precursor_constructor } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_construcor_omega" }
+	
+
+	resources = {
+		category = ship_components
+		cost = {
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+### PRECURSOR SPACE EXPANSNION COMPANY, MOBILE COLONIZATION CENTER! YES COMMANDER, RELOCATING COLONIZATION SITE
+
+
+utility_component_template = {
+	key = "EMISSARY_DELTA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_colony_delta_comp"
+	icon_frame = 1
+	power = -100
+	size_restriction = { precursor_colonizer } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	
+	upgrades_to = "EMISSARY_ALPHA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 1
+			acot_sr_dark_energy = 1
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 5
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+utility_component_template = {
+	key = "EMISSARY_ALPHA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_colony_alpha_comp"
+	icon_frame = 1
+	power = -200
+	size_restriction = { precursor_colonizer } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_colonizer_alpha" }
+	
+	upgrades_to = "EMISSARY_SIGMA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_dark_energy
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_dark_energy
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "EMISSARY_SIGMA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_colony_sigma_comp"
+	icon_frame = 1
+	power = -400
+	size_restriction = { precursor_colonizer } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_colonizer_sigma" }
+	
+	upgrades_to = "EMISSARY_OMEGA_COMPUTER"
+
+	resources = {
+		category = ship_components
+		cost = {
+			sr_dark_matter = 2
+			acot_sr_dark_energy = 2
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 20
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_stellarite
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_stellarite
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+utility_component_template = {
+	key = "EMISSARY_OMEGA_COMPUTER"
+	size = small
+	icon = "GFX_ship_part_precursor_colony_omega_comp"
+	icon_frame = 1
+	power = -2000
+	size_restriction = { precursor_colonizer } #fe_goliath
+	component_set = "combat_computers"
+	ship_behavior = "colossus"
+	prerequisites = { "tech_precursor_colonizer_omega" }
+	
+
+	resources = {
+		category = ship_components
+		cost = {
+		}
+	}
+
+	ship_modifier = {
+	}
+	
+	ai_weight = {
+		weight = 30
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}		
+		}
+		modifier = {
+			factor = 0.0
+			has_resource = {
+				type = acot_sr_light_matter
+				amount <= 5
+			}
+			has_monthly_income = {
+				resource = acot_sr_light_matter
+				value <= 2
+			}		
+		}	
+	}	
+}
+
+
+##################### SPECIAL AUX #####################
+
+#### EMISSARY ####
+
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_POP"
+	size = aux
+	icon = "GFX_ship_part_extra_pop"
+	icon_frame = 1
+	power = -30
+	component_set = "ACOT_EMISSART_EXTRA_POP"
+	resources = {
+		category = ship_components
+		cost = {
+			energy = 500
+			sr_dark_matter = 2.50
+			acot_sr_dark_energy = 2.50
+		}
+		upkeep = {
+			energy = 20.0
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { "tech_precursor_colonizer_alpha" }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_TROOPS"
+	size = aux
+	icon = "GFX_ship_part_extra_infantry"
+	icon_frame = 1
+	power = -30
+	component_set = "ACOT_EMISSART_EXTRA_TROOPS"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 1250
+			sr_dark_matter = 5.00
+		}
+		upkeep = {
+			energy = 10.0
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_DROIDS"
+	size = aux
+	icon = "GFX_ship_part_extra_droid"
+	icon_frame = 1
+	power = -30
+	component_set = "ACOT_EMISSART_EXTRA_DROIDS"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 1250
+			sr_dark_matter = 5.00
+		}
+		upkeep = {
+			energy = 10.0
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_spm_battledroid }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_LAB"
+	size = aux
+	icon = "GFX_ship_part_extra_lab"
+	icon_frame = 1
+	power = -50
+	component_set = "ACOT_EMISSART_EXTRA_LAB"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 650
+			sr_dark_matter = 200
+			acot_sr_dark_energy = 200
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_ae_enigmatic_lab }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_GIGA"
+	size = aux
+	icon = "GFX_ship_part_extra_giga"
+	icon_frame = 1
+	power = -100
+	component_set = "ACOT_EMISSART_EXTRA_GIGA"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 40000
+			influence = 150
+			sr_dark_matter = 500
+			acot_sr_dark_energy = 500
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_giga_fortress }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_SKYSHIELD"
+	size = aux
+	icon = "GFX_ship_part_extra_sky_shield"
+	icon_frame = 1
+	power = -50
+	component_set = "ACOT_EMISSART_EXTRA_SKYSHIELD"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 200
+			sr_dark_matter = 50
+			acot_sr_dark_energy = 150
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_ae_dark_energy_psg }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_ASSEMBLY"
+	size = aux
+	icon = "GFX_ship_part_extra_robo_assembly"
+	icon_frame = 1
+	power = -30
+	component_set = "ACOT_EMISSART_EXTRA_ASSEMBLY"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 1000
+			sr_dark_matter = 500
+			acot_sr_dark_energy = 200
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_super_assembly_ae }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+
+utility_component_template = {
+	key = "ACOT_EMISSART_EXTRA_NEXUS"
+	size = aux
+	icon = "GFX_ship_part_extra_nexus"
+	icon_frame = 1
+	power = -30
+	component_set = "ACOT_EMISSART_EXTRA_NEXUS"
+	resources = {
+		category = ship_components
+		cost = {
+			minerals = 4000
+			energy = 4000
+		}
+	}
+
+	ship_modifier = {
+	}
+	size_restriction = {
+		precursor_colonizer
+	}
+	
+	prerequisites = { tech_precursor_colonizer_alpha tech_dark_matter_synthersizer_ae }
+	
+	ai_weight = {
+		weight = 5	
+		modifier = {
+			factor = 0.0
+			has_monthly_income = {
+				resource = sr_dark_matter
+				value <= 2
+			}
+			has_resource = {
+				type = sr_dark_matter
+				amount <= 5
+			}		
+		}
+	}
+}
+
+
+######################## 
+
+weapon_component_template = { # Nanobot Assimilation
+	key = "ACOT_EMISSARY_BEAM"
+	size = planet_killer
+	entity = "invisible_turret_entity"
+	type = planet_killer
+	use_ship_kill_target = no
+
+
+	windup = { min = 0 max = 0 }
+	total_fire_time = 10
+
+
+	icon = GFX_ship_part_emissary_beam
+	icon_frame = 1
+
+	size_restriction = {
+		precursor_colonizer
+	}
+
+
+	ai_weight = {
+		factor = 100000
+	}
+
+	component_set = "ACOT_EMISSARY_BEAM"
+
+	planet_destruction_gfx = "assimilation_nanobots_gfx"
+}

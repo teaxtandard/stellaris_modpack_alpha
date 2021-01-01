@@ -1,0 +1,242 @@
+namespace = mzilli_distant_origin_start
+
+# Sets up Xarmiri and Pasceals; designates homeworld of Homeworld Occupiers empires
+event = {
+	id = mzilli_distant_origin_start.1
+	title = OK
+	desc = OK
+	hide_window = yes
+	fire_only_once = yes
+	
+	immediate = {
+		# Sets up Pasceal functionality
+		random_country = {
+			limit = { has_country_flag = pasceal }
+			set_country_flag = lost_colony_parent
+			set_country_flag = homeworld_occupiers_empire_xarmir
+			owner_species = { save_global_event_target_as = xarmir_occupiers }
+			save_global_event_target_as = xarmir_occupiers_country
+			capital_scope = {
+				set_planet_flag = distant_origin_homeworld_xarmir
+				set_global_flag = occupied_xarmir
+				set_name = "Xarmir"
+				save_global_event_target_as = occupied_xarmir
+				solar_system = {
+					set_star_flag = distant_origin_homeworld_xarmir
+					random_system_planet = {
+						limit = { is_planet_class = pc_molten }
+						add_modifier = {
+							modifier = "tidal_locked"
+							days = -1
+						}
+					}
+					if = {
+						limit = { is_inside_nebula = yes }
+						every_system_ambient_object = { destroy_ambient_object = this }
+						create_nebula_4 = yes
+					}
+				}
+			}
+		}
+		# Sets up Xarmiri functionality
+		every_country = {
+			limit = { owner_species = { has_trait = trait_mzilli_distant_origin_xarmir } }
+			#if = {
+			#	limit = { NOT = { ideal_planet_class = pc_ocean } }
+			#	modify_species = { ideal_planet_class = pc_ocean }
+			#}
+			set_country_flag = special_intro_for@event_target:xarmir_occupiers_country
+			modify_species = { remove_trait = trait_mzilli_distant_origin_xarmir }
+			set_country_flag = distant_origin_empire_xarmir
+			capital_scope = {
+				if = {
+					limit = { any_planet = { is_planet_class = pc_tidally_locked } }
+					change_pc = pc_tidally_locked
+				}
+				else_if = {
+					limit = { any_planet = { is_planet_class = pc_tidallylocked } }
+					change_pc = pc_tidallylocked
+				}
+				else = {
+					add_modifier = {
+						modifier = "tidal_locked"
+						days = -1
+					}
+				}
+				add_modifier = {
+					modifier = "unstable_tectonics"
+					days = -1
+				}
+				if = {
+					limit = { owner = { is_ai = yes } }
+					set_name = "New Xarmir"
+				}
+				remove_deposit = d_failing_infrastructure
+				remove_deposit = d_failing_infrastructure
+				add_deposit = d_decrepit_dwellings
+				solar_system = {
+					random_system_planet = {
+						limit = { has_planet_flag = vigil_2 }
+						remove_planet_flag = vigil_2
+						set_name = "[This.System.GetName] II"
+						random_moon = { set_name = "[This.System.GetName] IIa" }
+					}
+					random_system_planet = {
+						limit = { has_planet_flag = vigil_3 }
+						remove_planet_flag = vigil_3
+						set_name = "[This.System.GetName] III"
+					}
+					random_system_planet = {
+						limit = { has_planet_flag = vigil_4 }
+						remove_planet_flag = vigil_4
+						set_name = "[This.System.GetName] IV"
+					}
+					if = {
+						limit = { is_inside_nebula = yes }
+						every_system_ambient_object = { destroy_ambient_object = this }
+						create_rare_nebula_2 = yes
+					}
+				}
+			}
+			every_owned_planet = {
+				if = {
+					limit = { NOT = { is_planet_class = pc_ocean } }
+					change_pc = pc_ocean
+					set_planet_flag = changed_to_ocean
+				}
+			}
+			random_planet = {
+				limit = { has_planet_flag = distant_origin_homeworld_xarmir }
+				save_event_target_as = distant_origin_homeworld_xarmir
+			}
+			owner_species = { set_species_homeworld = event_target:distant_origin_homeworld_xarmir }
+			save_event_target_as = lost_colony_child
+			event_target:xarmir_occupiers_country = {
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+			}
+		}
+		setup_contested_homeworld_empires = yes
+			
+		# Distant Origin (Sol) will always choose Earth as their homeworld, even if its owner does not have Homeworld Occupiers
+		every_country = {
+			limit = { owner_species = { has_trait = trait_mzilli_distant_origin_earth } }
+			if = {
+				limit = { NOT = { ideal_planet_class = pc_continental } }
+				modify_species = { ideal_planet_class = pc_continental }
+			}
+			reset_species_homeworld = yes
+			capital_scope = { set_planet_flag = colony_event }
+			remove_distant_origin_trait = yes
+			set_country_flag = distant_origin_empire_earth
+			# If Sol doesn't exist
+			if = {
+				limit = { NOT = { any_system = { has_star_flag = sol } } }
+				random_system = {
+					limit = { NOT = { has_star_flag = empire_cluster } }
+					spawn_system = { initializer = "special_init_04" }
+				}
+			}
+			random_system = {
+				limit = { has_star_flag = sol }
+				if = {
+					limit = {
+						any_system_planet = {
+							OR = {
+								has_planet_flag = planet_earth
+								has_planet_flag = nuked_earth
+							}
+						}
+					}
+					random_system_planet = {
+						limit = {
+							OR = {
+								has_planet_flag = planet_earth
+								has_planet_flag = nuked_earth
+							}
+						}
+						set_planet_flag = distant_origin_homeworld_earth
+						save_global_event_target_as = distant_origin_homeworld_earth
+						solar_system = { set_star_flag = distant_origin_homeworld_earth }
+					}
+				}
+				else = {
+					random_system_planet = {
+						limit = {
+							OR = {
+								is_planet_class = pc_continental
+								is_planet_class = pc_nuked
+								is_planet_class = pc_relic
+								is_planet_class = pc_gaia
+							}
+						}
+						set_planet_flag = distant_origin_homeworld_earth
+						save_global_event_target_as = distant_origin_homeworld_earth
+						solar_system = { set_star_flag = distant_origin_homeworld_earth }
+					}
+				}
+			}
+			if = {
+				limit = { exists = event_target:occupied_earth }
+				owner_species = { set_species_homeworld = event_target:occupied_earth }
+				set_country_flag = special_intro_for@event_target:earth_occupiers_country
+				save_event_target_as = lost_colony_child
+				event_target:earth_occupiers_country = {
+					set_country_flag = special_intro_for@event_target:lost_colony_child
+					set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+				}
+			}
+			#else = { capital_scope = { reset_species_homeworld = yes } }
+		}
+		# Distant Origin empires will have a homeworld spawned for them if no applicable Homeworld Occupiers exist
+		every_country = {
+			limit = { has_a_distant_origin_trait = yes }
+			if = {
+				limit = {
+					OR = {
+						has_origin = origin_mzilli_exiles
+						has_origin = origin_shattered_ring
+						has_origin = origin_lithoid
+						has_origin = origin_lost_colony
+						has_origin = origin_mzilli_jovian
+						has_origin = origin_celestial_remnant
+						is_distant_origin_space_civ = yes
+					}
+				}
+				reset_species_homeworld = yes
+				setup_distant_origin_empires = yes
+			}
+			else = { remove_distant_origin_trait = yes }
+		}
+		every_country = {
+			limit = { has_distant_origin_flag = yes }
+			country_event = { id = mzilli_distant_origin_start.2 days = 2 }
+		}
+	}
+}
+
+country_event = {
+	id = mzilli_distant_origin_start.2
+	title = OK
+	desc = OK
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		begin_event_chain = {
+			event_chain = do_homeworld_chain
+			target = this
+		}
+		if = {
+			limit = { has_civic = civic_vengeful_refugees }
+			create_point_of_interest = {
+				id = refugees_homeworld_poi
+				name = refugees_homeworld_poi_title
+				desc = refugees_homeworld_poi_desc
+				event_chain = do_homeworld_chain
+				location = home_planet
+			}
+		}
+	}
+}

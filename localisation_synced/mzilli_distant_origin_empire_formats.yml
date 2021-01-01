@@ -1,0 +1,21 @@
+﻿l_default:
+
+format.hive_mind.distant_origin.1: "[This.Capital.GetName] <hive_mind>"
+format.devouring_swarm.distant_origin.1: "[This.Capital.GetName] <devouring_swarm>"
+format.olig_corp.distant_origin.1: "[This.Capital.GetName] <oligarchic_corp>"
+format.olig_megachurch.distant_origin.1: "[This.Capital.GetName] <oligarchic_megachurch>"
+format.trade_league.distant_origin.1: "[This.Capital.GetName] <trade_league>"
+format.monopolistic_syndicate.distant_origin.1: "[This.Capital.GetName] <monopolistic_syndicate>"
+format.subversive_cult.distant_origin.1: "[This.Capital.GetName] <subversive_cult_1>"
+format.subversive_cult.distant_origin.2: "[This.Capital.GetName] <subversive_cult_2>"
+format.communal_parity.distant_origin.1: "[This.Capital.GetName] <imperial_celestial>"
+format.communal_parity.distant_origin.2: "[This.Capital.GetName] <imperial_celestial>"
+format.communal_parity.distant_origin.3: "[This.Capital.GetName] <imperial_celestial>"
+format.bandit_kingdom.distant_origin.1: "[This.Capital.GetName] <bandit_kingdom>"
+format.purifier.distant_origin.1: "[This.Capital.GetName] <purifiers>"
+format.machine.distant_origin.3: "[This.Capital.GetName] <machine_empire_names_3>"
+format.machine.distant_origin.4: "[This.Capital.GetName] <machine_empire_names_4>"
+
+format.refugees.1: "[This.GetSpeciesAdj] <vengeful_refugees_1>"
+format.refugees.2: "[This.home_planet.GetName] <vengeful_refugees_2>"
+format.refugees.3: "<general_refugees_1_1> [This.GetSpeciesAdj] <general_refugees_1_2>"

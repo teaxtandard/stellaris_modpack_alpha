@@ -1,0 +1,18 @@
+Snek = { 
+    archetype = BIOLOGICAL
+	portrait_modding = yes
+
+        # These should not be used for randomly generated species
+	portraits = {
+		"Snek"
+		"slreptilian_rep"
+	}
+        # These should not be used for randomly generated species
+	non_randomized_portraits = {
+		"Snek"
+		"slreptilian_rep"
+	}
+
+	graphical_culture = ap_01
+	move_pop_sound_effect = "moving_pop_confirmation"
+}

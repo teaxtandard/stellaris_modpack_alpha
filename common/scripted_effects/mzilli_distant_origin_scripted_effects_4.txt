@@ -1,0 +1,341 @@
+check_do_planet_surveyed = {
+	if = {
+		limit = { is_surveyed = { who = event_target:distant_origin_passive_scan_test status = yes } }
+		event_target:distant_origin_passive_scan_test = { set_country_flag = passively_scanned_homeworld }
+	}
+}
+
+reset_species_homeworld = {
+	save_event_target_as = reset_homeworld_name
+	random_system = {
+		limit = {
+			NOR = {
+				exists = space_owner
+				any_system_planet = { exists = owner }
+			}
+		}
+		spawn_planet = {
+			class = pc_habitat
+			location = this
+			orbit_location = yes
+			size = 1
+			has_ring = no
+
+			init_effect = {
+				set_name = "[reset_homeworld_name.home_planet.GetName]"
+				save_event_target_as = reset_homeworld
+			}
+		}
+	}
+	owner_species = { set_species_homeworld = event_target:reset_homeworld }
+	event_target:reset_homeworld = { remove_planet = yes }
+}
+
+spawn_lost_homeworld = {
+	save_global_event_target_as = lost_colony_child
+	random_system = {
+		# limit = { NOT = { has_star_flag = empire_cluster } }
+		random_list = {
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_01" } } # S-type trinary
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_02" } } # P-type trinary
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_03" } } # S-type binary
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_04" } } # P-type binary
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_05" } } # Unary planet
+			10 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = distant_origin_empire_tidallylocked
+						has_country_flag = distant_origin_empire_eyeball
+					}
+				}
+				spawn_system = { initializer = "distant_origin_homeworld_06" }  # Unary moon
+			}
+			10 = { spawn_system = { initializer = "distant_origin_homeworld_07" } } # Supernova remnant
+		}
+	}
+	set_country_flag = parent_system_spawned
+}
+
+setup_ruined_system = {
+	random_system_planet = {
+		limit = {
+			is_planet_class = pc_barren
+			NOT = { has_planet_flag = distant_origin_homeworld_blank }
+		}
+		random_list = {
+			50 = { }
+			50 = {
+				set_ring = no
+				change_pc = pc_broken
+				reroll_planet_modifiers = yes
+				if = {
+					limit = { has_modifier = terraforming_candidate }
+					remove_modifier = terraforming_candidate
+				}
+				set_deposit = d_minerals_6
+			}
+		}
+	}
+	create_ambient_object = {
+		type = "large_debris_object"
+		location = solar_system
+	}
+	while = {
+		count = 3
+		create_ambient_object = {
+			type = "medium_debris_01_object"
+			location = solar_system
+		}
+	}
+	while = {
+		count = 5
+		create_ambient_object = {
+			type = "small_debris_object"
+			location = solar_system
+		}
+	}
+}
+
+remove_distant_origin_trait = {
+	if = {
+		limit = { has_trait = trait_mzilli_distant_origin_earth }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_earth }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_xarmir }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_xarmir }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_continental }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_continental }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_tropical }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_tropical }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_ocean }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_ocean }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_alpine }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_alpine }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_tundra }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_tundra }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_arctic }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_arctic }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_arid }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_arid }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_desert }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_desert }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_savannah }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_savannah }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_cascadian }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_cascadian }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_desertislands }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_desertislands }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_subarctic }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_subarctic }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_mangrove }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_mangrove }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_hajungle }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_hajungle }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_retinal }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_retinal }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_forest }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_forest }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_steppe }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_steppe }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_sandsea }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_sandsea }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_oasis }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_oasis }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_mesa }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_mesa }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_hadesert }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_hadesert }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_prairie }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_prairie }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_med }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_med }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_swamp }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_swamp }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_frozen_desert }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_frozen_desert }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_glacial }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_glacial }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_boreal }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_boreal }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_mushroom }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_mushroom }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_antarctic }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_antarctic }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_snow }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_snow }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_geothermal }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_geothermal }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_superhabitable }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_superhabitable }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_tidallylocked }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_tidallylocked }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_biolumen }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_biolumen }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_karst }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_karst }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_primal }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_primal }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_aquatic }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_aquatic }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_salt }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_salt }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_wetswamp }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_wetswamp }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_outback }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_outback }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_highland }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_highland }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_ammonia }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_ammonia }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_methane }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_methane }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_irradiated }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_irradiated }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_ash }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_ash }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_lake }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_lake }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_veld }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_veld }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_mud }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_mud }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_megaflora }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_megaflora }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_coral }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_coral }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_storm }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_storm }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_rogue }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_rogue }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_acid }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_acid }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_tepid }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_tepid }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_semiarid }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_semiarid }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_glacio }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_glacio }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_eyeball }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_eyeball }
+	}
+	else_if = {
+		limit = { has_trait = trait_mzilli_distant_origin_sulfur }
+		modify_species = { remove_trait = trait_mzilli_distant_origin_sulfur }
+	}
+}

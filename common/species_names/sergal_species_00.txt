@@ -1,0 +1,245 @@
+# Generated species derive their names from here
+
+### SERGAL 
+
+Sergal = {
+	shantari = {
+		name = Shantari
+		plural = Shantari
+		home_planet = "Shantar Prime"
+		home_system = Shantar
+		name_list = "AVI1"
+	}
+	
+	saiiban = {
+		name = Saiiban
+		plural = Saiibani
+		home_planet = Sabak
+		home_system = Sairus
+		name_list = "AVI2"
+	}
+
+	ikaanan = {
+		name = Ikaanan
+		plural = Ikaanans
+		home_planet = Ikaan
+		home_system = Ikor
+		name_list = "AVI3"
+	}
+
+	avarrian = {
+		name = Avarrian
+		plural = Avarrians
+		home_planet = "Avar Prime"
+		home_system = Avar
+		name_list = "AVI4"
+	}
+
+	khessam = {
+		name = Khessam
+		plural = Khessam
+		home_planet = "Khessar Toralis"
+		home_system = Khessar
+		name_list = "AVI1"
+	}
+	
+	cynn = {
+		name = Cynn
+		plural = Cynn
+		home_planet = Cynndor
+		home_system = Cythra
+		name_list = "AVI2"
+	}
+	
+	yeon = {
+		name = Yeon
+		plural = Yeoni
+		home_planet = "Yeondus"
+		home_system = "Yal Bask"
+		name_list = "AVI3"
+	}
+	
+	tezekian = {
+		name = Tezekian
+		plural = Tezekians
+		home_planet = Tezek
+		home_system = "Tir Batna"
+		name_list = "AVI4"
+	}
+	
+	khemplar = {
+		name = Khemplar
+		plural = Khemplari
+		home_planet = Khemsala
+		home_system = "Khem Jhunn"
+		name_list = "AVI1"
+	}
+	
+	vissari = {
+		name = Vissari
+		plural = Vissari
+		home_planet = Viss
+		home_system = Visslok
+		name_list = "AVI2"
+	}
+
+	rackuddon = {
+		name = Rackuddon
+		plural = Rackuddons
+		home_planet = Rackuur
+		home_system = Rackta
+		name_list = "AVI3"
+	}
+	
+	tiyal = {
+		name = Tiyal
+		plural = Tiyali
+		home_planet = Yenon
+		home_system = Yihim
+		name_list = "AVI4"
+	}
+	
+	keerim = {
+		name = Keerim
+		plural = Keerimian
+		home_planet = Kershi
+		home_system = Kirim
+		name_list = "AVI1"
+	}
+	
+	fiiral = {
+		name = Fiiral
+		plural = Fiirali
+		home_planet = "Fiiris Prime"
+		home_system = Fiiris
+		name_list = "AVI2"
+	}
+	
+	cynur = {
+		name = Cynur
+		plural = Cynur
+		home_planet = "Cyris Prime"
+		home_system = Cyris
+		name_list = "AVI3"
+	}
+	
+	imari = {
+		name = Imari
+		plural = Imari
+		home_planet = Imaria
+		home_system = Imur
+		name_list = "AVI4"
+	}
+	
+	izirian = {
+		name = Izirian
+		plural = Izirians
+		home_planet = Izir
+		home_system = Zirma
+		name_list = "AVI1"
+	}
+	
+	figyar = {
+		name = Figyar
+		plural = Figyari
+		home_planet = "Yarus Prime"
+		home_system = Yarus
+		name_list = "AVI2"
+	}
+	
+	sibulan = {
+		name = Sibulan
+		plural = Sibulans
+		home_planet = "Old Sibula"
+		home_system = Metrak
+		name_list = "AVI3"
+	}
+	
+	miidari = {
+		name = Miidari
+		plural = Miidari
+		home_planet = Miidak
+		home_system = M'Than
+		name_list = "AVI4"
+	}
+	
+	spyran = {
+		name = Spyran
+		plural = Spyrans
+		home_planet = Spyria
+		home_system = "Spyr K'tah"
+		name_list = "AVI1"
+	}
+	
+	bruggan = {
+		name = Bruggan
+		plural = Bruggans
+		home_planet = Branagea
+		home_system = Birgas
+		name_list = "AVI2"
+	}
+	
+	inari = {
+		name = Inari
+		plural = Inari
+		home_planet = Inarus
+		home_system = Inak
+		name_list = "AVI3"
+	}
+	
+	penthulan = {
+		name = Penthulan
+		plural = Penthulans
+		home_planet = Penthul
+		home_system = Penkar
+		name_list = "AVI4"
+	}
+	
+	rixi = {
+		name = Rixi
+		plural = Rixi
+		home_planet = Rix
+		home_system = Rixaru
+		name_list = "AVI1"
+	}
+
+	baviir = {
+		name = Baviir
+		plural = Baviiri
+		home_planet = Baviira
+		home_system = "Bavi Tiri"
+		name_list = "AVI2"
+	}
+
+	ospranian = {
+		name = Ospranian
+		plural = Ospranians
+		home_planet = Osprania
+		home_system = Ospra
+		name_list = "AVI3"
+	}
+
+	erissu = {
+		name = Erissu
+		plural = Erissu
+		home_planet = Emariss
+		home_system = Marass
+		name_list = "AVI4"
+	}
+
+	skanuri = {
+		name = Skanuri
+		plural = Skanuri
+		home_planet = Skanaa
+		home_system = Skeru
+		name_list = "AVI1"
+	}
+
+	hiran = {
+		name = Hiran
+		plural = Hirans
+		home_planet = Hir
+		home_system = "Hir Alku'T"
+		name_list = "AVI2"
+	}
+}

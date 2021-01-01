@@ -1,0 +1,20 @@
+﻿l_english:
+
+ trait_rural:0 "Rural"
+ trait_rural_desc:0 "§LThis species prefers sparsely populated habitats, with distance between living quarters.§!\n"
+ 
+ trait_urban:0 "Urban"
+ trait_urban_desc:0 "§LThis species prefers to be among dense population centers, and is naturally congregative.§!\n"
+ 
+ trait_amphibious:0 "Amphibious"
+ trait_amphibious_desc:0 "§LThis species is equally at home in the water or out.§!\n"
+
+ trait_psycho_electric:0 "Psycho-Electric"
+ trait_psycho_electric_desc:0 "§LThis species generates electricity and has limited psionic abilities.§!\n"
+ 
+ trait_aquatic:0 "Aquatic"
+ trait_aquatic_desc:0 "§LThis species lives most comfortably in the seas and oceans of worlds.§!\n"
+ 
+ trait_tauroid:0 "Tauroid Body"
+ trait_tauroid_desc:0 "§LThis species evolved from hexapedal vertebrates, their forelimbs having become their specialized manipulator appendages.§!\n"
+ 

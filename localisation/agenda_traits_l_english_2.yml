@@ -1,0 +1,26 @@
+﻿l_english:
+
+ at_start.02.b.desc:0 "£minerals Mineral from £job£ Jobs: §G+10%"
+ at_start.02.c.desc:0 "Claim Influence Cost: §G-10%"
+ at_start.02.e.desc:0 "£energy Energy Credits from £job£ Jobs: §G+10%"
+ at_start.02.f.desc:0 "Market Fee: §G-5%\n§!Trade Value: §G+5%"
+ at_start.02.g.desc:0 "Xenophobe Ethics Attraction: §G+20%\n§!Empire Influence Gain: §G+10%"
+ at_start.02.h.desc:0 "Xenophobe Ethics Attraction: §G+20%\n§!Citizen Pop Happiness: §G+5"
+ at_start.02.k.desc:0 "Defense Platform Build Cost: §G-15%\n§!Defense Platform Damage: §G+25%\n§!Defense Platform Hull Points: §G+25%"
+ at_start.02.l.desc:0 "Unity from £job£ Jobs: §G+10%"
+ at_start.02.m.desc:0 "Leader Experience Gain: §G+25%"
+ at_start.02.o.desc:0 "Xenophile Ethics Attraction: §G+10%"
+ 
+ at_select_ruler_traits.a.desc: "Building Cost: §G-10%\n§!District Cost: §G-10%\n§!Planet Build Speed: §G+10%"
+ at_select_ruler_traits.c.desc: "Edict Cost: §G-10%\n§!Edict Duration: §G+20%"
+ at_select_ruler_traits.d.desc: "Happiness: §G+5%"
+ at_select_ruler_traits.g.desc: "Monthly Influence: §G+1"
+ at_select_ruler_traits.i.desc: "Outpost Build Cost: §G-15%\n§!Starbase Influence Cost: §G-15%"
+ at_select_ruler_traits.j.desc: "Science Ship Build Cost: §G-25%\n§!Anomaly Research Speed: §G+33%"
+ at_select_ruler_traits.p.desc: "Colony Ship Build Cost: §G-35%\n§!Colony Development Speed: §G+25%"
+ at_select_ruler_traits.q.desc: "Starbase Module Cost: §G-20%\n§!Starbase Upgrade Cost: §G-10%"
+ at_select_ruler_traits.r.desc: "Monthly Minerals: §G+10%"
+ at_select_ruler_traits.s.desc: "Trade Value: §G+10%"
+ at_select_ruler_traits.w.desc: "Monthly Unity: §G+10%"
+ at_select_ruler_traits.x.desc: "Mining Station Output: §G+10%\n§!Mining Station Build Cost: §G-25%"
+ 

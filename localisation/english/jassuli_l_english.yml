@@ -1,0 +1,21 @@
+﻿l_english:
+ jassuli:0 "Jassuli"
+ jassuli_desc:0 "Jassuli"
+ jassuli_plural:0 "Jassuli"
+ jassuli_insult_01:0 "scruff"
+ jassuli_insult_plural_01:0 "scruffs"
+ jassuli_compliment_01:0 "sphinx"
+ jassuli_compliment_plural_01:0 "sphinxes"
+ jassuli_spawn:0 "pup"
+ jassuli_spawn_plural:0 "pups"
+ jassuli_sound_01:0 "growling"
+ jassuli_sound_02:0 "howling"
+ jassuli_sound_03:0 "whining"
+ jassuli_sound_04:0 "rasping"
+ jassuli_sound_05:0 "screeching"
+ jassuli_organ:0 "entrails"
+ jassuli_mouth:0 "jaws"  
+ 
+ name_list_jassuli1:0 "Jassuli" 
+ 
+

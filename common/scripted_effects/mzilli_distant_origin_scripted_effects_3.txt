@@ -1,0 +1,1550 @@
+setup_lost_homeworld = {
+	if = {
+		limit = {
+			solar_system = {
+				OR = {
+					is_star_class = sc_black_hole
+					is_star_class = sc_neutron_star
+					is_star_class = sc_pulsar
+				}
+			}
+		}
+		change_pc = pc_shattered_2
+		set_planet_size = 25
+		reroll_planet = yes
+		add_deposit = d_minerals_9
+	}
+	else = {
+		random_list = {
+			50 = { reroll_planet = yes }
+			10 = {
+				change_pc = pc_nuked
+				reroll_planet = yes
+			}
+			5 = {
+				modifier = {
+					factor = 0
+					has_global_flag = mzilli_nogaia
+				}
+				change_pc = pc_gaia
+				reroll_planet = yes
+			}
+			20 = {
+				change_pc = pc_relic
+				reset_planet = yes
+				prevent_anomaly = yes
+				relic_world_deposits = yes
+			}
+			10 = {
+				random_list = {
+					10 = { change_pc = pc_barren }
+					10 = { change_pc = pc_barren_cold }
+				}
+				add_modifier = { modifier = "terraforming_candidate" days = -1 }
+				setup_ruined_system = yes
+			}
+			5 = {
+				change_pc = pc_broken
+				reset_planet = yes
+				set_ring = no
+				setup_ruined_system = yes
+			}
+		}
+		if = {
+			limit = { has_modifier = tidal_locked }
+			remove_modifier = tidal_locked
+		}
+		if = {
+			limit = { has_modifier = low_gravity }
+			remove_modifier = low_gravity
+		}
+		if = {
+			limit = { has_modifier = high_gravity }
+			remove_modifier = high_gravity
+		}
+		if = {
+			limit = {
+				NOR = {
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+					is_planet_class = pc_broken
+				}
+			}
+			random_list = {
+				10 = { setup_ruined_system = yes }
+				10 = {
+					modifier = {
+						factor = 0
+						event_target:lost_colony_child = {
+							OR = {
+								has_ethic = ethic_gestalt_consciousness
+								has_origin = origin_void_dwellers
+							}
+						}
+					}
+					modifier = {
+						factor = 0
+						is_planet_class = pc_relic
+						any_country = { has_origin = origin_remnants }
+					}
+					set_planet_flag = parents_exist
+				}
+			}
+		}
+		if = { # Tedious workaround since we can't set namelists by effect
+			limit = { has_planet_flag = parents_exist }
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = HUM } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "HUM4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = MAM } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MAM4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = AVI } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "AVI4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = MOL } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "MOL4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = FUN } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "FUN4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = ART } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "ART4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = PLANT } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "PLANT4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = LITHOID } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "LITH4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { event_target:lost_colony_child = { is_species_class = NECROID } }
+				random_list = {
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID1"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID1"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID1"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID2"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID2"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID2"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID3"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID3"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID3"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+					10 = {
+						if = {
+							limit = {
+								is_planet_class = pc_relic
+								NOT = { any_country = { has_origin = origin_remnants } }
+							}
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID4"
+								type = default
+								origin = "origin_remnants"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else_if = {
+							limit = { NOR = { is_planet_class = pc_nuked } }
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID4"
+								type = default
+								origin = "origin_default"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+						else = {
+							create_country = {
+								species = event_target:lost_colony_child
+								name_list = "NECROID4"
+								type = default
+								origin = "origin_post_apocalyptic"
+								effect = { save_event_target_as = lost_colony_parent }
+							}
+						}
+					}
+				}
+			}
+			create_colony = { owner = event_target:lost_colony_parent }
+			change_planet_size = 5
+			clear_deposits = yes
+			generate_start_deposits_and_blockers = yes
+			generate_start_buildings_and_districts = yes
+			generate_start_pops = yes
+			clear_blockers = yes
+			generate_lost_colony_parent_bonus = yes
+			if = {
+				limit = { has_moon = yes }
+				random_moon = {
+					if = {
+						limit = { planet_size < 12 }
+						set_planet_size = 12
+					}
+					change_pc = rl_habitable_normal
+					reroll_planet = yes
+					set_owner = event_target:lost_colony_parent
+					create_pop = { species = event_target:lost_colony_parent }
+					add_building = building_colony_shelter
+				}
+			}
+			else = {
+				solar_system = {
+					if = {
+						limit = {
+							any_system_planet = {
+								is_colonizable = yes
+								NOT = { exists = owner }
+							}
+						}
+						random_system_planet = {
+							limit = {
+								is_colonizable = yes
+								NOT = { exists = owner }
+							}
+							change_pc = rl_habitable_normal
+							reroll_planet = yes
+							set_owner = event_target:lost_colony_parent
+							create_pop = { species = event_target:lost_colony_parent }
+							add_building = building_colony_shelter
+						}
+					}
+					else = {
+						random_system_planet = {
+							limit = {
+								OR = {
+									is_planet_class = pc_barren
+									is_planet_class = pc_barren_cold
+									is_planet_class = pc_toxic
+								}
+								NOR = {
+									has_planet_flag = b_planet
+									has_planet_flag = c_planet
+								}
+							}
+							if = {
+								limit = { planet_size < 12 }
+								set_planet_size = 12
+							}
+							if = {
+								limit = { planet_size > 25 }
+								set_planet_size = 25
+							}
+							change_pc = rl_habitable_normal
+							reroll_planet = yes
+							set_owner = event_target:lost_colony_parent
+							create_pop = { species = event_target:lost_colony_parent }
+							add_building = building_colony_shelter
+						}
+					}
+				}
+			}
+			solar_system = {
+				create_starbase = {
+					size = starbase_starport
+					module = shipyard
+					building = crew_quarters
+					owner = event_target:lost_colony_parent
+					effect = {
+						set_starbase_module = {
+							slot = 1
+							module = trading_hub
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_system_planet = {
+							is_colonizable = yes
+							NOT = { exists = owner }
+						}
+					}
+					random_system_planet = {
+						limit = {
+							is_colonizable = yes
+							NOT = { exists = owner }
+						}
+						change_pc = rl_habitable_normal
+						reroll_planet = yes
+						set_owner = event_target:lost_colony_parent
+						create_pop = { species = event_target:lost_colony_parent }
+						add_building = building_colony_shelter
+					}
+				}
+				else = {
+					random_system_planet = {
+						limit = {
+							OR = {
+								is_planet_class = pc_barren
+								is_planet_class = pc_barren_cold
+								is_planet_class = pc_toxic
+							}
+							NOR = {
+								has_planet_flag = b_planet
+								has_planet_flag = c_planet
+							}
+						}
+						if = {
+							limit = { planet_size < 12 }
+							set_planet_size = 12
+						}
+						if = {
+							limit = { planet_size > 25 }
+							set_planet_size = 25
+						}
+						change_pc = rl_habitable_normal
+						reroll_planet = yes
+						set_owner = event_target:lost_colony_parent
+						create_pop = { species = event_target:lost_colony_parent }
+						add_building = building_colony_shelter
+					}
+				}
+				every_system_planet = {
+					limit = {
+						NOR = {
+							is_star = yes
+							is_asteroid = yes
+						}
+					}
+					set_owner = event_target:lost_colony_parent
+					set_name = random
+				}
+			}
+			event_target:lost_colony_parent = {
+				add_resource = {
+					minerals = 2400
+					energy = 2400
+					food = 2400
+					alloys = 800
+					consumer_goods = 1200
+					influence = 600
+				}
+				create_starting_leaders = yes
+				set_country_flag = lost_colony_parent
+				set_country_flag = special_intro_for@event_target:lost_colony_child
+				set_country_flag = lost_colony_parent_of@event_target:lost_colony_child
+				country_event = { id = game_start.9 }
+				country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+				#owner_species = { set_species_homeworld = prevprev }
+				set_name = random # Fixes some naming issues
+				if = {
+					limit = { has_origin = origin_post_apocalyptic }
+					every_owned_pop = {
+						modify_species = {
+							species = this
+							add_trait = trait_survivor
+						}
+					}
+					random_owned_pop = {
+						limit = { has_trait = trait_survivor }
+						event_target:lost_colony_parent = { change_dominant_species = { species = prev } }
+					}
+				}
+				else_if = {
+					limit = { has_origin = origin_remnants }
+					#add_deposit = d_geothermal_vent
+					#add_deposit = d_rich_mountain
+					#add_deposit = d_fungal_forest
+					setup_ruined_system = yes
+					solar_system = { set_star_flag = relic_test }
+				}
+			}
+		}
+	}
+}

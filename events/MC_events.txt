@@ -1,0 +1,47 @@
+############################
+#
+# Multiple Crisis
+#
+# Written by Ryuichiro
+#
+############################
+
+namespace = multiplecrises
+
+# Remove "galactic_crisis_happening" flag when last crisis empire is destroyed
+event = {
+	id = multiplecrises.99
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			is_country_type = swarm
+			is_country_type = extradimensional
+			is_country_type = extradimensional_2
+			is_country_type = extradimensional_3
+			is_country_type = ai_empire
+		}
+		NOT = {
+			any_country = {
+				AND = {
+					NOT = { is_same_value = ROOT }
+					OR = {
+						is_country_type = swarm
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+						is_country_type = ai_empire
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		remove_global_flag = galactic_crisis_happening
+		end_crisis = yes # scripted effect
+		endgame_telemetry = none
+	}
+}

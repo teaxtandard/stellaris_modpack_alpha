@@ -1,0 +1,1263 @@
+@base_moon_distance = 10
+@jumps = 3
+
+####### Starting Systems #######
+### Sol System
+mars_system_initializer = {
+	name = "NAME_Sol"
+	
+	class = "sc_g"
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 290
+	}
+	
+	flags = { empire_home_system sol_system sol mzilli_martian_system }
+	
+	usage = custom_empire
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = { set_star_flag = empire_cluster }
+		}
+		generate_home_system_resources = yes
+	}
+	
+	planet = {
+		name = "NAME_Sol"
+		class = "pc_g_star"
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Mercury"
+		class = "pc_molten"
+		orbit_distance = 40
+		orbit_angle = 15
+		size = 10
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Venus"
+		class = "pc_toxic"
+		orbit_distance = 25
+		orbit_angle = 125
+		size = 20
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Earth"
+		class = "pc_nuked"
+		orbit_distance = 25
+		orbit_angle = 120
+		size = 16
+		flags = { planet_earth }
+		has_ring = no
+		
+		init_effect = {
+			prevent_anomaly = yes
+			reroll_deposits = yes
+			random_list = {
+				50 = { }
+				25 = {
+					change_pc = pc_barren_cold
+					add_modifier = {
+						modifier = "terraforming_candidate"
+						days = -1
+					}
+				}
+				15 = { change_pc = pc_molten }
+				10 = {
+					change_pc = pc_shattered
+					add_deposit = d_minerals_6
+				}
+			}
+		}
+		
+		moon = {
+			name = "NAME_Luna"
+			class = "pc_barren_cold"
+			size = 5
+			orbit_distance = 12
+			orbit_angle = 40
+			has_ring = no
+			entity = "cold_barren_planet_luna_entity"
+			flags = { moon_luna }
+
+			init_effect = {
+				random_list = {
+					25 = { }
+					25 = { change_pc = pc_shattered }
+				}
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_Mars"
+		class = pc_relic
+		orbit_distance = 25
+		orbit_angle = 60
+		size = 15
+		has_ring = no
+		starting_planet = yes
+		deposit_blockers = none
+		flags = { planet_mars }
+
+		init_effect = {
+			prevent_anomaly = yes
+			if = {
+				limit = { is_planet_class = pc_continental }
+				set_planet_entity = { entity = "continental_planet_03_entity" }
+			}
+			else_if = {
+				limit = { is_planet_class = pc_tundra }
+				set_planet_entity = { entity = "relic_world_mars_entity" }
+			}
+		}
+	}
+	
+	planet = {
+		name = "NAME_1_Ceres"
+		class = "pc_asteroid"
+		orbit_distance = 30
+		orbit_angle = -210
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_2_Pallas"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_3_Juno"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_4_Vesta"
+		class = "pc_asteroid"
+		orbit_distance = 0
+		orbit_angle = -80
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_Jupiter"
+		class = "pc_gas_giant"
+		orbit_distance = 40
+		orbit_angle = -160
+		size = 35
+		has_ring = no
+		entity = "gas_giant_jupiter_entity"
+		change_orbit = 6
+		
+		moon = {
+			name = "NAME_Io"
+			class = "pc_molten"
+			size = 6
+			orbit_distance = 10
+			orbit_angle = 110
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Europa"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 2.5
+			orbit_angle = 10
+			has_ring = no
+		}
+		moon = {
+			name = "NAME_Ganymede"
+			class = "pc_frozen"
+			size = 9
+			orbit_distance = 2.5
+			orbit_angle = 80
+			has_ring = no
+			flags = { moon_ganymede }
+		}
+		moon = {
+			name = "NAME_Callisto"
+			class = "pc_frozen"
+			size = 7
+			orbit_distance = 2.5
+			orbit_angle = -155
+			has_ring = no
+		}
+	}
+	
+	planet = {
+		name = "NAME_Saturn"
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = 170
+		size = 30
+		has_ring = yes
+		entity = "gas_giant_05_entity"
+		change_orbit = 7
+		
+		moon = {
+			name = "NAME_Titan"
+			class = "pc_frozen"
+			size = 8
+			orbit_distance = 12
+			orbit_angle = 320
+			has_ring = no
+			flags = { moon_titan }
+		}
+	}
+	
+	planet = {
+		name = "NAME_Uranus"
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = 125
+		size = 20
+		has_ring = no
+		entity = "gas_giant_03_entity"
+	}
+	
+	planet = {
+		name = "NAME_Neptune"
+		class = "pc_gas_giant"
+		orbit_distance = 25
+		orbit_angle = -195
+		size = 20
+		has_ring = no
+		entity = "gas_giant_02_entity"
+		change_orbit = 4
+		
+		moon = {
+			name = "NAME_Triton"
+			class = "pc_frozen"
+			size = 6
+			orbit_distance = 7
+			orbit_angle = 115
+			has_ring = no
+		}
+	}
+
+	planet = {
+		name = "NAME_134340_Pluto"
+		class = "pc_asteroid"
+		orbit_distance = 30
+		orbit_angle = -210
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_136472_Makemake"
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = -95
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_136108_Haumea"
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = 285
+		size = 5
+		has_ring = no
+	}
+	
+	planet = {
+		name = "NAME_20000_Varuna"
+		class = "pc_ice_asteroid"
+		orbit_distance = 0
+		orbit_angle = -80
+		size = 5
+		has_ring = no
+	}		
+	
+	neighbor_system = {
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_neighbor_t1_first_colony"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies = 0 }
+		distance = { min = 10 max = @distance }	
+		initializer = "sol_neighbor_t1_no_guaranteed_colony"
+	}
+}
+
+### Xir'a System
+xir'a_system_initializer = {
+	name = "Xir'a"
+	
+	class = "sc_binary_9"
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 105
+	}
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 175
+	}
+	
+	flags = { empire_home_system mzilli_xir'a_system }
+	
+	usage = custom_empire
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		
+		generate_home_system_resources = yes
+	}
+	
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+		flags = { star_a }
+	
+		planet = {
+			name = "Maggrathi"
+			orbit_distance = 65
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			size = 20
+			has_ring = no
+			flags = { a_planet }
+		}
+
+		planet = {
+			name = "Xarmir"
+			home_planet = yes
+			class = pc_ocean
+			orbit_distance = 75
+			orbit_angle = { min = 90 max = 270 }
+			size = 25
+			deposit_blockers = none
+			modifiers = none
+			has_ring = yes
+			entity = "ocean_planet_02_entity"
+			flags = { a_planet }
+		
+			init_effect = {
+				generate_empire_home_planet = yes		
+				prevent_anomaly = yes
+			}
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				name = "Weggri"
+				class = pc_barren
+				orbit_angle = { min = 90 max = 270 }
+				size = 10
+				orbit_distance = 4
+				flags = { a_planet }
+
+				init_effect = {
+					add_modifier = {
+						modifier = "terraforming_candidate"
+						days = -1
+					}
+				}
+			}
+		
+			moon = {
+				name = "Siggwal"
+				class = pc_barren_cold
+				orbit_angle = { min = 90 max = 270 }
+				size = 12
+				orbit_distance = 4
+				flags = { a_planet }
+
+				init_effect = {
+					add_modifier = {
+						modifier = "terraforming_candidate"
+						days = -1
+					}
+				}
+			}
+		}
+	
+		planet = {
+			name = "Mag Rutosch"
+			orbit_distance = 65
+			class = pc_gas_giant
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			entity = "gas_giant_02_entity"
+			flags = { a_planet }
+		
+			change_orbit = @base_moon_distance
+
+			moon = {
+				name = "Gabloschi"
+				class = pc_barren_cold
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+			moon = {
+				name = "Ergligg"
+				class = pc_toxic
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+			moon = {
+				name = "Chiblosch"
+				class = pc_barren_cold
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+		}
+
+		planet = {
+			name = "Tagbash Vugg"
+			orbit_distance = 30
+			class = pc_gas_giant
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = yes
+			entity = "gas_giant_jupiter_entity"
+			flags = { a_planet }
+			
+			change_orbit = @base_moon_distance
+
+			moon = {
+				name = "Schlurg"
+				class = pc_frozen
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 9
+				flags = { a_planet }
+			}
+		}
+	}
+
+	change_orbit = 105
+	
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	change_orbit = 70
+	
+	planet = {
+		count = { min = 1 max = 2 }
+		class = ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	planet = {
+		class = star
+		orbit_distance = 150
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		flags = { star_b }
+	
+		planet = {
+			name = "Guraschim"
+			orbit_distance = 50
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			flags = { b_planet }
+		}
+
+		planet = {
+			name = "Raggani"
+			orbit_distance = 20
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			flags = { b_planet }
+		}
+	}
+	
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony"
+	}
+}
+
+### Vigil System
+vigil_system_initializer = {
+	name = "NAME_Vigil"
+	
+	class = "sc_t"
+	
+	flags = { empire_home_system mzilli_vigil_system }
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 190
+	}
+	
+	usage = custom_empire
+
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = {
+				set_star_flag = empire_cluster
+			}
+		}
+		
+		generate_home_system_resources = yes
+	}
+
+	planet = {
+        	count = 1
+        	class = star
+        	orbit_distance = 0
+        	orbit_angle = { min = 90 max = 270 }
+        	size = 35
+        	has_ring = yes
+	}
+	
+	planet = {
+		name = "New Xarmir"
+		orbit_distance = 80
+		home_planet = yes
+		class = pc_ocean
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		entity = "ocean_planet_03_entity"
+		
+		init_effect = {	prevent_anomaly = yes }
+	}
+	
+	planet = {
+		orbit_distance = 20
+		class = pc_barren_cold
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+		size = 15
+		flags = { vigil_2 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			has_ring = yes
+		}
+	}
+
+	planet = {
+		size = 10
+		orbit_distance = 30
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+		flags = { vigil_3 }
+	}
+	
+	planet = {
+		size = 7
+		orbit_distance = 30
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+		flags = { vigil_4 }
+	}
+	
+	change_orbit = 30
+
+	planet = {
+		count = { min = 2 max = 4 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1"
+	}
+	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
+		hyperlane_jumps = { min = 1 max = @jumps }
+		initializer = "neighbor_t1_first_colony"
+	}
+}
+
+####### Backup Systems #######
+### Xir'a System
+xir'a_system = {
+	name = "Xir'a"
+	
+	class = "sc_binary_9"
+
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 105
+	}
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 175
+	}
+	
+	flags = { empire_home_system mzilli_xir'a_system }
+
+	usage = misc_system_init
+
+	max_instances = 1
+
+	usage_odds = {
+		base = 0
+		modifier = {
+			any_country = { has_trait = trait_mzilli_distant_origin_xarmir }
+			NOR = {
+				has_star_flag = empire_cluster
+				any_system = { has_star_flag = mzilli_xir'a_system }
+				any_neighbor_system = { any_system_planet = { has_planet_flag = fallen_empire_world } }
+			}
+			add = 99999
+		}
+	}
+
+	init_effect = {
+		generate_home_system_resources = yes
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = { set_star_flag = empire_cluster }
+		}
+	}
+	
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = 30
+		has_ring = no
+		flags = { star_a }
+	
+		planet = {
+			name = "Maggrathi"
+			orbit_distance = 65
+			class = pc_molten
+			orbit_angle = { min = 90 max = 270 }
+			size = 20
+			has_ring = no
+			flags = { a_planet }
+		}
+
+		planet = {
+			count = 1
+			home_planet = yes
+			class = pc_ocean
+			orbit_distance = 75
+			orbit_angle = { min = 90 max = 270 }
+			size = 25
+			deposit_blockers = none
+			modifiers = none
+			has_ring = yes
+			entity = "ocean_planet_02_entity"
+			flags = { xarmir a_planet }
+		
+			init_effect = {			
+				prevent_anomaly = yes
+				set_name = "Xarmir"
+			}
+			init_effect = {
+				create_species = {
+					name = "Pasceal"
+					plural = "Pasceals"
+					class = MOL
+					portrait = mol15
+					traits = {
+						trait="trait_pc_ocean_preference"
+						trait="trait_agrarian"
+						trait="trait_natural_sociologists"
+						trait="trait_communal"
+						trait="trait_sedentary"
+						trait="trait_slow_learners"
+					}
+					homeworld = this
+				}
+				#generate_empire_home_planet = yes
+				create_country = {
+					name = "Pasceal Kingdom"
+					authority = auth_imperial
+					civics = {
+						civic = civic_aristocratic_elite
+						civic = civic_environmentalist
+					}
+					species = last_created
+					name_list = "MOL1"
+					ship_prefix = "RPS"
+					ethos = {
+						ethic = "ethic_spiritualist"
+						ethic = "ethic_fanatic_xenophobe"
+					}
+					flag = {
+						icon = {
+							category = "pointy"
+							file = "flag_pointy_6.dds"
+						}
+						background = {
+							category = "backgrounds"
+							file = "pattern_01.dds"
+						}
+						colors = {
+							"light_green"
+							"green"
+							"null"
+							"null"
+						}	
+					}
+					type = default
+					origin = "origin_homeworld_occupiers"
+					effect = {
+						set_country_flag = no_mzilli_colonies
+						add_resource = {
+							minerals = 200
+							energy = 200
+							food = 200
+							alloys = 100
+							consumer_goods = 100
+							influence = 100
+						}
+					}
+				}
+				create_colony = { owner = last_created_country }
+				generate_start_deposits_and_blockers = yes
+				generate_start_buildings_and_districts = yes
+				generate_start_pops = yes
+				clear_blockers = yes
+			}
+
+			change_orbit = @base_moon_distance
+		
+			moon = {
+				name = "Weggri"
+				class = pc_tropical
+				orbit_angle = { min = 90 max = 270 }
+				size = 10
+				orbit_distance = 4
+				entity = "tropical_planet_01_entity"
+				flags = { a_planet }
+
+				init_effect = {
+					prevent_anomaly = yes
+					set_owner = last_created_country
+					set_name = "Weggri"
+					create_pop = { species = last_created_species }
+					add_building = building_colony_shelter
+				}
+			}
+
+			moon = {
+				name = "Siggwal"
+				class = pc_continental
+				orbit_angle = { min = 90 max = 270 }
+				size = 12
+				orbit_distance = 4
+				entity = "continental_planet_03_entity"
+				flags = { a_planet }
+
+				init_effect = {
+					prevent_anomaly = yes
+					set_owner = last_created_country
+					set_name = "Siggwal"
+					create_pop = { species = last_created_species }
+					add_building = building_colony_shelter
+				}
+			}
+		}
+
+		planet = {
+			name = "Mag Rutosch"
+			orbit_distance = 65
+			class = pc_gas_giant
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			entity = "gas_giant_02_entity"
+			flags = { a_planet }
+		
+			change_orbit = @base_moon_distance
+
+			moon = {
+				name = "Gabloschi"
+				class = pc_barren_cold
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+			moon = {
+				name = "Ergligg"
+				class = pc_toxic
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+			moon = {
+				name = "Chiblosch"
+				class = pc_barren_cold
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 5
+				flags = { a_planet }
+			}
+		}
+
+		planet = {
+			name = "Tagbash Vugg"
+			orbit_distance = 30
+			class = pc_gas_giant
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = yes
+			entity = "gas_giant_jupiter_entity"
+			flags = { a_planet }
+			
+			change_orbit = @base_moon_distance
+
+			moon = {
+				name = "Schlurg"
+				class = pc_frozen
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 9
+				flags = { a_planet }
+			}
+		}
+	}
+
+	change_orbit = 105
+	
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	change_orbit = 70
+	
+	planet = {
+		count = { min = 1 max = 2 }
+		class = ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	planet = {
+		class = star
+		orbit_distance = 150
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		has_ring = no
+		flags = { star_b }
+	
+		planet = {
+			name = "Guraschim"
+			orbit_distance = 50
+			class = pc_toxic
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			flags = { b_planet }
+		}
+
+		planet = {
+			name = "Raggani"
+			orbit_distance = 20
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			has_ring = no
+			flags = { b_planet }
+		}
+	}
+
+	init_effect = {
+		last_created_country = {
+			set_country_flag = pasceal
+			give_technology = { tech = "tech_society_1" message = no }
+			give_technology = { tech = "tech_engineering_1" message = no }
+			give_technology = { tech = "tech_physics_1" message = no }
+			give_technology = { tech = "tech_planetary_unification" message = no }
+			give_technology = { tech = "tech_sensors_2" message = no }
+			add_resource = { energy = 1000	}
+			add_resource = { minerals = 1000 }
+			add_resource = { alloys = 500	}
+			add_resource = { influence = 200 }		
+			add_resource = { food = 1000 }		
+			add_resource = { consumer_goods = 500 }		
+			every_planet_within_border = {
+				limit = { 
+					has_deposit_for = shipclass_mining_station
+					has_mining_station = no
+				}
+				create_mining_station = {
+					owner = last_created_country
+				}
+			}
+			every_planet_within_border = {
+				limit = { 
+					has_deposit_for = shipclass_research_station 
+					has_research_station = no
+				}
+				create_research_station = {
+					owner = last_created_country
+				}
+			}
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+					set_fleet_stance = evasive				
+					set_location = last_created_country.capital_star				
+					owner = {
+						create_leader = {
+							type = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+						}
+					}
+					set_leader = last_created_leader
+				}			
+			}	
+			#constructor
+			create_fleet = {
+				effect = {
+					set_owner = last_created_country
+						
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+						
+					set_fleet_stance = evasive
+					set_location = last_created_country.capital_star
+				}
+			}
+			#military
+			create_fleet = {
+				set_take_point = yes
+				effect = {
+					set_owner = last_created_country
+					while = {
+						count = 3
+						create_ship = {
+							name = random
+							random_existing_design = corvette
+						}
+					}		
+					set_location = last_created_country.capital_star
+				}
+			}
+		}
+		create_starbase = {
+			size = starbase_starport
+			module = shipyard
+			owner = last_created_country
+		}
+		create_ambient_object = {
+			type = "large_debris_object"
+			location = solar_system
+		}
+		create_ambient_object = {
+			type = "medium_debris_01_object"
+			location = solar_system
+		}
+		while = {
+			count = 3
+			create_ambient_object = {
+				type = "small_debris_object"
+				location = solar_system
+			}
+		}
+	}
+}
+
+### Vigil System
+vigil_system = {
+	name = "NAME_Vigil"
+	
+	class = "sc_t"
+	
+	flags = { empire_home_system mzilli_vigil_system }
+
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 190
+	}
+
+	usage = misc_system_init
+
+	max_instances = 1
+
+	usage_odds = {
+		base = 0
+		modifier = {
+			any_country = { has_country_flag = pasceal }
+			NOR = {
+				has_star_flag = empire_cluster
+				any_system = { has_star_flag = mzilli_vigil_system }
+				any_neighbor_system = { any_system_planet = { has_planet_flag = fallen_empire_world } }
+			}
+			add = 99999
+		}
+	}
+
+	init_effect = {		
+		generate_home_system_resources = yes
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			every_neighbor_system = { set_star_flag = empire_cluster }
+		}
+	}
+
+	planet = {
+        	count = 1
+        	class = star
+        	orbit_distance = 0
+        	orbit_angle = { min = 90 max = 270 }
+        	size = 35
+        	has_ring = yes
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 80
+		home_planet = yes
+		class = pc_ocean
+		orbit_angle = { min = 90 max = 270 }
+		size = 20
+		deposit_blockers = none
+		modifiers = none
+		has_ring = no
+		flags = { new_xarmir }
+		entity = "ocean_planet_03_entity"
+		
+		init_effect = {			
+			prevent_anomaly = yes
+			set_name = "New Xarmir"
+		}
+		init_effect = {
+			create_species = {
+				name = "Xarmiri"
+				plural="Xarmiri"
+				adjective="Xarmiri"
+				class = MAM
+				portrait = mam4
+				traits = {
+					trait="trait_pc_ocean_preference"
+					trait="trait_nomadic"
+					trait="trait_charismatic"
+					trait="trait_conservational"
+					trait="trait_slow_breeders"
+					trait="trait_mzilli_distant_origin_xarmir"
+				}
+			}
+			#generate_empire_home_planet = yes
+			create_country = {
+				name = "Resurgent Nations of Xarmir"
+				authority = auth_oligarchic	
+				civics = {
+					civic = civic_vengeful_refugees
+					civic = civic_citizen_service
+				}
+				species = last_created
+				name_list = "MAM2"
+				ship_prefix = "RXNS"
+				ethos = {
+					ethic = "ethic_militarist"
+					ethic = "ethic_egalitarian"
+					ethic = "ethic_materialist"
+				}
+				flag = {
+					icon = {
+						category = "spherical"
+						file = "flag_spherical_11.dds"
+					}
+					background = {
+						category = "backgrounds"
+						file = "circle.dds"
+					}
+					colors = {
+						"burgundy"
+						"light_orange"
+						"null"
+						"null"
+					}
+				}
+				type = default
+				origin = "origin_mzilli_exiles"
+				effect = {
+					set_country_flag = no_mzilli_colonies
+					add_resource = {
+						minerals = 200
+						energy = 200
+						food = 200
+						alloys = 100
+						consumer_goods = 100
+						influence = 100
+					}
+				}
+			}
+			create_colony = { owner = last_created_country }
+			generate_start_deposits_and_blockers = yes
+			generate_start_buildings_and_districts = yes
+			generate_start_pops = yes
+			clear_blockers = yes
+		}
+	}
+	
+	planet = {
+		orbit_distance = 20
+		class = pc_barren_cold
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+		size = 15
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+			class = pc_frozen
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+			has_ring = yes
+		}
+	}
+
+	planet = {
+		size = 10
+		orbit_distance = 30
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+	}
+	
+	planet = {
+		size = 7
+		orbit_distance = 30
+		class = pc_frozen
+		orbit_angle = { min = 90 max = 270 }
+		has_ring = no
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = { min = 2 max = 4 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 120 max = 300 }
+	}
+
+	init_effect = {
+		create_starbase = {
+			size = starbase_starport
+			module = shipyard
+			owner = last_created_country
+		}
+		random_system_planet = {
+			limit = { has_planet_flag = new_xarmir }
+			owner = {
+				set_country_flag = xarmiri
+				give_technology = { tech = "tech_sensors_2" message = no }
+				create_fleet = {
+					effect = {
+						set_owner = last_created_country
+						create_ship = {
+							name = random
+							random_existing_design = science
+						}
+						set_fleet_stance = evasive				
+						set_location = last_created_country.capital_star				
+						owner = {
+							create_leader = {
+								type = scientist
+								sub_type = survey
+								name = random
+								species = owner_main_species
+							}
+						}
+						set_leader = last_created_leader
+					}			
+				}			
+				#constructor
+				create_fleet = {
+					effect = {
+						set_owner = last_created_country						
+						create_ship = {
+							name = random
+							random_existing_design = constructor
+						}				
+						set_fleet_stance = evasive
+						set_location = last_created_country.capital_star
+					}
+				}
+				#military
+				create_fleet = {
+					set_take_point = yes
+					effect = {
+						set_owner = last_created_country			
+						while = {
+							count = 3
+							create_ship = {
+								name = random
+								random_existing_design = corvette
+							}
+						}					
+						set_location = last_created_country.capital_star
+					}
+				}
+			}			
+		}
+	}
+}

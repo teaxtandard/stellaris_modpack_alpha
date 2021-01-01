@@ -1,0 +1,473 @@
+﻿l_english:
+
+######################################################################################################################################################################################################################
+# ECONOMIE                                                                                                ECONOMIE                                                                                 ECONOMIE 
+######################################################################################################################################################################################################################
+
+
+
+
+###################
+# Investment Doctrine
+###################
+
+
+ policy_investment_doctrine:0 "Investment Doctrine"
+ policy_investment_doctrine_desc:0 " Investment is the pillar of our economy. Good management of our investments are good management of state assets."
+ planetary_investment:0 "Planetary Investment"
+ planetary_investment_desc:0 "Investing in the development of our planetary infrastructure will ensure we have a strong industrial base."
+ balanced_investment:0 "Balanced Investment"
+ balanced_investment_desc:0 "Neither space nor planetary infrastructure will be given exceptional treatment by our investors."
+ space_investment:0 "Space Investment"
+ space_investment_desc:0 "Investing in our stations and navy will ensure we can maintain and expand our territory."
+ 
+ 
+ 
+ 
+ 
+ 
+########################################################################################################################################################################################################################
+# GOVERNEMENT                                                                 GOVERNEMENT                                                                                                       GOVERNEMENT
+########################################################################################################################################################################################################################
+ 
+###################
+# Police
+###################
+ 
+ policy_police:0 "Police"
+ policy_police_desc:0 "What good are laws, mandates, and edicts without anyone to enforce them? What kind of police force we establish will determine how effective our rule of law is."
+ empire_police:0 "Empire Police"
+ empire_police_desc:0 "A full state-wide police force. It will have its connections everywhere, catching criminals is not a matter of if, it's a matter of when."
+ sector_police:0 "Sector Police"
+ sector_police_desc:0 "Every sector will have its own police. That way we can be sure no administrative area is neglected."
+ planetary_police:0 "Planetary Police"
+ planetary_police_desc:0 "Each planetary colony will be responsible for its own law enforcement, and expected to answer to the State when called upon."
+ local_authorities:0 "Local Police"
+ local_authorities_desc:0 "Each district on our colonies will have their own precinct, and will be responsible for keeping law and order within their own region."
+ no_protection:0 "No Protection"
+ no_protection_desc:0 "It is not the State's place or responsibility to protect and enforce the rule of law. It is every individual citizen's right and duty to defend themselves and upold the law."
+ 
+ 
+###################
+# Healthcare
+###################
+ 
+ policy_healthcare:0 "Healthcare"
+ policy_healthcare_desc:0 "Healthcare is a very important part of our lifes, literally. A key to good development is a long and safe life, but this comes at a great price, maybe even too great."
+ free_public_healthcare:0 "Free Public Healthcare"
+ free_public_healthcare_desc:0 "Free public healthcare is simply the best solution, everyone will be able to get rid of any disease or major health condtion."
+ public_and_private_healthcare:0 "Public and Private Healthcare"
+ public_and_private_healthcare_desc:0 "Public and private healthcare in our country will see to securing our budget. Healthcare is expensive, but with the help of few private companies we might get some levrage on our budget, while still keeping people healthy."
+ private_healthcare:0 "Private Healthcare"
+ private_healthcare_desc:0 "We need to cut on health, people might die, might live shorter and be unhappy about it, but at least we can direct founds to a better place."
+ no_healthcare:0 "No Healthcare"
+ no_healthcare_desc:0 "What even is pain? Our species don't need that, we can take care of ourselves with proper health crystals and homeopathy."
+ 
+###################
+# Prison Management
+###################
+ 
+ policy_prison_management:0 "Prison Management"
+ policy_prison_management_desc:0 "Laws about penitentiary management. This might not be the most important matter right now, but it can't be forgotten."
+ decent_conditions:0 "Decent Conditions"
+ decent_conditions_desc:0 "Prison is meant to be a punishment, but a confiment not dehumanization. Only good conditions will do. "
+ standard_imprisonment:0 "Standard Imprisonment"
+ standard_imprisonment_desc:1 "Old prison system was fine and there's no real need in changing standards."
+ harsh_conditions:0 "Harsh Conditions"
+ harsh_conditions_desc:0 "You failed your state, then state fails you while punishing you, only bad conditions for criminals. "
+ rehabilitation:1 "Rehabilitation"
+ rehabilitation_desc:1 "Rehabilitate prisoners to a life after prison. We need to do this in order to get most of each person we have."
+ forced_labor:0 "Forced Labor"
+ forced_labor_desc:0 "Prisoners are forced to do labors for the state. After all there's no reason to waste resources on prisoners if they can't pay off the stay."
+ death_penalty:1 "Death Penalty"
+ death_penalty_desc:1 "Good idea is to extend death penalty for less severe actions, both proving as a warning to potential criminals and lowering costs of penitentiary system."
+ 
+ 
+########################
+# Lobbyism Legislation #
+########################
+ 
+ policy_lobbyism_legislation:0 "Lobbyism Legislation"
+ policy_lobbyism_legislation_desc:0 "Let's get the best laws for all y'all. Or let us just implement that rich power broker's draft proposal."
+ some_lobbyism:0 "Some Lobbyism"
+ some_lobbyism_desc:0 "Why should we not make good use of our experts only because they happen to work in the business?"
+ high_lobbyism:0 "High Lobbyism"
+ high_lobbyism_desc:0 "Let's get the rubber-stamping done - we eat early."
+ fight_lobbyism:0 "Fight Lobbyism"
+ fight_lobbyism_desc:0 "Try to limit the lobby's influence in order to secure laws that are actually useful."
+ no_lobbyism:0 "No Lobbyism"
+ no_lobbyism_desc:0 "Independent surveys don't come cheap but they won't undermine our power. We stay on our terms."
+ 
+ 
+###################
+# Foreign Affairs
+###################
+
+
+ policy_foreign_affairs:0 "Foreign Affairs"
+ policy_foreign_affairs_desc:0 "Foreign policy, or foreign relations, consists of the self-interest strategies chosen by the state to safeguard its national interests and to achieve goals within its intergalactic relations milieu."
+ controlled:0 "Controlled"
+ controlled_desc:0 "Our empire will control every movement of xeno populations. There is no room for frivolity."
+ isolated:0 "Isolationism"
+ isolated_desc:0 "The nations' interests are best served by keeping the affairs of other countries at a distance. Whether it is to avoid being drawn into dangerous conflicts or simply to ensure the purity of culture, this doctrine seeks to focus all effort on our own advancement."
+ balanced_foreign:0 "Balanced Foreign Policy"
+ balanced_foreign_desc:0 "Only by maintaining a balanced approach to our foreign relations can our nation continue to strive for greatness. We must be open to interact with others in the galaxy while also ensuring our own success is not neglected."
+ globalism:0 "Intergalactic Commerce"
+ globalism_name:0 "Intergalactic Commerce"
+ globalism_desc:0 "As we further explore the stars we must cooperate with the others that populate the endless void of space. Only by integrating the countless intergalactic views, products, ideas, and other aspects of the cultures that surround us can we achieve prosperity."
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#################################################################################################################################################################################################################################################
+# POPULATION                                                                                                      POPULATION                                                                                                  POPULATION
+#################################################################################################################################################################################################################################################
+ 
+ 
+###################
+# Food Quality
+###################
+ 
+ policy_food_quality:0 "Food Quality"
+ policy_food_quality_desc:0 "The quality of food that will be allowed in our state defines what our people consume most of the time. It's a fundamental part of life."
+ high_quality:0 "High Qualtiy"
+ high_quality_desc:0 "Our citizens deserve high quality food that is certfiied. Everything less won't do. We must persue best food, beacuse after all you are what you eat, and we want best of you."
+ decent_quality:0 "Decent Qualtity"
+ decent_quality_desc:0 "Decent quality food will ensure that people stay healthy while not wasting too much founds on too luxurious food."
+ low_quality:0 "Low Qualtiy"
+ low_quality_desc:0 "Fast food style will bring some spare founds to state at the cost of health."
+ 
+ 
+###################
+# Education Type
+###################
+ 
+ policy_education_type:0 "Education Type"
+ policy_education_type_desc:0 "Education is one of cornerstones of every civilazation and one must strive to persue in order to progress. That is when founds exsist."
+ private_school:0 "Private School"
+ private_school_desc:0 "Private Schooling only will ensure best results among our children."
+ advanced_public_school:0 "Advance Public School"
+ advanced_public_school_desc:0 "An improved form of education accesible to everyone. Everyone has right to learn, but not everyone can afford it. This will solve that problem."
+ public_school:0 "Public School"
+ public_school_desc:0 "An education accesible to everyone. It might not be the best one, but should do the trick."
+ non_xeno_education:0 "Xeno Segregated Education"
+ non_xeno_education_desc:0 "An improved form of education only accesible to the primary species. We can't let xenos after all into our schooling, imagine them making progress, this might be a downfall of our values."
+ no_education:0 "No Education"
+ no_education_desc:0 "Educated people are dangerous people. We should discourage that behaviour."
+ 
+ 
+###################
+# Education Quality
+###################
+ 
+ policy_education_quality:0 "Education Quality"
+ policy_education_quality_desc:0 "The education quality that will be the norm in our state can really warry, it's really a matter of quality rather than quantity."
+ heavy_focus:0 "Heavy Focus"
+ heavy_focus_desc:0 "Science and new breakthroughs are our main goal and we won't rest till we achieve even more."
+ research_grants:0 "Research Grants"
+ research_grants_desc:0 "New technologies and curiosities are worth exploring, maybe, just maybe this person will achieve new breakthough in medicine. "
+ mandatory_till_adult:0 "Mandatory Until Adulthood"
+ mandatory_till_adult_desc:0 "Standard learning process is enforced by law and everyone till adulthood must attend. "
+ basic_education:0 "Basic Education"
+ basic_education_desc:0 "Simple elementary education is enough. Learn how to write, count and read and get to work. "
+ 
+###################
+# Migration
+###################
+ 
+ policy_migration:0 "Migration"
+ policy_migration_desc:0 "Migration policy in our state is for sure important. System must be under control otherwise some unexpected things might happen."
+ land_of_oppurtunity:0 "Land of Oppurtunity"
+ land_of_oppurtunity_desc:0 "Encourage people to vists our worlds. We migth be able to have few of them stay .
+ promotion_of_home:0 "Promotion of Home"
+ promotion_of_home_desc:0 "Home sweet home, but our is the sweetest. We must promote our country. "
+ not_controlled:0 "Not Controlled"
+ not_controlled_desc:0 "Migration in our country will not be controlled. Everyone if free to come and leave at any time."
+ not_recommended:0 "Not Recommended"
+ not_recommended_desc:0 "We don't really want visitors here, or worse potentiall residents. Also travel between planets should be discouraged. "
+ 
+###################
+# Population Regulation
+###################
+ 
+ policy_population_regulation:0 "Population Regulation"
+ policy_population_regulation_desc:0 "Policies enacted regarding growth and births. after all children are our future, or are they?"
+ single_child_policy_name:0 "Single Child Policy"
+ single_child_policy:0 "Single Child Policy"
+ single_child_policy_desc:0 "For our own good, it is important that we limit growth as of now, so to preserve ourselves of problems later on. And for this, what better than encouraging households of raising only one progenitor? After all, the last thing we want in the future would be a considerably large wave of homeless people..."
+ freedom_of_birth_name:0 "Freedom of Birth"
+ freedom_of_birth:0 "Freedom of Birth"
+ freedom_of_birth_desc:0 "No one should be told when to give birth, where to give birth, if at all give birth. It is imperative we leave these choices to the families themselves, so to let them raise their progenitors within the best conditions."
+ growth_first_name:0 "Growth First"
+ growth_first:0 "Growth First"
+ growth_first_desc:0 "It is important to know who will inherit of our culture. We simply cannot permit widespread contraception to have a massive impact on the overall growth of our kind."
+ mandatory_growth_name:0 "Mandatory Growth"
+ mandatory_growth:0 "Mandatory Growth"
+ mandatory_growth_desc:0 "The survival and prosperity of a society depends of the development of its population. To ensure a bright future, it will be written within our laws that every capable household ought to procreate, so to ensure a distant future where our kind does not run extinct."
+
+
+###################
+# Working Conditions
+###################
+ 
+ policy_working_conditions:0 "Working Conditions"
+ policy_working_conditions_desc:0 "Working conditions in our steate ensures the safety of our working class and parts of middle one."
+ following_all_rules: "Following all rules"
+ following_all_rules_desc:0 "We can't let happen any harm to our employees, this would be devastating both for families and state. "
+ mostly_following_rules:0 "Mostly following rules"
+ mostly_following_rules_desc:0 "It is important to work in safe environment, but we can't sacrifice our industry for that. "
+ rules_are_meant_to_be_broken:0 "Rules are meant to be broken"
+ rules_are_meant_to_be_broken_desc:0 "Now, now before you say anything about safety remember that we are working for the state and we need to ensure it's success. What's a broken leg compared to galactic empire. So just sign here and here."
+ your_job_our_rules:0 "Your job, our rules"
+ your_job_our_rules_desc:0 "We need output and bigger one will always be better even if that means sacrifice of few workers. "
+ 
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+#########################################################################################################################################################################################################################################################
+#MEDIA                                                                                                       MEDIA                                                                                                                           MEDIA
+#########################################################################################################################################################################################################################################################
+ 
+ 
+###################
+# Propaganda
+###################
+ 
+ 
+ policy_propaganda:0 "Propaganda"
+ policy_propaganda_desc:0 "Should  we use propaganda in our state? Benefits are great but are our citinens still free?"
+ no_interference:0 "No Interference"
+ no_interference_desc:0 "We simply can't change the view of our people that's morally wrong. "
+ small_interference:0 "Small Interference"
+ small_interference_desc:0 "While no one is happy about this some information has to be changed to better suit state needs. "
+ goverment_values:0 "Goverment Values"
+ goverment_values_desc:0 "Promote goverment values in our state. You are important and so is the Fatherland."
+ propaganda:0 "Propaganda"
+ propaganda_desc:0 "Establishes propaganda in all types of media. We need to control what people see, hear and read. We need to ensure safety here and that people remian loyal. It's just a safety measure, our citizens are loyay after all."
+ 
+###################
+# Information State
+###################
+ 
+ 
+ policy_information:0 "Information State"
+ policy_information_desc:0 "State of the freedom of information. News spread fast and we can control if people can acess it."
+ freedom_information:0 "Freedom Of Information"
+ freedom_information_desc:0 "Citizens are free to get informed and spread information about anything."
+ restricted:0 "Restricted"
+ restricted_desc:0 "Access to information is restricted. Not all sources are avaible to the public."
+ censored:0 "Censored"
+ censored_desc:0 "Access to information is heavily censored and exclusive to the elites. People might not like it, but it's for their own good, while elites will benefit from that."
+ 
+#####################
+# Freedom of Press  #
+#####################
+
+
+ policy_freedom_of_press:0 "Freedom of Press"
+ policy_freedom_of_press_desc:0 "Policies enacted to determine overall liberties allowed for press."
+ fundamental_freedom_name:0 "Fundamental Freedom"
+ fundamental_freedom:0 "Fundamental Freedom"
+ fundamental_freedom_desc:0 "For trust to flow between the government and our people, freedom of press and its free speech must be regarded as fundamental rights, engraved in our laws and constitution."
+ executive_freedom_name:0 "Executive Freedom"
+ executive_freedom:0 "Executive Freedom"
+ executive_freedom_desc:0 "Press is a fantastic tool to inform the people of our advancements, but occasionally, mishaps happen, and also outbreaks of unacceptable information. Therefore it is, sometimes, necessary for the government to embargo a few informations..."
+ state_approval_name:0 "State Approval"
+ state_approval:0 "State Approval"
+ state_approval_desc:0 "To better ration and keep control of information sources, it is of necessity for the goverment to become curator of the press, permitting thereby to immediately prevent any information leak, or even drifting to wrong directions..."
+ state_press_name:0 "State Press"
+ state_press:0 "State Press"
+ state_press_desc:0 "With private sources at the head of information distribution, we constantly run the rish of a sudden call to hate, or a leak on certain projects kept "state-secret" by our armed forces. It is therefore necessary to eliminate private sources, and allow the state to be the only source. Now, the population is under our control !"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+####################################################################################################################################################################################################################################################################
+# ARMY & FLEET
+####################################################################################################################################################################################################################################################################
+
+
+
+###################
+# Naval Agenda    #
+###################
+ 
+ policy_naval_agenda:0 "Naval Agenda"
+ policy_naval_agenda_desc:0 "Let us get the biggest and best equipped fleet we can. Or let's just build more Stations and sit on them."
+ big_fleet_focus:0 "Big Fleet Focus"
+ big_fleet_focus_desc:0 "Our fleet is our mobile Border. Where we go there we stay."
+ small_fleet_focus:0 "Small Fleet Focus"
+ small_fleet_focus_desc:0 "Focus on fleet but don't cut defensive properties. We can't really afford giant fleets, but small ones can still be useful."
+ small_station_focus:0 "Small Station Focus"
+ small_station_focus_desc:0 "Focus on stations but not at the largest scale."
+ big_station_focus:0 "Big Station Focus"
+ big_station_focus_desc:0 "We will build a great wall in the space and no one builds walls better than us."
+ 
+###################
+# Troop Doctrine  #
+###################
+
+ policy_troop_doctrine:0 "Troop Doctrine"
+ policy_troop_doctrine_desc:0 "Glory to our ground forces. May they be remembered along with their heroic acts."
+ offensive:0 "Offensive"
+ offensive_desc:0 "Train our troops to be aggressive. After all the best defence is a strong attacks."
+ light_offensive:0 "Light Offensive"
+ light_offensive_desc:0 "Keep an eye on everything but push training for aggression. We need our troops to be felxible, while remaining an offensive focus,"
+ light_defensive:0 "Light Defensive"
+ light_defensive_desc:0 "Keep an eye on everything but focus on cautious positioning. While typical full blown assault is the main part of any offensive, the exhaustion of enemies might impact battle even more."
+ defensive:0 "Defensive"
+ defensive_desc:0 "Train our troops to make sure they can fight again. They live another day, we live another day, everyone lives another day."
+ 
+###################
+# Fleet Quality
+###################
+ 
+ policy_fleet_quality:0 "Fleet Quality"
+ policy_fleet_quality_desc:0 "This policy allows what quality should be the norm for our fleet. That defines our foucs on military and importance of potentiall conflicts."
+ highest_quality:0 "Highest Quality"
+ highest_quality_desc:0 "Only the best ships will do. We can't allow any exhausted ports anywhere, no weak points. Only pure strenght will ensure victory and saftey. "
+ good_quality:0 "Good Quality"
+ good_quality_desc:0 "Our navy needs an imporovment from it's basic shape. You never know when you will need your fleet. "
+ standard_quality:0 "Standard Quality"
+ standard_quality_desc:0 "While navy is important some might agree that it doesn't impact majority of population and founds should be spent on public matters. "
+ cheap_models:0 "Cheap Models"
+ cheap_models_desc:0 "We can always construct ships at the very rapid rate. Cheap ships might get destroyed fast and people might die, but quantity will guide us to victory."
+ 
+ 
+ 
+ 
+ 
+ 
+ #######################################################################################################################################################################################################################################################
+ #ENVIRONMENT                                                                                                    ENVIRONMENT                                                                                                          ENVIRONMENT 
+ #######################################################################################################################################################################################################################################################
+ 
+ 
+###################
+# Environment
+###################
+ 
+ policy_environment:0 "Environment"
+ policy_environment_desc:0 "Environmental condtions in our state. Some consider this important, some don't, overally it's up to the leadership."
+ safeguarding_environment:0 "Safeguarding Environment"
+ safeguarding_environment_desc:0 "All plants are worth saving and being protected. It would be a waste to lose even one species."
+ not_a_priority:0 "Not a Priority"
+ not_a_priority_desc:0 "Only endangered plants are protected, but the safety of all is not a priority, we might get some use of land or resource underground, overally state is priority. "
+ unprotected:0 "Unprotected"
+ unprotected_desc:0 "No one cares about plants. As long as oxygen is a thing it's good enough."
+ 
+ 
+###################
+# Animal Protection
+###################
+ 
+ 
+ policy_animal_protection:0 "Animal Protection"
+ policy_animal_protection_desc:0 "Animal Protection system in your state. Plants procude oxygen and then animals feed on plants, some might be useful, some are not, but can we really decide which ones? "
+ protected:0 "Protected"
+ protected_desc:0 "Animals should be protected, killing them should be just a neccesity and in most case should be completely forbidden. "
+ partially_protected:0 "Partially protected"
+ partially_protected_desc:0 "It's obvious that some aniamls are useful for us, for food, transportation, recon or police matters, those should be treated well. "
+ no_animal_laws:0 "No Animal Laws"
+ no_animal_laws_desc:0 "While no one says that some animals aren't important those don't need any laws, only we are citizens and any laws is forced only on us. "
+ 
+ 
+###################
+# Energy and Water usage
+###################
+ 
+ 
+ policy_energy_and_water_usage:0 "Energy and Water usage"
+ policy_energy_and_water_usage_desc:0 "Energy and water usage policies in our state. Some might say that we can always reclaim those and that's partially true, but only partially."
+ restricted:0 "Restricted"
+ restricted_desc:0 "We can't use water or electricity endlessly, we shouldn't use what we don't need. "
+ there_are_execptions:0 "There are execptions"
+ there_are_execptions_desc:0 "It is known that we shouldn't just let tap wasting droplets of water, but in the end who will notice. "
+ overconsumption:0 "Overconsumption"
+ overconsumption_desc:0 "Bigger, better, brighter. Only with more lights and better water hydraulics can we be satisfied."
+
+
+ 
+##################################################################################################################################################################################################################################################
+# OTHERS                                                                                                    OTHERS                                                                                                                        OTHERS 
+##################################################################################################################################################################################################################################################
+ 
+###################
+# Weapon Legislation
+###################
+ 
+ policy_gun_legislation:0 "Weapon Legislation"
+ policy_gun_legislation_desc:0 "Weapon policy in our state is an important matter and we should know our status towards it."
+ gun_allowed:0 "Allowed"
+ gun_allowed_desc:0 "Civilians in our empire are armed for their own safety. Criminals will always be able to buy a weapon and regular John Smith won't. Only that way can we protect ourselves."
+ application_process:0 "Application Process"
+ application_process_desc:0 "It is not forbidden to have a firearm, but everyone needs to pass some basic tests to get a permission. "
+ gun_proibited:0 "Prohibited"
+ gun_proibited_desc:0 "Civilians in our state are unarmed for their own safety. Imagine people wanting to kill while being able to do some from long distance."
+ 
+
+ 
+###################
+# Art
+###################
+ 
+ policy_art:0 "Art"
+ policy_art_desc:0 "Art policy in our state. Art was always part of our culture, sometimes more important sometimes less."
+ art_is_the_soul_of_our_nation:0 "Art is the soul of our nation"
+ art_is_the_soul_of_our_nation_desc:0 "Through art we represent ourselves and that means that people see us the way we created our painting and scultuptures and other forms of art. "
+ art_is_money:0 "Art is Money"
+ art_is_money_desc:0 "Art is expensive and so it's not that hard to earn founds while selling some random modern painting to excentric millionaire."
+ bauhaus:0 "Bauhaus"
+ bauhaus_desc:0 "We need to cut on art. Only usefulness is important both in the life and in the architecture. "
+ 
+ ###################
+# Drug Legislation
+###################
+ 
+ policy_drug_legalization:0 "Drug Legislation"
+ policy_drug_legalization_desc:0 "The legal state of drugs in our state. This defines our view on those substances, they may prove both benefictial and catastrophic."
+ illegal:0 "Illegal"
+ illegal_desc:0 " Drugs are illegal. We ackonwledge that some might have a positive inpact is small doses, but leaving this to people is irresponsible at best."
+ partially_legal:0 "Partially Legal"
+ partially_legal_desc:0 "Allow the use of drugs for medical purpose in our state will allows a weider range of treatments, effectively allowing some to get heathy faster. Risk still exsists so generall public can't obtain them."
+ legal:0 "Legal"
+ legal_desc:0 "Allow the use and sell drugs for personal and medical use. That way we can collect founds on concesions and as researches show less people will die due to overtaking, overall health status might become worse though."
+ 
+ 
+###################
+# Religion
+###################
+ 
+ 
+ policy_religion:0 "Religion"
+ policy_religion_desc:0 ""Religious policy determines your national stance on religion. This represents our government attitude towards religion. "
+ all_religions_allowed:0 "Freedom Of Belief"
+ all_religions_allowed_desc:0 "Each citizen of your state can have their own beliefs."
+ secularism:0 "Securalism"
+ secularism_desc:0 "Beliefs are protected but not enforced."
+ personality_cult:0 "Personality Cult"
+ personality_cult_desc:0 "The leader of the empire is worshipped almost like a god or a diety."
+ only_main_and_similiar:0 "Only main and similiar"
+ only_main_and_similiar_desc:0 "Only our main religion and similar forms are allowed in our country. There is only our God and so everyone should follow his guidance."
+ only_main:0 "Main religion"
+ only_main_desc:0 "Only our main religion is allowed. While there are some different forms, some deviations from main path we need to eradicate those. There's only proper way and it needs to be recongnized by everyone."
+ prohibited:0 "Prohibited"
+ prohibited_desc:0 "Practice any religion is forbidden in our state. Religion is a tool for masses to be blinded by. We need clearheaded people to work for us."
+
+ 

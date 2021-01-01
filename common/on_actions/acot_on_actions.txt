@@ -1,0 +1,313 @@
+on_planet_zero_pops = {
+	events = {
+		acot_exterminatus_event.1
+		#acot_exterminatus_event.4
+	}
+}
+
+# Planet has taken damage from orbital bombardment - Damage is applied daily
+# This = Planet
+# From = Bombarder
+on_planet_bombarded = {
+	events = {
+		acot_exterminatus_event.4
+		acot_exterminatus_event.7
+		acot_exterminatus_event.100
+		acot_exterminatus_event.200
+	}
+}
+
+on_game_start = {
+	events = {
+		acot_precursor_databank.0
+		acot_startup.1
+	}
+}
+
+on_game_start_country = {
+	events = {
+		acot_startup.3
+		acot_startup.4
+		acot_startup.5
+		acot_startup.6
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		acot_diplo.1
+	}
+}
+
+on_monthly_pulse = {
+	events = {
+	}
+}
+
+
+# Executed as a leader has died
+# This = Country
+# From = Leader
+on_leader_death = {
+	events = {
+		acot_mod_options.5
+	}
+}
+
+
+# This = owner of fleet 1 (winner)
+# From = owner of fleet 2 (loser)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_space_battle_won = {
+	events = {
+		#acot_diplo.7
+	}
+}
+
+#From = Planet scope
+#This = Fleet scope
+on_fleet_enter_orbit = {
+	events = {
+		acot_diplo.6
+	}
+}
+
+# A country has increased the level of a tech, use last_increased_tech trigger to check tech and level.
+# This = Country
+on_tech_increased = {
+	events = {
+		stellarite_events.5
+		acot_tech.0
+		acot_alpha_matter_events.2
+		acot_alpha_matter_events.3
+		acot_alpha_matter_events.5
+		acot_precursor_databank.905
+		acot_pmc.10000
+	}
+}
+
+# A ship has been built
+# Root = Ship
+# From = Planet
+on_ship_built = {
+	events = {
+		acot_ships.0
+	}
+}
+
+# A ship has been upgraded
+#  Root = Ship
+on_ship_upgraded = {
+	events = {
+		acot_ships.700
+	}
+}
+
+# This = Ship
+# From = Disabler Ship
+on_ship_disabled = {
+	events = {
+		acot_ships.1
+		acot_ships.3
+		acot_pmc.9900
+	}
+}
+
+#An army construction has been completed.
+# This = Planet
+# From = Army
+on_army_recruited = {
+	events = {
+		acot_tech.101
+	}
+}
+
+
+on_leader_spawned = {
+	events = {
+		acot_mod_options.6
+	}
+}
+
+
+# A Megastructure has been built
+# Root = Country
+# From = Megastructure
+# FromFrom = System
+# FromFromFrom = Fleet
+on_megastructure_built = {
+	events = {
+		acot_mega.0
+		acot_mega.2
+		acot_mega.200
+		acot_mega.4
+		acot_mega.5
+	}
+}
+
+# A Megastructure has been upgraded
+# Root = Country
+# From = Megastructure
+# FromFrom = System
+on_megastructure_upgraded = {
+	events = {
+		acot_mega.1
+		acot_mega.3
+		acot_mega.300
+		acot_mega.11
+	}
+}
+
+# Triggers when trying to open the diplomacy view for countries with custom diplomacy.
+# Country scope
+# This = target country (player)
+# From = source country
+on_custom_diplomacy = {
+	events = {
+		acot_precursor_databank.1
+		acot_precursor_databank.2
+		acot_pmc.2
+	}
+}
+
+# Triggers country_event for the attacker upon victory
+# (Before controller is switched)
+# This = country, leader attacker
+# From = country, planet owner
+# FromFrom = planet
+# IDENTITIES: attacker is the side that "IsHostile" to
+# the planet controller; e.g. spawned monster armies
+# are attackers, but if they win and the player attempts
+# to retake the planet, the player is the attacker
+on_planet_attackers_win = {
+	events = {
+		acot_ships.11
+	}
+}
+
+# Triggers country_event for the defender upon victory
+# Root = country, planet owner
+# From = country, attack leader
+# FromFrom = planet
+on_planet_defenders_win = {
+	events = {
+		acot_ships.12
+	}
+}
+
+#This = destroyed country
+#From = optional, destroyer (country)
+on_country_destroyed = {
+	events = {
+		acot_war_in_hell.16 
+		acot_war_in_hell.17 
+	}
+}
+
+# A fleet has entered a system
+# Scope = Fleet
+# From = System
+on_entering_system_fleet = {
+	events = {
+		acot_pmc.0
+		acot_ships.6
+		acot_startup.604
+		acot_startup.605
+		acot_startup.606
+		acot_startup.607
+	}
+}
+
+# A fleet executes a move order to exit borders
+# Scope = Fleet
+# From = Origin System
+# FromFrom = Destination System
+on_crossing_border = {
+	events = {
+	}
+}
+
+
+# Executed right after country has established communications with another country
+# This = Country which established the communications
+# From = Country which communications were established with
+on_post_communications_established = {
+	events = {
+		acot_pmc.1
+	}
+}
+
+# This = owner of fleet 1
+# From = owner of fleet 2
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_entering_battle = {
+	events = {
+		acot_pmc.10
+	}
+}
+
+# Triggers country_event for the defender upon victory
+# Root = country, planet owner
+# From = country, attack leader
+# FromFrom = planet
+on_planet_defenders_win = {
+	events = {
+		acot_planets.1
+		acot_planets.6
+	}
+}
+
+# Triggers country_event for the defender upon defeat
+# This = country, planet owner
+# From = country, attack leader
+# FromFrom = planet
+on_planet_defenders_lose = {
+	events = {
+		acot_planets.2
+		acot_planets.7
+	}
+}
+
+# This = owner of ship 1 (combatant)
+# From = owner of ship 2 (destroyed)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_perp = {
+	events = {
+		leviathans.1016
+		leviathans.2099
+		crisis.1283
+		crisis.218
+		crisis.2071
+		story.222
+		achievement.2
+		distar.137
+		distar.212
+		distar.243
+		distar.13020
+		galactic_features.380 #  Tiyanki Counter
+	}
+	random_events = {
+	}
+}
+
+# This = owner of ship 1 (destroyed)
+# From = owner of ship 2 (combatant)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_victim = {
+	events = {
+		acot_tech.2500
+	}
+}
+
+# A war has ended
+# Root = Loser
+# From = Main Winner
+on_war_ended = {
+	events = {
+		acot_tech.2501
+	}
+}

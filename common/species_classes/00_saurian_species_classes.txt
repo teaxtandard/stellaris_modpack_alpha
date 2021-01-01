@@ -1,0 +1,80 @@
+# Number of entries controlls amount to choose from in designer  I.E.   "mol1" "mol2" "mol3" "mol4"
+# graphical_culture is connected to the looks used for ships and cities, see "common/graphical_culture/"
+# Portraits here are one you can choose from in the character creater. For prescripted races they are grabbed straight from the .gfx file. 
+# playable=(yes/no)/trigger, default is yes, if this species class can is playable
+# randomized=(yes/no)/trigger, default is yes, if this species class is randomized
+# custom_portraits
+#	randomized = trigger, default is no, to specify if portraits are randomized
+#	playable = trigger, default is yes, to specify if portraits are playable
+#	portraits, list portrait keys
+ 
+Saurian = {
+	archetype = BIOLOGICAL
+	portrait_modding = yes
+	
+	portraits = {
+	"saurischian"
+	"troodon"
+	"raptor_01_clothed"
+	"raptor_02_clothed"
+	"kig"
+	"spinosaurus_01_clothed"
+	"spinosaurus_05_clothed"
+	}
+	
+	non_randomized_portraits = {	
+	"saurischian"
+	"troodon"
+	"raptor_01_clothed"
+	"raptor_02_clothed"
+	"kig"
+	"spinosaurus_01_clothed"
+	"spinosaurus_05_clothed"
+	}
+	
+	graphical_culture = fe_01
+	move_pop_sound_effect = "reptilian_pops_move"
+}
+
+PRE_DROM = {
+	archetype = PRESAPIENT
+
+	playable = { always = no }
+	randomized = no
+
+	portraits = {
+	"raptor_01"
+	"raptor_02"
+	}
+
+	graphical_culture = fe_01
+	move_pop_sound_effect = "reptilian_pops_move"
+	uplifted_into = "Saurian"
+	uplifted_portraits = 
+	{
+	"troodon"
+	"raptor_01_clothed"
+	"raptor_02_clothed"	
+	}
+}
+
+PRE_SPINO = {
+	archetype = PRESAPIENT
+
+	playable = { always = no }
+	randomized = no
+
+	portraits = {
+	"spinosaurus_01"
+	"spinosaurus_05"
+	}
+
+	graphical_culture = fe_01
+	move_pop_sound_effect = "reptilian_pops_move"
+	uplifted_into = "Saurian"
+	uplifted_portraits = 
+	{	
+	"spinosaurus_01_clothed"
+	"spinosaurus_05_clothed"
+	}
+}

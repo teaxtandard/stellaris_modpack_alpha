@@ -1,0 +1,76 @@
+on_game_start = {
+	events = {
+		mzilli_distant_origin_start.1
+		mzilli_distant_origin_unification.1
+	}
+}
+
+# No scope, like on_game_start
+on_monthly_pulse = {
+	events = {
+		mzilli_distant_origin.8
+		mzilli_distant_origin_unification.21
+		#mzilli_distant_origin.17
+	}
+}
+
+# A ship has surveyed a planet.
+# Scope = Ship
+# From = Planet
+on_survey = {
+	events = {
+		mzilli_distant_origin.1
+	}
+}
+
+# A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet.
+# Root = Planet
+# From = Country
+# FromFrom = Fleet of the science ship that surveyed it, if any
+on_planet_surveyed = {
+	events = {
+		mzilli_distant_origin_unification.12
+	}
+}
+
+# Executed right after country has established communications with another country
+# This = Country which established the communications
+# From = Country which communications were established with
+on_post_communications_established = {
+	events = {
+
+	}
+}
+
+# A planet has begun the colonization process.
+# Scope = Planet
+on_colonization_started = {
+	events = {
+		mzilli_distant_origin.12
+	}
+}
+
+#Fired whenever a new owner is set for a planet,
+#be it after a war or through a trade
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_transfer = {
+	events = {
+		mzilli_distant_origin.13
+	}
+}
+
+# Scope:
+# this/root = planet that have been fired upon
+# from = fleet that fired
+on_destroy_planet_with_PLANET_KILLER_CRACKER = {
+	events = {
+		mzilli_distant_origin.15
+	}
+}
+
+on_destroy_planet_with_PLANET_KILLER_SHIELDER = {
+	events = {
+		mzilli_distant_origin.15
+	}
+}
