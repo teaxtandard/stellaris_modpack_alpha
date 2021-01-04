@@ -21,7 +21,7 @@ BOO_origin_antediluvian_knowledge = {
 
 BOO_origin_silk_road = {
 	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_default.dds"
+	icon = "gfx/interface/icons/origins/origin_silk_road.dds"
 	picture = GFX_evt_hidden_door
 
 	potential = {
@@ -63,7 +63,7 @@ BOO_origin_slow_evolution = {
 
 BOO_origin_great_khanate = {
 	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_default.dds"
+	icon = "gfx/interface/icons/origins/origin_great_khanate.dds"
 	picture = GFX_evt_victorious_army
 
 	potential = {
@@ -185,7 +185,7 @@ BOO_origin_subterranean_societies = {
 
 BOO_origin_clean_energy = {
 	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_default.dds"
+	icon = "gfx/interface/icons/origins/origin_clean_energy.dds"
 	picture = GFX_evt_generator_powerup
 
 	potential = {

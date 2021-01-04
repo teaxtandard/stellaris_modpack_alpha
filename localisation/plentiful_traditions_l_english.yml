@@ -1056,17 +1056,17 @@ tr_plentiful_endure_2:0 "Blood, Sweat & Tears"
 tr_plentiful_endure_2_desc:0 "Our §Y$MOD_COUNTRY_WAR_EXHAUSTION_MULT$§! is decreased by §G-25%§!"
 tr_plentiful_endure_2_delayed:0 "I have nothing to offer but blood, toil, tears and sweat. - Sir Winston Churchill"
 
-tr_plentiful_endure_3:0 "The glace into the abyss"
-tr_plentiful_endure_3_desc:0 "We have access to the technology §G$DARK_MATTER_REACTOR$§!.\n\n§HUnlocks Spaceport Module:§! $sm_orbital_fertilizer_array$, a spaceport module that adds to the planets and gathers £food §Yfood§! production."
-tr_plentiful_endure_3_delayed:0 "The §G$DARK_MATTER_REACTOR$§! offers us a large amount of energy."
+tr_plentiful_endure_3:0 "Homefront"
+tr_plentiful_endure_3_desc:0 "Our §Y$mod_planet_jobs_slave_produces_mult$§! increases by §G+20%§!"
+tr_plentiful_endure_3_delayed:0 "The slave fights day after day in the fields and mines for the good of our empire, like a quiet field horse."
 
-tr_plentiful_endure_4:0 "Homefront"
-tr_plentiful_endure_4_desc:0 "Our §Y$mod_planet_jobs_slave_produces_mult$§! increases by §G+20%§!"
-tr_plentiful_endure_4_delayed:0 "The slave fights day after day in the fields and mines for the good of our empire, like a quiet field horse."
+tr_plentiful_endure_4:0 "Ultra Mega"
+tr_plentiful_endure_4_desc:1 "Our §Y$MOD_MEGASTRUCTURE_BUILD_SPEED_MULT$§! is increased by §G25%§!\nIn addition, we are able to build one more megastructure simultaneously."
+tr_plentiful_endure_4_delayed:0 "We can finally be successful through our megastructures."
 
-tr_plentiful_endure_5:0 "Ultra Mega"
-tr_plentiful_endure_5_desc:1 "Our §Y$MOD_MEGASTRUCTURE_BUILD_SPEED_MULT$§! is increased by §G25%§!\nIn addition, we are able to build one more megastructure simultaneously."
-tr_plentiful_endure_5_delayed:0 "We can finally be successful through our megastructures."
+tr_plentiful_endure_5:0 "The glance into the abyss"
+tr_plentiful_endure_5_desc:0 "We have access to the technology §G$tech_mine_dark_matter$§!.\n\n§HUnlocks Spaceport Module:§! $sm_orbital_fertilizer_array$, a spaceport module that adds to the planets and gathers £food §Yfood§! production."
+tr_plentiful_endure_5_delayed:0 "§G$tech_mine_dark_matter$§! offers us a path to dark and powerful technologies."
 
 sm_orbital_fertilizer_array:0 "Fertilizer Array"
 

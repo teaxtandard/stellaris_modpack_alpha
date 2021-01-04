@@ -2,7 +2,7 @@ origin_homeworld_occupiers = {
 	description = "origin_tooltip_homeworld_occupiers_effects"
 	picture = GFX_origin_occupiers
 	is_origin = yes
-	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_expansionist.dds"
+	icon = "gfx/interface/icons/origins/origin_usurpers.dds"
 	modifier = {
 		army_morale = 0.2
 		army_damage_mult = 0.2
@@ -13,7 +13,7 @@ origin_mzilli_exiles = {
 	description = "origin_tooltip_mzilli_exiles_effects"
 	picture = GFX_origin_exiles
 	is_origin = yes
-	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_world_shaper.dds"
+	icon = "gfx/interface/icons/origins/origin_exiles.dds"
 	modifier = {
 		pop_environment_tolerance = 0.10
 	}

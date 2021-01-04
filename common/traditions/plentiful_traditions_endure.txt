@@ -70,25 +70,6 @@ tr_plentiful_endure_3 = {
 	possible = {
 		has_tradition = tr_plentiful_endure_2
 	}
-	on_enabled = {
-		add_research_option = tech_dark_matter_power_core
-		give_technology = { message = no tech = tech_plentiful_traditions_orbital_fertilizer_array }
-	}
-	
-	modifier = {
-		#fallen-empire-tech
-	}
-	
-	ai_weight = {
-		factor = 1000
-	}
-}
-
-tr_plentiful_endure_4 = {
-#	cost = { unity = @cost }
-	possible = {
-		has_tradition = tr_plentiful_endure_3
-	}
 	modifier = {
 		planet_jobs_slave_produces_mult = 0.2
 	}
@@ -98,11 +79,30 @@ tr_plentiful_endure_4 = {
 	}
 }
 
-tr_plentiful_endure_5 = {
+tr_plentiful_endure_4 = {
 #	cost = { unity = @cost }
+possible = {
+		has_tradition = tr_plentiful_endure_3
+	}
 	modifier = {
 		megastructure_build_speed_mult = 0.25
 		country_megastructure_build_cap_add = 1
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+tr_plentiful_endure_5 = {
+#	cost = { unity = @cost }
+	on_enabled = {
+		give_technology = { message = yes tech = tech_mine_dark_matter }
+		give_technology = { message = no tech = tech_plentiful_traditions_orbital_fertilizer_array }
+	}
+	
+	modifier = {
+		#fallen-empire-tech
 	}
 	
 	ai_weight = {
